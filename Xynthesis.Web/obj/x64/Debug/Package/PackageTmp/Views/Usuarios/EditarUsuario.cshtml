@@ -1,0 +1,185 @@
+﻿@model Xynthesis.Modelo.xy_subscriber
+@using Xynthesis.Utilidades.Mensajes;
+@{
+    ViewBag.Title = "Editar Usuario";
+    ViewBag.Pass = @Model.Str_Password;
+}
+<script src="~/Scripts/NotacionDecimal.js"></script>
+<script src="~/Scripts/ValidacionGeneral.js"></script>
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+<div class="container">
+    <br />
+    <div class="text-left">
+        <h2><strong>Editar usuario</strong></h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <br /><br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Ide_Subscriber)
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Nombres  (*)</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.Nom_Subscriber, new { htmlAttributes = new { @class = "form-control", @tabindex = "1", @id = "txtNombre", @maxlength = "80", onkeypress = "return validar(event)" } })
+                        @Html.ValidationMessageFor(model => model.Nom_Subscriber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="lblAlerta" style="display:none">
+                    <label class="control-label col-xs-4 col-md-2"></label>
+                    <div class=" col-xs-8 col-md-10">
+                        <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Usuario de Red</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.Nom_DomainUser, new { htmlAttributes = new { @class = "form-control", @tabindex = "2", @maxlength = "20", onkeypress = "return validar(event)"  } })
+                        @Html.ValidationMessageFor(model => model.Nom_DomainUser, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Sucursal</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.DropDownListFor(model => model.IdSucursal, ViewBag.Sucursal as IEnumerable<SelectListItem>, new { @class = "form-control", @tabindex = "3" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.IdSucursal)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Área</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.DropDownListFor(model => model.Ide_CostCenter, ViewBag.Area as IEnumerable<SelectListItem>, new { @class = "form-control", @tabindex = "4" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Ide_CostCenter)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Rol</label>
+                    <div class="col-xs-8 col-md-10">
+                        @Html.DropDownListFor(model => model.Id_Rol, ViewBag.Rol as IEnumerable<SelectListItem>, new { @class = "form-control", @tabindex = "5" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Id_Rol)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Correo (*)</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @tabindex = "6", @type = "Email", @title = "CORREO ELECTRONICO", @id = "txtCorreo", @maxlength = "100" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="form-group" id="lblAlerta7" style="display:none">
+                    <label class="control-label col-xs-4 col-md-2"></label>
+                    <div class="col-xs-8 col-md-10">
+                        <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Clave</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        <input id="Str_Password" name="Str_Password" type="password" class="form-control" value="@ViewBag.Pass" disabled="disabled" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Tipo</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.DropDownListFor(m => m.Tip_Subscriber, new List<SelectListItem>
+                            { new SelectListItem{Text="EMPLEADO", Value="E", Selected=true},
+                              new SelectListItem{Text="CLIENTE", Value="C"}}, new { @class = "form-control", @tabindex = "7" })
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label  col-xs-4 col-md-2"></label>
+                    <a role="button" tabindex = "8" class="btn btn-success col-xs-2 col-md-1" onclick="location.href='@Url.Action("Index", "Usuarios")'">Regresar</a>
+                    <label class="control-label col-md-1"></label>
+                    <input type="submit" value="Guardar" id="btnEnviar" class="btn btn-success col-xs-2 col-md-1 " tabindex = "7"/>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script type="text/javascript">
+    document.getElementById('txtNombre').focus();
+    function verificaPass()
+    {
+        if ($('#Str_Password_').val() != ""  &&  $('#Str_Password').val()!="")
+        {
+            if ($('#Str_Password_').val() != $('#Str_Password').val()) {
+                $('#Str_Password_').text("");
+                $('#Str_Password').text("");
+                document.getElementById("Nocoinden").style.display = "block";
+            }
+
+        }
+    }
+    document.getElementById("btnEnviar").onclick = function()
+    {
+        var nom = document.getElementById("txtNombre").value;
+        var correo = document.getElementById("txtCorreo").value;
+        if(nom=="")
+        {
+            document.getElementById("lblAlerta").style.display = "block"
+            return false;
+        }
+        if (correo == "") {
+            document.getElementById("lblAlerta7").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("lblAlerta7").style.display = "none"
+        }
+    }
+
+</script>
+
+

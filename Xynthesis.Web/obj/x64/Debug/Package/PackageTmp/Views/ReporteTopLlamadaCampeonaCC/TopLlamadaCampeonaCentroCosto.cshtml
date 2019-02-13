@@ -1,0 +1,137 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_SelDetailChampCallCost_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+<script type="text/javascript" src="~/fonts/select/js/bootstrap-select.js"></script>
+<link rel="stylesheet" href="~/fonts/select/css/bootstrap-select.min.css">
+<script src="~/fonts/select/js/bootstrap-select.min.js"></script>
+<script src="~/fonts/select/js/i18n/defaults-*.min.js"></script>
+<link rel="stylesheet" href="~/Content/selectorfiltro.css">
+
+@{
+    ViewBag.Title = "Top de Llamada Campeona x Área";
+    var mod = (List<Xynthesis.Modelo.xy_costcenters>)ViewData["area"];
+    var mod1 = (List<Xynthesis.Modelo.xyp_DestinoLlamadaCampeonaArea_Result>)ViewData["llamadaentrante"];
+    var mod2 = (List<Xynthesis.Modelo.xyp_GrupNumSuscriber_Result>)ViewData["origen"];
+}
+
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2><strong>Llamada campeona por área </strong></h2>
+    </div>
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-10">
+            @using (Html.BeginForm("TopLlamadaCampeonaCentroCosto_", "ReporteTopLlamadaCampeonaCC", FormMethod.Get))
+            {
+                <div class="form-group form-inline">
+                    @Html.TextBox("FechaInicial", null, new { @class = "form-control", @placeholder = "Fecha inicial", style = "width:120px" })
+                    @Html.TextBox("FechaFinal", null, new { @class = "form-control", @placeholder = "Fecha final", style = "width:120px" })
+                    <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ÁREA" title="ÁREA" id="NomUsuario" name="areaId" data-size="10">
+                        @foreach (var usuar in mod)
+                        {
+                            <option id="@usuar.Nom_CostCenter" value="@usuar.Ide_CostCenter">@usuar.Nom_CostCenter</option>
+                        }
+                    </select>
+                    <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="DESTINO" title="DESTINO" id="NumEntranteId" name="numentrante" data-size="10" style="width:125px">
+                        @foreach (var usuar in mod1)
+                        {
+                            <option id="@usuar.target" value="@usuar.target">@usuar.target</option>
+                        }
+                    </select>
+                    <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ORIGEN" title="ORIGEN" id="NomOrigen" name="origenId" data-size="10" style="width:125px">
+                        @foreach (var ori in mod2)
+                        {
+                            <option id="@ori.Ide_Number" value="@ori.Ide_Number">@ori.Ide_Number</option>
+                        }
+                    </select>
+                    @*<input type="submit" name="btnEnviar" id="enviar" class="btn btn-success" value="GENERAR" />*@
+                    <button type="submit" name="btnEnviar" id="enviar" class="btn btn-success" title="GENERAR"><i class="fas fa-file-export"></i></button>
+                    <div class="form-group mx-5 text-center pull-right" id="fec">
+                        <label id="lblFechas" class="control-label">@ViewBag.fechaini @ViewBag.fechafin</label>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-2 text-right">
+            @using (Html.BeginForm("Reportes", "ReporteTopLlamadaCampeonaCC"))
+            {
+                <div class="form-group form-inline ">
+                    <select name="opcion" class="form-control">
+                        <option value="pdf">PDF</option>
+                        <option value="excel">EXCEL</option>
+                        <option value="word">WORD</option>
+                    </select>
+
+                    @*<input type="submit" name="btnGenerarReporte" id="GenerarReporte" value="EXPORTAR" class="btn btn-success" />*@
+                    <button type="submit" name="btnGenerarReporte" id="GenerarReporte" class="btn btn-success" title="EXPORTAR"><i class="fas fa-print"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <table class="table table-condensed table-responsive table-hover table-striped">
+        <tr tr style="background-color:#E1E1E1;">
+            <th>
+                <strong>ORIGEN</strong>
+            </th>
+            <th>
+                <strong>ÁREA</strong>
+            </th>
+            <th>
+                <strong>DESTINO</strong>
+            </th>
+            <th>
+                <strong>COSTO</strong>
+            </th>
+            <th>
+                <strong>COBERTURA</strong>
+            </th>
+            <th>
+                <strong>MINUTOS</strong>
+            </th>
+            <th class="text-center">
+                <strong>FECHA</strong>
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.centerc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.target)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.costo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.coverage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalMinutos)
+                </td>
+
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("TopLlamadaCampeonaCentroCosto", new { page, opcion = ViewBag.paraPaginacion, paraPaginacion = ViewBag.paraPaginacion }))
+</div>
+
+<script src="~/Scripts/NotacionDecimal.js"></script>

@@ -1,0 +1,154 @@
+﻿@using PagedList.Mvc;
+@model    PagedList.IPagedList<Xynthesis.Modelo.xyp_SelOperTarifInterna_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+<script src="~/Scripts/NotacionDecimal.js"></script>
+@{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+ <div class="container">
+        <div class="text-left">
+            <h2><strong>Tarificación internacionales</strong></h2>
+        </div>
+        <br />
+        @using (Html.BeginForm("OrdenFiltro", "OperadorTarifaInter", FormMethod.Get))
+        {
+            <div class="row form-inline">
+                <div class="col-lg-9">
+                    <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("NuevoOperInter", "OperadorTarifaInter")'">Nueva Tarifa</a>
+                </div>
+                <div class="col-lg-3 form-group">
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, null, new { @class = "form-control", @placeholder = "BUSCAR", @maxlength = "50", onkeypress = "return limipiarEspeciales(event)", onpaste = "return false" })&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-success "><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+            </div>
+            <br />
+        }
+        <table class="table table-responsive table-hover table-striped table-condensed">
+            <tr style="background-color:#E1E1E1;">
+                <th>
+                    @Html.ActionLink("OPERADOR", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                    @if (ViewBag.NameSortParm == "name_desc")
+                    {
+                        <span class="glyphicon glyphicon-circle-arrow-down"></span>
+                    }
+                    else
+                    {
+                        <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("PAIS", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                </th>
+                <th>
+                    @Html.ActionLink("VALOR MIN. SIN IVA", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                </th>
+                <th>
+                    @Html.ActionLink("VALOR MIN. CON IVA", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                </th>
+                <th>
+                    @Html.ActionLink("MOVIL", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                </th>
+                <th>
+                    @Html.ActionLink("FIJO", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+        {
+        <tr>
+            @Html.HiddenFor(modelItem => item.idtarifaInter)
+            @Html.HiddenFor(modelItem => item.IdOperador)
+            @Html.HiddenFor(modelItem => item.IdPais)
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_Operator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombrePais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VlrInternaMinsinIva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VlrInternaMinconIva)
+            </td>
+            <td>
+                @if (item.Movil == "1")
+                {
+                    <input type="checkbox" disabled="disabled" checked="checked" />
+                }
+                else
+                {
+                    <input type="checkbox" disabled="disabled" />
+                }
+            </td>
+            <td>
+                @if (item.Fijo == "1")
+                {
+                    <input type="checkbox" disabled="disabled" checked="checked" />
+                }
+                else
+                {
+                    <input type="checkbox" disabled="disabled" />
+                }
+                @*@Html.DisplayFor(modelItem => item.Fijo)*@
+            </td>
+            <td>
+                <a role="button" onclick="location.href='@Url.Action("EditarOperInter", "OperadorTarifaInter",new { id = item.idtarifaInter })'"><span class="glyphicon glyphicon-pencil" style="font-size:20px;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                @*<a role="button" onclick="location.href='@Url.Action("EliminarOperInter", "OperadorTarifaInter",new { id = item.idtarifaInter })'"><span class="glyphicon glyphicon-trash" style="font-size:20px;"></span></a>*@
+                @Html.Raw("<a data-modal='' href='/OperadorTarifaInter/EliminarRegistro/" + item.idtarifaInter + "' id='" + item.idtarifaInter + "' title='Eliminar'> <span class='glyphicon glyphicon-trash'   style='font-size:20px;'> </span> </a>")
+            </td>
+
+        </tr>
+        }
+
+        </table>
+
+        <div>
+            <br />
+            Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+     <div id='myModal' class='modal fade in'>
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div id='myModalContent'></div>
+             </div>
+         </div>
+     </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/respond.js")
+}

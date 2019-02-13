@@ -1,0 +1,81 @@
+﻿@if (Session["Nom_DomainUser"] != null || Session["LoginDominio"] != null)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right text-bold">
+        @*<li>
+                <a ><i class="fa fa-user" aria-hidden="true"></i>&nbsp; @Session["Nom_Subscriber"].ToString()</a>
+            </li>*@
+        <li class="dropdown">
+            @if (Session["Nom_DomainUser"] != null && Session["LoginDominio"] == null)
+            {
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user dropdown-toggle " aria-hidden="true"></i>&nbsp; @Session["Nom_Subscriber"].ToString() <span class="caret hidden-lg" style="color:#FFFFFF;"></span></a>
+            }
+            else
+            {
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user dropdown-toggle " aria-hidden="true"></i>&nbsp; @Session["Usuario"].ToString() <span class="caret hidden-lg" style="color:#FFFFFF;"></span></a>
+            }
+            <ul class="dropdown-menu list-group-item-danger multi-level hidden-lg" role="menu" aria-labelledby="dropdownMenu">
+                <li class="dropdown-submenu list-group-item-danger ">
+                    <a role="button" style="color:#FFFFFF;" onclick="location.href='@Url.Action("CerrarSesion", "Acceso")'"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Cerrar Sesi­ón</a>
+                </li>
+            </ul>
+        </li>
+        <li class="hidden-xs hidden-sm hidden-md">
+            <a role="button" onclick="location.href='@Url.Action("CerrarSesion", "Acceso")'"><span><i class="fas fa-sign-out-alt" aria-hidden="true"></i></span> Cerrar Sesi­ón</a>
+        </li>
+        @*<li class="hidden-xs hidden-sm hidden-md"><a>@DateTime.Now <span class="glyphicon glyphicon-time"></span></a></li>*@
+        <li class="hidden-xs hidden-sm hidden-md"><a id="reloj">reloj <span class="glyphicon glyphicon-time"></span></a></li>
+
+    </ul>
+            }
+            }
+            else
+            {
+    <ul class="nav navbar-nav navbar-right">
+        <li><a role="button" onclick="location.href='@Url.Action("Login", "Acceso",new {  })'"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Iniciar Sesion</a></li>
+    </ul>
+            }
+
+
+<SCRIPT>
+    var tick;
+
+    window.onload = function () {
+        var ut = new Date();
+        var h, m, s;
+        var time = "        ";
+        var dd = ut.getDate();
+        var mm = ut.getMonth() + 1;
+        var yyyy = ut.getFullYear();
+        h = ut.getHours();
+        m = ut.getMinutes();
+        s = ut.getSeconds();
+        if (s <= 9) s = "0" + s;
+        if (m <= 9) m = "0" + m;
+        if (h <= 9) h = "0" + h;
+        time += dd + "/" + mm + "/" + yyyy + " " + h + ":" + m + ":" + s;
+        document.getElementById('reloj').innerHTML = time;
+        tick = setTimeout("simple_reloj()", 1000);
+    };
+
+    function simple_reloj() {
+        var ut = new Date();
+        var h, m, s;
+        var time = "        ";
+        var dd = ut.getDate();
+        var mm = ut.getMonth() + 1;
+        var yyyy = ut.getFullYear();
+        h = ut.getHours();
+        m = ut.getMinutes();
+        s = ut.getSeconds();
+        if (s <= 9) s = "0" + s;
+        if (m <= 9) m = "0" + m;
+        if (h <= 9) h = "0" + h;
+        time += dd + "/" + mm + "/" + yyyy + " " + h + ":" + m + ":" + s;
+        document.getElementById('reloj').innerHTML = time;
+        tick = setTimeout("simple_reloj()", 1000);
+    }
+</SCRIPT>

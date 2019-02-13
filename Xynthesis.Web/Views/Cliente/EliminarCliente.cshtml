@@ -1,0 +1,53 @@
+﻿@model Xynthesis.Modelo.xy_cliente
+@{
+    ViewBag.Title = "Eliminar Cliente";
+    var msg = (Xynthesis.Utilidades.Mensaje)ViewBag.mensaje;
+}
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2>Eliminar cliente</h2>
+    </div>
+    <br />
+    <div class="dl-horizontal">
+        <div class="form-group row">
+            <div class="text-right">
+                <label class="control-label col-md-2">Nombre Cliente</label>
+            </div>
+            <div class="col-md-10">
+                <input type="text" class="form-control" value="@Model.nombreCliente" disabled="disabled" />
+            </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-10">
+                    <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Cliente")'">Regresar</a>
+
+                    @if (msg.codigo == 1)
+                    {
+                        <input type="submit" value="Eliminar" class="btn btn-success" disabled="disabled" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Eliminar" class="btn btn-success" />
+                    }
+                </div>
+            </div>
+            <div class="modal-dialog modal-lg">
+                <div class="boton alert-danger col-md-7">
+                    @if (msg.codigo == 1)
+                    {@msg.mensaje;
+                    }
+                </div>
+            </div>
+            <div class="modal-dialog modal-lg">
+                <div class="boton alert-success col-md-7">
+                    @if (msg.codigo == 0)
+                    {@msg.mensaje}
+                </div>
+            </div>
+        }
+    </div>
+</div>

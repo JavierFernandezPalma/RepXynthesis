@@ -1,0 +1,7 @@
+D:\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.Mensajes.MensajesXynthesis.resources
+D:\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Notifix.Utilidades.csproj.GenerateResource.Cache
+D:\XynthesisWeb\Xynthesis.Utilidades\bin\Debug\Xynthesis.Utilidades.dll.config
+D:\XynthesisWeb\Xynthesis.Utilidades\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\Xynthesis.Utilidades\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.pdb

@@ -1,0 +1,92 @@
+﻿@model Xynthesis.Modelo.xy_operators
+@{
+    ViewBag.Title = "Eliminar Tarificación";
+    var Coberturas = (Xynthesis.Modelo.xy_coverage)ViewData["listCobertura"];
+    var msg = (Xynthesis.Utilidades.Mensaje)ViewBag.mensaje;
+}
+<div class="container">
+    <br />
+    <div class="text-left">
+        <h2>Eliminar tarifas</h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <br /><br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => Model.Ide_Operator)
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Código Operador</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model.Cod_Operator, new { htmlAttributes = new { @class = "form-control", disabled = "disabled"} })
+                        @Html.ValidationMessageFor(model => model.Cod_Operator, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nombre Operador</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => Model.Nom_Operator, new { htmlAttributes = new { @class = "form-control", disabled = "disabled"  } })
+                        @Html.ValidationMessageFor(model => Model.Nom_Operator, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.HiddenFor(model => Model.Ide_Coverage, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Cobertura</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("DdlCobertura", ViewData["listaCobertura"] as SelectList, new { @class = "form-control", disabled = "disabled" })
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Vlr/Costo</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => Model.vlr_Cost, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => Model.vlr_Cost, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Unidades(tiempo)</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("DdUnit", ViewData["listaUnit"] as List<SelectListItem>, new { @class = "form-control", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => Model.Unit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nro Digitos</label>
+                    <div class="col-md-10">
+                        <input type="number" name="NumberDigits" id="NumberDigits" class="form-control" value="@Model.NumberDigits" disabled="disabled" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Tarificacion")'">Regresar</a>
+                        <input type="submit" value="Eliminar" class="btn btn-success" />
+                    </div>
+                </div>
+                @*<div class="modal-dialog modal-lg">
+                    <div class="boton alert-danger col-md-7">
+                        @if (msg.codigo == 1)
+                        {@msg.mensaje;
+                        }
+                    </div>
+                </div>
+                <div class="modal-dialog modal-lg">
+                    <div class="boton alert-success col-md-7">
+                        @if (msg.codigo == 0)
+                        {@msg.mensaje}
+                    </div>
+                </div>*@
+            </div>
+        }
+
+
+    </div>
+</div>
+

@@ -1,0 +1,166 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Xynthesis.Modelo.xy_rates>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+<script src="~/Scripts/NotacionDecimal.js"></script>
+@{
+    ViewBag.Title = "ListaRates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+
+<div class="container">
+    <div class="text-left">
+        <h2><strong>Tarificación móviles</strong></h2>
+    </div>
+    <br />
+    <br />
+    <div class="col-md-12">
+
+        @using (Html.BeginForm("OrdenFiltro", "tarifa", FormMethod.Get))
+        {
+            if (ViewBag.CurrentFilter != null)
+            { ViewBag.CurrentFilter = ViewBag.CurrentFilter.replace("<", ""); }
+            <div class="row form-inline">
+                <div class="col-lg-9">
+                    <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("NuevaTarifa", "Tarifa")'">Nuevo Tarifa</a>
+
+                </div>
+                <div class="col-lg-3 form-group">
+                    @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, null, new { @class = "form-control", @placeholder = "BUSCA POR NOMBRE", @maxlength = "50", onkeypress = "return limipiarEspeciales(event)", onpaste = "return false" })&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-success "><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+
+            </div>
+            <br />
+        }
+        <table class="table table-responsive table-hover table-striped table-condensed" id="tabla">
+            <tr tr style="background-color:#E1E1E1;">
+                <th>
+                    @Html.Label("ID", new { @class = "text-muted" })
+                </th>
+                <th>
+                    @Html.Label("DESCRIPCIÓN", new { @class = "text-muted" })
+                </th>
+                <th>
+                    @Html.Label("OPERADOR", new { @class = "text-muted" })
+                </th>
+                <th class="text-right">
+                    @Html.Label("PREFIJOS", new { @class = "text-muted" })
+                </th>
+
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ide_Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Des_Rate)
+                    </td>
+
+
+                    <td>
+                        @Xynthesis.Web.Controllers.TarifaController.DescripcionOperador(item.Ide_Operator)
+                    </td>
+
+                    <td align="right">
+                        @Html.DisplayFor(modelItem => item.Num_Prefix)
+                    </td>
+
+                    <td class="text-right">
+                        <a role="button" onclick="location.href='@Url.Action("EditarTarifa", "Tarifa",new { id = item.Ide_Rate })'"><span class="glyphicon glyphicon-pencil" style="font-size:20px;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;
+                        @Html.Raw("<a data-modal='' href='/Tarifa/EliminarRegistro/" + item.Ide_Rate + "' id='" + item.Ide_Rate + "' title='Eliminar'> <span class='glyphicon glyphicon-trash'   style='font-size:20px;'> </span> </a>")
+                    </td>
+                </tr>
+            }
+        </table>
+        <div>
+            <br />
+            Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("ListaTarifas", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts
+    {
+        @Scripts.Render("~/Scripts/respond.js")
+        <script>
+
+                document.querySelector("#buscar").onkeyup = function () {
+                    $TableFilter("#tabla", this.value);
+                }
+
+                $TableFilter = function (id, value) {
+                    var rows = document.querySelectorAll(id + ' tbody tr');
+
+                    for (var i = 0; i < rows.length; i++) {
+                        var showRow = false;
+
+                        var row = rows[i];
+                        row.style.display = 'none';
+
+                        for (var x = 0; x < row.childElementCount; x++) {
+                            if (row.children[x].textContent.toLowerCase().indexOf(value.toLowerCase().trim()) > -1) {
+                                showRow = true;
+                                break;
+                            }
+                        }
+
+                        if (showRow) {
+                            row.style.display = null;
+                        }
+                    }
+                }
+
+                //==============================================================
+                //==============================================================
+                $(document).ready(function () {
+                    $('#tabla').DataTable();
+                });
+                //==============================================================
+
+
+        </script>
+    }
+</div>

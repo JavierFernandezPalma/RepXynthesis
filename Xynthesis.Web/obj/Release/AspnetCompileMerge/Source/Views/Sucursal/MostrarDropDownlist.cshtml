@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Xynthesis.Modelo.xy_geography>
+
+<select class="form-control" id="Ide_Geography" name="Ide_Geography">
+    @foreach (var item in Model)
+    {
+        <option value="@item.Ide_Geography">@(item.Nom_Country + " - " + item.Nom_Province + " - " + item.Nom_City)</option>
+    }
+</select>

@@ -1,0 +1,159 @@
+﻿@using PagedList.Mvc;
+@model  PagedList.IPagedList<Xynthesis.Modelo.xy_subscriber>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+@using Xynthesis.Utilidades.Mensajes;
+@{
+    ViewBag.Title = "Usuarios";
+
+}
+<script src="~/Scripts/NotacionDecimal.js"></script>
+
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+
+
+<div class="container">
+    <div class="text-left">
+        <h2 style=""><strong>Usuarios</strong></h2>
+    </div>
+    <br />
+    @using (Html.BeginForm("OrdenFiltro", "Usuarios", FormMethod.Get))
+    {
+        if (ViewBag.CurrentFilter != null)
+        { ViewBag.CurrentFilter = ViewBag.CurrentFilter.replace("<", ""); }
+        <div class="row form-inline">
+            <div class="col-lg-9">
+                <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("NuevoUsuario", "Usuarios")'">Nuevo Usuario</a>
+            </div>
+            <div class="col-lg-3 form-group">
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, null, new { @class = "form-control", @placeholder = "BUSCA POR NOMBRE", @maxlength = "50", onkeypress = "return limipiarEspeciales(event)", onpaste = "return false" })&nbsp;&nbsp;
+                <button type="submit" class="btn btn-success "><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+
+        </div>
+        <br />
+    }
+
+    <table class="table table-responsive table-hover table-striped table-condensed">
+        <tr style="background-color:#E1E1E1;">
+            <th>
+                @Html.ActionLink("NOMBRES", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                @if (ViewBag.NameSortParm == "name_desc")
+                {
+                    <span class="glyphicon glyphicon-circle-arrow-down"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                }
+            </th>
+            <th>
+                @Html.ActionLink("USUARIO DE RED", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+            </th>
+            <th>@Html.ActionLink("AREA", "", "", "", new { @class = "text-muted" })</th>
+            <th>@Html.ActionLink("SUCURSAL", "", "", new { @class = "text-muted" })</th>
+            <th>
+                @Html.ActionLink("TIPO", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+            </th>
+            <th>
+                @Html.ActionLink("ROL", "", "", new { @class = "text-muted" })
+            </th>
+            <th>
+                @Html.ActionLink("CORREO", "", "", new { @class = "text-muted" })
+            </th>
+            <th class="text-right">
+                @Html.ActionLink("FECHA DE CREACIÓN", "", "", new { @class = "text-muted" })
+            </th>
+
+            <th style="width:10%;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Subscriber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_DomainUser)
+                </td>
+                <td>
+                    @Xynthesis.Web.Controllers.UsuariosController.DescripcionArea(Convert.ToInt32(item.Ide_CostCenter))
+                </td>
+                <td>
+                    @Xynthesis.Web.Controllers.UsuariosController.DescripcionSucursal(Convert.ToInt32(item.IdSucursal))
+                </td>
+                <td>
+                    @if (item.Tip_Subscriber.Equals("E"))
+                    {
+                        <label>Empleado</label>
+                    }
+                    else
+                    {
+                        <label>Cliente</label>
+                    }
+                </td>
+                <td>
+                    @Xynthesis.Web.Controllers.UsuariosController.DescripcionRol(Convert.ToInt32(item.Id_Rol))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.FechaCreacion)
+                </td>
+                <td class="pull-right">
+                    <a role="button" onclick="location.href='@Url.Action("EditarUsuario", "Usuarios",new { id = item.Ide_Subscriber })'"><span class="glyphicon glyphicon-pencil" style="font-size:20px;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.Raw("<a data-modal='' href='/Usuarios/EliminarRegistro/" + item.Ide_Subscriber + "' id='" + item.Ide_Subscriber + "' title='Eliminar'> <span class='glyphicon glyphicon-trash'   style='font-size:20px;'> </span> </a>")
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        <br />
+        Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+    <div id='myModal' class='modal fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/respond.js")
+}

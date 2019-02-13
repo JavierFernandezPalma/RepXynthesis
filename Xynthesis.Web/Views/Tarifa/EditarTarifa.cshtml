@@ -1,0 +1,171 @@
+﻿@model Xynthesis.Modelo.xy_rates
+@using Xynthesis.Utilidades.Mensajes;
+@{
+    ViewBag.Title = "Editar tarifa";
+}
+<script src="~/Scripts/NotacionDecimal.js"></script>
+<script src="~/Scripts/ValidacionGeneral.js"></script>
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+    <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+    </script>
+            }
+            else
+            {
+    <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+    </script>
+
+            }
+        }
+    }
+}
+<div class="container">
+    <br />
+    <div class="text-left">
+        <h2><strong>Editar tarifa</strong></h2><br />
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Ide_Rate)
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">DESCRIPCION</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.Des_Rate, new { @class = "form-control", @required = "required", @id = "txtArea", @tabindex = "1", @maxlength = "100" , onkeypress = "return validar(event)"})
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Des_Rate)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="lblAlerta" style="display:none">
+                    <label class="control-label col-md-2"></label>
+                    <div class="col-md-10">
+                        <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">COBERTURA</label>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(model => model.Ide_Coverage, ViewBag.selCoberage as IEnumerable<SelectListItem>, new { @class = "form-control", @tabindex = "2" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Ide_Coverage)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">OPERADOR</label>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(model => model.Ide_Operator, ViewBag.selOperator as IEnumerable<SelectListItem>, new { @class = "form-control", @tabindex = "3" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Ide_Operator)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">LONGITUD</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.Num_Length, new { @class = "form-control", @required = "required", @id = "txtLongitud", @tabindex = "4", @type = "number", @min = 0, @max = 9999, onkeypress = "return ValidaSoloNumeros(event)" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Num_Length)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="lblAlerta2" style="display:none">
+                    <label class="control-label col-md-2"></label>
+                    <div class="col-md-10">
+                        <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">NUMERO PREFIJO</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.Num_Prefix, new { @class = "form-control", @required = "required", @id = "txtNumPref", @tabindex = "5", @type = "number", @min = 0, @max = 99999, onkeypress = "return ValidaSoloNumeros(event)" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Num_Prefix)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="lblAlerta3" style="display:none">
+                    <label class="control-label col-md-2"></label>
+                    <div class="col-md-10">
+                        <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                    </div>
+                </div>
+
+
+
+            </div>
+                
+            <div class="form-group row">
+                <label class="control-label  col-xs-4 col-md-2"></label>
+                <a role="button" class="btn btn-success col-xs-2 col-md-1" tabindex = "7" onclick="location.href='@Url.Action("ListaTarifas", "Tarifa")'">Regresar</a>
+                <label class="control-label col-md-1"></label>
+                <input type="submit" value="Guardar" id="btnEnviar" class="btn btn-success col-xs-2 col-md-1 " tabindex = "6" />
+            </div>
+
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    document.getElementById('txtArea').focus();
+                $("form").removeData("validator");
+                $("form").removeData("unobtrusiveValidation");
+                $.validator.unobtrusive.parse("form");
+</script>
+<script>
+    document.getElementById("btnEnviar").onclick = function () {
+        var nom = document.getElementById("txtArea").value;
+        var nom2 = document.getElementById("txtLongitud").value;
+        var nom3 = document.getElementById("txtNumPref").value;
+
+
+        if (nom == "") {
+            document.getElementById("lblAlerta").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("lblAlerta").style.display = "none"
+        }
+
+        if (nom2 == "") {
+            document.getElementById("lblAlerta2").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("lblAlerta2").style.display = "none"
+        }
+
+        if (nom3 == "") {
+            document.getElementById("lblAlerta3").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("lblAlerta3").style.display = "none"
+        }
+
+    }
+</script>

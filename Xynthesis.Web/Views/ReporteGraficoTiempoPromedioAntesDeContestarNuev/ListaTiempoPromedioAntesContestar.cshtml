@@ -1,0 +1,238 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_ReceiveCallsTiempoPromedio_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+<script type="text/javascript" src="~/fonts/select/js/bootstrap-select.js"></script>
+<link rel="stylesheet" href="~/fonts/select/css/bootstrap-select.min.css">
+<script src="~/fonts/select/js/bootstrap-select.min.js"></script>
+<script src="~/fonts/select/js/i18n/defaults-*.min.js"></script>
+<link rel="stylesheet" href="~/Content/selectorfiltro.css">
+
+
+@{
+    ViewBag.Title = "Lista Tiempo Promedio Antes De Contestar";
+    var mod = (List<Xynthesis.Modelo.xy_subscriber>)ViewData["usuario"];
+    var mod2 = (List<Xynthesis.Modelo.xy_costcenters>)ViewData["area"];
+}
+<script src="~/Scripts/canvasjs.min.js"></script>
+<script src="~/Scripts/jquery.canvasjs.min.js"></script>
+
+<div class="container">
+
+    <section style="height: 650px; width: 100%;">
+        <div class="text-center">
+            <h2><strong>Tiempo promedio antes de contestar</strong></h2>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-10">
+                @using (Html.BeginForm("ListaTiempoPromedioAntesContestar_", "ReporteGraficoTiempoPromedioAntesDeContestarNuev", FormMethod.Get))
+                {
+                    <div class="form-group form-inline">
+                        @Html.TextBox("FechaInicial", null, new { @class = "form-control", @placeholder = "Fecha inicial", style = "width:110px" })
+                        @Html.TextBox("FechaFinal", null, new { @class = "form-control", @placeholder = "Fecha final", style = "width:110px" })
+                        <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="USUARIO" title="USUARIO" id="NomUsuario" name="usuarioId" data-size="10">
+                            @foreach (var usuar in mod)
+                            {
+                                <option id="@usuar.Nom_Subscriber" value="@usuar.Ide_Subscriber">@usuar.Nom_Subscriber</option>
+                            }
+                        </select>
+                        <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="AREA" title="AREA" id="NomArea" name="areaId" data-size="10">
+                            @foreach (var are in mod2)
+                            {
+                                <option id="@are.Nom_CostCenter" value="@are.Ide_CostCenter">@are.Nom_CostCenter</option>
+                            }
+                        </select>
+
+                        <button type="submit" name="btnEnviar" id="enviar" class="btn btn-success" title="GENERAR"><i class="fas fa-file-export"></i></button>
+                        <div class="form-group mx-5 text-center pull-right" id="fec">
+                            <label id="lblFechas" class="control-label">@ViewBag.fechaini @ViewBag.fechafin</label>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-md-2 text-right">
+                @using (Html.BeginForm("Reportes", "ReporteGraficoTiempoPromedioAntesDeContestarNuev"))
+                {
+                    <div class="form-group form-inline ">
+                        <select name="opcion" class="form-control">
+                            <option value="pdf">PDF</option>
+                            <option value="excel">EXCEL</option>
+                            <option value="word">WORD</option>
+                        </select>
+
+                        <button type="submit" name="btnGenerarReporte" id="GenerarReporte" class="btn btn-success" title="EXPORTAR"><i class="fas fa-print"></i></button>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <br />
+        <div id="chartContainer" style="height: 370px; width: 100%; "></div>
+        <br />
+
+        <section style="height: 650px; width: 100%;">
+            <table class="table table-condensed table-responsive table-hover">
+
+                <tr tr style="background-color:#E1E1E1;">
+                    <th>
+                        <strong>NOMBRE DE USUARIO</strong>
+                    </th>
+                    <th class="text-center">
+                        <strong>AREA</strong>
+                    </th>
+                    <th class="text-center">
+                        <strong>RECIBIDAS RESPONDIDAS</strong>
+                    </th>
+                    <th class="text-center">
+                        <strong>TIEMPO PROMEDIO(Seg.)</strong>
+                    </th>
+
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom_Subscriber)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Nom_CostCenter)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.waiting)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.time_avgwaiting)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+
+            <br />
+
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("ListaTiempoPromedioAntesContestar", new { page, opcion = ViewBag.paraPaginacion, paraPaginacion = ViewBag.paraPaginacion }))
+
+
+        </section>
+
+    </section>
+
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/Canvas")
+}
+
+<script type="text/javascript">
+    window.onload = function () {
+
+        var fecha1 = document.getElementById("FechaInicial").value;
+        var fecha2 = document.getElementById("FechaFinal").value;
+
+        if (fecha1 == "") {
+            $("#chartContainer").css("display", "none");
+        } else {
+            var grafico = document.getElementById("chartContainer").value;
+            if (typeof (grafico) !== "undefined") {
+                if (typeof (document.documentMode) == "number") {
+                    $("#chartContainer").css("display", "none");
+                }
+                else {
+                    $("#chartContainer").css("display", "block");
+                }
+
+            }
+            else {
+                if (typeof (document.documentMode) == "number") {
+                    $("#chartContainer").css("display", "none");
+                }
+                else {
+                    $("#chartContainer").css("display", "display");
+                }
+
+            }
+        }
+
+
+        $.ajax({
+            type: "GET",
+            url: "/ReporteGraficoTiempoPromedioAntesDeContestarNuev/ConCober",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var res = parseInt(response.length);
+                if (res > 0) {
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        title: {
+                            //text: "Promedio de recibidas respondidas",
+                            fontSize: 32,
+                            fontFamily: "Arial"
+                        },
+                        animationEnabled: true,
+                        legend: {
+                            verticalAlign: "center",
+                            horizontalAlign: "left",
+                            fontSize: 16,
+                            fontFamily: "Arial"
+                        },
+                        theme: "theme2",
+                        data: [
+                        {
+                            type: "pie",
+                            indexLabelFontFamily: "Garamond",
+                            indexLabelFontSize: 14,
+                            indexLabel: "{label} {y}%",
+                            startAngle: 10,
+                            showInLegend: false,
+                            toolTipContent: "{legendText} {y}%",
+                            dataPoints: [
+                            ]
+
+                        }
+                        ]
+                    });
+                    var SumaTotal = 0;
+                    var i = 0;
+                    for (var s in response)
+                    { SumaTotal = SumaTotal + parseInt(response[i].suma); i = i + 1; }
+
+                    i = 0;
+                    for (var s in response) {
+                        var valor = parseInt((response[i].suma / SumaTotal) * 100);
+                        var length = chart.options.data[0].dataPoints.length;
+                        chart.options.data[0].dataPoints.push({ y: valor, legendText: response[i].cob, label: response[i].cob });
+                        chart.render();
+
+                        i = i + 1;
+
+                    }
+
+                    chart.render();
+
+
+                }
+
+            },
+            failure: function (response) {
+                alert("Failure: " + response.responseText);
+            },
+            error: function (response) {
+                alert("ha surgido un error: " + response.responseText);
+            }
+        });
+
+    };
+
+</script>
+<script src="~/Scripts/NotacionDecimal.js"></script>
+
+
+

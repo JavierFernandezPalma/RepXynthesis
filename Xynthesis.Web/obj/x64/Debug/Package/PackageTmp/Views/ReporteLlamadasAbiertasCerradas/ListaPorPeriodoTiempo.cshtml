@@ -1,0 +1,108 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_RepCallOpenAndClosed_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Reporte Llamadas Abiertas y Cerradas";
+}
+
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2><strong>Período de tiempo</strong></h2>
+    </div>
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-8">
+            @using (Html.BeginForm("ListaLlamadasAbiertasCerradas_", "ReporteLlamadasAbiertasCerradas", FormMethod.Get))
+            {
+                <div class="form-group form-inline">
+                    @Html.TextBox("FechaInicial", null, new { @class = "form-control", @type = "date", @id = "fi" })
+                    @Html.TextBox("FechaFinal", null, new { @class = "form-control", @type = "date", @id = "ff", @value = @ViewBag.fechafin })
+                    <select name="hora" class="form-control">
+                        <option value="1">1 HORA</option>
+                        <option value="2">2 HORAS</option>
+                        <option value="3">3 HORAS</option>
+                        <option value="4">4 HORAS</option>
+                        <option value="5">5 HORAS</option>
+                    </select>
+                    <input type="submit" name="btnEnviar" id="enviar" class="btn btn-success" value="GENERAR" />
+                    <div class="form-group mx-5 text-center pull-right" id="fec">
+                        <label id="lblFechas" class="control-label">@ViewBag.fechaini @ViewBag.fechafin</label>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-4">
+            @using (Html.BeginForm("Reportes", "ReporteLlamadasAbiertasCerradas"))
+            {
+                <div class="form-group form-inline ">
+                    <select name="opcion" class="form-control">
+                        <option value="pdf">PDF</option>
+                        <option value="excel">EXCEL</option>
+                        <option value="word">WORD</option>
+                    </select>
+
+                    <input type="submit" name="btnGenerarReporte" id="GenerarReporte" value="EXPORTAR" class="btn btn-success" />
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <table class="table table-condensed table-responsive table-hover table-striped">
+        <tr tr style="background-color:#E1E1E1;">
+            <th class="text-center">
+                <strong>TIPO</strong>
+            </th>
+            <th class="text-center">
+                <strong>NOMBRE DE USUARIO</strong>
+            </th>
+            <th class="text-center">
+                <strong>ENTRANTE</strong>
+            </th>
+            <th class="text-center">
+                <strong>DURACIÓN</strong>
+            </th>
+            <th class="text-center">
+                <strong>SALIENTE</strong>
+            </th>
+            <th class="text-center">
+                <strong>DURACIÓN</strong>
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Nom_CallType)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Nom_Subscriber)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Ide_NumberSource)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.time_in)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Ide_NumberTarget)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.time_out)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ListaLlamadasAbiertasCerradas", new { page, opcion = ViewBag.paraPaginacion, paraPaginacion = ViewBag.paraPaginacion }))
+</div>

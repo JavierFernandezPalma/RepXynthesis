@@ -1,0 +1,12 @@
+.slider
+{
+	background : url(../Content/img/bg-3.png);
+	background-attachment: cover;
+	background-attachment: center;
+    height: 400px;		
+}
+
+.corusel
+{
+	height: 100vh;
+}

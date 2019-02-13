@@ -1,0 +1,88 @@
+﻿@model Xynthesis.Modelo.xy_operador_tarifa_inter
+
+@{
+    ViewBag.Title = "Eliminar Tarifas Internacionales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2>Eliminar tarifa internacional operadores</h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.idtarifaInter)
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Operador</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("DdlOperador", ViewData["listaOper"] as SelectList, new { @class = "form-control", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.IdOperador, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">País</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("DdlPais", ViewData["listaPais"] as SelectList, new { @class = "form-control", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.IdPais, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Valor minuto (sin IVA)</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VlrInternaMinsinIva, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.VlrInternaMinsinIva, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Valor minuto (incluido IVA)</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VlrInternaMinconIva, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.VlrInternaMinconIva, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Movil</label>
+                    <div class="col-md-10">
+                        @if (Model.Movil == 1)
+                        {<input type="checkbox" id="Movil" name="Movil" checked="checked" disabled="disabled" />}
+                        else
+                        { <input type="checkbox" id="Movil" name="Movil" disabled="disabled" />}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Fijo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @if (Model.Fijo == 1)
+                        { <input type="checkbox" id="Fijo" name="Fijo" checked="checked" disabled="disabled" />}
+                        else
+                        { <input type="checkbox" id="Fijo" name="Fijo" disabled="disabled" />}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "OperadorTarifaInter")'">Regresar</a>
+
+                        <input type="submit" value="Eliminar" class="btn btn-success" />
+                    </div>
+                </div>
+                <hr />
+            </div>
+        }
+
+
+
+    </div>
+</div>
+

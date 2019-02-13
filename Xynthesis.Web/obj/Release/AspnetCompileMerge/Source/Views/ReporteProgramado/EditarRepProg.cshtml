@@ -1,0 +1,334 @@
+﻿@model Xynthesis.Modelo.xy_configuracionrptprogramado
+@using Xynthesis.Utilidades.Mensajes
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="~/Scripts/NotacionDecimal.js"></script>
+
+@{
+    ViewBag.Title = "EditarCobertura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var mod = (List<Xynthesis.Modelo.xy_reportes>)ViewData["confProgr"];
+    var listaReportes = (List<Xynthesis.Modelo.xy_configuracionreporte>)ViewData["listaReportes"];
+}
+
+<div class="container">
+    <div class="text-center">
+        <h2><strong>Editar reporte programado</strong></h2>
+    </div>
+
+    <input id="msgCoberErra" type="hidden" value="@MensajesXynthesis.CoberErra" />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <section style="height:1150px; width:100%;">
+            <div class="form-horizontal">
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfiguracionId, htmlAttributes: new { @class = "control-label col-md-2 hidden-xs hidden-sm hidden-md hidden-lg" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ConfiguracionId, new { htmlAttributes = new { @class = "form-control hidden-xs hidden-sm hidden-md hidden-lg" } })
+                        @Html.ValidationMessageFor(model => model.ConfiguracionId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="hidden-xs hidden-sm col-md-3 col-lg-3">
+                        <label for="NomConfi" class="control-label pull-right">NOMBRE DE CONFIGURACIÓN :</label>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8 form-group">
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", style = "width: 100%; max-width:77%;", @maxlength = "45", @id = "NomConfi", @placeholder = "NOMBRE DE CONFIGURACION", @title = "NOMBRE DE CONFIGURACION" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <!--Inicio de edicion de lista de reportes-->
+                <div style="border-color:#C2C2C2; border-style: solid; border-top-width:1px; border-bottom-width:1px; border-left-width:1px; border-right-width:1px;  border-radius:10px; padding-left: 0px; padding-right: 0px;">
+                    <div class="row">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-10 form-group">
+                            <div class="text-left">
+                                <h2>REPORTES :</h2>
+                            </div><br />
+
+                            <textarea name="iden" id="iden" title="" placeholder="" class="hidden"></textarea>
+
+                            <div class="well" style="max-height: 300px;overflow: auto; border-radius:5px;">
+                                <ul id="sampleList" class="list-group checked-list-box">
+
+                                    @foreach (var item in mod)
+                                    {
+                                        var exis = 0;
+                                        var id = 0;
+                                        var nom = "";
+                                        foreach (var rep in listaReportes)
+                                        {
+
+                                            if (rep.xy_reportes.ReporteId == item.ReporteId)
+                                            {
+                                                exis = 1;
+
+
+                                            }
+                                            else
+                                            {
+
+                                            }
+                                            id = @item.ReporteId;
+                                        }
+                                        nom = "span" + id.ToString();
+                                        if (exis == 1)
+                                        {
+                                            <li id=@item.ReporteId name=item.ReporteId class="list-group-item active list-group-item-primary" style="cursor:pointer;">@item.Nombre</li>
+                                        }
+                                        else
+                                        {
+                                            <li id=@item.ReporteId name=item.ReporteId class="list-group-item"><span name=@nom class="state-icon glyphicon glyphicon-unchecked" on></span>@item.Nombre</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                    <div class="row text-center">
+                        <label>PDF</label>
+                        @Html.RadioButtonFor(model => model.FormatoArchivo, "pdf")
+                        <label>EXCEL</label>
+                        @Html.RadioButtonFor(model => model.FormatoArchivo, "xls")
+                    </div>
+
+                </div>
+
+                <!--fin de edicion de lista de reportes-->
+                <div style="margin-top:5px;border-color:#C2C2C2; border-style: solid; border-top-width:1px; border-bottom-width:1px; border-left-width:1px; border-right-width:1px; border-radius:10px; padding-left: 0; padding-right: 0;">
+                    <div class="row">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11 text-left">
+                            <h2>PROGRAMACIÓN :</h2>
+                        </div>
+                    </div><br />
+                    <div class="form-group">
+                        <label class="control-label col-md-4">HORA DE EJECUCIÓN</label>
+                        <div class="col-md-8">
+                            @{
+                                var hor = Convert.ToString(Model.HoraEjecucion.ToString("HH:mm"));
+
+                            }
+                            @Html.TextBox("horaRep", hor, new { @class = "form-control", @type = "time", })
+                            @Html.ValidationMessageFor(model => model.HoraEjecucion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div style="margin-top:5px;border-color:#C2C2C2; border-style: solid; border-top-width:1px; border-bottom-width:1px; border-left-width:1px; border-right-width:1px; border-radius:10px; padding-left: 0px; padding-right: 0px; padding-top:5px;">
+                    <div class="row">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-11">
+                            <div class="text-left">
+                                <h2>CORREO :</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="codigo">EMAIL :</label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.EmailFrom, new { htmlAttributes = new { @class = "form-control", @id = "emailform", @maxlength = "500", @title = "CORREO ELECTRONICO" } })
+                            @Html.ValidationMessageFor(model => model.EmailFrom, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" id="lblAlerta2" style="display:none">
+                        <label class="control-label col-md-4 col-lg-3"></label>
+                        <div class="col-lg-9 col-md-8 col-lg-8 pull-right">
+                            <label style="color:#E81F2E;">(*) El campo es requerido</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="codigo">ASUNTO :</label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Asunto, new { htmlAttributes = new { @class = "form-control", @id = "asunto", @maxlength = "150", @title = "ASUNTO" } })
+                            @Html.ValidationMessageFor(model => model.Asunto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="codigo">MENSAJE :</label>
+                        <div class="col-md-8">
+                            @*@Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "form-control", @id = "mensajes" } })*@
+                            @Html.TextArea("txtMensaje", Model.Mensaje, new { @class = "form-control", style = "width: 100%; max-width:77%;", @title = "ESCRIBA UN MENSAJE", @placeholder = "ESCRIBA EL MENSAJE", @maxlength = "700", @rows = "6", @id = "mensajes" })
+                            @Html.ValidationMessageFor(model => model.Mensaje, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" id="lblAlerta6" style="display:none">
+                        <label class="control-label col-md-4 col-lg-3"></label>
+                        <div class="col-lg-9 col-md-8 col-lg-8 pull-right">
+                            <label style="color:#E81F2E;">(*) El campo es requerido</label>
+                        </div>
+                    </div>
+
+                    <br />
+                </div>
+
+
+                <div style="margin-top:5px; padding-left: 0; padding-right: 0; padding-top:5px; margin-top:10px;">
+                    <div class="form-group">
+                        <label class="col-md-4"></label>
+                        <div class="col-md-8">
+                            @Html.ActionLink("Regresar", "ListaRepProgramado", "ReporteProgramado", new { @class = "btn btn-success" })
+                            <input type="submit" value="Actualizar" id="submit" class="btn btn-success" onclick="validate()" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+                                }
+</div>
+<div class="col-md-2"></div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script type="text/javascript">
+    var cad = [];
+
+
+    $(document).ready(function () {
+        $('span').remove();
+    });
+
+
+
+    $(function () {
+        $('.list-group.checked-list-box .list-group-item').each(function () {
+            var $widget = $(this),
+                $checkbox = $('<input type="checkbox" class="hidden" />'),
+                color = ($widget.data('color') ? $widget.data('color') : "primary"),
+                style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
+                settings = {
+                    on: {
+                        icon: 'glyphicon glyphicon-check'
+                    },
+                    off: {
+                        icon: 'glyphicon glyphicon-unchecked'
+                    }
+                };
+
+            $widget.css('cursor', 'pointer')
+            $widget.append($checkbox);
+
+            // Event Handlers
+            $widget.on('click', function () {
+                $checkbox.prop('checked', !$checkbox.is(':checked'));
+                $checkbox.triggerHandler('change');
+                updateDisplay();
+            });
+            $checkbox.on('change', function () {
+                updateDisplay();
+            });
+
+
+            // Actions
+            function updateDisplay() {
+                var isChecked = $checkbox.is(':checked');
+
+                // Set the button's state
+                $widget.data('state', (isChecked) ? "on" : "off");
+
+                // Set the button's icon
+                $widget.find('.state-icon')
+                    .removeClass()
+                    .addClass('state-icon ' + settings[$widget.data('state')].icon);
+
+                // Update the button's color
+                if (isChecked) {
+                    $widget.addClass(style + color);
+                } else {
+                    $widget.removeClass(style + color);
+                }
+            }
+
+            // Initialization
+            function init() {
+
+                if ($widget.data('checked') == true) {
+                    $checkbox.prop('checked', !$checkbox.is(':checked'));
+                }
+
+                updateDisplay();
+
+                // Inject the icon if applicable
+                if ($widget.find('.state-icon').length == 0) {
+                    $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span>');
+                }
+            }
+            init();
+        });
+
+        $('#get-checked-data').on('click', function (event) {
+            event.preventDefault();
+            var checkedItems = {}, counter = 0;
+            $("#check-list-box ").each(function (idx, li) {
+                checkedItems[counter] = $(li).text();
+                counter++;
+            });
+            $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
+        });
+    });
+
+    $('#submit').click(function () {
+
+        $('#sampleList  li').each(function () {
+            if ($(this).attr('class') == "list-group-item list-group-item-primary" || $(this).attr('class') == "list-group-item active list-group-item-primary") {
+                cad = cad + $(this).attr('id') + '|';
+            }
+        });
+        var idd = document.getElementById("iden").innerHTML = cad;
+        //alert(idd);
+        $.ajax({
+            type: 'POST',
+            url: ' /ReporteProgramado/EditarRepProg',
+            success: function (data) {
+            },
+            error: function (e) {
+            }
+        });
+    });
+
+    document.getElementById("submit").onclick = function () {
+        var corr = document.getElementById("emailform").value;
+        var men = document.getElementById("mensajes").value;
+
+
+        if (corr == "") {
+            document.getElementById("lblAlerta2").style.display = "block"
+            return false;
+        } else if (men == "") {
+            document.getElementById("lblAlerta6").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("lblAlerta2").style.display = "none"
+            document.getElementById("lblAlerta6").style.display = "none"
+            return true;
+        }
+
+    }
+</script>

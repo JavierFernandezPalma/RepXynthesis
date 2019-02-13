@@ -1,0 +1,14 @@
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.Seguridad.dll.config
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.Seguridad.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.Seguridad.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.AccesoDatos.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\EntityFramework.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.AccesoDatos.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.Modelo.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\Xynthesis.Utilidades.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Release\EntityFramework.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\obj\Release\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\obj\Release\Xynthesis.Seguridad.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\obj\Release\Xynthesis.Seguridad.pdb

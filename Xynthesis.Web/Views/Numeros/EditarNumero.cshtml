@@ -1,0 +1,83 @@
+﻿@using PagedList.Mvc;
+@model  PagedList.IPagedList<Xynthesis.Modelo.xyp_SelNumbers_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Editar Números";
+    ViewBag.numero = Model[0].Ide_Number;
+    ViewBag.fec_date = Model[0].Fec_Date.Substring(0, 10);
+}
+<script src="~/Scripts/NotacionDecimal.js"></script>
+
+<div class="container">
+    <br />
+    <div class="text-left">
+        <h2><strong>Editar números</strong></h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <br /><br />
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Número Telefónico</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model[0].Ide_Number, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model[0].Ide_Number, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Extensión</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+
+                        @if (Model[0].Tip_Extension == "1")
+                        {
+                            <input type="checkbox" id="Tip_Extension" name="Tip_Extension" checked="checked" tabindex = "1"/>
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="Tip_Extension" name="Tip_Extension" tabindex = "1"/>
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Fecha</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        <input type="text" id="Fec_Date" name="Fec_Date" value="@ViewBag.fec_date" class="form-control" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Usuario</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.DropDownList("DdlSuscriptor", ViewData["listaSuscriptores"] as List<SelectListItem>, new { @class = "form-control", @tabindex = "2", @onchange = "FillSuscriptor()" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Clientes</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.DropDownList("DdlCliente", ViewData["listaCliente"] as List<SelectListItem>, new { @class = "form-control", @tabindex = "3" })
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model[0].idcliente)
+                
+
+                <div class="form-group row">
+                    <label class="control-label  col-xs-4 col-md-2"></label>
+                    <a role="button" class="btn btn-success col-xs-2 col-md-1" tabindex = "5" onclick="location.href='@Url.Action("Index", "Numeros")'">Regresar</a>
+                    <label class="control-label col-md-1"></label>
+                    <input type="submit" value="Guardar" id="btnEnviar" class="btn btn-success col-xs-2 col-md-1 " tabindex = "4"/>
+                </div>
+
+
+            </div>
+        }
+
+    </div>
+
+
+</div>
+
+<script>
+    document.getElementById('Tip_Extension').focus();
+</script>

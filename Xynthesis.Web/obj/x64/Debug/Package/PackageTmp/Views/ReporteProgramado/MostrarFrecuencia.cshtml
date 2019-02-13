@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Xynthesis.Modelo.xy_frecuencia>
+
+<select class="form-control" id="IdFrecuencia" name="IdFrecuencia">
+    @foreach (var item in Model)
+    {
+        <option value="@item.FrecuenciaId">@item.NombreFrecuencia</option>
+    }
+</select>
+

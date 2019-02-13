@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/ico" href="~/favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu" rel="stylesheet">
+    <title>@ViewBag.Title - Xynthesis V.2.0</title>
+
+    <link rel="stylesheet" href="~/Content/themes/base/jquery-ui.css">
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#A43A62; border-color:#A43A62;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Acceso")" style="color:#FFFFFF;">
+                    @*Xynthesis*@
+                    <img alt="Xynthesis" src="~/Content/images/XYNTHESISblanco-xx.png" height="35" width="90">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse pull-right col-xs-12">
+                <ul class="nav navbar-nav text-bold">
+                    <li><a role="button" onclick="location.href='@Url.Action("Index", "Acceso",new {  })'" style="color:#FFFFFF;"><i class="fa fa-home fa-fw" aria-hidden="true" style="color:#FFFFFF;"></i>&nbsp; Inicio</a></li>
+
+                    <!--Inicio de BotonGroup Administración-->
+                    <li class="dropdown ml-lg-0">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#FFFFFF;"><i class="fa fa-blind" aria-hidden="true"></i>&nbsp; Administración <span class="caret" style="color:#FFFFFF;"></span></a>
+                        <ul class="dropdown-menu list-group-item-danger multi-level style=" color:#FFFFFF;"" role="menu" aria-labelledby="dropdownMenu">
+                            <!--Inicio Sub Administración - Maestros-->
+                            <li class="dropdown-submenu list-group-item-danger">
+                                <a tabindex="-1" href="#" style="color:#FFFFFF;">Maestros</a>
+                                <ul class="dropdown-menu list-group-item-danger">
+                                    <li><a role="button" onclick="location.href='@Url.Action("ListaSucursales", "Sucursal")'" style="color:#FFFFFF;">Sucursales</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Index", "Areas")'" style="color:#FFFFFF;">Áreas</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Index", "Usuarios")'" style="color:#FFFFFF;">Usuarios</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Index", "Numeros")'" style="color:#FFFFFF;">Números</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Index", "Operador")'" style="color:#FFFFFF;">Operadores</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Index", "Cliente")'" style="color:#FFFFFF;">Clientes</a></li>
+                                </ul>
+                            </li>
+                            <!--Fin Sub Administración - Maestros-->
+                            <!--Inicio Sub Administración - Tarificación-->
+                            <li class="dropdown-submenu list-group-item-danger">
+                                <a tabindex="-1" href="#" style="color:#FFFFFF;">Tarificación</a>
+                                <ul class="dropdown-menu list-group-item-danger">
+                                    <li><a role="button" onclick="location.href='@Url.Action("ListaCoberturas", "Coberturas")'" style="color:#FFFFFF;">Coberturas</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Index", "Tarificacion")'" style="color:#FFFFFF;">Nacionales - Móviles</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Index", "OperadorTarifaInter")'" style="color:#FFFFFF;">Internacionales</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("ListaTarifas", "Tarifa")'" style="color:#FFFFFF;">Móviles</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("Retarificar", "Retarificacion")'" style="color:#FFFFFF;">Retarificación</a></li>
+
+
+                                </ul>
+                            </li>
+                            <!--Fin Sub Administración - Tarificación-->
+                            <li><a role="button" onclick="location.href='@Url.Action("CambioContraseña", "Acceso")'" style="color:#FFFFFF;">Cambiar contraseña</a></li>
+                            @*<li><a role="button" onclick="location.href='@Url.Action("ListaRepProgramado", "ReporteProgramado")'" style="color:#FFFFFF;">Reporte Programado</a></li>*@
+
+
+                        </ul>
+                    </li>
+                    <!--Fin de BotonGroup Administración-->
+                    <!--Inicio de BotonGroup Reportes nuevo-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; Reportes <span class="caret" style="color:#FFFFFF;"></span></a>
+                        <ul class="dropdown-menu list-group-item-danger multi-level" role="menu" aria-labelledby="dropdownMenu">
+                            <li class="dropdown-submenu list-group-item-danger">
+                                <a tabindex="-1" href="#" style="color:#FFFFFF;">Concentración de llamadas</a>
+                                <ul class="dropdown-menu list-group-item-danger">
+                                    <li><a role="button" onclick="location.href='@Url.Action("ListaPorPeriodoTiempo", "ReportePorPeriodoTiempo")'" style="color:#FFFFFF;">Por período de tiempo</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadasEntrantes", "ReporteLlamadasEntrantes")'" style="color:#FFFFFF;">Llamadas entrantes</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadasSalientes", "ReporteLlamadasSalientes")'" style="color:#FFFFFF;">Llamadas salientes</a></li>
+                                    <li><a role="button" onclick="location.href='@Url.Action("ListaTiempoDedicado", "ReporteTiempoDedicado")'" style="color:#FFFFFF;">Tiempo dedicado</a></li>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--Reporte de Consumo-->
+                    <li class="dropdown-submenu list-group-item-danger">
+                        <a tabindex="-1" href="#" style="color:#FFFFFF;">Detalles de llamadas</a>
+                        <ul class="dropdown-menu list-group-item-danger">
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadasEntrantesSalientes", "ReporteLlamadasEntrantesSalientes")'" style="color:#FFFFFF;">Llamadas entrantes y salientes</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadasRecibidasTransferidas", "ReporteLlamadasRecibidasTransferidas")'" style="color:#FFFFFF;">Llamadas recibidas y transferidas</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaTiempoPromedioAntesContestar", "ReporteTiempoPromedioAntesContestar")'" style="color:#FFFFFF;">Tiempo promedio antes de contestar</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadaInicioFinDia", "ReporteLlamadaInicioFinDia")'" style="color:#FFFFFF;">Llamada inicio y fin por día</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadasAbiertasCerradas", "ReporteLlamadasAbiertasCerradas")'" style="color:#FFFFFF;">Llamadas Abiertas y Cerradas</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-submenu list-group-item-danger">
+                        <a tabindex="-1" href="#" style="color:#FFFFFF;">Resumen general</a>
+                        <ul class="dropdown-menu list-group-item-danger">
+                            <li><a role="button" onclick="location.href='@Url.Action("TopLlamadaCampeonaCentroCosto", "ReporteTopLlamadaCampeonaCC")'" style="color:#FFFFFF;">Llamada campeona por área</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("LlamadaCampeonaDuracion", "ReporteLlamadaCampeonaDuracion")'" style="color:#FFFFFF;">Llamada campeona por duración</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("NumerosMasMarcados", "ReporteNumeroMasMarcado")'" style="color:#FFFFFF;">Número más marcado</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("FrecuenciaLlamadas", "ReporteFrecuenciadellamadas")'" style="color:#FFFFFF;">Número frecuente por extensión</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown-submenu list-group-item-danger">
+                        <a tabindex="-1" href="#" style="color:#FFFFFF;">Reportes de consumo</a>
+                        <ul class="dropdown-menu list-group-item-danger">
+                            <li><a role="button" onclick="location.href='@Url.Action("ConsumosPersonales", "ReporteConsumosPersonales")'" style="color:#FFFFFF;">Consumos personales</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ConsumosXcc", "ReporteConsumosPorCentrosCostos")'" style="color:#FFFFFF;">Consumos por área</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("CoberturaLlamadas", "ReporteCoberturaLlamadas")'" style="color:#FFFFFF;">Cobertura de llamadas</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("HistoricoConsumos", "ReporteHistoriaConsumos")'" style="color:#FFFFFF;">Consumos históricos</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown-submenu list-group-item-danger">
+                        <a tabindex="-1" href="#" style="color:#FFFFFF;">Reportes consolidados</a>
+                        <ul class="dropdown-menu list-group-item-danger">
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaTiempoPromedioAntesContestar", "ReporteGraficoTiempoPromedioAntesDeContestarNuev")'" style="color:#FFFFFF;">Tiempo promedio antes de contestar</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadasEntrantesSalientes", "ReporteGraficoLlamadasEntrantesSalientes")'" style="color:#FFFFFF;">Llamadas entrantes y salientes</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaLlamadasEntrantesSalientesDuracion", "ReporteGraficoLlamadasEntrantesSalientesDuracion")'" style="color:#FFFFFF;">Llamadas entrantes y salientes con duración</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ConsolidaCoberturaLlamadas", "ReporteConsolidadoCoberturaLLamadas")'" style="color:#FFFFFF;">Cobertura de llamadas</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaPromedioLlamadaHora", "RepPromedioLlamadasHora")'" style="color:#FFFFFF;">Promedio de llamadas por hora</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("RepTarificacionEntraSalieTrans", "RepTarificacionEntraSalieTrans")'" style="color:#FFFFFF;">Consolidado por usuario</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu list-group-item-danger">
+                        <a tabindex="-1" href="#" style="color:#FFFFFF;">Configuración de Reportes</a>
+                        <ul class="dropdown-menu list-group-item-danger">
+                            <li><a role="button" onclick="location.href='@Url.Action("ListaRepProgramado", "ReporteProgramado")'" style="color:#FFFFFF;">Reportes Programados</a></li>
+                            <li><a role="button" onclick="location.href='@Url.Action("ReportesMomentaneos", "ReportesMomento")'" style="color:#FFFFFF;">Reportes Inmediatos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+                <!--Fin de BotonGroup Reportes nuevo-->
+
+
+
+
+                <li>
+                    <a title="DESCARGAR ARCHIVO DE AYUDA" role="button" onclick="location.href='@Url.Action("ArchivoAyuda", "Acceso",new {  })'"><i class="fa fa-wheelchair" aria-hidden="true"></i>&nbsp; Ayuda</a>
+                </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div style="background-color:#FFFFFF;">
+        @if (Session["mensale"] != null)
+        {
+            <div class="text-center" id="divalert" style="display:none; background-color:#E2E0E0; border:solid; border-color:#E2E0E0; font-family:'Source Sans Pro',sans-serif;">@Session["mensale"].ToString()</div>
+        }
+        @RenderBody()
+        <footer id="myfooter">
+            <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation" style="background-color:#A43A62; border-color:#A43A62;">
+                <div class="container" >                    
+                    <div class="row ">
+                        <div class="col-md-6 text-bold" style="font-size:13px;"><br />
+                            <p style="color:#FFFFFF;">Copyright &copy; @DateTime.Now.Year - AXEDE  S.A - Bogotá, Colombia. Todos los derechos reservados</p>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <img src="~/Content/images/AxedeBlancoNuevo.png" height="40" width="70" />
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </footer>
+    </div>
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryui")
+@RenderSection("scripts", required: false)
+
+</html>

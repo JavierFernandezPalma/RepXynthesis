@@ -1,0 +1,235 @@
+﻿@model Xynthesis.Modelo.xy_coverage
+@using Xynthesis.Utilidades.Mensajes
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+
+@{
+    ViewBag.Title = "EditarCobertura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Movil"] = Model.Movil;
+}
+<script src="~/Scripts/NotacionDecimal.js"></script>
+<script src="~/Scripts/ValidacionGeneral.js"></script>
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="text-left">
+            <h2><strong>Editar cobertura</strong></h2>
+        </div>
+
+        <input id="msgCoberErra" type="hidden" value="@MensajesXynthesis.CoberErra" />    
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+       
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ide_Coverage, htmlAttributes: new { @class = "control-label col-md-2 hidden-xs hidden-sm hidden-md hidden-lg" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Ide_Coverage, new { htmlAttributes = new { @class = "form-control hidden-xs hidden-sm hidden-md hidden-lg" } })
+                        @Html.ValidationMessageFor(model => model.Ide_Coverage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2" for="codigo">Nombre Cobertura (*)</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.Nom_Coverage, new { htmlAttributes = new { @class = "form-control", @id = "txtArea", @tabindex = "1", @maxlength = "20", @required = "true", onkeypress = "return validar(event)" } })
+                        @Html.ValidationMessageFor(model => model.Nom_Coverage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" id="lblAlerta" style="display:none">
+                    <label class="control-label col-xs-4 col-md-2"></label>
+                    <div class="col-xs-8 col-md-10">
+                        <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                    </div>
+                </div>
+
+                <div class="form-inline row">
+                    <div class="col-md-12 form-inline">
+                        <label class="control-label col-xs-4 col-md-2" for="codigo">Móvil</label>
+                        <div class="col-xs-8 col-md-10 form-horizontal">
+                            <div class="checkbox">
+                                <input type="checkbox" checked="@Model.Movil" id="ch1" name="Movil" class="checkbox"  onchange="return verCheck()" tabindex = "2" />
+
+                                @Html.ValidationMessageFor(model => model.Movil, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <label class="control-label col-xs-4 col-md-2" for="codigo">Nacional</label>
+                        <div class="col-xs-8 col-md-10 form-horizontal">
+                            <div class="checkbox">
+                                <input type="checkbox" checked="@Model.Nacional" id="ch2" name='Nacional' class="checkbox"  onchange="return verCheck()" tabindex = "3"/>
+                                @Html.ValidationMessageFor(model => model.Nacional, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <label class="control-label col-xs-4 col-md-2" for="codigo">Internacional</label>
+                        <div class="col-xs-8 col-md-10 form-horizontal">
+                            <div class="checkbox">
+                                <input type="checkbox" checked="@Model.Internacional" id="ch3" name='Internacional' class="checkbox"  onchange="return verCheck()" tabindex = "4"/>
+                                @Html.ValidationMessageFor(model => model.Internacional, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                
+                <div class="form-group row">
+                    <label class="control-label  col-xs-4 col-md-2"></label>
+                    <a role="button" class="btn btn-success col-xs-2 col-md-2" tabindex = "6" onclick="location.href='@Url.Action("ListaCoberturas", "Coberturas")'">Regresar</a>
+                    <label class="control-label col-md-1"></label>
+                    <input type="submit" value="Guardar" id="submit" class="btn btn-success col-xs-2 col-md-2 " onclick="validate()" tabindex = "5"/>
+                </div>
+                
+            </div>
+        }
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        document.getElementById('txtArea').focus();
+        function verCheck()
+        {
+            var condiciones1 = $("#ch1").is(":checked");
+            var condiciones2 = $("#ch2").is(":checked");
+            var condiciones3 = $("#ch3").is(":checked");
+            if (condiciones1 && condiciones2 && condiciones3) {
+                document.getElementById("ch1").checked = false;
+                document.getElementById("ch2").checked = false;
+                document.getElementById("ch3").checked = false;
+                document.getElementById("msg").innerHTML = document.getElementById("msgCoberErra").value;
+                return false;
+            }
+            else
+            {
+                if (condiciones1 && (condiciones2 || condiciones3))
+                {
+                    document.getElementById("ch1").checked = false;
+                    document.getElementById("ch2").checked = false;
+                    document.getElementById("ch3").checked = false;
+                    document.getElementById("msg").innerHTML = document.getElementById("msgCoberErra").value;
+                    return false;
+                }
+                else
+                {
+                    if (condiciones2 && (condiciones1 || condiciones3)) {
+                        document.getElementById("ch1").checked = false;
+                        document.getElementById("ch2").checked = false;
+                        document.getElementById("ch3").checked = false;
+                        document.getElementById("msg").innerHTML = document.getElementById("msgCoberErra").value;
+                        return false;
+                    }
+                    else
+                    {
+                        if (condiciones3 && (condiciones1 || condiciones2)) {
+                            document.getElementById("ch1").checked = false;
+                            document.getElementById("ch2").checked = false;
+                            document.getElementById("ch3").checked = false;
+                            document.getElementById("msg").innerHTML = document.getElementById("msgCoberErra").value;
+                            return false;
+                        }
+                        else
+                        {
+                            document.getElementById("msg").innerHTML = "";
+                            return true;
+                        }
+                    }
+                }
+                
+            }
+        };
+
+    $(document).ready(function () {
+        $("#submit").on("click", function () {
+            var condiciones1 = $("#ch1").is(":checked");
+            var condiciones2 = $("#ch2").is(":checked");
+            var condiciones3 = $("#ch3").is(":checked");
+            var condicion1 = $("#ch1").is(true);
+            var condicion2 = $("#ch2").is(true);
+            var condicion3 = $("#ch3").is(true);
+            if (condiciones1 && condiciones2 && condiciones3 || condicion1 && condicion2 && condicion3) {
+                //alert("La cobertura debe ser sola una (Movil, Nacional o Internacional)");
+                document.getElementById("msg").innerHTML = document.getElementById("msgCoberErra").value;
+                //event.preventDefault();
+                return false;
+            } else if (condiciones1 && condiciones2 || condicion1 && condicion2)
+            {
+                // alert("La cobertura debe ser sola una (Movil, Nacional o Internacional)");
+                document.getElementById("msg").innerHTML = document.getElementById("msgCoberErra").value;
+                //event.preventDefault();
+                return false;
+            } else if (condiciones1 && condiciones3 || condicion1 && condicion3) {
+                //alert("La cobertura debe ser sola una (Movil, Nacional o Internacional)");
+                document.getElementById("msg").innerHTML = document.getElementById("msgCoberErra").value;
+                //event.preventDefault();
+                return false;
+            } else if (condiciones2 && condiciones3 || condicion2 && condicion3) {
+                // alert("La cobertura debe ser sola una (Movil, Nacional o Internacional)");
+                document.getElementById("msg").innerHTML =  document.getElementById("msgCoberErra").value;
+                //event.preventDefault();
+                return false;
+            }
+        });
+    });
+    </script>
+    <script type=text/javascript>
+function validate(){
+    var remember = document.getElementById('ch1');
+    if (remember.checked){
+        @Model.Movil==1;
+    }else{
+        @Model.Movil==0;
+    }
+}
+    </script>
+
+<script>
+    document.getElementById("submit").onclick = function () {
+        var nom = document.getElementById("txtArea").value;
+
+
+        if (nom == "") {
+            document.getElementById("lblAlerta").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("lblAlerta").style.display = "none"
+        }
+
+    }
+</script>
+}

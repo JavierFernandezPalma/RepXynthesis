@@ -1,0 +1,76 @@
+﻿@model  Xynthesis.Modelo.xy_rates
+<div class="modal-header text-center">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 class="modal-title"><strong>Eliminar tarifa</strong></h3>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                @*@Html.LabelFor(m => Model.Des_Rate, new { @class = "control-label col-sm-3" })*@
+                <label class="control-label col-sm-4">DESCRIPCION</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Des_Rate, new { @class = "form-control", @disabled = "disabled" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(m => Model.Ide_Coverage, new { @class = "control-label col-sm-3" })*@
+                <label class="control-label col-sm-4">COBERTURA</label>
+                <div class="col-sm-8">
+                    @*@Html.TextBoxFor(m => m.Ide_Coverage, new { @class = "form-control required", @disabled = "disabled" })*@
+                    @Html.DropDownListFor(model => model.Ide_Coverage, ViewBag.selCoberage as IEnumerable<SelectListItem>, new { @class = "form-control", @disabled = "disabled" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(m => Model.Ide_Operator, new { @class = "control-label col-sm-3" })*@
+                <label class="control-label col-sm-4">OPERADOR</label>
+                <div class="col-sm-8">
+                    @*@Html.TextBoxFor(m => m.Ide_Operator, new { @class = "form-control required", @disabled = "disabled" })*@
+                    @Html.DropDownListFor(model => model.Ide_Operator, ViewBag.selOperator as IEnumerable<SelectListItem>, new { @class = "form-control", @disabled = "disabled" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(m => Model.Num_Length, new { @class = "control-label col-sm-3" })*@
+                <label class="control-label col-sm-4">LONGITUD</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Num_Length, new { @class = "form-control required", @disabled = "disabled" })
+                </div>
+            </div>
+            <div class="form-group">
+                @*@Html.LabelFor(m => Model.Num_Prefix, new { @class = "control-label col-sm-3" })*@
+                <label class="control-label col-sm-4">NUMERO PREFIJO</label>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Num_Prefix, new { @class = "form-control required", @disabled = "disabled" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <h3>
+                        <span class="label label-danger">
+                            ¿ ESTAS SEGURO DE ELIMINAR ESTA TARIFA ?
+                        </span>
+                    </h3>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-footer">
+        <button class="btn btn-success" data-dismiss="modal">NO</button>
+        <input class="btn btn-success" type="submit" value="SI" />
+    </div>
+}
+

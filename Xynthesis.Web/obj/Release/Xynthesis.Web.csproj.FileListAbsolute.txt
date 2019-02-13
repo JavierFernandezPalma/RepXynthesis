@@ -1,0 +1,240 @@
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\csc.exe
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\vbc.exe
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\VBCSCompiler.exe
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.dll.config
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Antlr3.Runtime.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportSource.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.Shared.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\EntityFramework.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\MySql.Data.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Newtonsoft.Json.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\PagedList.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\PagedList.Mvc.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Helpers.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Mvc.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Optimization.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Razor.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Deployment.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Razor.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\WebGrease.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Reportes.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\stdole.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\EntityFramework.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\MySql.Data.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\PagedList.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\PagedList.Mvc.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Helpers.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Mvc.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Optimization.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.Razor.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Deployment.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Razor.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Antlr3.Runtime.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Reportes.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\Newtonsoft.Json.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Helpers.resources.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Mvc.resources.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Optimization.resources.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Razor.resources.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.resources.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.csprojResolveAssemblyReference.cache
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\csc.exe
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\vbc.exe
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\VBCSCompiler.exe
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.dll.config
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Antlr3.Runtime.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportSource.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.Shared.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\EntityFramework.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\MySql.Data.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Newtonsoft.Json.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\PagedList.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\PagedList.Mvc.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Helpers.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Mvc.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Optimization.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Razor.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Deployment.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Razor.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\WebGrease.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Reportes.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\stdole.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\EntityFramework.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\MySql.Data.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\PagedList.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\PagedList.Mvc.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Helpers.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Mvc.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Optimization.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.Razor.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Deployment.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Razor.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Antlr3.Runtime.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Reportes.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\Newtonsoft.Json.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Helpers.resources.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Mvc.resources.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Optimization.resources.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Razor.resources.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.resources.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.csprojResolveAssemblyReference.cache
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\csc.exe
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\vbc.exe
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\VBCSCompiler.exe
+D:\XynthesisWeb\Xynthesis.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.dll.config
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Web.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\Antlr3.Runtime.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportSource.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.Shared.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\EntityFramework.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\MySql.Data.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Newtonsoft.Json.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\PagedList.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\PagedList.Mvc.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Helpers.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Mvc.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Optimization.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Razor.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Deployment.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Razor.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\WebGrease.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Reportes.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\stdole.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\EntityFramework.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\MySql.Data.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\PagedList.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\PagedList.Mvc.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Helpers.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Mvc.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Optimization.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.Razor.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Deployment.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Razor.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\Antlr3.Runtime.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Reportes.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\Xynthesis.Web\bin\Newtonsoft.Json.xml
+D:\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Helpers.resources.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Mvc.resources.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Optimization.resources.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Razor.resources.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.resources.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.csprojResolveAssemblyReference.cache
+D:\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.dll
+D:\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.pdb

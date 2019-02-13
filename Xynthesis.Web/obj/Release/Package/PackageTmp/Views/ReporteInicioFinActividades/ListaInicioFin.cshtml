@@ -1,0 +1,89 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_SelActivityFirstAndLast_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "ListaInicioFin";
+}
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2><strong>Reporte Inicio y Fin de Actividades</strong></h2>
+    </div>
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-8">
+           @using (Html.BeginForm("ListaInicioFin_", "ReporteInicioFinActividades", FormMethod.Get))
+            {
+                <div class="form-group form-inline">
+                    @Html.TextBox("FechaInicial",null,  new { @class = "form-control", @type = "date", @id = "fi" })
+                    @Html.TextBox("FechaFinal", null, new { @class = "form-control", @type = "date", @id = "ff", @value = @ViewBag.fechafin })
+                    <input type="submit" name="btnEnviar" id="enviar" class="btn btn-success" value="GENERAR"/>
+                    <div class="form-group mx-5 text-center pull-right" id="fec">
+                        <label id="lblFechas" class="control-label">@ViewBag.fechaini @ViewBag.fechafin</label>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-4">
+            @using (Html.BeginForm("Reportes", "ReporteInicioFinActividades"))
+            {
+                <div class="form-group form-inline ">
+                    <select name="opcion" class="form-control">
+                        <option value="pdf">PDF</option>
+                        <option value="excel">EXCEL</option>
+                        <option value="word">WORD</option>
+                    </select>
+                   
+                    <input type="submit" name="btnGenerarReporte" id="GenerarReporte" value="EXPORTAR" class="btn btn-success" onclick="reporte();"/>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <table class="table table-condensed table-responsive table-hover">
+        <tr class="active">
+            <th>
+                <strong>NOMBRE SUBSCRIPTOR</strong>
+            </th>
+            <th>
+                <strong>FECHA</strong>
+            </th>
+            <th>
+                <strong>FECHA DE INICIO</strong>
+            </th>
+            <th>
+                <strong>FECHA FINAL</strong>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Subscriber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fec_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaInicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaFin)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ListaInicioFin", new { page, opcion = ViewBag.paraPaginacion, paraPaginacion = ViewBag.paraPaginacion }))  
+
+</div>
+

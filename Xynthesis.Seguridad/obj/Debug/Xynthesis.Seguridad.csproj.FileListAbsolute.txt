@@ -1,0 +1,122 @@
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojAssemblyReference.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CopyComplete
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll.config
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll.config
+D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll.config
+D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojAssemblyReference.cache
+D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CoreCompileInputs.cache
+D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CopyComplete
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb

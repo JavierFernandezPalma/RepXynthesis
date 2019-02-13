@@ -1,0 +1,115 @@
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojAssemblyReference.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CopyComplete
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojAssemblyReference.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CopyComplete
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll.config
+D:\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CoreCompileInputs.cache
+D:\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CopyComplete
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb

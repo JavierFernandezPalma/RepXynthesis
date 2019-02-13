@@ -1,0 +1,241 @@
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\CrystalDecisions.Shared.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\log4net.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\stdole.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+D:\Innovacion\AplicativoXynthesis\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.Shared.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\stdole.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojAssemblyReference.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\stdole.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+C:\Users\Alejandro\Documents\ProyectosTrabajo\XYNTHESIS\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csproj.CopyComplete
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\stdole.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll.config
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojAssemblyReference.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csproj.CopyComplete
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+C:\Users\Alejandro\Documents\ProyectosTrabajo\ProyectWorkMVC\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\stdole.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+D:\XynthesisWeb\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\stdole.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+D:\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
+D:\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+D:\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+C:\Users\Javier_Toto\Documents\Visual Studio 2013\Projects\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.Shared.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\stdole.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
+D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.Shared.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\stdole.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb

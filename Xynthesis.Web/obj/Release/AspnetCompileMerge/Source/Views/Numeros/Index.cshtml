@@ -1,0 +1,144 @@
+﻿@using PagedList.Mvc;
+@model  PagedList.IPagedList<Xynthesis.Modelo.xyp_SelNumbers_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+<script src="~/Scripts/NotacionDecimal.js"></script>
+@{
+    ViewBag.Title = "Números";
+}
+
+
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+<div class="container">
+    <div class="text-left">
+        <h2><strong>Números</strong></h2>
+    </div>
+    <br />
+    @using (Html.BeginForm("OrdenFiltro", "Numeros", FormMethod.Get))
+    {
+        <div class="row form-inline">
+
+            <div class="col-lg-3 form-group">
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, null, new { @class = "form-control", @placeholder = "BUSCA POR NÚMERO", @maxlength = "50", onkeypress = "return limipiarEspeciales(event)", onpaste = "return false" })&nbsp;&nbsp;
+                @*<button type="submit" class="btn btn-success "><span class="glyphicon glyphicon-search"></span></button>*@
+                <button type="submit" class="btn btn-success " ><span class="glyphicon glyphicon-search"></span></button>
+
+            </div>
+
+        </div>
+        <br />
+        
+    }
+
+    <table  class="table table-responsive table-hover table-striped table-condensed">
+        <tr  style="background-color:#E1E1E1;">
+            <th>
+                @Html.ActionLink("NÚMERO", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { style = "color:#8F8F8F;" })
+                @if (ViewBag.NameSortParm == "name_desc")
+                {
+                    <span class="glyphicon glyphicon-circle-arrow-down"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                }
+
+            </th>
+            <th>
+               @Html.ActionLink("EXTENSIÓN", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { style = "color:#8F8F8F;" })
+            </th>
+            <th>
+                @Html.ActionLink("USUARIO", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { style = "color:#8F8F8F;" })
+            </th>
+            <th>
+                @Html.ActionLink("CLIENTE", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { style = "color:#8F8F8F;" })
+            </th>
+            <th style="width:15%;"></th>
+            <th style="width:15%;"></th>
+        </tr>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.Ide_Number
+                </td>
+                <td>
+                    @if (@item.Tip_Extension == "1")
+                    {
+                        <input type="checkbox" id="ChkExtension" checked="checked" disabled="disabled" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" id="ChkExtension"  disabled="disabled"/>
+                    }
+                </td>
+                    <td>
+                        @item.Nom_Subscriber
+                    </td>
+                    <td>
+                        @item.nombreCliente
+                    </td>
+                <td>
+                <td class="pull-right">
+                    <a role="button" onclick="location.href='@Url.Action("EditarNumero", "Numeros",new { id = item.Ide_Number.Replace("+","").Replace(".","").Replace("*","") })'"><span class="glyphicon glyphicon-pencil" style="font-size:20px;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    @*<a role="button" onclick="location.href='@Url.Action("EliminarNumero", "Numeros",new { id = item.Ide_Number.Replace("+","").Replace(".","").Replace("*","") })'"><span class="glyphicon glyphicon-trash" style="font-size:20px;"></span></a>*@
+                    @Html.Raw("<a data-modal='' href='/nUMEROS/EliminarRegistro/" + item.Ide_Number.Replace("+", "").Replace(".", "").Replace("*", "") + "' id='" + item.Ide_Number.Replace("+", "").Replace(".", "").Replace("*", "") + "' title='Eliminar'> <span class='glyphicon glyphicon-trash'   style='font-size:20px;'> </span> </a>")
+                </td>
+                
+              </tr>
+        }
+
+    </table>
+    <div>
+        <br />
+        Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+    <div id='myModal' class='modal fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/respond.js")
+}
+
+

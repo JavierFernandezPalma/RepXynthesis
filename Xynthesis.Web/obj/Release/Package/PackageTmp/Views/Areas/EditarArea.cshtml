@@ -1,0 +1,88 @@
+﻿@model Xynthesis.Modelo.xy_costcenters
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/NotacionDecimal.js"></script>
+<script src="~/Scripts/ValidacionGeneral.js"></script>
+@{
+    ViewBag.Title = "Editar Áreas";
+    var msg = (Xynthesis.Utilidades.Mensaje)ViewBag.mensaje;
+}
+
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+
+<div class="container">
+    <br />
+    <div class="text-left">
+        <h2><strong>Editar áreas</strong></h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <br /><br />
+                @Html.HiddenFor(model => model.Ide_CostCenter)
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Nombre Áreas  (*)</label>
+                    <div class="col-xs-8 col-md-10">
+                        @Html.EditorFor(model => model.Nom_CostCenter, new { htmlAttributes = new { @class = "form-control", @id = "txtArea", @tabindex = "1", @maxlength = "100", onkeypress = "return validar(event)" } })
+                        @Html.ValidationMessageFor(model => model.Nom_CostCenter, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.HiddenFor(model => model.Ide_ParentCostCenter, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="control-label  col-xs-4 col-md-2"></label>
+                    <a role="button" class="btn btn-success col-xs-2 col-md-1" tabindex = "3" onclick="location.href='@Url.Action("Index", "Areas")'">Regresar</a>
+                    <label class="control-label col-md-1"></label>
+                    <input type="submit" value="Guardar" id="btnEnviar" class="btn btn-success col-xs-2 col-md-1 " tabindex = "2"/>
+                </div>
+                
+            </div>
+        }
+
+    </div>
+
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    document.getElementById('txtArea').focus();
+</script>

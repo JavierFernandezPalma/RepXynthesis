@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D0797F0-7625-488C-BFCD-AD7D0EC3BA43}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xynthesis.AccesoDatos</RootNamespace>
+    <AssemblyName>Xynthesis.AccesoDatos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xynthesis.Utilidades, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Xynthesis.Utilidades\bin\Debug\Xynthesis.Utilidades.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADAreas.cs" />
+    <Compile Include="ADBase.cs" />
+    <Compile Include="ADCliente.cs" />
+    <Compile Include="ADCoberturas.cs" />
+    <Compile Include="ADLlamadaCampeonaDuracion.cs" />
+    <Compile Include="ADNumeros.cs" />
+    <Compile Include="ADOperador.cs" />
+    <Compile Include="ADOperadorTarifaInter.cs" />
+    <Compile Include="ADOReporteFrecuenciadellamadas.cs" />
+    <Compile Include="ADReporteClaseDeLlamadas.cs" />
+    <Compile Include="ADReporteCoberturaLlamadas.cs" />
+    <Compile Include="ADReporteConsolidadoCoberturaLLamadas.cs" />
+    <Compile Include="ADReporteConsumosPersonales.cs" />
+    <Compile Include="ADReporteConsumosPorCentroCost.cs" />
+    <Compile Include="ADReporteGraficoLlamadasEntrantesSalientes.cs" />
+    <Compile Include="ADReporteGraficoLlamadasEntrantesSalientesDuracion.cs" />
+    <Compile Include="ADReporteGraficoTiempoPromedioAntesDeContestar.cs" />
+    <Compile Include="ADReporteHistoriaConsumo.cs" />
+    <Compile Include="ADReporteInicioFinActividades.cs" />
+    <Compile Include="ADReporteLlamadasAbiertasCerradas.cs" />
+    <Compile Include="ADReporteLlamadasEntrantes.cs" />
+    <Compile Include="ADReporteLlamadasEntrantesSalientes.cs" />
+    <Compile Include="ADReporteLlamadasRecibidasTransferidas.cs" />
+    <Compile Include="ADReporteLlamadasSalientes.cs" />
+    <Compile Include="ADReporteNumeroMasMarcado.cs" />
+    <Compile Include="ADReportePorPeriodoTiempo.cs" />
+    <Compile Include="ADReporteProgramado.cs" />
+    <Compile Include="ADReportes.cs" />
+    <Compile Include="ADReporteSabanaCalls.cs" />
+    <Compile Include="ADReporteTiempoDedicado.cs" />
+    <Compile Include="ADReporteTiempoPromedioAntesContestar.cs" />
+    <Compile Include="ADReporteTopLlamadaCampeonaCC.cs" />
+    <Compile Include="ADRepPromedioLlamadasHora.cs" />
+    <Compile Include="ADRepTarificacionEntraSalieTrans.cs" />
+    <Compile Include="ADRetarificacion.cs" />
+    <Compile Include="ADSeguridad.cs" />
+    <Compile Include="ADSucursal.cs" />
+    <Compile Include="ADUsuarios.cs" />
+    <Compile Include="ADTarifa.cs" />
+    <Compile Include="ADTarificacion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xynthesis.Modelo\Xynthesis.Modelo.csproj">
+      <Project>{1a656722-a967-45d1-96ec-c8afee3df43c}</Project>
+      <Name>Xynthesis.Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

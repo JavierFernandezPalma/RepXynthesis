@@ -1,0 +1,12 @@
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\Xynthesis.AccesoDatos.dll.config
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\Xynthesis.AccesoDatos.pdb
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\EntityFramework.dll
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\EntityFramework.xml
+D:\XynthesisWeb\Xynthesis.AccesoDatos\bin\x64\Debug\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\Xynthesis.AccesoDatos\obj\x64\Debug\Xynthesis.AccesoDatos.csprojResolveAssemblyReference.cache
+D:\XynthesisWeb\Xynthesis.AccesoDatos\obj\x64\Debug\Xynthesis.AccesoDatos.dll
+D:\XynthesisWeb\Xynthesis.AccesoDatos\obj\x64\Debug\Xynthesis.AccesoDatos.pdb

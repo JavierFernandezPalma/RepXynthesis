@@ -1,0 +1,54 @@
+﻿@model Xynthesis.Modelo.xy_sucursal
+
+@{
+    ViewBag.Title = "Eliminar Sucursal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2>Eliminar Sucursal</h2>
+    </div>
+    <br />
+    @*<div class="dl-horizontal">
+    <div class="form-group row">
+        <div class="text-right">
+            <label class="control-label col-md-2">Id</label>
+        </div>
+        <div class="col-md-10">
+            @Html.TextBox(Model.NombreSucursal, Model.IdSucursal, new { @class = "form-control", disabled = "disabled" })
+        </div>
+    </div>*@
+    <div class="form-group row">
+        <div class="text-right">
+            <label class="control-label col-md-2">SUCURSAL</label>
+        </div>
+        <div class="col-md-10">
+            @Html.TextBox(Model.NombreSucursal, Model.NombreSucursal, new { @class = "form-control", disabled = "disabled" })
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="text-right">
+            <label class="control-label col-md-2">UBICACION</label>
+        </div>
+        <div class="col-md-10">
+           @Html.DropDownList("DdlUbicacion", ViewData["Selgeo"] as SelectList, new { @class = "form-control", disabled = "disabled" })
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group row">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Eliminar" class="btn btn-success" />
+                @Html.ActionLink("Regresar", "ListaSucursales", "Sucursal", new { @class = "btn btn-success" })
+            </div>
+       </div>
+     }
+
+   </div>
+
+ </div>

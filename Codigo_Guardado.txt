@@ -1,0 +1,418 @@
+
+//Codigo anterior Servicio Xynthesis
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.ServiceProcess;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Xynthesis.AccesoDatos;
+using Xynthesis.Modelo;
+
+namespace Xynthesis.ServicioReportes
+{
+    public partial class Service1 : ServiceBase
+    {
+        xynthesisEntities xyt = new xynthesisEntities();
+        public DateTime fechaEjecucion = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00");
+        public string diaEjecucion = ConfigurationManager.AppSettings["diaEjecucion"] as string;
+        Timer Schedular;
+        public Service1()
+        {
+            InitializeComponent();
+            //frecuenciarep();
+
+
+        }
+        private void SchedularCallback(object e)
+        {
+
+            //this.WorkProcess("", 0);
+            this.frecuenciarep();
+        }
+
+        public void frecuenciarep()
+        {
+            var listaRepProg = (from filas in xyt.xy_configuracionrptprogramado select filas).ToList();
+
+            foreach (var f in listaRepProg)
+            {
+                var programacion = f.TipoFrecuencia;
+                var frecuencia = f.programacion;
+                WorkProcess(programacion, Convert.ToInt32(frecuencia));
+
+
+            }
+        }
+
+        public void WorkProcess(string programacion, int frecuencia)
+        {
+            Schedular = new Timer(new TimerCallback(SchedularCallback));
+            Int64 dueTime = 0;
+            TimeSpan timeSpan;
+
+            DateTime fechaActual = DateTime.Now;
+            var anio = fechaActual.Year;
+            var mes = fechaActual.Month;
+            var diasdelmesactual = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+
+            CultureInfo ci = new CultureInfo("Es-Es");
+            var diadelmes = ci.DateTimeFormat.GetDayName(DateTime.Now.DayOfWeek);
+
+            if (programacion == "diaria")
+            {
+                for (var i = frecuencia; i < diasdelmesactual; i += frecuencia)
+                {
+                    var diaEjecucion = i;
+                    try
+                    {
+                        if (DateTime.Now.Day == Convert.ToInt32(diaEjecucion))
+                        {
+                            //this.LogService("dia");
+                            ADBase contexto = new ADBase();
+
+                            List<xyp_SelReports_Result> lstReportes = new List<xyp_SelReports_Result>();
+
+                            lstReportes = contexto.ObtenerProgramacionReportes();
+                            var Horas = lstReportes.Select(P => Convert.ToDateTime(P.HoraEjecucion).TimeOfDay).ToList().Distinct();
+                            var HorMin = Horas.Select(P => P).Min();
+                            var HorMax = Horas.Select(P => P).Max();
+                            DateTime t2 = new DateTime(fechaEjecucion.Year, fechaEjecucion.Month, fechaEjecucion.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0, 0);
+                            this.LogService("Ejecucion de reportes");
+                            foreach (var rpt in Horas.OrderBy(P => true).ToList())
+                            {
+                                //var hor = rpt;
+                                if (t2.TimeOfDay == rpt)
+                                //if (hor == rpt)
+                                {
+                                    var reportesHora = lstReportes.Where(P => Convert.ToDateTime(P.HoraEjecucion).TimeOfDay == rpt).ToList();
+                                    var reportesConf = reportesHora.Select(P => P.ConfiguracionId).Distinct();
+                                    DateTime fechaFinal = DateTime.Today.AddDays(-1);
+                                    string FechaIni = fechaFinal.AddMonths(-1).Date.ToString("yyyy-MM-dd");
+                                    string FechaFin = fechaFinal.Date.ToString("yyyy-MM-dd");
+                                    foreach (var conf in reportesConf)
+                                    {
+                                        try
+                                        {
+                                            var reportesProgramados = reportesHora.Where(P => P.ConfiguracionId == conf).ToList();
+                                            var fi = reportesProgramados[0].fechaInicial.ToString();
+                                            var ff = reportesProgramados[0].fechaFinal.ToString();
+                                            Xynthesis.Reportes.ExportacionReportes.GenerarReporteProgramado(reportesProgramados, fi, ff);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            this.LogService("Error en ejecucion de reporte ConfiguracionID:" + conf + " Error: " + ex.Message + " StackTrace:" + ex.StackTrace);
+                                        }
+                                    }
+                                    if (rpt == HorMax)
+                                    {
+
+                                        DateTime fecInicial = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + HorMin.Hours.ToString() + ":" + HorMin.Minutes.ToString() + ":00");
+                                        DateTime fecFinal = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + HorMin.Hours.ToString() + ":" + HorMin.Minutes.ToString() + ":00");// " 00:01:00")
+                                                                                                                                                                                              //Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " 00:01:00");//DateTime.Now.Date;
+                                        fecFinal = fecFinal.AddMonths(1);
+                                        timeSpan = fecFinal.Subtract(fecInicial);
+                                        dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds);
+                                        this.LogService("Proxima Fecha de ejecucion" + fecFinal.ToString());
+                                        Schedular.Change(dueTime, Timeout.Infinite);
+                                        return;
+                                    }
+
+                                }
+                                else if (rpt > t2.TimeOfDay)
+                                {
+
+                                    DateTime fec = new DateTime(t2.Year, t2.Month, t2.Day, rpt.Hours, rpt.Minutes, 0, 0);
+                                    timeSpan = fec.Subtract(DateTime.Now);
+                                    dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds);
+                                    Schedular.Change(dueTime, Timeout.Infinite);
+
+                                    return;
+                                }
+
+
+                            }
+
+                        }
+                        else
+                        {
+
+                            var t = DateTime.Now.Month; // Mes actual 12
+                            DateTime fec = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0, 0); // 1/12/2018 12:00:00 a. m.
+
+                            var hoy = DateTime.Now.Date; // 19/12/2018 12:00:00 a. m. (Agregado por mí)
+
+                            timeSpan = fec.Subtract(DateTime.Now.Date); // Sustraer (fec - hoy) =  -18 dias
+
+                            
+
+                            dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds * - 1); // Se multiplica por (-1) para que de positivo
+                            this.LogService("Proxima Fecha de ejecucion " + fec.ToString());
+                           
+                            //Schedular.Change(0, Timeout.Infinite); // Para repetir ciclo
+                            //Schedular.Change(dueTime, Timeout.Infinite);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        LogService("Error No Controlado: {0} " + ex.Message + ex.StackTrace);
+
+                        using (System.ServiceProcess.ServiceController serviceController = new System.ServiceProcess.ServiceController("SimpleService"))
+                        {
+                            serviceController.Stop();
+                        }
+                    }
+                }
+
+
+            }
+            else if (programacion == "semanal")
+            {
+                var diareport = "";
+                if (frecuencia == 1)
+                { diareport = "lunes"; }
+                else if (frecuencia == 2)
+                { diareport = "martes"; }
+                else if (frecuencia == 3)
+                { diareport = "miércoles"; }
+                else if (frecuencia == 4)
+                { diareport = "jueves"; }
+                else if (frecuencia == 5)
+                { diareport = "viernes"; }
+                else if (frecuencia == 6)
+                { diareport = "sabado"; }
+                else if (frecuencia == 7)
+                { diareport = "domingo"; }
+
+                if (diareport == diadelmes)
+                {
+                    ADBase contexto = new ADBase();
+
+                    List<xyp_SelReports_Result> lstReportes = new List<xyp_SelReports_Result>();
+
+                    lstReportes = contexto.ObtenerProgramacionReportes();
+                    var Horas = lstReportes.Select(P => Convert.ToDateTime(P.HoraEjecucion).TimeOfDay).ToList().Distinct();
+                    var HorMin = Horas.Select(P => P).Min();
+                    var HorMax = Horas.Select(P => P).Max();
+                    DateTime t2 = new DateTime(fechaEjecucion.Year, fechaEjecucion.Month, fechaEjecucion.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0, 0);
+                    this.LogService("Ejecucion de reportes");
+                    foreach (var rpt in Horas.OrderBy(P => true).ToList())
+                    {
+                        //var hor = rpt;
+                        if (t2.TimeOfDay == rpt)
+                            //if (hor == rpt)
+                        {
+                            var reportesHora = lstReportes.Where(P => Convert.ToDateTime(P.HoraEjecucion).TimeOfDay == rpt).ToList();
+                            var reportesConf = reportesHora.Select(P => P.ConfiguracionId).Distinct();
+                            DateTime fechaFinal = DateTime.Today.AddDays(-1);
+                            string FechaIni = fechaFinal.AddMonths(-1).Date.ToString("yyyy-MM-dd");
+                            string FechaFin = fechaFinal.Date.ToString("yyyy-MM-dd");
+                            foreach (var conf in reportesConf)
+                            {
+                                try
+                                {
+                                    var reportesProgramados = reportesHora.Where(P => P.ConfiguracionId == conf).ToList();
+                                    var fi = reportesProgramados[0].fechaInicial.ToString();
+                                    var ff = reportesProgramados[0].fechaFinal.ToString();
+                                    Xynthesis.Reportes.ExportacionReportes.GenerarReporteProgramado(reportesProgramados, fi, ff);
+                                }
+                                catch (Exception ex)
+                                {
+                                    this.LogService("Error en ejecucion de reporte ConfiguracionID:" + conf + " Error: " + ex.Message + " StackTrace:" + ex.StackTrace);
+                                }
+                            }
+                            if (rpt == HorMax)
+                            {
+
+                                DateTime fecInicial = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + HorMin.Hours.ToString() + ":" + HorMin.Minutes.ToString() + ":00");
+                                DateTime fecFinal = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + HorMin.Hours.ToString() + ":" + HorMin.Minutes.ToString() + ":00");// " 00:01:00")
+                                                                                                                                                                                      //Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " 00:01:00");//DateTime.Now.Date;
+                                fecFinal = fecFinal.AddMonths(1);
+                                timeSpan = fecFinal.Subtract(fecInicial);
+                                dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds);
+                                this.LogService("Proxima Fecha de ejecucion" + fecFinal.ToString());
+                                Schedular.Change(dueTime, Timeout.Infinite);
+                                return;
+                            }
+
+                        }
+                        else if (rpt > t2.TimeOfDay)
+                        {
+
+                            DateTime fec = new DateTime(t2.Year, t2.Month, t2.Day, rpt.Hours, rpt.Minutes, 0, 0);
+                            timeSpan = fec.Subtract(DateTime.Now);
+                            dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds);
+                            Schedular.Change(dueTime, Timeout.Infinite);
+
+                            return;
+                        }
+                    }
+                }
+            }
+            else if (programacion == "mensual")
+            {
+                try
+                {
+                    if (DateTime.Now.Day == Convert.ToInt32(frecuencia))
+                    {
+                        //this.LogService("dia");
+                        ADBase contexto = new ADBase();
+
+                        List<xyp_SelReports_Result> lstReportes = new List<xyp_SelReports_Result>();
+
+                        lstReportes = contexto.ObtenerProgramacionReportes();
+                        var Horas = lstReportes.Select(P => Convert.ToDateTime(P.HoraEjecucion).TimeOfDay).ToList().Distinct();
+                        var HorMin = Horas.Select(P => P).Min();
+                        var HorMax = Horas.Select(P => P).Max();
+                        DateTime t2 = new DateTime(fechaEjecucion.Year, fechaEjecucion.Month, fechaEjecucion.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0, 0);
+                        this.LogService("Ejecucion de reportes");
+                        foreach (var rpt in Horas.OrderBy(P => true).ToList())
+                        {
+                            //var hor = rpt;
+                            if (t2.TimeOfDay == rpt)
+                                //if (hor == rpt)
+                            {
+                                var reportesHora = lstReportes.Where(P => Convert.ToDateTime(P.HoraEjecucion).TimeOfDay == rpt).ToList();
+                                var reportesConf = reportesHora.Select(P => P.ConfiguracionId).Distinct();
+                                DateTime fechaFinal = DateTime.Today.AddDays(-1);
+                                string FechaIni = fechaFinal.AddMonths(-1).Date.ToString("yyyy-MM-dd");
+                                string FechaFin = fechaFinal.Date.ToString("yyyy-MM-dd");
+                                foreach (var conf in reportesConf)
+                                {
+                                    try
+                                    {
+                                        var reportesProgramados = reportesHora.Where(P => P.ConfiguracionId == conf).ToList();
+                                        var fi = reportesProgramados[0].fechaInicial.ToString();
+                                        var ff = reportesProgramados[0].fechaFinal.ToString();
+                                        Xynthesis.Reportes.ExportacionReportes.GenerarReporteProgramado(reportesProgramados, fi, ff);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        this.LogService("Error en ejecucion de reporte ConfiguracionID:" + conf + " Error: " + ex.Message + " StackTrace:" + ex.StackTrace);
+                                    }
+                                }
+                                if (rpt == HorMax)
+                                {
+
+                                    DateTime fecInicial = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + HorMin.Hours.ToString() + ":" + HorMin.Minutes.ToString() + ":00");
+                                    DateTime fecFinal = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " " + HorMin.Hours.ToString() + ":" + HorMin.Minutes.ToString() + ":00");// " 00:01:00")
+                                                                                                                                                                                          //Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd") + " 00:01:00");//DateTime.Now.Date;
+                                    fecFinal = fecFinal.AddMonths(1);
+                                    timeSpan = fecFinal.Subtract(fecInicial);
+                                    dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds);
+                                    this.LogService("Proxima Fecha de ejecucion" + fecFinal.ToString());
+                                    Schedular.Change(dueTime, Timeout.Infinite);
+                                    return;
+                                }
+
+                            }
+                            else if (rpt > t2.TimeOfDay)
+                            {
+
+                                DateTime fec = new DateTime(t2.Year, t2.Month, t2.Day, rpt.Hours, rpt.Minutes, 0, 0);
+                                timeSpan = fec.Subtract(DateTime.Now);
+                                dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds);
+                                Schedular.Change(dueTime, Timeout.Infinite);
+
+                                return;
+                            }
+
+
+                        }
+
+                    }
+                    else
+                    {
+                        DateTime fec = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1, 0, 0, 0, 0);
+                        timeSpan = fec.Subtract(DateTime.Now.Date);
+                        dueTime = Convert.ToInt64(timeSpan.TotalMilliseconds);
+                        this.LogService("Proxima Fecha de ejecucion " + fec.ToString());
+                        Schedular.Change(dueTime, Timeout.Infinite);
+                        Schedular.Change(0, Timeout.Infinite);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogService("Error No Controlado: {0} " + ex.Message + ex.StackTrace);
+
+                    using (System.ServiceProcess.ServiceController serviceController = new System.ServiceProcess.ServiceController("SimpleService"))
+                    {
+                        serviceController.Stop();
+                    }
+                }
+            }
+
+
+        
+
+    }
+    protected override void OnStart(string[] args)  //Inicio del servicio Metodo OnStart()
+    {
+        LogService("El Servicio se ha Iniciado");
+        this.frecuenciarep();
+
+    }
+    protected override void OnStop()
+    {
+        LogService("El Servicio se ha parado");
+
+        this.Schedular.Dispose();
+    }
+    private void LogService(string content)
+    {
+        string RutaLog = ConfigurationManager.AppSettings["RutaLogServiceRpt"] as string;
+        FileStream fs = new FileStream(RutaLog, FileMode.OpenOrCreate, FileAccess.Write);
+        StreamWriter sw = new StreamWriter(fs);
+        sw.BaseStream.Seek(0, SeekOrigin.End);
+        sw.WriteLine(content);
+        sw.Flush();
+        sw.Close();
+    }
+
+       public void ServiceWindowsTest()
+        {
+            this.frecuenciarep();
+        }
+
+}
+}
+
+
+                        if(fechaActual.Day < reproteProgramado.programacion && fechaActual.Day != diasDelMesactual)
+                        {
+                            var diasParaReporte = (reproteProgramado.programacion - fechaActual.Day); // Diferencia de dias para el proximo reporte
+                            DateTime fecha = DateTime.Now.AddDays(Convert.ToInt32(diasParaReporte)); // Adiciona dias a la fecha actual
+                            DateTime hora = reproteProgramado.HoraEjecucion;
+                            DateTime fechaProxReport = Convert.ToDateTime(fecha.ToString("yyyy-MM-dd") +" "+ hora.ToString("H:mm:ss")); // Convierte y compacta fecha con hora para el proximo reporte
+
+                            xyt.xyp_ProxEjecucionReporte(fechaProxReport.ToString("yyyy-MM-dd H:mm:ss"), reproteProgramado.ConfiguracionId.ToString()); // Guarda fecha para proximo reporte en tabla xy_configuracionrptprogramado
+                        }
+                        else if (fechaActual.Day > reproteProgramado.programacion && fechaActual.Day != diasDelMesactual)
+                        {
+                            DateTime fecha = Convert.ToDateTime(fechaActual.ToString("yyyy-MM") + "-01");
+
+
+
+                            while (fechaActual > fecha)
+                            {
+                                fecha.AddDays(Convert.ToInt32(reproteProgramado.programacion));
+                            }
+
+
+
+------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
+
+//Codigo Nuevo
+
+
+

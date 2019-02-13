@@ -1,0 +1,36 @@
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll.config
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.xml
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll.config
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.xml
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.pdb
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.dll
+D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll.config
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.pdb
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.dll
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.xml
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.xml
+D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.pdb
+D:\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.dll
+D:\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.pdb

@@ -1,0 +1,82 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_SelUsuarios_Result>
+@*@model IEnumerable<Xynthesis.Modelo.xyp_SelUsuarios_Result>*@
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+
+@{
+    ViewBag.Title = "ListaUsuarios";
+}
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2><strong>Reporte de Usuarios</strong></h2>
+    </div>
+    <br />
+    <br />
+
+    <div class="row ">
+        <div class="col-md-4 pull-right">
+            @using (Html.BeginForm("Reportes", "ReporteUsuarios"))
+            {
+                @Html.TextBox("FechaInicial", null, new { @class = "form-control hidden", @type = "date", @id = "fechini" })
+                @Html.TextBox("FechaFinal", null, new { @class = "form-control hidden", @type = "date", @id = "fechfin" })
+                <div class="form-group form-inline pull-right">
+                    <select name="opcion" class="form-control">
+                        <option value="pdf">PDF</option>
+                        <option value="excel">EXCEL</option>
+                        <option value="word">WORD</option>
+                    </select>
+                    <input type="submit" name="btnGenerarReporte" id="GenerarReporte" value="GENERAR REPORTE" class="btn btn-success" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <p>
+
+    </p>
+    <table class="table table-condensed table-responsive table-hover">
+        <tr>
+
+            <th>
+                <strong>NOMBRE SUBSCRIPTOR</strong>
+            </th>
+            <th>
+                <strong>USUARIO</strong>
+            </th>
+            <th>
+                <strong>TIPO DE USUARIO</strong>
+            </th>
+            <th class="text-center">
+                <strong>CONTRASEÑA</strong>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Subscriber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_DomainUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tip_Subscriber)
+                </td>
+                <td class="pull-right">
+                    @Html.DisplayFor(modelItem => item.Str_Password)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ListaUsuarios", new { page, opcion = ViewBag.paraPaginacion, paraPaginacion = ViewBag.paraPaginacion }))
+</div>

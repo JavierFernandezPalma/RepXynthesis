@@ -1,0 +1,8 @@
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\bin\Release\Xynthesis.Utilidades.dll.config
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\bin\Release\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\bin\Release\Xynthesis.Utilidades.pdb
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\obj\Release\Xynthesis.Utilidades.csprojResolveAssemblyReference.cache
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\obj\Release\Xynthesis.Utilidades.Mensajes.MensajesXynthesis.resources
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\obj\Release\Xynthesis.Utilidades.csproj.GenerateResource.Cache
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\obj\Release\Xynthesis.Utilidades.dll
+D:\XYNTHESIS\XynthesisWeb\Xynthesis.Utilidades\obj\Release\Xynthesis.Utilidades.pdb

@@ -1,0 +1,113 @@
+﻿@model Xynthesis.Modelo.xy_operators
+@using Xynthesis.Utilidades.Mensajes;
+@{
+    ViewBag.Title = "Edit";
+    var msg = (Xynthesis.Utilidades.Mensaje)ViewBag.mensaje;
+}
+<script src="~/Scripts/NotacionDecimal.js"></script>
+<script src="~/Scripts/ValidacionGeneral.js"></script>
+
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+
+
+
+<div class="container">
+    <br />
+    <div class="text-left">
+        <h2><strong>Editar operador</strong></h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <br /><br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Ide_Operator)
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Código Operador</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.Cod_Operator, new { htmlAttributes = new { @class = "form-control", @id = "CodOperador", @tabindex = "1", @maxlength = "5", @type = "number", onpaste = "return false", @min="-1", @max="999999", onkeypress = "return ValidaSoloNumeros(event)" } })
+                        @Html.ValidationMessageFor(model => model.Cod_Operator, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Nombre Operador  (*)</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.Nom_Operator, new { htmlAttributes = new { @class = "form-control", @id = "txtArea", @tabindex = "2", @required = "required", @maxlength="40", onkeypress = "return validar(event)"} })
+                        @Html.ValidationMessageFor(model => model.Nom_Operator, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" id="lblAlerta" style="display:none">
+                    <label class="control-label col-md-2"></label>
+                    <div class="col-md-10">
+                        <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model.Ide_Coverage, new { htmlAttributes = new { @class = "form-control" } })
+                
+                <div class="form-group row">
+                    <label class="control-label  col-xs-4 col-md-2"></label>
+                    <a role="button" class="btn btn-success col-xs-2 col-md-1" tabindex = "4" onclick="location.href='@Url.Action("Index", "Operador")'">Regresar</a>
+                    <label class="control-label col-md-1"></label>
+                    <input type="submit" value="Guardar" id="btnEnviar" class="btn btn-success col-xs-2 col-md-1 " tabindex = "3"/>
+                </div>
+                
+            </div>
+        }
+
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    document.getElementById('CodOperador').focus();
+    document.getElementById("btnEnviar").onclick = function () {
+        var nom = document.getElementById("txtArea").value;
+
+
+        if (nom == "") {
+            document.getElementById("lblAlerta").style.display = "block"
+            return false;
+        } else {
+            document.getElementById("lblAlerta").style.display = "none"
+        }
+
+    }
+</script>

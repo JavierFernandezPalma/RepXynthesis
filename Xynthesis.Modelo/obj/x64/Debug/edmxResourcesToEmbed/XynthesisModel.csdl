@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="xynthesisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="xynthesisEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="xy_cliente" EntityType="xynthesisModel.xy_cliente" />
+    <EntitySet Name="xy_communicationserver" EntityType="xynthesisModel.xy_communicationserver" />
+    <EntitySet Name="xy_costcenters" EntityType="xynthesisModel.xy_costcenters" />
+    <EntitySet Name="xy_geography" EntityType="xynthesisModel.xy_geography" />
+    <EntitySet Name="xy_pais" EntityType="xynthesisModel.xy_pais" />
+    <EntitySet Name="xy_rol" EntityType="xynthesisModel.xy_rol" />
+    <EntitySet Name="xy_roles_menus_" EntityType="xynthesisModel.xy_roles_menus_" />
+    <EntitySet Name="xy_sucursal" EntityType="xynthesisModel.xy_sucursal" />
+    <EntitySet Name="xy_numbersxsubscriber" EntityType="xynthesisModel.xy_numbersxsubscriber" />
+    <EntitySet Name="xy_rolesxsubscriber" EntityType="xynthesisModel.xy_rolesxsubscriber" />
+    <FunctionImport Name="xyp_DelCostCentre">
+      <Parameter Name="vParam" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_DelNumber">
+      <Parameter Name="ideNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_DelSucursal">
+      <Parameter Name="idSucursal" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_InsCostCentre">
+      <Parameter Name="vCode" Mode="In" Type="String" />
+      <Parameter Name="vName" Mode="In" Type="String" />
+      <Parameter Name="iParent" Mode="In" Type="Int32" />
+      <Parameter Name="ireturnCode" Mode="Out" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_InsNumber">
+      <Parameter Name="ideNumber" Mode="In" Type="String" />
+      <Parameter Name="tipExtension" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_InsSucursal">
+      <Parameter Name="Nombre_Sucursal" Mode="In" Type="String" />
+      <Parameter Name="Ide_Geography" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_UpdCostCentre">
+      <Parameter Name="vCode" Mode="In" Type="String" />
+      <Parameter Name="vName" Mode="In" Type="String" />
+      <Parameter Name="vParent" Mode="In" Type="Int32" />
+      <Parameter Name="vIdentity" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_UpdNumberBySubscriber">
+      <Parameter Name="ideNumber" Mode="In" Type="String" />
+      <Parameter Name="fecDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ideSubscriber" Mode="In" Type="Int64" />
+      <Parameter Name="tipSubscriber" Mode="In" Type="String" />
+      <Parameter Name="ideServerType" Mode="In" Type="Int32" />
+      <Parameter Name="ideBranch" Mode="In" Type="Int32" />
+      <Parameter Name="ideCostCenter" Mode="In" Type="Int32" />
+      <Parameter Name="ideGeography" Mode="In" Type="Int32" />
+      <Parameter Name="ideNumberOld" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_UpdSubscriber">
+      <Parameter Name="ideSubscriber" Mode="In" Type="Int32" />
+      <Parameter Name="nomSubscriber" Mode="In" Type="String" />
+      <Parameter Name="nomDomainUser" Mode="In" Type="String" />
+      <Parameter Name="tipSubscriber" Mode="In" Type="String" />
+      <Parameter Name="vPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelAllCostCentre" ReturnType="Collection(xynthesisModel.xyp_SelAllCostCentre_Result)">
+      <Parameter Name="iStartIndex" Mode="In" Type="Int32" />
+      <Parameter Name="iEndIndex" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelAllCostCentreParents" ReturnType="Collection(xynthesisModel.xyp_SelAllCostCentreParents_Result)">
+      <Parameter Name="vParam" Mode="In" Type="String" />
+      <Parameter Name="iStartIndex" Mode="In" Type="Int32" />
+      <Parameter Name="iEndIndex" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelCountry" ReturnType="Collection(xynthesisModel.xyp_SelCountry_Result)" />
+    <FunctionImport Name="xyp_SelCoverages" ReturnType="Collection(xynthesisModel.xyp_SelCoverages_Result)" />
+    <FunctionImport Name="xyp_SelGeographyByCity" ReturnType="Collection(xynthesisModel.xyp_SelGeographyByCity_Result)">
+      <Parameter Name="nomCountry" Mode="In" Type="String" />
+      <Parameter Name="nomProvince" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelGeographyByCountry" ReturnType="Collection(xynthesisModel.xyp_SelGeographyByCountry_Result)">
+      <Parameter Name="nomCountry" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelNumbers" ReturnType="Collection(xynthesisModel.xyp_SelNumbers_Result)">
+      <Parameter Name="iStartIndex" Mode="In" Type="Int32" />
+      <Parameter Name="iEndIndex" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelOperators" ReturnType="Collection(xynthesisModel.xyp_SelOperators_Result)">
+      <Parameter Name="Ide_Operator_" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelOperTarifInterna" ReturnType="Collection(xynthesisModel.xyp_SelOperTarifInterna_Result)">
+      <Parameter Name="idtarifaInter1_" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelServerType" ReturnType="Collection(xynthesisModel.xyp_SelServerType_Result)" />
+    <FunctionImport Name="xyp_SelSucursales" ReturnType="Collection(xynthesisModel.xyp_SelSucursales_Result)" />
+    <FunctionImport Name="xyp_SelUsuarioRol" ReturnType="Collection(xynthesisModel.xyp_SelUsuarioRol_Result)">
+      <Parameter Name="Ide_Subscriber_" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_InsOperator">
+      <Parameter Name="codOperator_" Mode="In" Type="String" />
+      <Parameter Name="NomOperator_" Mode="In" Type="String" />
+      <Parameter Name="IdeCoverage_" Mode="In" Type="Int32" />
+      <Parameter Name="vlr_Cost_" Mode="In" Type="Decimal" />
+      <Parameter Name="Unit_" Mode="In" Type="String" />
+      <Parameter Name="NumberDigits_" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_UpdOperator">
+      <Parameter Name="Ide_Operator_" Mode="In" Type="Int32" />
+      <Parameter Name="codOperator_" Mode="In" Type="String" />
+      <Parameter Name="NomOperator_" Mode="In" Type="String" />
+      <Parameter Name="IdeCoverage_" Mode="In" Type="Int32" />
+      <Parameter Name="vlr_Cost_" Mode="In" Type="Decimal" />
+      <Parameter Name="Unit_" Mode="In" Type="String" />
+      <Parameter Name="NumberDigits_" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RECalCostTicket">
+      <Parameter Name="fecIni" Mode="In" Type="String" />
+      <Parameter Name="fecFin" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="xy_operators" EntityType="xynthesisModel.xy_operators" />
+    <EntitySet Name="xy_rates" EntityType="xynthesisModel.xy_rates" />
+    <EntitySet Name="xy_operador_tarifa_inter" EntityType="xynthesisModel.xy_operador_tarifa_inter" />
+    <FunctionImport Name="xyp_UpdSucursal">
+      <Parameter Name="IdSucursal_" Mode="In" Type="Int32" />
+      <Parameter Name="NombreSucursal_" Mode="In" Type="String" />
+      <Parameter Name="Ide_Geography_" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelUsuarios" ReturnType="Collection(xynthesisModel.xyp_SelUsuarios_Result)" />
+    <FunctionImport Name="xyp_SelActivityFirstAndLast" ReturnType="Collection(xynthesisModel.xyp_SelActivityFirstAndLast_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RepBudgetBySubscriber" ReturnType="Collection(xynthesisModel.xyp_RepBudgetBySubscriber_Result)" />
+    <FunctionImport Name="xyp_RepBudgetLimit" ReturnType="Collection(xynthesisModel.xyp_RepBudgetLimit_Result)" />
+    <FunctionImport Name="xyp_CallAmountByContraparte" ReturnType="Collection(xynthesisModel.xyp_CallAmountByContraparte_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelCallAmountsBySubscriber" ReturnType="Collection(xynthesisModel.xyp_SelCallAmountsBySubscriber_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_CallTypesAmountReport" ReturnType="Collection(xynthesisModel.xyp_CallTypesAmountReport_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_NumberAmountsByOutSubscriber" ReturnType="Collection(xynthesisModel.xyp_NumberAmountsByOutSubscriber_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_NumberAmountsBySubscriber" ReturnType="Collection(xynthesisModel.xyp_NumberAmountsBySubscriber_Result)">
+      <Parameter Name="dStartDate" Mode="In" Type="String" />
+      <Parameter Name="dEndDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelConsumeByCostCenter" ReturnType="Collection(xynthesisModel.xyp_SelConsumeByCostCenter_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="Cobertura" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelCostCentreByUser" ReturnType="Collection(xynthesisModel.xyp_SelCostCentreByUser_Result)">
+      <Parameter Name="iIdSubscriber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelConsumeByHistory" ReturnType="Collection(xynthesisModel.xyp_SelConsumeByHistory_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="anio" Mode="In" Type="String" />
+      <Parameter Name="mes" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelDetailChampCallCost" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallCost_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+      <Parameter Name="Origen" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelDetailChampCallDuration" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallDuration_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelFrequentExtensionNumber" ReturnType="Collection(xynthesisModel.xyp_SelFrequentExtensionNumber_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_ReceiveCalls" ReturnType="Collection(xynthesisModel.xyp_ReceiveCalls_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RepReceiveCallsLlamEntranSalien" ReturnType="Collection(xynthesisModel.xyp_RepReceiveCallsLlamEntranSalien_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_ReceiveAndTransferCalls" ReturnType="Collection(xynthesisModel.xyp_ReceiveAndTransferCalls_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_ReceiveCallsTiempoPromedio" ReturnType="Collection(xynthesisModel.xyp_ReceiveCallsTiempoPromedio_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RepConsolidadoCoberturaLLamadas" ReturnType="Collection(xynthesisModel.xyp_RepConsolidadoCoberturaLLamadas_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_ReceiveCallsTiempoPromedio_repo" ReturnType="Collection(xynthesisModel.xyp_ReceiveCallsTiempoPromedio_repo_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RepPromedioLlamadasHora" ReturnType="Collection(xynthesisModel.xyp_RepPromedioLlamadasHora_Result)">
+      <Parameter Name="dStartDate" Mode="In" Type="String" />
+      <Parameter Name="dEndDate" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="Rango" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RepGrafNumberAmountsBySubscriber" ReturnType="Collection(xynthesisModel.xyp_RepGrafNumberAmountsBySubscriber_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_Updoperador_tarifa_inter">
+      <Parameter Name="idtarifaInter_" Mode="In" Type="Int32" />
+      <Parameter Name="IdOperador_" Mode="In" Type="Int32" />
+      <Parameter Name="IdPais_" Mode="In" Type="Int32" />
+      <Parameter Name="VlrInternaMinsinIva_" Mode="In" Type="Decimal" />
+      <Parameter Name="VlrInternaMinconIva_" Mode="In" Type="Decimal" />
+      <Parameter Name="Movil_" Mode="In" Type="SByte" />
+      <Parameter Name="Fijo_" Mode="In" Type="SByte" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_Insoperador_tarifa_inter">
+      <Parameter Name="IdOperador_" Mode="In" Type="Int32" />
+      <Parameter Name="IdPais_" Mode="In" Type="Int32" />
+      <Parameter Name="VlrInternaMinsinIva_" Mode="In" Type="Decimal" />
+      <Parameter Name="VlrInternaMinconIva_" Mode="In" Type="Decimal" />
+      <Parameter Name="Movil_" Mode="In" Type="SByte" />
+      <Parameter Name="Fijo_" Mode="In" Type="SByte" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RepTarificacionEntraSalieTrans" ReturnType="Collection(xynthesisModel.xyp_RepTarificacionEntraSalieTrans_Result)">
+      <Parameter Name="dStartDate" Mode="In" Type="String" />
+      <Parameter Name="dEndDate" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="Sucursal" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="xy_configuracionreporte" EntityType="xynthesisModel.xy_configuracionreporte" />
+    <EntitySet Name="xy_frecuencia" EntityType="xynthesisModel.xy_frecuencia" />
+    <EntitySet Name="xy_reportes" EntityType="xynthesisModel.xy_reportes" />
+    <AssociationSet Name="ReporteId" Association="xynthesisModel.ReporteId">
+      <End Role="xy_reportes" EntitySet="xy_reportes" />
+      <End Role="xy_configuracionreporte" EntitySet="xy_configuracionreporte" />
+    </AssociationSet>
+    <FunctionImport Name="xyp_SelReports" ReturnType="Collection(xynthesisModel.xyp_SelReports_Result)">
+      <Parameter Name="IdRepProgramado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_DelRepProgra">
+      <Parameter Name="ConfId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="xy_coverage" EntityType="xynthesisModel.xy_coverage" />
+    <FunctionImport Name="xyp_RepCallOpenAndClosed" ReturnType="Collection(xynthesisModel.xyp_RepCallOpenAndClosed_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="CallDurationParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_UpdRepProgra">
+      <Parameter Name="ConfId" Mode="In" Type="Int32" />
+      <Parameter Name="RepId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelOperxCoberMovil" ReturnType="Collection(xynthesisModel.xyp_SelOperxCoberMovil_Result)" />
+    <FunctionImport Name="xyp_NumberAmountsByInSubscriber" ReturnType="Collection(xynthesisModel.xyp_NumberAmountsByInSubscriber_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+      <Parameter Name="Extens" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelConsumeByExtensionAndUser" ReturnType="Collection(xynthesisModel.xyp_SelConsumeByExtensionAndUser_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="ExtensionParameter" Mode="In" Type="String" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_DelRolUser">
+      <Parameter Name="Id_Usuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_RolUser">
+      <Parameter Name="Id_Roles" Mode="In" Type="Int32" />
+      <Parameter Name="Id_Usuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_UpdRolUser">
+      <Parameter Name="Id_Roles" Mode="In" Type="Int32" />
+      <Parameter Name="Id_Usuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="xy_subscriber" EntityType="xynthesisModel.xy_subscriber" />
+    <EntitySet Name="xy_numbers" EntityType="xynthesisModel.xy_numbers" />
+    <FunctionImport Name="xyp_UpdNumber">
+      <Parameter Name="ideNumber" Mode="In" Type="String" />
+      <Parameter Name="tipExtension" Mode="In" Type="Int32" />
+      <Parameter Name="idcliente_" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_SelDialedNumber" ReturnType="Collection(xynthesisModel.xyp_SelDialedNumber_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Origen" Mode="In" Type="String" />
+      <Parameter Name="Destino" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_cambiarclave">
+      <Parameter Name="id_user" Mode="In" Type="Int32" />
+      <Parameter Name="clave" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_InsRepProg">
+      <Parameter Name="ReporteId_" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre_" Mode="In" Type="String" />
+      <Parameter Name="HoraEjecucion_" Mode="In" Type="DateTime" />
+      <Parameter Name="FormatoArchivo_" Mode="In" Type="String" />
+      <Parameter Name="EmailFrom_" Mode="In" Type="String" />
+      <Parameter Name="EmailCC_" Mode="In" Type="String" />
+      <Parameter Name="Asunto_" Mode="In" Type="String" />
+      <Parameter Name="Mensaje_" Mode="In" Type="String" />
+      <Parameter Name="Filtro_" Mode="In" Type="String" />
+      <Parameter Name="FrecuenciaId_" Mode="In" Type="Int32" />
+      <Parameter Name="fechaInicial_" Mode="In" Type="String" />
+      <Parameter Name="fechaFinal_" Mode="In" Type="String" />
+      <Parameter Name="TipoFrecuencia_" Mode="In" Type="String" />
+      <Parameter Name="Programacion_" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xyp_GrupNumSuscriber" ReturnType="Collection(xynthesisModel.xyp_GrupNumSuscriber_Result)" />
+    <FunctionImport Name="xyp_DestinoLlamadaCampeonaArea" ReturnType="Collection(xynthesisModel.xyp_DestinoLlamadaCampeonaArea_Result)" />
+    <FunctionImport Name="xyp_RepSabanaCalls" ReturnType="Collection(xynthesisModel.xyp_RepSabanaCalls_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="xy_configuracionrptprogramado" EntityType="xynthesisModel.xy_configuracionrptprogramado" />
+    <FunctionImport Name="xyp_ProxEjecucionReporte">
+      <Parameter Name="FechaProxRepor" Mode="In" Type="String" />
+      <Parameter Name="IdRepor" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="xy_cliente">
+    <Key>
+      <PropertyRef Name="Idcliente" />
+    </Key>
+    <Property Name="Idcliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_communicationserver">
+    <Key>
+      <PropertyRef Name="Ide_ServerType" />
+    </Key>
+    <Property Name="Ide_ServerType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_ServerType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_costcenters">
+    <Key>
+      <PropertyRef Name="Ide_CostCenter" />
+    </Key>
+    <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod_CostCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_CostCenter" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_ParentCostCenter" Type="Int32" />
+  </EntityType>
+  <EntityType Name="xy_geography">
+    <Key>
+      <PropertyRef Name="Ide_Geography" />
+    </Key>
+    <Property Name="Ide_Geography" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num_IndicativeCountry" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Num_IndicativeGrouping1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_Grouping1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Num_IndicativeProvince" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_Province" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Num_IndicativeCity" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tip_National" Type="Int32" Nullable="false" />
+    <Property Name="Num_Digits" Type="Int32" Nullable="false" />
+    <Property Name="Nom_Grouping2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Num_IndicativeGrouping2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_pais">
+    <Key>
+      <PropertyRef Name="IdPais" />
+    </Key>
+    <Property Name="IdPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrePais" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="CodPais" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_rol">
+    <Key>
+      <PropertyRef Name="Ide_Rol" />
+    </Key>
+    <Property Name="Ide_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Rol" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Alias_Rol" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Des_Rol" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_roles_menus_">
+    <Key>
+      <PropertyRef Name="IdRolMen" />
+    </Key>
+    <Property Name="IdRolMen" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdRol" Type="Int64" Nullable="false" />
+    <Property Name="IdMenus" Type="Int64" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="xy_sucursal">
+    <Key>
+      <PropertyRef Name="IdSucursal" />
+    </Key>
+    <Property Name="IdSucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreSucursal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_Geography" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="xy_numbersxsubscriber">
+    <Key>
+      <PropertyRef Name="Ide_Number" />
+      <PropertyRef Name="Fec_Date" />
+      <PropertyRef Name="Ide_Subscriber" />
+      <PropertyRef Name="Tip_Subscriber" />
+      <PropertyRef Name="Ide_ServerType" />
+      <PropertyRef Name="Ide_Branch" />
+      <PropertyRef Name="Ide_CostCenter" />
+      <PropertyRef Name="Ide_Geography" />
+    </Key>
+    <Property Name="Ide_Number" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Fec_Date" Type="DateTime" Nullable="false" />
+    <Property Name="Ide_Subscriber" Type="Int64" Nullable="false" />
+    <Property Name="Tip_Subscriber" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_ServerType" Type="Int32" Nullable="false" />
+    <Property Name="Ide_Branch" Type="Int32" Nullable="false" />
+    <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" />
+    <Property Name="Ide_Geography" Type="Int32" Nullable="false" />
+    <Property Name="Num_AccessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_Plan" Type="Int32" />
+    <Property Name="Vlr_Plan" Type="Int32" />
+    <Property Name="Num_Minutes" Type="Int32" />
+  </EntityType>
+  <EntityType Name="xy_rolesxsubscriber">
+    <Key>
+      <PropertyRef Name="Ide_Rol" />
+      <PropertyRef Name="Ide_Subscriber" />
+    </Key>
+    <Property Name="Ide_Rol" Type="Int64" Nullable="false" />
+    <Property Name="Ide_Subscriber" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="xyp_SelAllCostCentre_Result">
+    <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Cod_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Ide_ParentCostCenter" Nullable="false" />
+    <Property Type="String" Name="Nom_Parent" Nullable="false" />
+    <Property Type="String" Name="IsParent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelAllCostCentreParents_Result">
+    <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Cod_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Ide_ParentCostCenter" Nullable="false" />
+    <Property Type="String" Name="Nom_Parent" Nullable="false" />
+    <Property Type="String" Name="IsParent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelCountry_Result">
+    <Property Type="String" Name="Nom_Country" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelCoverages_Result">
+    <Property Type="String" Name="Ide_Coverage" Nullable="false" />
+    <Property Type="String" Name="Cod_Coverage" Nullable="false" />
+    <Property Type="String" Name="Nom_Coverage" Nullable="false" />
+    <Property Type="String" Name="Movil" Nullable="false" />
+    <Property Type="String" Name="Nacional" Nullable="false" />
+    <Property Type="String" Name="Internacional" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelGeographyByCity_Result">
+    <Property Type="String" Name="Nom_City" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelGeographyByCountry_Result">
+    <Property Type="String" Name="Nom_Province" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelNumbers_Result">
+    <Property Type="String" Name="Ide_Number" Nullable="false" />
+    <Property Type="String" Name="Tip_Extension" Nullable="false" />
+    <Property Type="String" Name="Ide_ServerType" Nullable="false" />
+    <Property Type="String" Name="Nom_ServerType" Nullable="false" />
+    <Property Type="String" Name="Ide_Branch" Nullable="false" />
+    <Property Type="String" Name="Nom_Branch" Nullable="false" />
+    <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Ide_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Ide_Geography" Nullable="false" />
+    <Property Type="String" Name="Nom_Country" Nullable="false" />
+    <Property Type="String" Name="Nom_Province" Nullable="false" />
+    <Property Type="String" Name="Nom_City" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+    <Property Type="String" Name="idcliente" Nullable="false" />
+    <Property Type="String" Name="nombreCliente" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelOperators_Result">
+    <Property Type="String" Name="Ide_Operator" Nullable="false" />
+    <Property Type="String" Name="Cod_Operator" Nullable="false" />
+    <Property Type="String" Name="Nom_Operator" Nullable="false" />
+    <Property Type="String" Name="Ide_Coverage" Nullable="false" />
+    <Property Type="String" Name="vlr_Cost" Nullable="false" />
+    <Property Type="String" Name="Unit" Nullable="false" />
+    <Property Type="String" Name="NumberDigits" Nullable="false" />
+    <Property Type="String" Name="Nom_Coverage" Nullable="false" />
+    <Property Type="String" Name="Movil" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelOperTarifInterna_Result">
+    <Property Type="String" Name="idtarifaInter" Nullable="false" />
+    <Property Type="String" Name="IdOperador" Nullable="false" />
+    <Property Type="String" Name="IdPais" Nullable="false" />
+    <Property Type="String" Name="VlrInternaMinsinIva" Nullable="false" />
+    <Property Type="String" Name="VlrInternaMinconIva" Nullable="false" />
+    <Property Type="String" Name="Movil" Nullable="false" />
+    <Property Type="String" Name="Fijo" Nullable="false" />
+    <Property Type="String" Name="nombrePais" Nullable="false" />
+    <Property Type="String" Name="Cod_Operator" Nullable="false" />
+    <Property Type="String" Name="Nom_Operator" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelServerType_Result">
+    <Property Type="String" Name="Ide_ServerType" Nullable="false" />
+    <Property Type="String" Name="Nom_ServerType" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelSucursales_Result">
+    <Property Type="String" Name="Ide_Geography" Nullable="false" />
+    <Property Type="String" Name="Nom_Country" Nullable="false" />
+    <Property Type="String" Name="Nom_Province" Nullable="false" />
+    <Property Type="String" Name="Nom_City" Nullable="false" />
+    <Property Type="String" Name="NombreSucursal" Nullable="false" />
+    <Property Type="String" Name="IdSucursal" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelUsuarioRol_Result">
+    <Property Type="String" Name="Ide_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Ide_Rol" Nullable="false" />
+    <Property Type="String" Name="nombreMenu" Nullable="false" />
+    <Property Type="String" Name="Orden" Nullable="false" />
+    <Property Type="String" Name="codMenuPadre" Nullable="false" />
+    <Property Type="String" Name="codMenu" Nullable="false" />
+    <Property Type="String" Name="Acccion" Nullable="false" />
+    <Property Type="String" Name="Controlador" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="xy_operators">
+    <Key>
+      <PropertyRef Name="Ide_Operator" />
+    </Key>
+    <Property Name="Ide_Operator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod_Operator" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_Operator" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_Coverage" Type="Int32" />
+    <Property Name="vlr_Cost" Type="Decimal" />
+    <Property Name="Unit" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NumberDigits" Type="Int64" />
+  </EntityType>
+  <EntityType Name="xy_rates">
+    <Key>
+      <PropertyRef Name="Ide_Rate" />
+    </Key>
+    <Property Name="Ide_Rate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Des_Rate" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_Zone" Type="Int32" />
+    <Property Name="Ide_Coverage" Type="Int32" />
+    <Property Name="Ide_Operator" Type="Int32" />
+    <Property Name="Num_Length" Type="Int32" Nullable="false" />
+    <Property Name="Num_Prefix" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Fec_InitDate" Type="DateTime" />
+    <Property Name="Fec_FinalDate" Type="DateTime" />
+    <Property Name="Por_Taxes" Type="Decimal" />
+    <Property Name="Cod_CostingMethod" Type="Int32" />
+  </EntityType>
+  <EntityType Name="xy_operador_tarifa_inter">
+    <Key>
+      <PropertyRef Name="idtarifaInter" />
+    </Key>
+    <Property Name="idtarifaInter" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOperador" Type="Int64" Nullable="false" />
+    <Property Name="IdPais" Type="Int64" Nullable="false" />
+    <Property Name="VlrInternaMinsinIva" Type="Decimal" Nullable="false" />
+    <Property Name="VlrInternaMinconIva" Type="Decimal" Nullable="false" />
+    <Property Name="Movil" Type="Byte" />
+    <Property Name="Fijo" Type="Byte" />
+  </EntityType>
+  <ComplexType Name="xyp_SelUsuarios_Result">
+    <Property Type="String" Name="Ide_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Nom_DomainUser" Nullable="false" />
+    <Property Type="String" Name="Tip_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Str_Password" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelActivityFirstAndLast_Result">
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+    <Property Type="String" Name="FechaInicio" Nullable="false" />
+    <Property Type="String" Name="FechaFin" Nullable="false" />
+    <Property Type="String" Name="Duracion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepBudgetBySubscriber_Result">
+    <Property Type="String" Name="cod_costcenter" Nullable="false" />
+    <Property Type="String" Name="nom_costcenter" Nullable="false" />
+    <Property Type="String" Name="nom_subscriber" Nullable="false" />
+    <Property Type="String" Name="vlr_budgetvalue" Nullable="false" />
+    <Property Type="String" Name="vlr_calls" Nullable="false" />
+    <Property Type="String" Name="porc_calls" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepBudgetLimit_Result">
+    <Property Type="String" Name="cod_costcenter" Nullable="false" />
+    <Property Type="String" Name="nom_costcenter" Nullable="false" />
+    <Property Type="String" Name="vlr_budgetvalue" Nullable="false" />
+    <Property Type="String" Name="vlr_calls" Nullable="false" />
+    <Property Type="String" Name="porc_calls" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_CallAmountByContraparte_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberEmployee" Nullable="false" />
+    <Property Type="String" Name="calls_in" Nullable="false" />
+    <Property Type="String" Name="time_in" Nullable="false" />
+    <Property Type="String" Name="calls_out" Nullable="false" />
+    <Property Type="String" Name="time_out" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelCallAmountsBySubscriber_Result">
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Date" Nullable="false" />
+    <Property Type="String" Name="calls_in" Nullable="false" />
+    <Property Type="String" Name="calls_out" Nullable="false" />
+    <Property Type="String" Name="CallAmount" Nullable="false" />
+    <Property Type="String" Name="Rango" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_CallTypesAmountReport_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="calls_in" Nullable="false" />
+    <Property Type="String" Name="time_in" Nullable="false" />
+    <Property Type="String" Name="time_in_seg" Nullable="false" />
+    <Property Type="String" Name="calls_out" Nullable="false" />
+    <Property Type="String" Name="time_out" Nullable="false" />
+    <Property Type="String" Name="time_out_seg" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_NumberAmountsByOutSubscriber_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberTarget" Nullable="false" />
+    <Property Type="String" Name="OutAmount" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_NumberAmountsBySubscriber_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="waiting" Nullable="false" />
+    <Property Type="String" Name="time_waiting" Nullable="false" />
+    <Property Type="String" Name="time_avgwaiting" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelConsumeByCostCenter_Result">
+    <Property Type="String" Name="Date" Nullable="false" />
+    <Property Type="String" Name="CentroCostos" Nullable="false" />
+    <Property Type="String" Name="Duracion" Nullable="false" />
+    <Property Type="String" Name="Costo" Nullable="false" />
+    <Property Type="String" Name="Cobertura" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelCostCentreByUser_Result">
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelConsumeByHistory_Result">
+    <Property Type="String" Name="Cobertura" Nullable="false" />
+    <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
+    <Property Type="String" Name="TotalDuracion" Nullable="false" />
+    <Property Type="String" Name="Ano" Nullable="false" />
+    <Property Type="String" Name="Mes" Nullable="false" />
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Vlr_Cost_Pesos" Nullable="false" />
+    <Property Type="String" Name="Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelDetailChampCallCost_Result">
+    <Property Type="String" Name="subscriber" Nullable="false" />
+    <Property Type="String" Name="number" Nullable="false" />
+    <Property Type="String" Name="centerc" Nullable="false" />
+    <Property Type="String" Name="target" Nullable="false" />
+    <Property Type="String" Name="costo" Nullable="false" />
+    <Property Type="String" Name="Date" Nullable="false" />
+    <Property Type="String" Name="coverage" Nullable="false" />
+    <Property Type="String" Name="TotalMinutos" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelDetailChampCallDuration_Result">
+    <Property Type="String" Name="subscriber" Nullable="false" />
+    <Property Type="String" Name="number" Nullable="false" />
+    <Property Type="String" Name="centerc" Nullable="false" />
+    <Property Type="String" Name="target" Nullable="false" />
+    <Property Type="String" Name="costo" Nullable="false" />
+    <Property Type="String" Name="Date" Nullable="false" />
+    <Property Type="String" Name="coverage" Nullable="false" />
+    <Property Type="String" Name="TotalMinutos" Nullable="false" />
+    <Property Type="String" Name="TotalSegundos" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelFrequentExtensionNumber_Result">
+    <Property Type="String" Name="Ide_NumberSource" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberTarget" Nullable="false" />
+    <Property Type="String" Name="Frecuencia" Nullable="false" />
+    <Property Type="String" Name="Tiempo" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_ReceiveCalls_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Nom_Coverage" Nullable="false" />
+    <Property Type="String" Name="calls" Nullable="false" />
+    <Property Type="String" Name="times" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+    <Property Type="String" Name="centerc" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepReceiveCallsLlamEntranSalien_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="calls_unanswering" Nullable="false" />
+    <Property Type="String" Name="calls_answering" Nullable="false" />
+    <Property Type="String" Name="time_answering" Nullable="false" />
+    <Property Type="String" Name="calls_unanswering1" Nullable="false" />
+    <Property Type="String" Name="calls_unanswering2" Nullable="false" />
+    <Property Type="String" Name="calls_unanswering3" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+    <Property Type="String" Name="centerc" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_ReceiveAndTransferCalls_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Ide_SubscriberCalling" Nullable="false" />
+    <Property Type="String" Name="calls_answering" Nullable="false" />
+    <Property Type="String" Name="time_answering" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_ReceiveCallsTiempoPromedio_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="waiting" Nullable="false" />
+    <Property Type="String" Name="time_waiting" Nullable="false" />
+    <Property Type="String" Name="time_avgwaiting" Nullable="false" />
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepConsolidadoCoberturaLLamadas_Result">
+    <Property Type="String" Name="IdUsuario" Nullable="false" />
+    <Property Type="String" Name="usuario" Nullable="false" />
+    <Property Type="String" Name="cobertura" Nullable="false" />
+    <Property Type="String" Name="llamadasRealizadas" Nullable="false" />
+    <Property Type="String" Name="tiempoDedicado" Nullable="false" />
+    <Property Type="String" Name="centerc" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_ReceiveCallsTiempoPromedio_repo_Result">
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="waiting" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepPromedioLlamadasHora_Result">
+    <Property Type="String" Name="Hora" Nullable="false" />
+    <Property Type="String" Name="Nro" Nullable="false" />
+    <Property Type="String" Name="Tipo" Nullable="false" />
+    <Property Type="String" Name="Usuario" Nullable="false" />
+    <Property Type="String" Name="Area" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepGrafNumberAmountsBySubscriber_Result">
+    <Property Type="String" Name="Usuario" Nullable="false" />
+    <Property Type="String" Name="NroLlamadasEntrantes" Nullable="false" />
+    <Property Type="String" Name="DuracionEntrantes" Nullable="false" />
+    <Property Type="String" Name="NroLlamadasSalientes" Nullable="false" />
+    <Property Type="String" Name="DuracionHorSalientes" Nullable="false" />
+    <Property Type="String" Name="Area" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepTarificacionEntraSalieTrans_Result">
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Ide_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+    <Property Type="String" Name="NombreSucursal" Nullable="false" />
+    <Property Type="String" Name="NroLlamadasEntrantes" Nullable="false" />
+    <Property Type="String" Name="DuracionEntrantes" Nullable="false" />
+    <Property Type="String" Name="NroLlamadasSalientes" Nullable="false" />
+    <Property Type="String" Name="DuracionSalientes" Nullable="false" />
+    <Property Type="String" Name="TiempoPromedioEnrantes" Nullable="false" />
+    <Property Type="String" Name="TiempoPromedioSalientes" Nullable="false" />
+    <Property Type="String" Name="LlamadasPerdidas" Nullable="false" />
+    <Property Type="String" Name="LlamadasPerdidasTiempo" Nullable="false" />
+    <Property Type="String" Name="TiempoPromediEsperaPerdida" Nullable="false" />
+    <Property Type="String" Name="TiempoPromedioEspera" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="xy_configuracionreporte">
+    <Key>
+      <PropertyRef Name="conReporteId" />
+    </Key>
+    <Property Name="conReporteId" Type="Int32" Nullable="false" />
+    <Property Name="CondiguracionId" Type="Int32" />
+    <NavigationProperty Name="xy_reportes" Relationship="xynthesisModel.ReporteId" FromRole="xy_configuracionreporte" ToRole="xy_reportes" />
+  </EntityType>
+  <EntityType Name="xy_frecuencia">
+    <Key>
+      <PropertyRef Name="FrecuenciaId" />
+    </Key>
+    <Property Name="FrecuenciaId" Type="Int32" Nullable="false" />
+    <Property Name="NombreFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrefijoFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_reportes">
+    <Key>
+      <PropertyRef Name="ReporteId" />
+    </Key>
+    <Property Name="ReporteId" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="NombreRpt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MetodoRpt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="xy_configuracionreporte" Relationship="xynthesisModel.ReporteId" FromRole="xy_reportes" ToRole="xy_configuracionreporte" />
+  </EntityType>
+  <Association Name="ReporteId">
+    <End Type="xynthesisModel.xy_reportes" Role="xy_reportes" Multiplicity="0..1" />
+    <End Type="xynthesisModel.xy_configuracionreporte" Role="xy_configuracionreporte" Multiplicity="*" />
+  </Association>
+  <ComplexType Name="xyp_SelReports_Result">
+    <Property Type="String" Name="NombreRpt" Nullable="false" />
+    <Property Type="String" Name="MetodoRpt" Nullable="false" />
+    <Property Type="String" Name="FormatoArchivo" Nullable="false" />
+    <Property Type="String" Name="EmailFrom" Nullable="false" />
+    <Property Type="String" Name="EmailCC" Nullable="false" />
+    <Property Type="String" Name="Asunto" Nullable="false" />
+    <Property Type="String" Name="Mensaje" Nullable="false" />
+    <Property Type="String" Name="ConfiguracionId" Nullable="false" />
+    <Property Type="String" Name="fechaInicial" Nullable="false" />
+    <Property Type="String" Name="fechaFinal" Nullable="false" />
+    <Property Type="DateTime" Name="ProxEjecucion" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="xy_coverage">
+    <Key>
+      <PropertyRef Name="Ide_Coverage" />
+    </Key>
+    <Property Name="Ide_Coverage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod_Coverage" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_Coverage" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Movil" Type="Boolean" />
+    <Property Name="Nacional" Type="Boolean" />
+    <Property Name="Internacional" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="xyp_RepCallOpenAndClosed_Result">
+    <Property Type="String" Name="Nom_CallType" Nullable="false" />
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="time_in" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberSource" Nullable="false" />
+    <Property Type="String" Name="time_out" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberTarget" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelOperxCoberMovil_Result">
+    <Property Type="String" Name="Ide_Operator" Nullable="false" />
+    <Property Type="String" Name="Nom_Operator" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_NumberAmountsByInSubscriber_Result">
+    <Property Type="String" Name="Ide_SubscriberEmployee" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberTarget" Nullable="false" />
+    <Property Type="String" Name="OutAmount" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberSource" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelConsumeByExtensionAndUser_Result">
+    <Property Type="String" Name="Date" Nullable="false" />
+    <Property Type="String" Name="Nom_Coverage" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberSource" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberTarget" Nullable="false" />
+    <Property Type="String" Name="TotalMinutos" Nullable="false" />
+    <Property Type="String" Name="Num_TimeSpanReal" Nullable="false" />
+    <Property Type="String" Name="Vlr_Cost_Pesos" Nullable="false" />
+    <Property Type="String" Name="Nom_DomainUser" Nullable="false" />
+    <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="xy_subscriber">
+    <Key>
+      <PropertyRef Name="Ide_Subscriber" />
+    </Key>
+    <Property Name="Ide_Subscriber" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Subscriber" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_DomainUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Tip_Subscriber" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Str_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cod_Subscriber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_CostCenter" Type="Int64" />
+    <Property Name="IdSucursal" Type="Int64" />
+    <Property Name="Id_Rol" Type="Int32" />
+    <Property Name="FechaCreacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_numbers">
+    <Key>
+      <PropertyRef Name="Ide_Number" />
+    </Key>
+    <Property Name="Ide_Number" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Tip_Extension" Type="Int64" />
+    <Property Name="Idcliente" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="xyp_SelDialedNumber_Result">
+    <Property Type="String" Name="Ide_NumberTarget" Nullable="false" />
+    <Property Type="String" Name="num_calls" Nullable="false" />
+    <Property Type="String" Name="tiempo" Nullable="false" />
+    <Property Type="String" Name="FormatoDuracion" Nullable="false" />
+    <Property Type="String" Name="costo" Nullable="false" />
+    <Property Type="String" Name="Fec_Date" Nullable="false" />
+    <Property Type="String" Name="Nom_Coverage" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_GrupNumSuscriber_Result">
+    <Property Type="String" Name="Ide_Number" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_DestinoLlamadaCampeonaArea_Result">
+    <Property Type="String" Name="target" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_RepSabanaCalls_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Origen" Nullable="false" />
+    <Property Type="String" Name="Num_Saliente" Nullable="false" />
+    <Property Type="String" Name="Tip_Llamada" Nullable="false" />
+    <Property Type="String" Name="Fuente" Nullable="false" />
+    <Property Type="String" Name="Servidor" Nullable="false" />
+    <Property Type="Int32" Name="Ide_GeographySource" Nullable="false" />
+    <Property Type="Int32" Name="Ide_GeographyTarget" Nullable="false" />
+    <Property Type="Int16" Name="Tiempo" Nullable="false" />
+    <Property Type="String" Name="Operador" Nullable="false" />
+    <Property Type="String" Name="Cobertura" Nullable="false" />
+    <Property Type="String" Name="Rama" Nullable="false" />
+    <Property Type="String" Name="Ide_NumberEmployee" Nullable="false" />
+    <Property Type="Int32" Name="Ide_GeographyEmployee" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" />
+    <Property Type="Int32" Name="Tiempo_Real" Nullable="false" />
+    <Property Type="Int32" Name="Tiempo_Cobrado" Nullable="false" />
+    <Property Type="Decimal" Name="Valor_Pesos" Nullable="false" />
+    <Property Type="Decimal" Name="Impuesto_Pesos" Nullable="false" />
+    <Property Type="String" Name="Area" Nullable="false" />
+    <Property Type="Int32" Name="Duracion_Efectiva" Nullable="false" />
+    <Property Type="Int32" Name="Duracion_Espera" Nullable="false" />
+    <Property Type="String" Name="Vocacion_Abonado" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="xy_configuracionrptprogramado">
+    <Key>
+      <PropertyRef Name="ConfiguracionId" />
+    </Key>
+    <Property Name="ConfiguracionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="FrecuenciaId" Type="Int32" Nullable="false" />
+    <Property Name="HoraEjecucion" Type="DateTime" Nullable="false" />
+    <Property Name="FormatoArchivo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EmailFrom" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EmailCC" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Asunto" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Mensaje" Type="String" Nullable="false" MaxLength="700" FixedLength="false" Unicode="false" />
+    <Property Name="Filtro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInicial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="fechaFinal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TipoFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="programacion" Type="Int32" />
+    <Property Name="ProxEjecucion" Type="DateTime" />
+  </EntityType>
+</Schema>

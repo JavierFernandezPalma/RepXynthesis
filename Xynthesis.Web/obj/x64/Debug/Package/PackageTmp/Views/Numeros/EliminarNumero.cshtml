@@ -1,0 +1,107 @@
+﻿@using PagedList.Mvc;
+@model  PagedList.IPagedList<Xynthesis.Modelo.xyp_SelNumbers_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Eliminar Números";
+    ViewBag.numero = Model[0].Ide_Number;
+    if (Model[0].Fec_Date != null)
+    { ViewBag.fec_date = Model[0].Fec_Date.Substring(0, 10); }
+    else
+    { ViewBag.fec_date = ""; }
+
+    var msg = (Xynthesis.Utilidades.Mensaje)ViewBag.mensaje;
+}
+
+<div class="container">
+    <div class="text-center">
+        <h2>Eliminar números</h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-2">Número Telefónico</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model[0].Ide_Number, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model[0].Ide_Number, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Extensión</label>
+                    <div class="col-md-10">
+                        @if (Model[0].Tip_Extension == "1")
+                        {
+                            <input type="checkbox" id="Tip_Extension" name="Tip_Extension" checked="checked" disabled="disabled" />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="Tip_Extension" name="Tip_Extension" disabled="disabled" />
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Fecha</label>
+                    <div class="col-md-10">
+                        <input type="text" id="Fec_Date" name="Fec_Date" value="@ViewBag.fec_date" class="form-control" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Usuario</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("DdlSuscriptor", ViewData["listaSuscriptores"] as List<SelectListItem>, new { @class = "form-control", @onchange = "FillSuscriptor()", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Cliente</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("DdlCliente", ViewData["listaCliente"] as SelectList, new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Numeros")'" style="background-color: #A43A62; border-color: #A43A62;">Regresar</a>
+
+                        @if (msg.codigo == 1)
+                        {
+                            <input type="submit" value="Eliminar" class="btn btn-success" disabled="disabled" />
+                        }
+                        else
+                        {
+                            <input type="submit" value="Eliminar" class="btn btn-success" />
+                        }
+                    </div>
+                </div>
+                <div class="modal-dialog modal-lg">
+                    <div class="boton alert-danger col-md-7">@ViewBag.message </div>
+                </div>
+                <div class="modal-dialog modal-lg">
+                    <div class="boton alert-success col-md-7">@ViewBag.message_ok </div>
+                </div>
+                <div class="modal-dialog modal-lg">
+                    <div class="boton alert-danger col-md-7">
+                        @if (msg.codigo == 1)
+                        {@msg.mensaje;
+                        }
+                    </div>
+                </div>
+                <div class="modal-dialog modal-lg">
+                    <div class="boton alert-success col-md-7">
+                        @if (msg.codigo == 0)
+                        {@msg.mensaje}
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+
+</div>
+
+
+
+

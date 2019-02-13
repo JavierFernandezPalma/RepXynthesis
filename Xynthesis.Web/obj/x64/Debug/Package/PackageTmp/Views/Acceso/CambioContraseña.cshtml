@@ -1,0 +1,218 @@
+﻿@model Xynthesis.Modelo.xy_subscriber
+@using Xynthesis.Utilidades.Mensajes;
+@{
+    ViewBag.Title = "CambioPassword";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.pass = @Model.Str_Password;
+    var msg = (Xynthesis.Utilidades.Mensaje)ViewBag.mensaje;
+}
+
+<script src="~/Scripts/NotacionDecimal.js"></script>
+<script src="~/Scripts/ValidacionGeneral.js"></script>
+
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 8000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                    setTimeout("alerta.style.display='none'", 5000);
+                </script>
+
+            }
+        }
+    }
+}
+
+<div class="container">
+
+    <div class="text-center">
+        <h2>Cambio de clave</h2>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+            @using (Html.BeginForm("CambioContraseña", "Acceso"))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label class="control-label col-md-4 hidden-xs hidden-sm hidden-md hidden-lg">ID SUBSCRIPTOR : </label>
+                        <div class="col-md-8 disabled">
+                            @Html.EditorFor(model => model.Ide_Subscriber, new { htmlAttributes = new { @class = "form-control hidden-xs hidden-sm hidden-md hidden-lg" } })
+                            @Html.ValidationMessageFor(model => model.Ide_Subscriber, "", new { @class = "text-danger", disabled = "disabled" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Nombre de usuario :</label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Nom_Subscriber, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.Nom_Subscriber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Usuario :</label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Nom_DomainUser, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @maxlength = "20" } })
+                            @Html.ValidationMessageFor(model => model.Nom_DomainUser, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden">
+                        <label class="control-label col-md-4 hidden-xs hidden-sm hidden-md hidden-lg">TIPO SUBSCRIPTOR : </label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Tip_Subscriber, new { htmlAttributes = new { @class = "form-control hidden-xs hidden-sm hidden-md hidden-lg" } })
+                            @Html.ValidationMessageFor(model => model.Tip_Subscriber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden">
+                        <label class="control-label col-md-4">Clave actual:</label>
+                        <div class="col-md-8">
+                            <input id="contraActual" type="password" name="Str_Password" value="@ViewBag.pass" class="form-control" disabled />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Clave actual:</label>
+                        <div class="col-md-8">
+                            <input id="validarContra" type="password" class="form-control" placeholder="DIGITE SU CLAVE ACTUAL" tabindex = "1" onkeypress = "return validar(event)" onpaste = "    return false" maxlength="100"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="lblAlerta6" style="display:none">
+                        <label class="control-label col-xs-4 col-md-4"></label> 
+                        <div class="col-xs-8 col-md-8">
+                            <label style="color:#E81F2E;">(*) Su clave actual no coincide</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Clave nueva:</label>
+                        <div class="col-md-8">
+                            @Html.TextBox("ClaveNueva", null, new { @class = "form-control", @id = "ClaveNueva", @placeholder = "CLAVE NUEVA", @type = "password", @tabindex = "2", @maxlength = "100", onpaste = "return false", onkeypress = "return validar(event)" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="lblAlerta" style="display:none">
+                        <label class="control-label col-xs-4 col-md-4"></label>
+                        <div class="col-xs-8 col-md-8">
+                            <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Confirmación de clave:</label>
+                        <div class="col-md-8">
+                            @Html.TextBox("ConfirmarClave", null, new { @class = "form-control", @id = "ConfirmarClaveNueva", @tabindex = "3", @placeholder = "CONFIRMAR CLAVE NUEVA", @type = "password", @maxlength = "100", onpaste = "return false", onkeypress = "return validar(event)" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="lblAlerta2" style="display:none">
+                        <label class="control-label col-xs-4 col-md-4"></label>
+                        <div class="col-xs-8 col-md-8">
+                            <label style="color:#E81F2E;">@MensajesXynthesis.Requerido</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="lblAlerta3" style="display:none">
+                        <label class="control-label col-xs-4 col-md-4"></label>
+                        <div class="col-xs-8 col-md-8">
+                            <label style="color:#E81F2E;">(*) Las claves no coinciden</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4 hidden-xs hidden-sm hidden-md hidden-lg">COD SUBSCRIPTOR : </label>
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Cod_Subscriber, new { htmlAttributes = new { @class = "form-control hidden-xs hidden-sm hidden-md hidden-lg" } })
+                            @Html.ValidationMessageFor(model => model.Cod_Subscriber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-4"></label>
+                        <a role="button" class="btn btn-success col-xs-2 col-md-3" tabindex="5" onclick="location.href='@Url.Action("Index", "Acceso")'">Regresar</a>
+                        <label class="control-label col-md-1"></label>
+                        <input type="submit" value="Actualizar" id="btnEnviar" class="btn btn-success col-xs-2 col-md-3 " tabindex="4" />
+                    </div>
+
+                </div>
+            }
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    document.getElementById('validarContra').focus();
+    document.getElementById("btnEnviar").onclick = function () {
+        var nom = document.getElementById("ClaveNueva").value;
+        var contras = document.getElementById("ConfirmarClaveNueva").value;
+
+        var claveActual = document.getElementById("contraActual").value;
+        var ConfirmaClave = document.getElementById("validarContra").value;
+
+        if(ConfirmaClave != claveActual)
+        {
+            document.getElementById("lblAlerta6").style.display = "block";
+            return false;
+        }else
+        {
+            document.getElementById("lblAlerta6").style.display = "none";
+        }
+
+        if (nom == "") {
+            document.getElementById("lblAlerta").style.display = "block";
+            return false;
+        } else {
+            document.getElementById("lblAlerta").style.display = "none";
+        }
+
+        if (contras == "") {
+            document.getElementById("lblAlerta2").style.display = "block";
+            return false;
+        } else {
+            document.getElementById("lblAlerta2").style.display = "none";
+        }
+
+        if(nom != contras){
+            document.getElementById("lblAlerta3").style.display = "block";
+            return false;
+        }else{
+            document.getElementById("lblAlerta3").style.display = "none";
+        }
+    };
+</script>
+
+
+

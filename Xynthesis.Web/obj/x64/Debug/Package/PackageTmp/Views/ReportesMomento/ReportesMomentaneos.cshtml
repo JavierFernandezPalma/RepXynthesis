@@ -1,0 +1,178 @@
+﻿@model IEnumerable<Xynthesis.Modelo.xy_reportes>
+
+@{
+    ViewBag.Title = "Reportes Momentaneos";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"/>
+
+<br />
+<div class="container">
+    <div class="text-center" style="border-color:#C2C2C2; border-style: solid; border-top-width:1px; border-bottom-width:1px; border-left-width:1px; border-right-width:1px;  border-radius:10px; padding-left: 0px; padding-right: 0px; padding-top:0px;padding-bottom:0px;">
+        <h2><strong>REPORTES INMEDIATOS</strong></h2>
+    </div>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        <div style="border-color:#C2C2C2; border-style: solid; border-top-width:1px; border-bottom-width:1px; border-left-width:1px; border-right-width:1px;  border-radius:10px; padding-left: 20px; padding-right: 0px;">
+            <div class="row">
+                <div class="row text-left col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-md-4">
+                        <h3><strong>SELECCIONAR REPORTES : </strong></h3>
+                    </div>
+                    <div class="col-md-8 form-inline text-right">
+                        <h3>
+                            @Html.TextBox("FechaInicial", null, new { @class = "form-control date-picker", @id = "fecIni", @placeholder = "Fecha inicial", required = "required", style = "width:110px" })
+                            @Html.TextBox("FechaFinal", null, new { @class = "form-control date-picker", @id = "fecFin", @placeholder = "Fecha final", required = "required", style = "width:110px" })
+                        </h3>
+                    </div>
+                </div>
+                <div>
+                    <textarea name="iden" id="iden" title="" placeholder="" class="hidden"></textarea>
+                    <div class="well" style="max-height: 300px;overflow: auto; max-width:98%; border-radius:5px; padding-left:15px;padding-right:15px; padding-bottom:15px;padding-top:15px;">
+                       
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep1" name="reportes" value="1" >
+                            <label class="custom-control-label" for="rep1">CONCENTRACION DE LLAMADAS - REPORTE POR PERIODO DE TIEMPO</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep2" name="reportes" value="2 ">
+                            <label class="custom-control-label" for="rep2">CONCENTRACION DE LLAMADAS - REPORTE DE LLAMADAS ENTRANTES</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep3" name="reportes" value="3">
+                            <label class="custom-control-label" for="rep3">CONCENTRACION DE LLAMADAS - REPORTE DE LLAMADAS SALIENTES</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep4" name="reportes" value="4">
+                            <label class="custom-control-label" for="rep4">CONCENTRACION DE LLAMADAS - REPORTE TIEMPO DEDICADO</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep5" name="reportes" value="5">
+                            <label class="custom-control-label" for="rep5">DETALLES DE LLAMADAS - REPORTE DE LLAMADAS ENTRANTES Y SALIENTES</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep6" name="reportes" value="6">
+                            <label class="custom-control-label" for="rep6">DETALLES DE LLAMADAS - REPORTE DE LLAMADAS RECIBIDAS Y TRANSFERIDAS</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep7" name="reportes" value="7">
+                            <label class="custom-control-label" for="rep7">DETALLES DE LLAMADAS - REPORTE TIEMPO PROMEDIO ANTES DE CONTESTAR</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep8" name="reportes" value="8">
+                            <label class="custom-control-label" for="rep8">DETALLES DE LLAMADAS - REPORTE DE LLAMADAS INICIO Y FIN POR DIA</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep9" name="reportes" value="9">
+                            <label class="custom-control-label" for="rep9">DETALLES DE LLAMADAS - REPORTE DE LLAMADAS ABIERTAS Y CERRADAS</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep10" name="reportes" value="10">
+                            <label class="custom-control-label" for="rep10">RESUMEN GENERAL - REPORTE DE LLAMADAS CAMPEONA POR ÁREA</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep11" name="reportes" value="11">
+                            <label class="custom-control-label" for="rep11">RESUMEN GENERAL - REPORTE DE LLAMADAS CAMPEONA POR DURACIÓN</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep12" name="reportes" value="12">
+                            <label class="custom-control-label" for="rep12">RESUMEN GENERAL - REPORTE DE LLAMADAS NÚMERO MAS MARCADO</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep13" name="reportes" value="13">
+                            <label class="custom-control-label" for="rep13">RESUMEN GENERAL - REPORTE DE LLAMADAS NÚMERO FRECUENTE POR EXTENSIÓN</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep14" name="reportes" value="14">
+                            <label class="custom-control-label" for="rep14">REPORTES DE CONSUMO - REPORTE DE CONSUMOS PERSONALES</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep15" name="reportes" value="15">
+                            <label class="custom-control-label" for="rep15">REPORTES DE CONSUMO - REPORTE DE CONSUMO POR ÁREA</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep16" name="reportes" value="16">
+                            <label class="custom-control-label" for="rep16">REPORTES DE CONSUMO - REPORTE DE CONSUMO POR COBERTURA</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep17" name="reportes" value="17">
+                            <label class="custom-control-label" for="rep17">REPORTES DE CONSUMO - REPORTE DE CONSUMOS HISTORICOS</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep18" name="reportes" value="18">
+                            <label class="custom-control-label" for="rep18">REPORTES CONSOLIDADOS - REPORTE GRAFICO DE TIEMPO PROMEDIO ANTES DE CONTESTAR</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep19" name="reportes" value="19">
+                            <label class="custom-control-label" for="rep19">CREPORTES CONSOLIDADOS - REPORTE GRAFICO DE LLAMADAS ENTRANTES Y SALIENTES</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep20" name="reportes" value="20">
+                            <label class="custom-control-label" for="rep20">REPORTES CONSOLIDADOS - REPORTE GRAFICO DE LLAMADAS ENTRANTES Y SALIENTES CON DURACION</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep21" name="reportes" value="21">
+                            <label class="custom-control-label" for="rep21">REPORTES CONSOLIDADOS - REPORTE COBERTURA DE LLAMADAS</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep22" name="reportes" value="22">
+                            <label class="custom-control-label" for="rep22">REPORTES CONSOLIDADOS - REPORTE PROMEDIO DE LLAMADAS POR HORA</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep23" name="reportes" value="23">
+                            <label class="custom-control-label" for="rep23">REPORTES CONSOLIDADOS - REPORTE CONSOLIDADO POR USUARIO</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="checkbox" class="custom-control-input" id="rep24" name="reportes" value="24">
+                            <label class="custom-control-label" for="rep24">SABANA</label>
+                        </div>
+                        
+                    </div>
+                    <div class="text-center" style="padding-bottom:15px;">
+
+                        <input type="radio" name="formato" value="pdf" id="optionpdf" checked />
+                        <label for="optionpdf">PDF</label>
+                        <input type="radio" name="formato" value="xls" id="optionxls" />
+                        <label for="optionxls">EXCEL</label>
+
+                    </div>
+                </div>
+            </div>
+        </div><br />
+        <div class="text-center" style="padding-bottom:30px;">
+            <button type="submit" class="btn btn-success col-xs-12" id="enviar">DESCARGAR REPORTES</button>
+        </div> <br />
+    }
+</div>
+
+<script>
+    $(function () {
+        $('.date-picker').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: false,
+            dateFormat: 'yy-mm-dd',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShorth: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
+        });
+    })
+</script>
+

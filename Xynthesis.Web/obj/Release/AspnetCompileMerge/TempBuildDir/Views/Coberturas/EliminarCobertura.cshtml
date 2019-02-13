@@ -1,0 +1,84 @@
+﻿@model Xynthesis.Modelo.xy_coverage
+
+@{
+    ViewBag.Title = "EliminarCobertura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2><strong>Eliminar cobertura</strong></h2>
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt class="hidden-xs hidden-sm hidden-md hidden-lg">
+                    @Html.DisplayNameFor(model => model.Ide_Coverage)
+                </dt>
+
+                <dd class="hidden-xs hidden-sm hidden-md hidden-lg">
+                    @Html.DisplayFor(model => model.Ide_Coverage)
+                </dd>
+
+                <dt>
+                    <label>NOMBRES</label>
+                </dt>
+
+                <dd>
+                    @Html.EditorFor(model => model.Nom_Coverage, new { htmlAttributes = new { @class = "form-control", @disabled="disabled"  } })
+                </dd>
+
+                <dt>
+                    <label>MOVIL</label>
+                </dt>
+
+                <dd>
+                    <input type="checkbox" checked="@Model.Movil" id="ch1" name="Movil" class="checkbox" disabled />
+                </dd>
+                <dt>
+                    <label>NACIONAL</label>
+                </dt>
+
+                <dd>
+                    <input type="checkbox" checked="@Model.Nacional" id="ch1" name="Nacional" class="checkbox" disabled />
+                </dd>
+                <dt>
+                    <label>INTERNACIONAL</label>
+                </dt>
+
+                <dd>
+                    <input type="checkbox" checked="@Model.Internacional" id="ch1" name="Internacional" class="checkbox" disabled />
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Eliminar" class="btn btn-success" />
+                    @Html.ActionLink("Regresar", "ListaCoberturas", "Coberturas", new { @class = "btn btn-success" })
+                </div>
+
+                <div class="col-md-9">
+                    @if (@TempData["mensajecorrecto"] != null)
+                    {
+                        <div class="alert alert-info alert-dismissible text-center" role="alert" style="padding: 0.09cm;">
+                            <strong>Se eliminó con éxito el registro</strong>
+                        </div>
+                    }
+                    else if (@TempData["mensajeerror"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible text-center" role="alert" style="padding: 0.09cm;">
+                            <strong>No se pudo procesar la solicitud, la información está relacionada o ya existe</strong>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="col-md-3"></div>
+</div>

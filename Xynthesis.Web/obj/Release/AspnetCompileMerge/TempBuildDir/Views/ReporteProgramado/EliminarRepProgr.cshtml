@@ -1,0 +1,101 @@
+﻿@model Xynthesis.Modelo.xy_configuracionrptprogramado
+
+@{
+    ViewBag.Title = "Eliminar Sucursal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-8">
+        <h2><strong>Eliminar el reporte programado</strong></h2>
+        <div>
+
+    
+                <div class="form-group row">                    
+                    <div class="col-md-10">
+                        <input type="text" class="form-control hidden" value="@Model.ConfiguracionId" disabled="disabled" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="text-right">
+                        <label class="control-label col-md-2">NOMBRE</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" value="@Model.Nombre" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                <div class="text-right">
+                    <label class="control-label col-md-2">HORA</label>
+                </div>
+                <div class="col-md-10">
+                    @{
+                        var hor = Convert.ToString(Model.HoraEjecucion.ToString("HH:mm"));
+
+                    }
+                    @Html.TextBox("hora", hor, new { @class = "form-control", @type = "time", disabled = "disabled" })
+
+                    @*<input type="text" class="form-control" value="@Model.HoraEjecucion" disabled="disabled" />*@
+                </div>
+                </div>
+
+                <div class="form-group row">
+                <div class="text-right">
+                    <label class="control-label col-md-2">FORMATO</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" value="@Model.FormatoArchivo" disabled="disabled" />
+                </div>
+                </div>
+
+                <div class="form-group row">
+                <div class="text-right">
+                    <label class="control-label col-md-2">EMAIL</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" value="@Model.EmailFrom" disabled="disabled" />
+                </div>
+                </div>
+
+                <div class="form-group row">
+                <div class="text-right">
+                    <label class="control-label col-md-2">ASUNTO</label>
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" value="@Model.Asunto" disabled="disabled" />
+                </div>
+                </div>
+
+                <div class="form-group row">
+                <div class="text-right">
+                    <label class="control-label col-md-2">MENSAJE</label>
+                </div>
+                <div class="col-md-10">
+                    <textarea class="form-control" value="@Model.Mensaje" disabled="disabled">@Model.Mensaje</textarea>
+                </div>
+            </div>            
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10 row">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Eliminar" class="btn btn-success" />
+                        @Html.ActionLink("Regresar", "ListaRepProgramado", "ReporteProgramado", new { @class = "btn btn-success" })
+                    </div>
+                }
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="col-md-3"></div>
+</div>

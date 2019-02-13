@@ -1,0 +1,155 @@
+﻿@using PagedList.Mvc;
+@model  PagedList.IPagedList<Xynthesis.Modelo.xyp_SelOperators_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+
+<script src="~/Scripts/NotacionDecimal.js"></script>
+
+@{
+    ViewBag.Title = "tarificación";
+}
+
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+<div class="container">
+    <div class="text-left">
+        <h2><strong>Tarificación Nacionales - Móviles</strong></h2>
+    </div>
+    <br />
+    @using (Html.BeginForm("OrdenFiltro", "Tarificacion", FormMethod.Get))
+    {
+        <div class="row form-inline">
+           
+            <div class="col-lg-3 form-group">
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, null, new { @class = "form-control", @placeholder = "BUSCAR", @maxlength = "50", onkeypress = "return limipiarEspeciales(event)" ,onpaste = "return false" })&nbsp;&nbsp;
+                <button type="submit" class="btn btn-success "><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+
+        </div>
+        <br />
+    }
+
+    <table class="table table-responsive table-hover table-striped table-condensed">
+        <tr style="background-color:#E1E1E1;">
+
+            <th>
+                @Html.ActionLink("CODIGO OPERADOR", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+                @if (ViewBag.NameSortParm == "name_desc")
+                {
+                    <span class="glyphicon glyphicon-circle-arrow-down"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                }
+            </th>
+            <th>
+                @Html.ActionLink("OPERADOR", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+            </th>
+            <th>
+                @Html.ActionLink("COBERTURA", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })
+            </th>
+            <th>@Html.ActionLink("VRL/COSTO", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })</th>
+            <th>@Html.ActionLink("UNIDAD", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })</th>
+            <th>@Html.ActionLink("NRO DIGITOS", "OrdenFiltro", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = 1 }, new { @class = "text-muted" })</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                 @Html.HiddenFor(modelItem => item.Ide_Operator)
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cod_Operator)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Operator)
+                </td>
+                 @Html.HiddenFor(modelItem => item.Ide_Coverage)
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Coverage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vlr_Cost)
+                </td>
+                <td>
+                    @if (item.Unit != null)
+                    {
+                        if (item.Unit.Equals("S"))
+                        {
+                            <span>Segundos</span>
+                        }
+                        else
+                        {
+                            if (item.Unit.Equals(""))
+                            {  <span></span>}
+                            else
+                            {  <span>Minutos</span>}
+                        }
+                    }
+                    else
+                    {
+                        <span></span>
+                    }
+
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.NumberDigits)</td>
+                <td class="text-right">
+                    <a role="button" onclick="location.href='@Url.Action("Edit", "Tarificacion",new { id = item.Ide_Operator })'"><span class="glyphicon glyphicon-pencil" style="font-size:20px;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.Raw("<a data-modal='' href='/Tarificacion/EliminarRegistro/" + item.Ide_Operator + "' id='" + item.Ide_Operator + "' title='Eliminar'> <span class='glyphicon glyphicon-trash'   style='font-size:20px;'> </span> </a>")
+                </td>
+            </tr>
+
+        }
+
+    </table>
+    <div>
+        <br />
+        Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+    <div id='myModal' class='modal fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/respond.js")
+}
+
+
+
+

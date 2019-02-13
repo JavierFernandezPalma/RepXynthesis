@@ -1,0 +1,137 @@
+﻿@*@model  Xynthesis.Modelo.xy_operador_tarifa_inter*@
+@model Xynthesis.Modelo.xy_operador_tarifa_inter
+@{
+    ViewBag.Title = "Crear tarifas Internacionales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var msg = (Xynthesis.Utilidades.Mensaje)ViewBag.mensaje;
+}
+<script src="https://code.jquery.com/jquery-git.js"></script>
+<script src="~/Scripts/NotacionDecimal.js"></script>
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+<div class="container">
+    <br />
+    <div class="text-left">
+        <h2><strong>Tarifa internacional operadores</strong></h2>
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="msgNUmber" value="@Html.Raw(Xynthesis.Utilidades.Mensajes.MensajesXynthesis.numeroInv)" />
+            <input type="hidden" id="msgNUmber_" value="@Html.Raw(Xynthesis.Utilidades.Mensajes.MensajesXynthesis.numeroInv)" />
+            <div class="form-horizontal">
+        <br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Operador</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.DropDownList("DdlOperador", ViewData["listaOper"] as SelectList, new { @class = "form-control", @id="Oper", @tabindex = "1" })
+                        @Html.ValidationMessageFor(model => model.IdOperador, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">País</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.DropDownList("DdlPais", ViewData["listaPais"] as SelectList, new { @class = "form-control", @tabindex = "2" })
+                        @Html.ValidationMessageFor(model => model.IdPais, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Valor Minuto (sin IVA)</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.VlrInternaMinsinIva, new { htmlAttributes = new { @class = "form-control", @tabindex = "3", onkeypress = "return ValidaNumDeci(event)", onpaste = "return false", @maxlength="10" } })
+                        @Html.ValidationMessageFor(model => model.VlrInternaMinsinIva, "", new { @class = "text-danger", @Name = "msgSpan", @id = "msgSpan" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Valor Minuto (incluido IVA)</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        @Html.EditorFor(model => model.VlrInternaMinconIva, new { htmlAttributes = new { @class = "form-control", @tabindex = "4", onkeypress = "return ValidaNumDeci(event)", onpaste = "return false" , @maxlength = "10" } })
+                        @Html.ValidationMessageFor(model => model.VlrInternaMinconIva, "", new { @class = "text-danger",@Name = "msgSpan_", @id = "msgSpan_" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Movil</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        <input type="checkbox" id="Movil" name="Movil" tabindex = "5" onchange="validarChekbox()" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4 col-md-2">Fijo</label>
+                    <div class="col-xs-8 col-md-10 form-horizontal">
+                        <input type="checkbox" id="Fijo" tabindex = "6" name="Fijo" onchange="validarChekbox()" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="control-label  col-xs-4 col-md-2"></label>
+                    <a role="button" class="btn btn-success col-xs-2 col-md-1" tabindex = "8" onclick="location.href='@Url.Action("Index", "OperadorTarifaInter")'">Regresar</a>
+                    <label class="control-label col-md-1"></label>
+                    <input type="submit" value="Guardar" id="btnEnviar" class="btn btn-success col-xs-2 col-md-1 " tabindex = "7" />
+                </div>
+               
+            </div>
+        }
+    </div>
+
+
+
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    document.getElementById('Oper').focus();
+    function validarChekbox()
+    {
+        if ($('input[name="Fijo"]').is(':checked') && $('input[name="Movil"]').is(':checked'))
+        {
+            $('#Fijo').prop('checked', false);
+            $('#Movil').prop('checked', false);
+        }
+    }
+
+    var msg = document.getElementById("msgNUmber").value;
+    if ($("#msgSpan").text().indexOf("The value") >= 0)
+    { $("#msgSpan").html(msg); } else { $("#msgSpan").html(""); }
+
+    var msg = document.getElementById("msgNUmber_").value;
+    if ($("#msgSpan_").text().indexOf("The value") >= 0)
+    { $("#msgSpan_").html(msg); } else { $("#msgSpan_").html(""); }
+
+</script>

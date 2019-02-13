@@ -1,0 +1,91 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_SelFrequentExtensionNumber_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "FrecuenciaLlamadas";
+}
+
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2><strong>Frecuencia de llamadas</strong></h2>
+    </div>
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-10">
+            @using (Html.BeginForm("FrecuenciaLlamadas_", "ReporteFrecuenciadellamadas", FormMethod.Get))
+            {
+                <div class="form-group form-inline">
+                    @Html.TextBox("FechaInicial", null, new { @class = "form-control", @placeholder = "Fecha inicial", style = "width:110px" })
+                    @Html.TextBox("FechaFinal", null, new { @class = "form-control", @placeholder = "Fecha final", style = "width:110px" })
+                    <button type="submit" name="btnEnviar" id="enviar" class="btn btn-success" title="GENERAR"><i class="fas fa-file-export"></i></button>
+                    <div class="form-group mx-5 text-center pull-right" id="fec">
+                        <label id="lblFechas" class="control-label">@ViewBag.fechaini @ViewBag.fechafin</label>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-2 text-right">
+            @using (Html.BeginForm("Reportes", "ReporteFrecuenciadellamadas"))
+            {
+                <div class="form-group form-inline ">
+                    <select name="opcion" class="form-control">
+                        <option value="pdf">PDF</option>
+                        <option value="excel">EXCEL</option>
+                        <option value="word">WORD</option>
+                    </select>
+
+                    <button type="submit" name="btnGenerarReporte" id="GenerarReporte" class="btn btn-success" title="EXPORTAR"><i class="fas fa-print"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <table class="table table-condensed table-responsive table-striped table-hover">
+        <tr tr style="background-color:#E1E1E1;">
+            <th>
+                <strong>ORIGEN</strong>
+            </th>
+            <th class="text-center">
+                <strong>DESTINO</strong>
+            </th>
+            <th class="text-center">
+                <strong>FRECUENCIA</strong>
+            </th>
+            <th class="text-center">
+                <strong>TIEMPO</strong>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ide_NumberSource)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Ide_NumberTarget)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Frecuencia)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Tiempo)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("FrecuenciaLlamadas", new { page, opcion = ViewBag.paraPaginacion, paraPaginacion = ViewBag.paraPaginacion }))
+
+</div>
+
+<script src="~/Scripts/NotacionDecimal.js"></script>

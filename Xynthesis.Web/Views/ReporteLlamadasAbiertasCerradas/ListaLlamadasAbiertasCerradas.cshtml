@@ -1,0 +1,132 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_RepCallOpenAndClosed_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Xynthesis.css" rel="stylesheet" />
+
+<script type="text/javascript" src="~/fonts/select/js/bootstrap-select.js"></script>
+<link rel="stylesheet" href="~/fonts/select/css/bootstrap-select.min.css">
+<script src="~/fonts/select/js/bootstrap-select.min.js"></script>
+<script src="~/fonts/select/js/i18n/defaults-*.min.js"></script>
+<link rel="stylesheet" href="~/Content/selectorfiltro.css">
+
+@{
+    ViewBag.Title = "Reporte Llamadas Abiertas y Cerradas";
+    var mod = (List<Xynthesis.Modelo.xy_subscriber>)ViewData["usuario"];
+    var mod1 = (List<Xynthesis.Modelo.xyp_NumberAmountsByInSubscriber_Result>)ViewData["llamadaentrante"];
+}
+
+<div class="container">
+    <br />
+    <div class="text-center">
+        <h2><strong>Llamadas abiertas y cerradas</strong></h2>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-10">
+            @using (Html.BeginForm("ListaLlamadasAbiertasCerradas_", "ReporteLlamadasAbiertasCerradas", FormMethod.Get))
+            {
+                <div class="form-group form-inline">
+
+                    @Html.TextBox("FechaInicial", null, new { @class = "form-control ", @placeholder = "Fecha inicial", style = "width:110px" })
+                    @Html.TextBox("FechaFinal", null, new { @class = "form-control ", @placeholder = "Fecha final", style = "width:110px" })
+
+                    <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="USUARIO" title="USUARIO" id="NomUsuario" name="usuarioId" data-size="10">
+                        @foreach (var usuar in mod)
+                        {
+                            <option id="@usuar.Nom_Subscriber" value="@usuar.Ide_Subscriber">@usuar.Nom_Subscriber</option>
+                        }
+                    </select>
+                    <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ENTRANTE" title="ENTRANTE" id="NumEntranteId" name="numentrante" data-size="10">
+                        @foreach (var usuar in mod1)
+                        {
+                            <option id="@usuar.Ide_NumberSource" value="@usuar.Ide_NumberSource">@usuar.Ide_NumberSource</option>
+                        }
+                    </select>
+
+                    <label class="control-label hidden-md hidden-sm hidden-xs"> MAYORES A </label>
+                    <select name="hora" class="form-control " style="width:100px; font-size:12px; " >
+                        <option value="" >OPCION</option>
+                        <option value="1">1 MIN</option>
+                        <option value="2">2 MIN</option>
+                        <option value="3">3 MIN</option>
+                        <option value="4">4 MIN</option>
+                        <option value="5">5 MIN</option>
+                    </select>
+
+                    <button type="submit" name="btnEnviar" id="enviar" class="btn btn-success" title="GENERAR"><i class="fas fa-file-export"></i></button>
+                </div>
+            }
+        </div>
+        <div class="col-md-2 text-right ">
+            @using (Html.BeginForm("Reportes", "ReporteLlamadasAbiertasCerradas"))
+            {
+                <div class="form-group form-inline ">
+                    <select name="opcion" class="form-control" style="width:80px">
+                        <option value="pdf">PDF</option>
+                        <option value="excel">EXCEL</option>
+                        <option value="word">WORD</option>
+                    </select>
+
+                    <button type="submit" name="btnGenerarReporte" id="GenerarReporte" class="btn btn-success" title="EXPORTAR"><i class="fas fa-print"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <table class="table table-condensed table-responsive table-hover table-striped">
+        <tr tr style="background-color:#E1E1E1;">
+            <th>
+                <strong>TIPO</strong>
+            </th>
+            <th>
+                <strong>NOMBRE DE USUARIO</strong>
+            </th>
+            <th class="text-center">
+                <strong>ENTRANTE</strong>
+            </th>
+            <th class="text-center">
+                <strong>DURACIÓN</strong>
+            </th>
+            <th class="text-center">
+                <strong>SALIENTE</strong>
+            </th>
+            <th class="text-center">
+                <strong>DURACIÓN</strong>
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_CallType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_Subscriber)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Ide_NumberSource)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.time_in)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Ide_NumberTarget)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.time_out)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ListaLlamadasAbiertasCerradas", new { page, opcion = ViewBag.paraPaginacion, paraPaginacion = ViewBag.paraPaginacion }))
+</div>
+<script src="~/Scripts/NotacionDecimal.js"></script>

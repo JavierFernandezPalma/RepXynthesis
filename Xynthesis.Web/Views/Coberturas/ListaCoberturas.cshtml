@@ -1,0 +1,226 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<Xynthesis.Modelo.xyp_SelCoverages_Result>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+<script src="~/Scripts/NotacionDecimal.js"></script>
+@{
+    ViewBag.Title = "ListCoverages";
+}
+
+@if (Session["mensale"] != null)
+{
+    if (Session["mensale"].ToString() != "")
+    {
+        if (Session["codigo"] != null)
+        {
+            if (Session["codigo"].ToString() == "1")
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                    document.getElementById("divalert").style.color = "#2D4AA0";
+                    setTimeout("alerta.style.display='none'", 15000);
+                </script>
+            }
+            else
+            {
+                <script>
+                    var alerta = document.getElementById("divalert");
+                     alerta.style.display = "block";
+                     document.getElementById("divalert").style.color = "#AB0D0D";
+                     setTimeout("alerta.style.display='none'", 15000);
+                </script>
+
+            }
+        }
+    }
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="text-left">
+                <h2>Lista de coberturas</h2>
+            </div>
+            <br />
+
+            @using (Html.BeginForm("OrdenFiltro", "Coberturas", FormMethod.Get))
+            {
+                if (ViewBag.CurrentFilter != null)
+                { ViewBag.CurrentFilter = ViewBag.CurrentFilter.replace("<", ""); }
+                <div class="row form-inline">
+                    <div class="col-lg-7">
+                        <a role="button" class="btn btn-success" onclick="location.href='@Url.Action("NuevaCobertura", "Coberturas")'">Nueva Cobertura</a>
+                    </div>
+                    <div class="col-lg-5 form-group">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, null, new { @class = "form-control", @placeholder = "BUSCA POR COBERTURA", @maxlength = "50", onkeypress = "return limipiarEspeciales(event)", onpaste = "return false" })&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-success "><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </div>
+                <br />
+            }
+            <table class="table table-responsive table-hover table-striped table-condensed" id="tabla">
+                <tr style="background-color:#E1E1E1;">
+
+                    <th>
+                        <strong>NOMBRE DE COBERTURA</strong>
+                    </th>
+                    <th class="text-center">
+                        <strong>MOVIL</strong>
+                    </th>
+                    <th class="text-center">
+                        <strong>NACIONAL</strong>
+                    </th>
+                    <th class="text-center">
+                        <strong>INTERNACIONAL</strong>
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nom_Coverage)
+                        </td>
+                        <td align="center">
+                            @if (@item.Movil != null)
+                            {
+                                if (@item.Movil.Equals("1"))
+                                {
+                                    <input type="checkbox" id="ChkExtension" checked="checked" disabled="disabled" class="checkbox" />
+                                }
+                                else
+                                {
+                                    <input type="checkbox" id="ChkExtension" disabled="disabled" class="checkbox" />
+                                }
+                            }
+                            else
+                            {
+                                <input type="checkbox" id="ChkExtension" disabled="disabled" class="checkbox" />
+                            }
+
+
+                        </td>
+                        <td align="center">
+                            @if (@item.Nacional != null)
+                            {
+                                if (@item.Nacional.Equals("1"))
+                                {
+                                    <input type="checkbox" id="ChkExtension" checked="checked" disabled="disabled" class="checkbox" />
+                                }
+                                else
+                                {
+                                    <input type="checkbox" id="ChkExtension" disabled="disabled" class="checkbox" />
+                                }
+
+                            }
+                            else
+                            {
+                                <input type="checkbox" id="ChkExtension" disabled="disabled" class="checkbox" />
+                            }
+
+
+                        </td>
+                        <td align="center">
+                            @if (@item.Internacional != null)
+                            {
+                                if (@item.Internacional.Equals("1"))
+                                {
+                                    <input type="checkbox" id="ChkExtension" checked="checked" disabled="disabled" class="checkbox" />
+                                }
+                                else
+                                {
+                                    <input type="checkbox" id="ChkExtension" disabled="disabled" class="checkbox" />
+                                }
+                            }
+
+                            else
+                            {
+                                <input type="checkbox" id="ChkExtension" disabled="disabled" class="checkbox" />
+                            }
+
+                        </td>
+
+                        <td class="text-right">
+                            <a role="button" onclick="location.href='@Url.Action("EditarCobertura", "Coberturas",new { id = item.Ide_Coverage })'"><span class="glyphicon glyphicon-pencil" style="font-size:20px;"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            @*<a role="button" href="@Url.Action("EliminarCobertura", "Coberturas",new { id = item.Ide_Coverage})"><i class="fa fa-trash-o" aria-hidden="true" style="font-size:20px;"></i></a>*@
+                            &nbsp;
+                            @Html.Raw("<a data-modal='' href='/Coberturas/EliminarRegistro/" + item.Ide_Coverage + "' id='" + item.Ide_Coverage + "' title='Eliminar'> <span class='glyphicon glyphicon-trash'   style='font-size:20px;'> </span> </a>")
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            <div>
+                <br />
+                Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("ListaTarifas", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+            </div>
+
+        </div>
+        <!-- modal placeholder-->
+        <div id='myModal' class='modal fade in'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id='myModalContent'></div>
+                </div>
+            </div>
+        </div>
+
+
+        @section scripts
+{
+        @Scripts.Render("~/Scripts/respond.js")
+            <script>
+                $(".aElimina").click(function (event) {
+                    if (!confirm('DESEA ELIMINAR ?')) {
+                        event.preventDefault();
+                    }
+                });
+                //==============================================================
+
+                document.querySelector("#buscar").onkeyup = function () {
+                    $TableFilter("#tabla", this.value);
+                }
+
+                $TableFilter = function (id, value) {
+                    var rows = document.querySelectorAll(id + ' tbody tr');
+
+                    for (var i = 0; i < rows.length; i++) {
+                        var showRow = false;
+
+                        var row = rows[i];
+                        row.style.display = 'none';
+
+                        for (var x = 0; x < row.childElementCount; x++) {
+                            if (row.children[x].textContent.toLowerCase().indexOf(value.toLowerCase().trim()) > -1) {
+                                showRow = true;
+                                break;
+                            }
+                        }
+
+                        if (showRow) {
+                            row.style.display = null;
+                        }
+                    }
+                }
+
+                //==============================================================
+                //==============================================================
+                $(document).ready(function () {
+                    $('#tabla').DataTable();
+                });
+                //==============================================================
+
+
+            </script>
+
+        }
+        <div class="col-md-2"></div>
+    </div>
+
+</div>
