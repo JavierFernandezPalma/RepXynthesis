@@ -238,6 +238,9 @@
     <Compile Include="xyp_SelUsuarios_Result.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="xy_calls.cs">
+      <DependentUpon>XynthesisModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="xy_cliente.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>

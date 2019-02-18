@@ -14,8 +14,19 @@ namespace Xynthesis.Modelo
     
     public partial class xy_numbers
     {
+        public xy_numbers()
+        {
+            this.xy_calls = new HashSet<xy_calls>();
+            this.xy_calls1 = new HashSet<xy_calls>();
+            this.xy_calls2 = new HashSet<xy_calls>();
+        }
+    
         public string Ide_Number { get; set; }
         public Nullable<long> Tip_Extension { get; set; }
         public Nullable<int> Idcliente { get; set; }
+    
+        public virtual ICollection<xy_calls> xy_calls { get; set; }
+        public virtual ICollection<xy_calls> xy_calls1 { get; set; }
+        public virtual ICollection<xy_calls> xy_calls2 { get; set; }
     }
 }

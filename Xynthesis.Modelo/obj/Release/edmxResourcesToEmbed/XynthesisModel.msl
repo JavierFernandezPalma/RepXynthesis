@@ -17,16 +17,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="xy_costcenters">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_costcenters">
-        <MappingFragment StoreEntitySet="xy_costcenters">
-          <ScalarProperty Name="Ide_ParentCostCenter" ColumnName="Ide_ParentCostCenter" />
-          <ScalarProperty Name="Nom_CostCenter" ColumnName="Nom_CostCenter" />
-          <ScalarProperty Name="Cod_CostCenter" ColumnName="Cod_CostCenter" />
-          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="xy_geography">
       <EntityTypeMapping TypeName="xynthesisModel.xy_geography">
         <MappingFragment StoreEntitySet="xy_geography">
@@ -390,18 +380,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="xyp_DelRepProgra" FunctionName="xynthesisModel.Store.xyp_DelRepProgra" />
-    <EntitySetMapping Name="xy_coverage">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_coverage">
-        <MappingFragment StoreEntitySet="xy_coverage">
-          <ScalarProperty Name="Internacional" ColumnName="Internacional" />
-          <ScalarProperty Name="Nacional" ColumnName="Nacional" />
-          <ScalarProperty Name="Movil" ColumnName="Movil" />
-          <ScalarProperty Name="Nom_Coverage" ColumnName="Nom_Coverage" />
-          <ScalarProperty Name="Cod_Coverage" ColumnName="Cod_Coverage" />
-          <ScalarProperty Name="Ide_Coverage" ColumnName="Ide_Coverage" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="xyp_RepCallOpenAndClosed" FunctionName="xynthesisModel.Store.xyp_RepCallOpenAndClosed">
       <ResultMapping>
         <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepCallOpenAndClosed_Result" />
@@ -497,5 +475,65 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="xyp_ProxEjecucionReporte" FunctionName="xynthesisModel.Store.xyp_ProxEjecucionReporte" />
+    <EntitySetMapping Name="xy_costcenters">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_costcenters">
+        <MappingFragment StoreEntitySet="xy_costcenters">
+          <ScalarProperty Name="Ide_ParentCostCenter" ColumnName="Ide_ParentCostCenter" />
+          <ScalarProperty Name="Nom_CostCenter" ColumnName="Nom_CostCenter" />
+          <ScalarProperty Name="Cod_CostCenter" ColumnName="Cod_CostCenter" />
+          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_coverage">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_coverage">
+        <MappingFragment StoreEntitySet="xy_coverage">
+          <ScalarProperty Name="Internacional" ColumnName="Internacional" />
+          <ScalarProperty Name="Nacional" ColumnName="Nacional" />
+          <ScalarProperty Name="Movil" ColumnName="Movil" />
+          <ScalarProperty Name="Nom_Coverage" ColumnName="Nom_Coverage" />
+          <ScalarProperty Name="Cod_Coverage" ColumnName="Cod_Coverage" />
+          <ScalarProperty Name="Ide_Coverage" ColumnName="Ide_Coverage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_calls">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_calls">
+        <MappingFragment StoreEntitySet="xy_calls">
+          <ScalarProperty Name="Ide_SubscriberCalling" ColumnName="Ide_SubscriberCalling" />
+          <ScalarProperty Name="Num_CallWaitingDuration" ColumnName="Num_CallWaitingDuration" />
+          <ScalarProperty Name="Num_CallEffectiveDuration" ColumnName="Num_CallEffectiveDuration" />
+          <ScalarProperty Name="Ide_Trunk" ColumnName="Ide_Trunk" />
+          <ScalarProperty Name="Ide_Calls" ColumnName="Ide_Calls" />
+          <ScalarProperty Name="Vlr_Taxes_Euros" ColumnName="Vlr_Taxes_Euros" />
+          <ScalarProperty Name="Vlr_Taxes_Dollars" ColumnName="Vlr_Taxes_Dollars" />
+          <ScalarProperty Name="Vlr_Taxes_Pesos" ColumnName="Vlr_Taxes_Pesos" />
+          <ScalarProperty Name="Por_Taxes" ColumnName="Por_Taxes" />
+          <ScalarProperty Name="Vlr_Cost_Euros" ColumnName="Vlr_Cost_Euros" />
+          <ScalarProperty Name="Vlr_Cost_Dollars" ColumnName="Vlr_Cost_Dollars" />
+          <ScalarProperty Name="Vlr_Cost_Pesos" ColumnName="Vlr_Cost_Pesos" />
+          <ScalarProperty Name="Num_TimeSpanCost" ColumnName="Num_TimeSpanCost" />
+          <ScalarProperty Name="Num_TimeSpanReal" ColumnName="Num_TimeSpanReal" />
+          <ScalarProperty Name="Fec_Date" ColumnName="Fec_Date" />
+          <ScalarProperty Name="Ide_GeographyEmployee" ColumnName="Ide_GeographyEmployee" />
+          <ScalarProperty Name="Ide_NumberEmployee" ColumnName="Ide_NumberEmployee" />
+          <ScalarProperty Name="Ide_SubscriberEmployee" ColumnName="Ide_SubscriberEmployee" />
+          <ScalarProperty Name="Ide_Branch" ColumnName="Ide_Branch" />
+          <ScalarProperty Name="Ide_Coverage" ColumnName="Ide_Coverage" />
+          <ScalarProperty Name="Ide_Operator" ColumnName="Ide_Operator" />
+          <ScalarProperty Name="Ide_Time" ColumnName="Ide_Time" />
+          <ScalarProperty Name="Ide_GeographyTarget" ColumnName="Ide_GeographyTarget" />
+          <ScalarProperty Name="Ide_GeographySource" ColumnName="Ide_GeographySource" />
+          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
+          <ScalarProperty Name="Ide_ServerType" ColumnName="Ide_ServerType" />
+          <ScalarProperty Name="Ide_SourceType" ColumnName="Ide_SourceType" />
+          <ScalarProperty Name="Ide_CallType" ColumnName="Ide_CallType" />
+          <ScalarProperty Name="Ide_NumberTarget" ColumnName="Ide_NumberTarget" />
+          <ScalarProperty Name="Ide_NumberSource" ColumnName="Ide_NumberSource" />
+          <ScalarProperty Name="Ide_SubscriberTarget" ColumnName="Ide_SubscriberTarget" />
+          <ScalarProperty Name="Ide_SubscriberSource" ColumnName="Ide_SubscriberSource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,5 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="xynthesisModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="xy_calls">
+    <Key>
+      <PropertyRef Name="Ide_Calls" />
+    </Key>
+    <Property Name="Ide_SubscriberSource" Type="bigint" Nullable="false" />
+    <Property Name="Ide_SubscriberTarget" Type="bigint" Nullable="false" />
+    <Property Name="Ide_NumberSource" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ide_NumberTarget" Type="varchar" MaxLength="100" />
+    <Property Name="Ide_CallType" Type="tinyint" Nullable="false" />
+    <Property Name="Ide_SourceType" Type="tinyint" Nullable="false" />
+    <Property Name="Ide_ServerType" Type="int" Nullable="false" />
+    <Property Name="Ide_CostCenter" Type="int" Nullable="false" />
+    <Property Name="Ide_GeographySource" Type="int" Nullable="false" />
+    <Property Name="Ide_GeographyTarget" Type="int" Nullable="false" />
+    <Property Name="Ide_Time" Type="int" Nullable="false" />
+    <Property Name="Ide_Operator" Type="int" Nullable="false" />
+    <Property Name="Ide_Coverage" Type="tinyint" Nullable="false" />
+    <Property Name="Ide_Branch" Type="int" Nullable="false" />
+    <Property Name="Ide_SubscriberEmployee" Type="bigint" Nullable="false" />
+    <Property Name="Ide_NumberEmployee" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ide_GeographyEmployee" Type="int" Nullable="false" />
+    <Property Name="Fec_Date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Num_TimeSpanReal" Type="int" Nullable="false" />
+    <Property Name="Num_TimeSpanCost" Type="int" Nullable="false" />
+    <Property Name="Vlr_Cost_Pesos" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Vlr_Cost_Dollars" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Vlr_Cost_Euros" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Por_Taxes" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Vlr_Taxes_Pesos" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="Vlr_Taxes_Dollars" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="Vlr_Taxes_Euros" Type="decimal" Precision="15" Scale="2" />
+    <Property Name="Ide_Calls" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ide_Trunk" Type="int" />
+    <Property Name="Num_CallEffectiveDuration" Type="int" />
+    <Property Name="Num_CallWaitingDuration" Type="int" />
+    <Property Name="Ide_SubscriberCalling" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="xy_cliente">
     <Key>
       <PropertyRef Name="Idcliente" />
@@ -49,14 +86,14 @@
     <Property Name="Ide_CostCenter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Cod_CostCenter" Type="varchar" MaxLength="10" />
     <Property Name="Nom_CostCenter" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Ide_ParentCostCenter" Type="int" />
+    <Property Name="Ide_ParentCostCenter" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="xy_coverage">
     <Key>
       <PropertyRef Name="Ide_Coverage" />
     </Key>
     <Property Name="Ide_Coverage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Cod_Coverage" Type="varchar" MaxLength="5" />
+    <Property Name="Cod_Coverage" Type="tinyint" Nullable="false" />
     <Property Name="Nom_Coverage" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Movil" Type="bool" />
     <Property Name="Nacional" Type="bool" />
@@ -231,6 +268,54 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Property Name="NombreSucursal" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Ide_Geography" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_xy_Calls_xy_Number">
+    <End Role="xy_numbers" Type="Self.xy_numbers" Multiplicity="1" />
+    <End Role="xy_calls" Type="Self.xy_calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="xy_numbers">
+        <PropertyRef Name="Ide_Number" />
+      </Principal>
+      <Dependent Role="xy_calls">
+        <PropertyRef Name="Ide_NumberEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_xy_Calls_xy_NumbersSource">
+    <End Role="xy_numbers" Type="Self.xy_numbers" Multiplicity="1" />
+    <End Role="xy_calls" Type="Self.xy_calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="xy_numbers">
+        <PropertyRef Name="Ide_Number" />
+      </Principal>
+      <Dependent Role="xy_calls">
+        <PropertyRef Name="Ide_NumberSource" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_xy_Calls_xy_NumbersTarget">
+    <End Role="xy_numbers" Type="Self.xy_numbers" Multiplicity="0..1" />
+    <End Role="xy_calls" Type="Self.xy_calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="xy_numbers">
+        <PropertyRef Name="Ide_Number" />
+      </Principal>
+      <Dependent Role="xy_calls">
+        <PropertyRef Name="Ide_NumberTarget" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_xy_Calls_xy_ServerCommunications">
+    <End Role="xy_communicationserver" Type="Self.xy_communicationserver" Multiplicity="1" />
+    <End Role="xy_calls" Type="Self.xy_calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="xy_communicationserver">
+        <PropertyRef Name="Ide_ServerType" />
+      </Principal>
+      <Dependent Role="xy_calls">
+        <PropertyRef Name="Ide_ServerType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="xyp_CallAmountByContraparte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
@@ -559,6 +644,7 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="Ide_Geography_" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="xynthesisModelStoreContainer">
+    <EntitySet Name="xy_calls" EntityType="Self.xy_calls" Schema="xynthesis" store:Type="Tables" />
     <EntitySet Name="xy_cliente" EntityType="Self.xy_cliente" Schema="xynthesis" store:Type="Tables" />
     <EntitySet Name="xy_communicationserver" EntityType="Self.xy_communicationserver" Schema="xynthesis" store:Type="Tables" />
     <EntitySet Name="xy_configuracionreporte" EntityType="Self.xy_configuracionreporte" Schema="xynthesis" store:Type="Tables" />
@@ -599,5 +685,21 @@ FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
 `xy_rolesxsubscriber`.`Ide_Subscriber`
 FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_xy_Calls_xy_Number" Association="Self.FK_xy_Calls_xy_Number">
+      <End Role="xy_numbers" EntitySet="xy_numbers" />
+      <End Role="xy_calls" EntitySet="xy_calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_xy_Calls_xy_NumbersSource" Association="Self.FK_xy_Calls_xy_NumbersSource">
+      <End Role="xy_numbers" EntitySet="xy_numbers" />
+      <End Role="xy_calls" EntitySet="xy_calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_xy_Calls_xy_NumbersTarget" Association="Self.FK_xy_Calls_xy_NumbersTarget">
+      <End Role="xy_numbers" EntitySet="xy_numbers" />
+      <End Role="xy_calls" EntitySet="xy_calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_xy_Calls_xy_ServerCommunications" Association="Self.FK_xy_Calls_xy_ServerCommunications">
+      <End Role="xy_communicationserver" EntitySet="xy_communicationserver" />
+      <End Role="xy_calls" EntitySet="xy_calls" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

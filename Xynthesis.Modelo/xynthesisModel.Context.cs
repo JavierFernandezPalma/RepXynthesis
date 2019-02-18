@@ -48,6 +48,7 @@ namespace Xynthesis.Modelo
         public DbSet<xy_configuracionrptprogramado> xy_configuracionrptprogramado { get; set; }
         public DbSet<xy_costcenters> xy_costcenters { get; set; }
         public DbSet<xy_coverage> xy_coverage { get; set; }
+        public DbSet<xy_calls> xy_calls { get; set; }
     
         public virtual int xyp_DelCostCentre(Nullable<int> vParam)
         {
@@ -1184,11 +1185,6 @@ namespace Xynthesis.Modelo
                 new ObjectParameter("IdRepor", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xyp_ProxEjecucionReporte", fechaProxReporParameter, idReporParameter);
-        }
-    
-        public virtual int xyp_NumerosMarcados()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xyp_NumerosMarcados");
         }
     }
 }

@@ -34,3 +34,15 @@ D:\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.pdb
 D:\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
 D:\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.dll
 D:\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Modelo.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\EntityFramework.xml
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\MySql.Data.xml
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Release\Xynthesis.Utilidades.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Release\Xynthesis.Modelo.pdb

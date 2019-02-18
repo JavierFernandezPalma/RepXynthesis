@@ -5,7 +5,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>D:\PUBLICACIONES\Xynthesis2</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\PUBLICACIONES\XynthesisV3_14-02-2019</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ArchivoAyuda/ManualXynthesis.pdf">
@@ -18,10 +18,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:54</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>01/10/2019 17:42:42</publishTime>
+      <publishTime>02/14/2019 13:23:26</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>01/10/2019 17:42:42</publishTime>
+      <publishTime>02/14/2019 13:23:26</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
       <publishTime>08/31/2017 05:21:24</publishTime>
@@ -180,31 +180,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:56</publishTime>
     </File>
     <File Include="bin/Xynthesis.AccesoDatos.dll">
-      <publishTime>01/10/2019 17:41:57</publishTime>
+      <publishTime>02/14/2019 13:21:20</publishTime>
     </File>
     <File Include="bin/Xynthesis.AccesoDatos.pdb">
       <publishTime>12/26/2018 12:40:44</publishTime>
     </File>
     <File Include="bin/Xynthesis.Modelo.dll">
-      <publishTime>01/10/2019 16:18:28</publishTime>
+      <publishTime>02/14/2019 08:26:50</publishTime>
     </File>
     <File Include="bin/Xynthesis.Modelo.pdb">
       <publishTime>12/26/2018 12:35:04</publishTime>
     </File>
     <File Include="bin/Xynthesis.Reportes.dll">
-      <publishTime>01/10/2019 16:37:14</publishTime>
+      <publishTime>02/14/2019 08:27:02</publishTime>
     </File>
     <File Include="bin/Xynthesis.Reportes.pdb">
       <publishTime>12/26/2018 12:35:10</publishTime>
     </File>
     <File Include="bin/Xynthesis.Utilidades.dll">
-      <publishTime>01/02/2019 14:50:31</publishTime>
+      <publishTime>02/12/2019 15:54:13</publishTime>
     </File>
     <File Include="bin/Xynthesis.Utilidades.pdb">
       <publishTime>12/26/2018 12:34:52</publishTime>
     </File>
     <File Include="bin/Xynthesis.Web.dll">
-      <publishTime>01/10/2019 17:42:03</publishTime>
+      <publishTime>02/14/2019 13:21:26</publishTime>
     </File>
     <File Include="bin/Xynthesis.Web.pdb">
       <publishTime>12/26/2018 12:40:51</publishTime>
@@ -21552,7 +21552,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2018 07:41:58</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>01/10/2019 17:42:32</publishTime>
+      <publishTime>02/14/2019 13:23:14</publishTime>
     </File>
     <File Include="Reportes/CoberturaLlamadas.rpt">
       <publishTime>09/24/2018 08:34:38</publishTime>
@@ -21915,7 +21915,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/ReporteLlamadasSalientes/ListaLlamadasSalientes.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>02/14/2019 13:00:37</publishTime>
     </File>
     <File Include="Views/ReporteNumeroMasMarcado/NumerosMasMarcados.cshtml">
       <publishTime>12/26/2018 17:20:58</publishTime>
@@ -22032,7 +22032,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/27/2018 11:58:56</publishTime>
+      <publishTime>02/14/2019 13:22:42</publishTime>
     </File>
   </ItemGroup>
 </Project>

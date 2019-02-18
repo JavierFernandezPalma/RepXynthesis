@@ -14,7 +14,14 @@ namespace Xynthesis.Modelo
     
     public partial class xy_communicationserver
     {
+        public xy_communicationserver()
+        {
+            this.xy_calls = new HashSet<xy_calls>();
+        }
+    
         public int Ide_ServerType { get; set; }
         public string Nom_ServerType { get; set; }
+    
+        public virtual ICollection<xy_calls> xy_calls { get; set; }
     }
 }

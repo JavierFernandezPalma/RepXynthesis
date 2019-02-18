@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="d401c4eb83c54a5ca155fe728ffc0834" Name="Diagram1">
         <EntityTypeShape EntityType="xynthesisModel.xy_cliente" Width="1.5" PointX="0.75" PointY="4.25" />
-        <EntityTypeShape EntityType="xynthesisModel.xy_communicationserver" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="xynthesisModel.xy_communicationserver" Width="3" PointX="2.75" PointY="4.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_geography" Width="1.5" PointX="6.75" PointY="5.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_pais" Width="1.5" PointX="2.75" PointY="8.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_rol" Width="1.5" PointX="7.375" PointY="3.625" />
@@ -27,6 +27,11 @@
         <EntityTypeShape EntityType="xynthesisModel.xy_configuracionrptprogramado" Width="1.5" PointX="7.375" PointY="10.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_costcenters" Width="1.5" PointX="12.375" PointY="3.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_coverage" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="xynthesisModel.xy_calls" Width="1.5" PointX="15.625" PointY="0.75" />
+        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_Number" />
+        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_NumbersSource" />
+        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_NumbersTarget" />
+        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_ServerCommunications" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

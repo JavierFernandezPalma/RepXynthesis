@@ -22,11 +22,17 @@ namespace Xynthesis.Web.Controllers
         LogXynthesis log = new LogXynthesis();
         Constantes cons = new Constantes();
         public int contador;
+
+        //=====================fecha actual=============================
+        DateTime fecha_actual = Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd"));
+        DateTime fechaIni = Convert.ToDateTime((Convert.ToString(DateTime.Now.Year - 1) + "-01-01"));
+        //=====================fecha actual=============================
+
+
         public ActionResult ListaLlamadasSalientes(string paraPaginacion, string filtro, string FechaInicial, string FechaFinal, int? page)
         {
-            int anioActual = DateTime.Now.Year - 1;
-            DateTime Hoy = DateTime.Today;
-            string fecha_actual = Hoy.ToString("yyyy-MM-dd");
+
+
 
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {
@@ -37,12 +43,14 @@ namespace Xynthesis.Web.Controllers
                                    orderby t.Nom_Subscriber ascending
                                    select t).Distinct().ToList();
 
-            //Select para dropdowlist LlamadaEntrante
-            ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByOutSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
-                                           orderby row.Ide_NumberTarget ascending
-                                           select row).Distinct().ToList();
+            ////Select para dropdowlist LlamadaEntrante
+            //ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByOutSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
+            //                               orderby row.Ide_NumberTarget ascending
+            //                               select row).Distinct().ToList();
 
-            //ViewData["llamadaentrante"] = (from row in xyt.xyp_ProxEjecucionReporte select row).Distinct().ToList();
+            ViewData["llamadaentrante"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni 
+                                           && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
+                                           select row).Distinct().Take(10000).ToList();
 
 
             if (Session["FechaInicial"] != null)
@@ -106,11 +114,7 @@ namespace Xynthesis.Web.Controllers
         public ActionResult ListaLlamadasSalientes_(string FechaInicial, string FechaFinal, string[] usuarioId, string[] numentrante, int? page)
         {
             string user, llamEnt;
-            //=====================fecha actual=============================
-            int anioActual = DateTime.Now.Year - 1;
-            DateTime Hoy = DateTime.Today;
-            string fecha_actual = Hoy.ToString("yyyy-MM-dd");
-            //=====================fecha actual=============================
+
 
             //=====================Procesar usuario=============================
             string usuario = "";
@@ -154,11 +158,13 @@ namespace Xynthesis.Web.Controllers
                                    orderby t.Nom_Subscriber ascending
                                    select t).Distinct().ToList();
 
-            //Select para dropdowlist LlamadaEntrante
-            ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByOutSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
-                                           orderby row.Ide_NumberTarget ascending
-                                           select row).Distinct().ToList();
-
+            ////Select para dropdowlist LlamadaEntrante
+            //ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByOutSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
+            //                               orderby row.Ide_NumberTarget ascending
+            //                               select row).Distinct().ToList();
+            ViewData["llamadaentrante"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni 
+                                           && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
+                                           select row).Distinct().Take(10000).ToList();
 
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {
