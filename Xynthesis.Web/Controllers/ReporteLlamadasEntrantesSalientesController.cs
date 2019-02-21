@@ -40,6 +40,14 @@ namespace Xynthesis.Web.Controllers
             ViewData["area"] = (from a in xyt.xy_costcenters
                                 orderby a.Nom_CostCenter ascending
                                 select a).Distinct().ToList();
+
+
+            //ViewData["area"] = (from a in xyt.xy_costcenters
+            //                    group a.Cod_CostCenter by a.Nom_CostCenter into CostCenterGroup
+            //                    orderby CostCenterGroup.Key ascending
+            //                    select CostCenterGroup.Key).Distinct().ToList();
+
+
             //Inicio de lineas agregadas
             if (Session["FechaInicial"] != null)
             {

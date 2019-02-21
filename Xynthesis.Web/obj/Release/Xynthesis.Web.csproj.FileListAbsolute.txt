@@ -316,6 +316,11 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Razor.resources.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.resources.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.csprojResolveAssemblyReference.cache
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.csprojAssemblyReference.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.csproj.CoreCompileInputs.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Release\Xynthesis.Web.csproj.CopyComplete

@@ -110,6 +110,9 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\EntityFramework.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\MySql.Data.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.pdb
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojResolveAssemblyReference.cache
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CoreCompileInputs.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CopyComplete
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojAssemblyReference.cache

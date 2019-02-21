@@ -42,6 +42,10 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\bin\Release\Xynthesis.Utilidad
 D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\bin\Release\Xynthesis.Modelo.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\bin\Release\EntityFramework.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\bin\Release\Xynthesis.Utilidades.pdb
-D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\obj\Release\Xynthesis.AccesoDatos.csprojResolveAssemblyReference.cache
 D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\obj\Release\Xynthesis.AccesoDatos.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\obj\Release\Xynthesis.AccesoDatos.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\bin\Release\Xynthesis.Modelo.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\bin\Release\Xynthesis.Utilidades.dll.config
+D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\obj\Release\Xynthesis.AccesoDatos.csprojAssemblyReference.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\obj\Release\Xynthesis.AccesoDatos.csproj.CoreCompileInputs.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.AccesoDatos\obj\Release\Xynthesis.AccesoDatos.csproj.CopyComplete
