@@ -42,10 +42,18 @@ namespace Xynthesis.Web.Controllers
                                 select a).Distinct().ToList();
 
 
+            //ViewData["area"] = (from cos in xyt.xy_costcenters where (from a in xyt.xy_costcenters
+            //                    group a.Cod_CostCenter by a.Ide_CostCenter into CostCenterGroup
+            //                    select CostCenterGroup.Key).Distinct().Contains(cos.Ide_CostCenter)
+            //                    select cos).ToList();
+
+
+
+
             //ViewData["area"] = (from a in xyt.xy_costcenters
-            //                    group a.Cod_CostCenter by a.Nom_CostCenter into CostCenterGroup
+            //                    group a.Cod_CostCenter by a.Cod_CostCenter into CostCenterGroup
             //                    orderby CostCenterGroup.Key ascending
-            //                    select CostCenterGroup.Key).Distinct().ToList();
+            //                    select CostCenterGroup.Key).ToList();
 
 
             //Inicio de lineas agregadas
