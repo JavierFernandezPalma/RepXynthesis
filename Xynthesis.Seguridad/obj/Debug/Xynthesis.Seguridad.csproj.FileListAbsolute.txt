@@ -106,6 +106,7 @@ D:\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll.config
 D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojAssemblyReference.cache
 D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CoreCompileInputs.cache
 D:\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CopyComplete
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojResolveAssemblyReference.cache
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll.config
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Seguridad.pdb
@@ -119,9 +120,3 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.p
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\EntityFramework.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.pdb
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.AccesoDatos.dll.config
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Modelo.dll.config
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\bin\Debug\Xynthesis.Utilidades.dll.config
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csprojAssemblyReference.cache
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CoreCompileInputs.cache
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Seguridad\obj\Debug\Xynthesis.Seguridad.csproj.CopyComplete

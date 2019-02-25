@@ -91,13 +91,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xynthesis.Modelo">
+      <HintPath>..\Xynthesis.Modelo\bin\Debug\Xynthesis.Modelo.dll</HintPath>
+    </Reference>
     <Reference Include="Xynthesis.Reportes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll</HintPath>
-    </Reference>
-    <Reference Include="Xynthesis.Utilidades, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Xynthesis.Utilidades\bin\Debug\Xynthesis.Utilidades.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -132,9 +131,9 @@
       <Project>{6d0797f0-7625-488c-bfcd-ad7d0ec3ba43}</Project>
       <Name>Xynthesis.AccesoDatos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Xynthesis.Modelo\Xynthesis.Modelo.csproj">
-      <Project>{1a656722-a967-45d1-96ec-c8afee3df43c}</Project>
-      <Name>Xynthesis.Modelo</Name>
+    <ProjectReference Include="..\Xynthesis.Utilidades\Xynthesis.Utilidades.csproj">
+      <Project>{309916da-60bb-4cea-96a0-37f48eb737d6}</Project>
+      <Name>Xynthesis.Utilidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

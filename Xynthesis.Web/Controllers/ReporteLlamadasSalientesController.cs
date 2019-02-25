@@ -38,19 +38,20 @@ namespace Xynthesis.Web.Controllers
             {
                 return RedirectToAction("Login", "Acceso");
             }
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).Distinct().ToList();
+
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
             ////Select para dropdowlist LlamadaEntrante
             //ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByOutSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
             //                               orderby row.Ide_NumberTarget ascending
             //                               select row).Distinct().ToList();
 
-            ViewData["llamadaentrante"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni 
+            ViewData["llamadasaliente"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
                                            && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
-                                           select row).Distinct().Take(10000).ToList();
+                                           group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                           orderby NumberTargetGroup.Key ascending
+                                           select NumberTargetGroup.Key).ToList();
+
 
 
             if (Session["FechaInicial"] != null)
@@ -153,18 +154,18 @@ namespace Xynthesis.Web.Controllers
             //=====================Procesar llamada entrante=============================
 
 
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).Distinct().ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
             ////Select para dropdowlist LlamadaEntrante
             //ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByOutSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
             //                               orderby row.Ide_NumberTarget ascending
             //                               select row).Distinct().ToList();
-            ViewData["llamadaentrante"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni 
+
+            ViewData["llamadasaliente"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
                                            && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
-                                           select row).Distinct().Take(10000).ToList();
+                                           group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                           orderby NumberTargetGroup.Key ascending
+                                           select NumberTargetGroup.Key).ToList();
 
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {

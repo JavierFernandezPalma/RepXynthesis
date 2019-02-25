@@ -1082,4 +1082,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="xyp_SelCoscenters_Result" />
+  <ComplexType Name="xyp_SelCoscenters_Result1" />
+  <ComplexType Name="xyp_SelCoscenters_Result2" />
+  <ComplexType Name="xyp_SelCoscenters_Result3" />
+  <ComplexType Name="xyp_SelCosCenters_Result4" />
+  <ComplexType Name="xyp_SelCosCenters_Result5" />
 </Schema>

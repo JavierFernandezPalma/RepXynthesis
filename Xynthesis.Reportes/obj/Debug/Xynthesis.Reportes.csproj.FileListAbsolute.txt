@@ -210,6 +210,7 @@ D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xyn
 D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
 D:\OneDrive - AXEDE\Users\jafernandez\Documentos\Visual Studio 2015\Projects\Xynthesis\Pruebas_House\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb
 D:\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.dll
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Reportes.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
@@ -236,6 +237,5 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.AccesoDatos.p
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Modelo.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\Xynthesis.Utilidades.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\bin\Debug\EntityFramework.xml
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.csprojResolveAssemblyReference.cache
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Reportes\obj\Debug\Xynthesis.Reportes.pdb

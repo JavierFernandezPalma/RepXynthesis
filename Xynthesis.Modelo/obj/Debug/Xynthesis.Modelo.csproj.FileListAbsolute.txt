@@ -115,4 +115,3 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\bin\Debug\Xynthesis.Utilidades.dll.config
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CoreCompileInputs.cache
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csproj.CopyComplete
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Modelo\obj\Debug\Xynthesis.Modelo.csprojAssemblyReference.cache

@@ -19,8 +19,8 @@ namespace WindowsTestService
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Xynthesis.ServicioReportes.Service1 service = new Xynthesis.ServicioReportes.Service1();
-            service.ServiceWindowsTest();
+            //Xynthesis.ServicioReportes.Service1 service = new Xynthesis.ServicioReportes.Service1();
+            //service.ServiceWindowsTest();
         }
     }
 }
