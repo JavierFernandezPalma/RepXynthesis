@@ -172,6 +172,9 @@
     <Compile Include="xyp_SelAllCostCentre_Result.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="xyp_SelAreas_Result.cs">
+      <DependentUpon>XynthesisModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="xyp_SelCallAmountsBySubscriber_Result.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
@@ -244,9 +247,6 @@
     <Compile Include="xy_cliente.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="xy_communicationserver.cs">
-      <DependentUpon>XynthesisModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="xy_configuracionreporte.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
@@ -287,12 +287,6 @@
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
     <Compile Include="xy_rol.cs">
-      <DependentUpon>XynthesisModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="xy_rolesxsubscriber.cs">
-      <DependentUpon>XynthesisModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="xy_roles_menus_.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
     <Compile Include="xy_subscriber.cs">

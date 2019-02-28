@@ -13,7 +13,7 @@
 
 @{
     ViewBag.Title = "Consumos Por Áreas";
-    var mod = (List<Xynthesis.Modelo.xy_costcenters>)ViewData["area"];
+    var mod = (List<Xynthesis.Modelo.xyp_SelAreas_Result >)ViewData["area"];
     var mod2 = (List<Xynthesis.Modelo.xy_coverage>)ViewData["cobertura"];
 }
 
@@ -35,7 +35,7 @@
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ÁREA" title="ÁREA" id="NomUsuario" name="areaId" data-size="10">
                         @foreach (var usuar in mod)
                         {
-                            <option id="@usuar.Nom_CostCenter" value="@usuar.Ide_CostCenter">@usuar.Nom_CostCenter</option>
+                            <option id="@usuar.Nom_Area" value="@usuar.Id_Area">@usuar.Nom_Area</option>
                         }
                     </select>
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="COBERTURA" title="COBERTURA" id="Cobertura" name="coberturaId" data-size="10">

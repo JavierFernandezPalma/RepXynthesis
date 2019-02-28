@@ -212,7 +212,7 @@ namespace Xynthesis.Web.Controllers
                     listanxs[0].Fec_Date,
                     lisSus[0].Ide_Subscriber,
                     lisSus[0].Tip_Subscriber,
-                    listanxs[0].Ide_ServerType,
+                    Convert.ToInt32(listanxs[0].Ide_ServerType),
                     branch,
                     -1,
                     -1,

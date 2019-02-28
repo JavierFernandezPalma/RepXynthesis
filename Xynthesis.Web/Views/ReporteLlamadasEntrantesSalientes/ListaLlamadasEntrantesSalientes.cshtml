@@ -12,7 +12,7 @@
 @{
     ViewBag.Title = "Estadisticas De Llamadas Entrantes y Salientes";
     var mod = (List<Xynthesis.Modelo.xyp_SelUsuarios_Result>)ViewData["usuario"];
-    var mod2 = (List<Xynthesis.Modelo.xyp_SelUsuarios_Result>)ViewData["area"];
+    var mod2 = (List<Xynthesis.Modelo.xyp_SelAreas_Result>)ViewData["area"];
 }
 
 <div class="container">
@@ -40,7 +40,7 @@
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="AREA" title="AREA" id="NomArea" name="areaId" data-size="10">
                         @foreach (var are in mod2)
                         {
-                            @*<option id="@are.Ide_CostCenter" value="@are.Ide_CostCenter">@are.Nom_CostCenter</option>*@
+                            <option id="@are.Nom_Area" value="@are.Id_Area">@are.Nom_Area</option>
                         }
                     </select>
 

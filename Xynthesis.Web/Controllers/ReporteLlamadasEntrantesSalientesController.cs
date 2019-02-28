@@ -34,7 +34,7 @@ namespace Xynthesis.Web.Controllers
 
             ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
-            //ViewData["area"] = xyt.xyp_SelCosCenters().ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
 
             //ViewData["area"] = (from cos in xyt.xy_costcenters where (from a in xyt.xy_costcenters
@@ -155,7 +155,7 @@ namespace Xynthesis.Web.Controllers
             Session["areas"] = are;
 
 
-            //ViewData["area"] = xyt.xyp_SelCosCenters().ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {

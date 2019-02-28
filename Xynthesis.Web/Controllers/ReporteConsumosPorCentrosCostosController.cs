@@ -30,7 +30,9 @@ namespace Xynthesis.Web.Controllers
             {
                 return RedirectToAction("Login", "Acceso");
             }
-            ViewData["area"] = (from t in xyt.xy_costcenters orderby t.Nom_CostCenter ascending select t).ToList();
+
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
+
             ViewData["cobertura"] = (from c in xyt.xy_coverage where c.Ide_Coverage != -1 orderby c.Nom_Coverage ascending select c).ToList();
 
             //Inicio de lineas agregadas
@@ -105,7 +107,7 @@ namespace Xynthesis.Web.Controllers
 
             //String[] ides = usuarioId;
 
-            ViewData["area"] = (from t in xyt.xy_costcenters orderby t.Nom_CostCenter ascending select t).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
             string cobertura = "";
             string cober;

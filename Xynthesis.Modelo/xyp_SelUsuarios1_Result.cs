@@ -10,13 +10,8 @@
 namespace Xynthesis.Modelo
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class xy_roles_menus_
+    public partial class xyp_SelUsuarios1_Result
     {
-        public long IdRolMen { get; set; }
-        public long IdRol { get; set; }
-        public long IdMenus { get; set; }
-        public bool Activo { get; set; }
     }
 }

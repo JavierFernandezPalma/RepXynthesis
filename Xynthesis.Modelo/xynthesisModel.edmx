@@ -17,6 +17,7 @@
           <Property Name="Ide_SourceType" Type="tinyint" Nullable="false" />
           <Property Name="Ide_ServerType" Type="int" Nullable="false" />
           <Property Name="Ide_CostCenter" Type="int" Nullable="false" />
+          <Property Name="Id_Area" Type="int" />
           <Property Name="Ide_GeographySource" Type="int" Nullable="false" />
           <Property Name="Ide_GeographyTarget" Type="int" Nullable="false" />
           <Property Name="Ide_Time" Type="int" Nullable="false" />
@@ -48,13 +49,6 @@
           </Key>
           <Property Name="Idcliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreCliente" Type="varchar" MaxLength="120" Nullable="false" />
-        </EntityType>
-        <EntityType Name="xy_communicationserver">
-          <Key>
-            <PropertyRef Name="Ide_ServerType" />
-          </Key>
-          <Property Name="Ide_ServerType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom_ServerType" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="xy_configuracionreporte">
           <Key>
@@ -139,26 +133,22 @@
           <Property Name="Idcliente" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.xynthesis.xy_numbersxsubscriber' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'def.xynthesis2.xy_numbersxsubscriber' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="xy_numbersxsubscriber">
           <Key>
             <PropertyRef Name="Ide_Number" />
             <PropertyRef Name="Fec_Date" />
             <PropertyRef Name="Ide_Subscriber" />
             <PropertyRef Name="Tip_Subscriber" />
-            <PropertyRef Name="Ide_ServerType" />
-            <PropertyRef Name="Ide_Branch" />
-            <PropertyRef Name="Ide_CostCenter" />
-            <PropertyRef Name="Ide_Geography" />
           </Key>
           <Property Name="Ide_Number" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Fec_Date" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="Ide_Subscriber" Type="bigint" Nullable="false" />
           <Property Name="Tip_Subscriber" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="Ide_ServerType" Type="int" Nullable="false" />
-          <Property Name="Ide_Branch" Type="int" Nullable="false" />
-          <Property Name="Ide_CostCenter" Type="int" Nullable="false" />
-          <Property Name="Ide_Geography" Type="int" Nullable="false" />
+          <Property Name="Ide_ServerType" Type="int" />
+          <Property Name="Ide_Branch" Type="int" />
+          <Property Name="Ide_CostCenter" Type="int" />
+          <Property Name="Ide_Geography" Type="int" />
           <Property Name="Num_AccessCode" Type="varchar" MaxLength="50" />
           <Property Name="Ide_Plan" Type="int" />
           <Property Name="Vlr_Plan" Type="int" />
@@ -230,25 +220,6 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_numbersxsubscriber' no tien
           <Property Name="Alias_Rol" Type="varchar" MaxLength="30" />
           <Property Name="Des_Rol" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <EntityType Name="xy_roles_menus_">
-          <Key>
-            <PropertyRef Name="IdRolMen" />
-          </Key>
-          <Property Name="IdRolMen" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdRol" Type="uint" Nullable="false" />
-          <Property Name="IdMenus" Type="uint" Nullable="false" />
-          <Property Name="Activo" Type="bit" Nullable="false" />
-        </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="xy_rolesxsubscriber">
-          <Key>
-            <PropertyRef Name="Ide_Rol" />
-            <PropertyRef Name="Ide_Subscriber" />
-          </Key>
-          <Property Name="Ide_Rol" Type="uint" Nullable="false" />
-          <Property Name="Ide_Subscriber" Type="ubigint" Nullable="false" />
-        </EntityType>
         <EntityType Name="xy_subscriber">
           <Key>
             <PropertyRef Name="Ide_Subscriber" />
@@ -309,59 +280,45 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_xy_Calls_xy_ServerCommunications">
-          <End Role="xy_communicationserver" Type="Self.xy_communicationserver" Multiplicity="1" />
-          <End Role="xy_calls" Type="Self.xy_calls" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="xy_communicationserver">
-              <PropertyRef Name="Ide_ServerType" />
-            </Principal>
-            <Dependent Role="xy_calls">
-              <PropertyRef Name="Ide_ServerType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Function Name="xyp_CallAmountByContraparte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_CallAmountByContraparte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_CallTypesAmountReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_CallTypesAmountReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_cambiarclave" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_cambiarclave" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="id_user" Type="int" Mode="In" />
           <Parameter Name="clave" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_DelCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_DelCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="vParam" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_DelNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_DelNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ideNumber" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_DelRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_DelRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ConfId" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_DelRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_DelRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="Id_Usuario" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_DelSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_DelSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="idSucursal" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_DestinoLlamadaCampeonaArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_GrupNumSuscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_InsCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_InsCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="vCode" Type="varchar" Mode="In" />
           <Parameter Name="vName" Type="varchar" Mode="In" />
           <Parameter Name="iParent" Type="int" Mode="In" />
           <Parameter Name="ireturnCode" Type="int" Mode="Out" />
         </Function>
-        <Function Name="xyp_InsNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_InsNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ideNumber" Type="varchar" Mode="In" />
           <Parameter Name="tipExtension" Type="bit" Mode="In" />
         </Function>
-        <Function Name="xyp_Insoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_Insoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="IdOperador_" Type="int" Mode="In" />
           <Parameter Name="IdPais_" Type="int" Mode="In" />
           <Parameter Name="VlrInternaMinsinIva_" Type="decimal" Mode="In" />
@@ -369,7 +326,7 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
           <Parameter Name="Movil_" Type="tinyint" Mode="In" />
           <Parameter Name="Fijo_" Type="tinyint" Mode="In" />
         </Function>
-        <Function Name="xyp_InsOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_InsOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="codOperator_" Type="varchar" Mode="In" />
           <Parameter Name="NomOperator_" Type="varchar" Mode="In" />
           <Parameter Name="IdeCoverage_" Type="int" Mode="In" />
@@ -377,7 +334,7 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
           <Parameter Name="Unit_" Type="varchar" Mode="In" />
           <Parameter Name="NumberDigits_" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_InsRepProg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_InsRepProg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ReporteId_" Type="int" Mode="In" />
           <Parameter Name="Nombre_" Type="varchar" Mode="In" />
           <Parameter Name="HoraEjecucion_" Type="datetime" Mode="In" />
@@ -393,131 +350,126 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
           <Parameter Name="TipoFrecuencia_" Type="varchar" Mode="In" />
           <Parameter Name="Programacion_" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_InsSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_InsSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="Nombre_Sucursal" Type="varchar" Mode="In" />
           <Parameter Name="Ide_Geography" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_NumberAmountsByInSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_NumberAmountsByInSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
           <Parameter Name="Extens" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_NumberAmountsByOutSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_NumberAmountsByOutSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_NumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_NumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="dStartDate" Type="varchar" Mode="In" />
           <Parameter Name="dEndDate" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_ProxEjecucionReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_ProxEjecucionReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="FechaProxRepor" Type="varchar" Mode="In" />
           <Parameter Name="IdRepor" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RECalCostTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RECalCostTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="fecIni" Type="varchar" Mode="In" />
           <Parameter Name="fecFin" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_ReceiveAndTransferCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_ReceiveAndTransferCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_ReceiveCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
-          <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
-          <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
-          <Parameter Name="Usuario" Type="varchar" Mode="In" />
-          <Parameter Name="Area" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="xyp_ReceiveCallsTiempoPromedio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_ReceiveCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_ReceiveCallsTiempoPromedio_repo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_ReceiveCallsTiempoPromedio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
+          <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
+          <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Area" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="xyp_ReceiveCallsTiempoPromedio_repo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RepBudgetBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_RepBudgetLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_RepCallOpenAndClosed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RepCallOpenAndClosed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="CallDurationParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RepConsolidadoCoberturaLLamadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RepConsolidadoCoberturaLLamadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RepGrafNumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RepGrafNumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RepPromedioLlamadasHora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RepPromedioLlamadasHora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="dStartDate" Type="varchar" Mode="In" />
           <Parameter Name="dEndDate" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
           <Parameter Name="Rango" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RepReceiveCallsLlamEntranSalien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RepReceiveCallsLlamEntranSalien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RepSabanaCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RepSabanaCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RepTarificacionEntraSalieTrans" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_RepTarificacionEntraSalieTrans" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="dStartDate" Type="varchar" Mode="In" />
           <Parameter Name="dEndDate" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
           <Parameter Name="Sucursal" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_RolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
-          <Parameter Name="Id_Roles" Type="int" Mode="In" />
-          <Parameter Name="Id_Usuario" Type="int" Mode="In" />
-        </Function>
-        <Function Name="xyp_SelActivityFirstAndLast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelActivityFirstAndLast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelAllCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelAllCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="iStartIndex" Type="int" Mode="In" />
           <Parameter Name="iEndIndex" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_SelAllCostCentreParents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelAllCostCentreParents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="vParam" Type="varchar" Mode="In" />
           <Parameter Name="iStartIndex" Type="int" Mode="In" />
           <Parameter Name="iEndIndex" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_SelCallAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelAreas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+        <Function Name="xyp_SelCallAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelConsumeByCostCenter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelConsumeByCostCenter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
           <Parameter Name="Cobertura" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelConsumeByExtensionAndUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelConsumeByExtensionAndUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
@@ -526,80 +478,75 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
           <Parameter Name="Cobertura" Type="varchar" Mode="In" />
           <Parameter Name="Destino" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelConsumeByHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelConsumeByHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
           <Parameter Name="anio" Type="varchar" Mode="In" />
           <Parameter Name="mes" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelCostCentreByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelCostCentreByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="iIdSubscriber" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_SelCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_SelCoverages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_SelDetailChampCallCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelDetailChampCallCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
           <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
           <Parameter Name="Origen" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelDetailChampCallDuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelDetailChampCallDuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Area" Type="varchar" Mode="In" />
           <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelDialedNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelDialedNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="Origen" Type="varchar" Mode="In" />
           <Parameter Name="Destino" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelFrequentExtensionNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelFrequentExtensionNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
           <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelGeographyByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelGeographyByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="nomCountry" Type="varchar" Mode="In" />
           <Parameter Name="nomProvince" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelGeographyByCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelGeographyByCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="nomCountry" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_SelNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="iStartIndex" Type="int" Mode="In" />
           <Parameter Name="iEndIndex" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_SelOperators" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelOperators" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="Ide_Operator_" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_SelOperTarifInterna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelOperTarifInterna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="idtarifaInter1_" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_SelOperxCoberMovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_SelReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="IdRepProgramado" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_SelServerType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_SelSucursales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_SelUsuarioRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelUsuarioRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="Ide_Subscriber_" Type="bigint" Mode="In" />
         </Function>
-        <Function Name="xyp_SelUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-        <Function Name="xyp_UpdCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_SelUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+        <Function Name="xyp_UpdCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="vCode" Type="varchar" Mode="In" />
           <Parameter Name="vName" Type="varchar" Mode="In" />
           <Parameter Name="vParent" Type="int" Mode="In" />
           <Parameter Name="vIdentity" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_UpdNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_UpdNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ideNumber" Type="varchar" Mode="In" />
           <Parameter Name="tipExtension" Type="int" Mode="In" />
           <Parameter Name="idcliente_" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_UpdNumberBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_UpdNumberBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ideNumber" Type="varchar" Mode="In" />
           <Parameter Name="fecDate" Type="datetime" Mode="In" />
           <Parameter Name="ideSubscriber" Type="bigint" Mode="In" />
@@ -610,7 +557,7 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
           <Parameter Name="ideGeography" Type="int" Mode="In" />
           <Parameter Name="ideNumberOld" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_Updoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_Updoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="idtarifaInter_" Type="int" Mode="In" />
           <Parameter Name="IdOperador_" Type="int" Mode="In" />
           <Parameter Name="IdPais_" Type="int" Mode="In" />
@@ -619,7 +566,7 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
           <Parameter Name="Movil_" Type="tinyint" Mode="In" />
           <Parameter Name="Fijo_" Type="tinyint" Mode="In" />
         </Function>
-        <Function Name="xyp_UpdOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_UpdOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="Ide_Operator_" Type="int" Mode="In" />
           <Parameter Name="codOperator_" Type="varchar" Mode="In" />
           <Parameter Name="NomOperator_" Type="varchar" Mode="In" />
@@ -628,47 +575,45 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
           <Parameter Name="Unit_" Type="varchar" Mode="In" />
           <Parameter Name="NumberDigits_" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_UpdRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_UpdRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ConfId" Type="int" Mode="In" />
           <Parameter Name="RepId" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_UpdRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_UpdRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="Id_Roles" Type="int" Mode="In" />
           <Parameter Name="Id_Usuario" Type="int" Mode="In" />
         </Function>
-        <Function Name="xyp_UpdSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_UpdSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="ideSubscriber" Type="int" Mode="In" />
           <Parameter Name="nomSubscriber" Type="varchar" Mode="In" />
           <Parameter Name="nomDomainUser" Type="varchar" Mode="In" />
           <Parameter Name="tipSubscriber" Type="char" Mode="In" />
           <Parameter Name="vPassword" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="xyp_UpdSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+        <Function Name="xyp_UpdSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="IdSucursal_" Type="int" Mode="In" />
           <Parameter Name="NombreSucursal_" Type="varchar" Mode="In" />
           <Parameter Name="Ide_Geography_" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="xynthesisModelStoreContainer">
-          <EntitySet Name="xy_calls" EntityType="Self.xy_calls" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_cliente" EntityType="Self.xy_cliente" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_communicationserver" EntityType="Self.xy_communicationserver" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_configuracionreporte" EntityType="Self.xy_configuracionreporte" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_configuracionrptprogramado" EntityType="Self.xy_configuracionrptprogramado" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_costcenters" EntityType="Self.xy_costcenters" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_coverage" EntityType="Self.xy_coverage" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_frecuencia" EntityType="Self.xy_frecuencia" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_geography" EntityType="Self.xy_geography" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_numbers" EntityType="Self.xy_numbers" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_operador_tarifa_inter" EntityType="Self.xy_operador_tarifa_inter" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_operators" EntityType="Self.xy_operators" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_pais" EntityType="Self.xy_pais" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_rates" EntityType="Self.xy_rates" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_reportes" EntityType="Self.xy_reportes" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_rol" EntityType="Self.xy_rol" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_roles_menus_" EntityType="Self.xy_roles_menus_" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_subscriber" EntityType="Self.xy_subscriber" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_sucursal" EntityType="Self.xy_sucursal" Schema="xynthesis" store:Type="Tables" />
-          <EntitySet Name="xy_numbersxsubscriber" EntityType="Self.xy_numbersxsubscriber" store:Type="Tables" store:Schema="xynthesis">
+          <EntitySet Name="xy_calls" EntityType="Self.xy_calls" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_cliente" EntityType="Self.xy_cliente" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_configuracionreporte" EntityType="Self.xy_configuracionreporte" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_configuracionrptprogramado" EntityType="Self.xy_configuracionrptprogramado" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_costcenters" EntityType="Self.xy_costcenters" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_coverage" EntityType="Self.xy_coverage" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_frecuencia" EntityType="Self.xy_frecuencia" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_geography" EntityType="Self.xy_geography" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_numbers" EntityType="Self.xy_numbers" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_operador_tarifa_inter" EntityType="Self.xy_operador_tarifa_inter" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_operators" EntityType="Self.xy_operators" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_pais" EntityType="Self.xy_pais" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_rates" EntityType="Self.xy_rates" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_reportes" EntityType="Self.xy_reportes" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_rol" EntityType="Self.xy_rol" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_subscriber" EntityType="Self.xy_subscriber" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_sucursal" EntityType="Self.xy_sucursal" Schema="xynthesis2" store:Type="Tables" />
+          <EntitySet Name="xy_numbersxsubscriber" EntityType="Self.xy_numbersxsubscriber" store:Type="Tables" store:Schema="xynthesis2">
             <DefiningQuery>SELECT
 `xy_numbersxsubscriber`.`Ide_Number`, 
 `xy_numbersxsubscriber`.`Fec_Date`, 
@@ -684,12 +629,6 @@ advertencia 6002: La tabla o vista 'def.xynthesis.xy_rolesxsubscriber' no tiene 
 `xy_numbersxsubscriber`.`Num_Minutes`
 FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="xy_rolesxsubscriber" EntityType="Self.xy_rolesxsubscriber" store:Type="Tables" store:Schema="xynthesis">
-            <DefiningQuery>SELECT
-`xy_rolesxsubscriber`.`Ide_Rol`, 
-`xy_rolesxsubscriber`.`Ide_Subscriber`
-FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_xy_Calls_xy_Number" Association="Self.FK_xy_Calls_xy_Number">
             <End Role="xy_numbers" EntitySet="xy_numbers" />
             <End Role="xy_calls" EntitySet="xy_calls" />
@@ -702,25 +641,12 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
             <End Role="xy_numbers" EntitySet="xy_numbers" />
             <End Role="xy_calls" EntitySet="xy_calls" />
           </AssociationSet>
-          <AssociationSet Name="FK_xy_Calls_xy_ServerCommunications" Association="Self.FK_xy_Calls_xy_ServerCommunications">
-            <End Role="xy_communicationserver" EntitySet="xy_communicationserver" />
-            <End Role="xy_calls" EntitySet="xy_calls" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="xynthesisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="xynthesisEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="xy_cliente" EntityType="xynthesisModel.xy_cliente" />
-          <EntitySet Name="xy_communicationserver" EntityType="xynthesisModel.xy_communicationserver" />
-          <EntitySet Name="xy_geography" EntityType="xynthesisModel.xy_geography" />
-          <EntitySet Name="xy_pais" EntityType="xynthesisModel.xy_pais" />
-          <EntitySet Name="xy_rol" EntityType="xynthesisModel.xy_rol" />
-          <EntitySet Name="xy_roles_menus_" EntityType="xynthesisModel.xy_roles_menus_" />
-          <EntitySet Name="xy_sucursal" EntityType="xynthesisModel.xy_sucursal" />
-          <EntitySet Name="xy_numbersxsubscriber" EntityType="xynthesisModel.xy_numbersxsubscriber" />
-          <EntitySet Name="xy_rolesxsubscriber" EntityType="xynthesisModel.xy_rolesxsubscriber" />
           <FunctionImport Name="xyp_DelCostCentre">
           <Parameter Name="vParam" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -822,15 +748,11 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
             <Parameter Name="fecIni" Mode="In" Type="String" />
             <Parameter Name="fecFin" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="xy_operators" EntityType="xynthesisModel.xy_operators" />
-          <EntitySet Name="xy_rates" EntityType="xynthesisModel.xy_rates" />
-          <EntitySet Name="xy_operador_tarifa_inter" EntityType="xynthesisModel.xy_operador_tarifa_inter" />
           <FunctionImport Name="xyp_UpdSucursal">
             <Parameter Name="IdSucursal_" Mode="In" Type="Int32" />
             <Parameter Name="NombreSucursal_" Mode="In" Type="String" />
             <Parameter Name="Ide_Geography_" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="xyp_SelUsuarios" ReturnType="Collection(xynthesisModel.xyp_SelUsuarios_Result)" />
           <FunctionImport Name="xyp_SelActivityFirstAndLast" ReturnType="Collection(xynthesisModel.xyp_SelActivityFirstAndLast_Result)">
             <Parameter Name="StartDateParameter" Mode="In" Type="String" />
             <Parameter Name="EndDateParameter" Mode="In" Type="String" />
@@ -965,13 +887,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
             <Parameter Name="Area" Mode="In" Type="String" />
             <Parameter Name="Sucursal" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="xy_configuracionreporte" EntityType="xynthesisModel.xy_configuracionreporte" />
-          <EntitySet Name="xy_frecuencia" EntityType="xynthesisModel.xy_frecuencia" />
-          <EntitySet Name="xy_reportes" EntityType="xynthesisModel.xy_reportes" />
-          <AssociationSet Name="ReporteId" Association="xynthesisModel.ReporteId">
-            <End Role="xy_reportes" EntitySet="xy_reportes" />
-            <End Role="xy_configuracionreporte" EntitySet="xy_configuracionreporte" />
-          </AssociationSet>
           <FunctionImport Name="xyp_SelReports" ReturnType="Collection(xynthesisModel.xyp_SelReports_Result)" >
           <Parameter Name="IdRepProgramado" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1017,8 +932,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
             <Parameter Name="Id_Roles" Mode="In" Type="Int32" />
             <Parameter Name="Id_Usuario" Mode="In" Type="Int32" />
           </FunctionImport>
-          <EntitySet Name="xy_subscriber" EntityType="xynthesisModel.xy_subscriber" />
-          <EntitySet Name="xy_numbers" EntityType="xynthesisModel.xy_numbers" />
           <FunctionImport Name="xyp_UpdNumber">
             <Parameter Name="ideNumber" Mode="In" Type="String" />
             <Parameter Name="tipExtension" Mode="In" Type="Int32" />
@@ -1057,13 +970,23 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
             <Parameter Name="StartDateParameter" Mode="In" Type="String" />
             <Parameter Name="EndDateParameter" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="xy_configuracionrptprogramado" EntityType="xynthesisModel.xy_configuracionrptprogramado" />
           <FunctionImport Name="xyp_ProxEjecucionReporte">
             <Parameter Name="FechaProxRepor" Mode="In" Type="String" />
             <Parameter Name="IdRepor" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="xy_costcenters" EntityType="xynthesisModel.xy_costcenters" />
+          <EntitySet Name="xy_subscriber" EntityType="xynthesisModel.xy_subscriber" />
+          <EntitySet Name="xy_configuracionrptprogramado" EntityType="xynthesisModel.xy_configuracionrptprogramado" />
           <EntitySet Name="xy_coverage" EntityType="xynthesisModel.xy_coverage" />
+          <EntitySet Name="xy_numbers" EntityType="xynthesisModel.xy_numbers" />
+          <EntitySet Name="xy_numbersxsubscriber" EntityType="xynthesisModel.xy_numbersxsubscriber" />
+          <EntitySet Name="xy_geography" EntityType="xynthesisModel.xy_geography" />
+          <EntitySet Name="xy_pais" EntityType="xynthesisModel.xy_pais" />
+          <EntitySet Name="xy_costcenters" EntityType="xynthesisModel.xy_costcenters" />
+          <EntitySet Name="xy_cliente" EntityType="xynthesisModel.xy_cliente" />
+          <EntitySet Name="xy_operators" EntityType="xynthesisModel.xy_operators" />
+          <EntitySet Name="xy_operador_tarifa_inter" EntityType="xynthesisModel.xy_operador_tarifa_inter" />
+          <EntitySet Name="xy_rates" EntityType="xynthesisModel.xy_rates" />
+          <EntitySet Name="xy_sucursal" EntityType="xynthesisModel.xy_sucursal" />
           <EntitySet Name="xy_calls" EntityType="xynthesisModel.xy_calls" />
           <AssociationSet Name="FK_xy_Calls_xy_Number" Association="xynthesisModel.FK_xy_Calls_xy_Number">
             <End Role="xy_numbers" EntitySet="xy_numbers" />
@@ -1077,110 +1000,13 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
             <End Role="xy_numbers" EntitySet="xy_numbers" />
             <End Role="xy_calls" EntitySet="xy_calls" />
           </AssociationSet>
-          <AssociationSet Name="FK_xy_Calls_xy_ServerCommunications" Association="xynthesisModel.FK_xy_Calls_xy_ServerCommunications">
-            <End Role="xy_communicationserver" EntitySet="xy_communicationserver" />
-            <End Role="xy_calls" EntitySet="xy_calls" />
-          </AssociationSet>
+          <EntitySet Name="xy_frecuencia" EntityType="xynthesisModel.xy_frecuencia" />
+          <EntitySet Name="xy_reportes" EntityType="xynthesisModel.xy_reportes" />
+          <EntitySet Name="xy_configuracionreporte" EntityType="xynthesisModel.xy_configuracionreporte" />
+          <EntitySet Name="xy_rol" EntityType="xynthesisModel.xy_rol" />
+          <FunctionImport Name="xyp_SelUsuarios" ReturnType="Collection(xynthesisModel.xyp_SelUsuarios_Result)" />
+          <FunctionImport Name="xyp_SelAreas" ReturnType="Collection(xynthesisModel.xyp_SelAreas_Result)" />
           </EntityContainer>
-        <EntityType Name="xy_cliente">
-          <Key>
-            <PropertyRef Name="Idcliente" />
-          </Key>
-          <Property Name="Idcliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="xy_communicationserver">
-          <Key>
-            <PropertyRef Name="Ide_ServerType" />
-          </Key>
-          <Property Name="Ide_ServerType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_ServerType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="xy_calls" Relationship="xynthesisModel.FK_xy_Calls_xy_ServerCommunications" FromRole="xy_communicationserver" ToRole="xy_calls" />
-        </EntityType>
-        <EntityType Name="xy_geography">
-          <Key>
-            <PropertyRef Name="Ide_Geography" />
-          </Key>
-          <Property Name="Ide_Geography" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Num_IndicativeCountry" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Num_IndicativeGrouping1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Grouping1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Num_IndicativeProvince" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Province" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Num_IndicativeCity" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tip_National" Type="Int32" Nullable="false" />
-          <Property Name="Num_Digits" Type="Int32" Nullable="false" />
-          <Property Name="Nom_Grouping2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Num_IndicativeGrouping2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="xy_pais">
-          <Key>
-            <PropertyRef Name="IdPais" />
-          </Key>
-          <Property Name="IdPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombrePais" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="CodPais" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="xy_rol">
-          <Key>
-            <PropertyRef Name="Ide_Rol" />
-          </Key>
-          <Property Name="Ide_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_Rol" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Alias_Rol" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Des_Rol" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="xy_roles_menus_">
-          <Key>
-            <PropertyRef Name="IdRolMen" />
-          </Key>
-          <Property Name="IdRolMen" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdRol" Type="Int64" Nullable="false" />
-          <Property Name="IdMenus" Type="Int64" Nullable="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="xy_sucursal">
-          <Key>
-            <PropertyRef Name="IdSucursal" />
-          </Key>
-          <Property Name="IdSucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreSucursal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Ide_Geography" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="xy_numbersxsubscriber">
-          <Key>
-            <PropertyRef Name="Ide_Number" />
-            <PropertyRef Name="Fec_Date" />
-            <PropertyRef Name="Ide_Subscriber" />
-            <PropertyRef Name="Tip_Subscriber" />
-            <PropertyRef Name="Ide_ServerType" />
-            <PropertyRef Name="Ide_Branch" />
-            <PropertyRef Name="Ide_CostCenter" />
-            <PropertyRef Name="Ide_Geography" />
-          </Key>
-          <Property Name="Ide_Number" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Fec_Date" Type="DateTime" Nullable="false" />
-          <Property Name="Ide_Subscriber" Type="Int64" Nullable="false" />
-          <Property Name="Tip_Subscriber" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="Ide_ServerType" Type="Int32" Nullable="false" />
-          <Property Name="Ide_Branch" Type="Int32" Nullable="false" />
-          <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" />
-          <Property Name="Ide_Geography" Type="Int32" Nullable="false" />
-          <Property Name="Num_AccessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Ide_Plan" Type="Int32" />
-          <Property Name="Vlr_Plan" Type="Int32" />
-          <Property Name="Num_Minutes" Type="Int32" />
-        </EntityType>
-        <EntityType Name="xy_rolesxsubscriber">
-          <Key>
-            <PropertyRef Name="Ide_Rol" />
-            <PropertyRef Name="Ide_Subscriber" />
-          </Key>
-          <Property Name="Ide_Rol" Type="Int64" Nullable="false" />
-          <Property Name="Ide_Subscriber" Type="Decimal" Nullable="false" />
-        </EntityType>
         <ComplexType Name="xyp_SelAllCostCentre_Result" >
           <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
           <Property Type="String" Name="Cod_CostCenter" Nullable="false" />
@@ -1277,53 +1103,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <Property Type="String" Name="codMenu" Nullable="false" />
           <Property Type="String" Name="Acccion" Nullable="false" />
           <Property Type="String" Name="Controlador" Nullable="false" />
-        </ComplexType>
-        <EntityType Name="xy_operators">
-          <Key>
-            <PropertyRef Name="Ide_Operator" />
-          </Key>
-          <Property Name="Ide_Operator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cod_Operator" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_Operator" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Ide_Coverage" Type="Int32" />
-          <Property Name="vlr_Cost" Type="Decimal" />
-          <Property Name="Unit" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="NumberDigits" Type="Int64" />
-        </EntityType>
-        <EntityType Name="xy_rates">
-          <Key>
-            <PropertyRef Name="Ide_Rate" />
-          </Key>
-          <Property Name="Ide_Rate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Des_Rate" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Ide_Zone" Type="Int32" />
-          <Property Name="Ide_Coverage" Type="Int32" />
-          <Property Name="Ide_Operator" Type="Int32" />
-          <Property Name="Num_Length" Type="Int32" Nullable="false" />
-          <Property Name="Num_Prefix" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Fec_InitDate" Type="DateTime" />
-          <Property Name="Fec_FinalDate" Type="DateTime" />
-          <Property Name="Por_Taxes" Type="Decimal" />
-          <Property Name="Cod_CostingMethod" Type="Int32" />
-        </EntityType>
-        <EntityType Name="xy_operador_tarifa_inter">
-          <Key>
-            <PropertyRef Name="idtarifaInter" />
-          </Key>
-          <Property Name="idtarifaInter" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdOperador" Type="Int64" Nullable="false" />
-          <Property Name="IdPais" Type="Int64" Nullable="false" />
-          <Property Name="VlrInternaMinsinIva" Type="Decimal" Nullable="false" />
-          <Property Name="VlrInternaMinconIva" Type="Decimal" Nullable="false" />
-          <Property Name="Movil" Type="Byte" />
-          <Property Name="Fijo" Type="Byte" />
-        </EntityType>
-        <ComplexType Name="xyp_SelUsuarios_Result" >
-          <Property Type="String" Name="Ide_Subscriber" Nullable="false" />
-          <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
-          <Property Type="String" Name="Nom_DomainUser" Nullable="false" />
-          <Property Type="String" Name="Tip_Subscriber" Nullable="false" />
-          <Property Type="String" Name="Str_Password" Nullable="false" />
         </ComplexType>
         <ComplexType Name="xyp_SelActivityFirstAndLast_Result" >
           <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
@@ -1521,36 +1300,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <Property Type="String" Name="TiempoPromediEsperaPerdida" Nullable="false" />
           <Property Type="String" Name="TiempoPromedioEspera" Nullable="false" />
         </ComplexType>
-        <EntityType Name="xy_configuracionreporte">
-          <Key>
-            <PropertyRef Name="conReporteId" />
-          </Key>
-          <Property Name="conReporteId" Type="Int32" Nullable="false" />
-          <Property Name="CondiguracionId" Type="Int32" />
-          <NavigationProperty Name="xy_reportes" Relationship="xynthesisModel.ReporteId" FromRole="xy_configuracionreporte" ToRole="xy_reportes" />
-        </EntityType>
-        <EntityType Name="xy_frecuencia">
-          <Key>
-            <PropertyRef Name="FrecuenciaId" />
-          </Key>
-          <Property Name="FrecuenciaId" Type="Int32" Nullable="false" />
-          <Property Name="NombreFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PrefijoFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="xy_reportes">
-          <Key>
-            <PropertyRef Name="ReporteId" />
-          </Key>
-          <Property Name="ReporteId" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="NombreRpt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MetodoRpt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="xy_configuracionreporte" Relationship="xynthesisModel.ReporteId" FromRole="xy_reportes" ToRole="xy_configuracionreporte" />
-        </EntityType>
-        <Association Name="ReporteId">
-          <End Type="xynthesisModel.xy_reportes" Role="xy_reportes" Multiplicity="0..1" />
-          <End Type="xynthesisModel.xy_configuracionreporte" Role="xy_configuracionreporte" Multiplicity="*" />
-        </Association>
         <ComplexType Name="xyp_SelReports_Result" >
           <Property Type="String" Name="NombreRpt" Nullable="false" />
           <Property Type="String" Name="MetodoRpt" Nullable="false" />
@@ -1598,33 +1347,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
           <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
         </ComplexType>
-        <EntityType Name="xy_subscriber">
-          <Key>
-            <PropertyRef Name="Ide_Subscriber" />
-          </Key>
-          <Property Name="Ide_Subscriber" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_Subscriber" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_DomainUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Tip_Subscriber" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="Str_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Cod_Subscriber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Ide_CostCenter" Type="Int64" />
-          <Property Name="IdSucursal" Type="Int64" />
-          <Property Name="Id_Rol" Type="Int32" />
-          <Property Name="FechaCreacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="xy_numbers">
-          <Key>
-            <PropertyRef Name="Ide_Number" />
-          </Key>
-          <Property Name="Ide_Number" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Tip_Extension" Type="Int64" />
-          <Property Name="Idcliente" Type="Int32" />
-          <NavigationProperty Name="xy_calls" Relationship="xynthesisModel.FK_xy_Calls_xy_Number" FromRole="xy_numbers" ToRole="xy_calls" />
-          <NavigationProperty Name="xy_calls1" Relationship="xynthesisModel.FK_xy_Calls_xy_NumbersSource" FromRole="xy_numbers" ToRole="xy_calls" />
-          <NavigationProperty Name="xy_calls2" Relationship="xynthesisModel.FK_xy_Calls_xy_NumbersTarget" FromRole="xy_numbers" ToRole="xy_calls" />
-          </EntityType>
         <ComplexType Name="xyp_SelDialedNumber_Result" >
           <Property Type="String" Name="Ide_NumberTarget" Nullable="false" />
           <Property Type="String" Name="num_calls" Nullable="false" />
@@ -1666,11 +1388,27 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <Property Type="Int32" Name="Duracion_Espera" Nullable="false" />
           <Property Type="String" Name="Vocacion_Abonado" Nullable="false" />
         </ComplexType>
+        <EntityType Name="xy_subscriber">
+          <Key>
+            <PropertyRef Name="Ide_Subscriber" />
+          </Key>
+          <Property Name="Ide_Subscriber" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Subscriber" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_DomainUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tip_Subscriber" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Str_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cod_Subscriber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ide_CostCenter" Type="Int64" />
+          <Property Name="IdSucursal" Type="Int64" />
+          <Property Name="Id_Rol" Type="Int32" />
+          <Property Name="FechaCreacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="xy_configuracionrptprogramado">
           <Key>
             <PropertyRef Name="ConfiguracionId" />
           </Key>
-          <Property Name="ConfiguracionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConfiguracionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="FrecuenciaId" Type="Int32" Nullable="false" />
           <Property Name="HoraEjecucion" Type="DateTime" Nullable="false" />
@@ -1686,15 +1424,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <Property Name="programacion" Type="Int32" />
           <Property Name="ProxEjecucion" Type="DateTime" />
         </EntityType>
-        <EntityType Name="xy_costcenters">
-          <Key>
-            <PropertyRef Name="Ide_CostCenter" />
-          </Key>
-          <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cod_CostCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Nom_CostCenter" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Ide_ParentCostCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="xy_coverage">
           <Key>
             <PropertyRef Name="Ide_Coverage" />
@@ -1705,6 +1434,127 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <Property Name="Movil" Type="Boolean" />
           <Property Name="Nacional" Type="Boolean" />
           <Property Name="Internacional" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="xy_numbers">
+          <Key>
+            <PropertyRef Name="Ide_Number" />
+          </Key>
+          <Property Name="Ide_Number" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tip_Extension" Type="Int64" />
+          <Property Name="Idcliente" Type="Int32" />
+          <NavigationProperty Name="xy_calls" Relationship="xynthesisModel.FK_xy_Calls_xy_Number" FromRole="xy_numbers" ToRole="xy_calls" />
+          <NavigationProperty Name="xy_calls1" Relationship="xynthesisModel.FK_xy_Calls_xy_NumbersSource" FromRole="xy_numbers" ToRole="xy_calls" />
+          <NavigationProperty Name="xy_calls2" Relationship="xynthesisModel.FK_xy_Calls_xy_NumbersTarget" FromRole="xy_numbers" ToRole="xy_calls" />
+        </EntityType>
+        <EntityType Name="xy_numbersxsubscriber">
+          <Key>
+            <PropertyRef Name="Ide_Number" />
+            <PropertyRef Name="Fec_Date" />
+            <PropertyRef Name="Ide_Subscriber" />
+            <PropertyRef Name="Tip_Subscriber" />
+          </Key>
+          <Property Name="Ide_Number" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fec_Date" Type="DateTime" Nullable="false" />
+          <Property Name="Ide_Subscriber" Type="Int64" Nullable="false" />
+          <Property Name="Tip_Subscriber" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Ide_ServerType" Type="Int32" />
+          <Property Name="Ide_Branch" Type="Int32" />
+          <Property Name="Ide_CostCenter" Type="Int32" />
+          <Property Name="Ide_Geography" Type="Int32" />
+          <Property Name="Num_AccessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ide_Plan" Type="Int32" />
+          <Property Name="Vlr_Plan" Type="Int32" />
+          <Property Name="Num_Minutes" Type="Int32" />
+        </EntityType>
+        <EntityType Name="xy_geography">
+          <Key>
+            <PropertyRef Name="Ide_Geography" />
+          </Key>
+          <Property Name="Ide_Geography" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_IndicativeCountry" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Num_IndicativeGrouping1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_Grouping1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Num_IndicativeProvince" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_Province" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Num_IndicativeCity" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tip_National" Type="Int32" Nullable="false" />
+          <Property Name="Num_Digits" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Grouping2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Num_IndicativeGrouping2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="xy_pais">
+          <Key>
+            <PropertyRef Name="IdPais" />
+          </Key>
+          <Property Name="IdPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombrePais" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CodPais" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="xy_costcenters">
+          <Key>
+            <PropertyRef Name="Ide_CostCenter" />
+          </Key>
+          <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_CostCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_CostCenter" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ide_ParentCostCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="xy_cliente">
+          <Key>
+            <PropertyRef Name="Idcliente" />
+          </Key>
+          <Property Name="Idcliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="xy_operators">
+          <Key>
+            <PropertyRef Name="Ide_Operator" />
+          </Key>
+          <Property Name="Ide_Operator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod_Operator" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_Operator" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Ide_Coverage" Type="Int32" />
+          <Property Name="vlr_Cost" Type="Decimal" />
+          <Property Name="Unit" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NumberDigits" Type="Int64" />
+        </EntityType>
+        <EntityType Name="xy_operador_tarifa_inter">
+          <Key>
+            <PropertyRef Name="idtarifaInter" />
+          </Key>
+          <Property Name="idtarifaInter" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdOperador" Type="Int64" Nullable="false" />
+          <Property Name="IdPais" Type="Int64" Nullable="false" />
+          <Property Name="VlrInternaMinsinIva" Type="Decimal" Nullable="false" />
+          <Property Name="VlrInternaMinconIva" Type="Decimal" Nullable="false" />
+          <Property Name="Movil" Type="Byte" />
+          <Property Name="Fijo" Type="Byte" />
+        </EntityType>
+        <EntityType Name="xy_rates">
+          <Key>
+            <PropertyRef Name="Ide_Rate" />
+          </Key>
+          <Property Name="Ide_Rate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Des_Rate" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ide_Zone" Type="Int32" />
+          <Property Name="Ide_Coverage" Type="Int32" />
+          <Property Name="Ide_Operator" Type="Int32" />
+          <Property Name="Num_Length" Type="Int32" Nullable="false" />
+          <Property Name="Num_Prefix" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Fec_InitDate" Type="DateTime" />
+          <Property Name="Fec_FinalDate" Type="DateTime" />
+          <Property Name="Por_Taxes" Type="Decimal" />
+          <Property Name="Cod_CostingMethod" Type="Int32" />
+        </EntityType>
+        <EntityType Name="xy_sucursal">
+          <Key>
+            <PropertyRef Name="IdSucursal" />
+          </Key>
+          <Property Name="IdSucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreSucursal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ide_Geography" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="xy_calls">
           <Key>
@@ -1718,6 +1568,7 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <Property Name="Ide_SourceType" Type="SByte" Nullable="false" />
           <Property Name="Ide_ServerType" Type="Int32" Nullable="false" />
           <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" />
+          <Property Name="Id_Area" Type="Int32" />
           <Property Name="Ide_GeographySource" Type="Int32" Nullable="false" />
           <Property Name="Ide_GeographyTarget" Type="Int32" Nullable="false" />
           <Property Name="Ide_Time" Type="Int32" Nullable="false" />
@@ -1745,7 +1596,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
           <NavigationProperty Name="xy_numbers" Relationship="xynthesisModel.FK_xy_Calls_xy_Number" FromRole="xy_calls" ToRole="xy_numbers" />
           <NavigationProperty Name="xy_numbers1" Relationship="xynthesisModel.FK_xy_Calls_xy_NumbersSource" FromRole="xy_calls" ToRole="xy_numbers" />
           <NavigationProperty Name="xy_numbers2" Relationship="xynthesisModel.FK_xy_Calls_xy_NumbersTarget" FromRole="xy_calls" ToRole="xy_numbers" />
-          <NavigationProperty Name="xy_communicationserver" Relationship="xynthesisModel.FK_xy_Calls_xy_ServerCommunications" FromRole="xy_calls" ToRole="xy_communicationserver" />
         </EntityType>
         <Association Name="FK_xy_Calls_xy_Number">
           <End Type="xynthesisModel.xy_numbers" Role="xy_numbers" Multiplicity="1" />
@@ -1783,43 +1633,131 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_xy_Calls_xy_ServerCommunications">
-          <End Type="xynthesisModel.xy_communicationserver" Role="xy_communicationserver" Multiplicity="1" />
-          <End Type="xynthesisModel.xy_calls" Role="xy_calls" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="xy_communicationserver">
-              <PropertyRef Name="Ide_ServerType" />
-            </Principal>
-            <Dependent Role="xy_calls">
-              <PropertyRef Name="Ide_ServerType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <ComplexType Name="xyp_SelCoscenters_Result" />
-        <ComplexType Name="xyp_SelCoscenters_Result1" />
-        <ComplexType Name="xyp_SelCoscenters_Result2" />
-        <ComplexType Name="xyp_SelCoscenters_Result3" />
-        <ComplexType Name="xyp_SelCosCenters_Result4" />
-        <ComplexType Name="xyp_SelCosCenters_Result5" />
+        <EntityType Name="xy_frecuencia">
+          <Key>
+            <PropertyRef Name="FrecuenciaId" />
+          </Key>
+          <Property Name="FrecuenciaId" Type="Int32" Nullable="false" />
+          <Property Name="NombreFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PrefijoFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="xy_reportes">
+          <Key>
+            <PropertyRef Name="ReporteId" />
+          </Key>
+          <Property Name="ReporteId" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="NombreRpt" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="MetodoRpt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="xy_configuracionreporte">
+          <Key>
+            <PropertyRef Name="conReporteId" />
+          </Key>
+          <Property Name="conReporteId" Type="Int32" Nullable="false" />
+          <Property Name="CondiguracionId" Type="Int32" />
+          <Property Name="ReporteId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="xy_rol">
+          <Key>
+            <PropertyRef Name="Ide_Rol" />
+          </Key>
+          <Property Name="Ide_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Rol" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Alias_Rol" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Des_Rol" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="xyp_SelUsuarios_Result" >
+          <Property Type="Int32" Name="Ide_Subscriber" Nullable="false" />
+          <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+          <Property Type="String" Name="Nom_DomainUser" Nullable="false" />
+          <Property Type="String" Name="Tip_Subscriber" Nullable="false" />
+          <Property Type="String" Name="Str_Password" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="xyp_SelAreas_Result" >
+          <Property Type="Int32" Name="Id_Area" Nullable="false" />
+          <Property Type="String" Name="Nom_Area" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="xynthesisModelStoreContainer" CdmEntityContainer="xynthesisEntities">
-          <EntitySetMapping Name="xy_cliente">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_cliente">
-              <MappingFragment StoreEntitySet="xy_cliente">
-                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
-                <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
+          <EntitySetMapping Name="xy_subscriber">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_subscriber">
+              <MappingFragment StoreEntitySet="xy_subscriber">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
+                <ScalarProperty Name="Cod_Subscriber" ColumnName="Cod_Subscriber" />
+                <ScalarProperty Name="Str_Password" ColumnName="Str_Password" />
+                <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
+                <ScalarProperty Name="Nom_DomainUser" ColumnName="Nom_DomainUser" />
+                <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
+                <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="xy_communicationserver">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_communicationserver">
-              <MappingFragment StoreEntitySet="xy_communicationserver">
-                <ScalarProperty Name="Nom_ServerType" ColumnName="Nom_ServerType" />
+          <EntitySetMapping Name="xy_configuracionrptprogramado">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionrptprogramado">
+              <MappingFragment StoreEntitySet="xy_configuracionrptprogramado">
+                <ScalarProperty Name="ProxEjecucion" ColumnName="ProxEjecucion" />
+                <ScalarProperty Name="programacion" ColumnName="programacion" />
+                <ScalarProperty Name="TipoFrecuencia" ColumnName="TipoFrecuencia" />
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+                <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+                <ScalarProperty Name="Filtro" ColumnName="Filtro" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="FormatoArchivo" ColumnName="FormatoArchivo" />
+                <ScalarProperty Name="HoraEjecucion" ColumnName="HoraEjecucion" />
+                <ScalarProperty Name="FrecuenciaId" ColumnName="FrecuenciaId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ConfiguracionId" ColumnName="ConfiguracionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xy_coverage">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_coverage">
+              <MappingFragment StoreEntitySet="xy_coverage">
+                <ScalarProperty Name="Internacional" ColumnName="Internacional" />
+                <ScalarProperty Name="Nacional" ColumnName="Nacional" />
+                <ScalarProperty Name="Movil" ColumnName="Movil" />
+                <ScalarProperty Name="Nom_Coverage" ColumnName="Nom_Coverage" />
+                <ScalarProperty Name="Cod_Coverage" ColumnName="Cod_Coverage" />
+                <ScalarProperty Name="Ide_Coverage" ColumnName="Ide_Coverage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xy_numbers">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_numbers">
+              <MappingFragment StoreEntitySet="xy_numbers">
+                <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
+                <ScalarProperty Name="Tip_Extension" ColumnName="Tip_Extension" />
+                <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xy_numbersxsubscriber">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_numbersxsubscriber">
+              <MappingFragment StoreEntitySet="xy_numbersxsubscriber">
+                <ScalarProperty Name="Num_Minutes" ColumnName="Num_Minutes" />
+                <ScalarProperty Name="Vlr_Plan" ColumnName="Vlr_Plan" />
+                <ScalarProperty Name="Ide_Plan" ColumnName="Ide_Plan" />
+                <ScalarProperty Name="Num_AccessCode" ColumnName="Num_AccessCode" />
+                <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
+                <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
+                <ScalarProperty Name="Ide_Branch" ColumnName="Ide_Branch" />
                 <ScalarProperty Name="Ide_ServerType" ColumnName="Ide_ServerType" />
+                <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
+                <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
+                <ScalarProperty Name="Fec_Date" ColumnName="Fec_Date" />
+                <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1851,133 +1789,24 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="xy_rol">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_rol">
-              <MappingFragment StoreEntitySet="xy_rol">
-                <ScalarProperty Name="Des_Rol" ColumnName="Des_Rol" />
-                <ScalarProperty Name="Alias_Rol" ColumnName="Alias_Rol" />
-                <ScalarProperty Name="Nom_Rol" ColumnName="Nom_Rol" />
-                <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="xy_roles_menus_">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_roles_menus_">
-              <MappingFragment StoreEntitySet="xy_roles_menus_">
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="IdMenus" ColumnName="IdMenus" />
-                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-                <ScalarProperty Name="IdRolMen" ColumnName="IdRolMen" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="xy_sucursal">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_sucursal">
-              <MappingFragment StoreEntitySet="xy_sucursal">
-                <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
-                <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="xy_numbersxsubscriber">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_numbersxsubscriber">
-              <MappingFragment StoreEntitySet="xy_numbersxsubscriber">
-                <ScalarProperty Name="Num_Minutes" ColumnName="Num_Minutes" />
-                <ScalarProperty Name="Vlr_Plan" ColumnName="Vlr_Plan" />
-                <ScalarProperty Name="Ide_Plan" ColumnName="Ide_Plan" />
-                <ScalarProperty Name="Num_AccessCode" ColumnName="Num_AccessCode" />
-                <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
+          <EntitySetMapping Name="xy_costcenters">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_costcenters">
+              <MappingFragment StoreEntitySet="xy_costcenters">
+                <ScalarProperty Name="Ide_ParentCostCenter" ColumnName="Ide_ParentCostCenter" />
+                <ScalarProperty Name="Nom_CostCenter" ColumnName="Nom_CostCenter" />
+                <ScalarProperty Name="Cod_CostCenter" ColumnName="Cod_CostCenter" />
                 <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
-                <ScalarProperty Name="Ide_Branch" ColumnName="Ide_Branch" />
-                <ScalarProperty Name="Ide_ServerType" ColumnName="Ide_ServerType" />
-                <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
-                <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
-                <ScalarProperty Name="Fec_Date" ColumnName="Fec_Date" />
-                <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="xy_rolesxsubscriber">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_rolesxsubscriber">
-              <MappingFragment StoreEntitySet="xy_rolesxsubscriber">
-                <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
-                <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
+          <EntitySetMapping Name="xy_cliente">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_cliente">
+              <MappingFragment StoreEntitySet="xy_cliente">
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="xyp_DelCostCentre" FunctionName="xynthesisModel.Store.xyp_DelCostCentre" />
-          <FunctionImportMapping FunctionImportName="xyp_DelNumber" FunctionName="xynthesisModel.Store.xyp_DelNumber" />
-          <FunctionImportMapping FunctionImportName="xyp_DelSucursal" FunctionName="xynthesisModel.Store.xyp_DelSucursal" />
-          <FunctionImportMapping FunctionImportName="xyp_InsCostCentre" FunctionName="xynthesisModel.Store.xyp_InsCostCentre" />
-          <FunctionImportMapping FunctionImportName="xyp_InsNumber" FunctionName="xynthesisModel.Store.xyp_InsNumber" />
-          <FunctionImportMapping FunctionImportName="xyp_InsSucursal" FunctionName="xynthesisModel.Store.xyp_InsSucursal" />
-          <FunctionImportMapping FunctionImportName="xyp_UpdCostCentre" FunctionName="xynthesisModel.Store.xyp_UpdCostCentre" />
-          <FunctionImportMapping FunctionImportName="xyp_UpdNumberBySubscriber" FunctionName="xynthesisModel.Store.xyp_UpdNumberBySubscriber" />
-          <FunctionImportMapping FunctionImportName="xyp_UpdSubscriber" FunctionName="xynthesisModel.Store.xyp_UpdSubscriber" />
-          <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentre" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentre">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelAllCostCentre_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentreParents" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentreParents">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelAllCostCentreParents_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelCountry" FunctionName="xynthesisModel.Store.xyp_SelCountry">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCountry_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelCoverages" FunctionName="xynthesisModel.Store.xyp_SelCoverages">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCoverages_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCity" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCity">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelGeographyByCity_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCountry" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCountry">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelGeographyByCountry_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelNumbers" FunctionName="xynthesisModel.Store.xyp_SelNumbers">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelNumbers_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelOperators" FunctionName="xynthesisModel.Store.xyp_SelOperators">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelOperators_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelOperTarifInterna" FunctionName="xynthesisModel.Store.xyp_SelOperTarifInterna">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelOperTarifInterna_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelServerType" FunctionName="xynthesisModel.Store.xyp_SelServerType">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelServerType_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelSucursales" FunctionName="xynthesisModel.Store.xyp_SelSucursales">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelSucursales_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelUsuarioRol" FunctionName="xynthesisModel.Store.xyp_SelUsuarioRol">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarioRol_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_InsOperator" FunctionName="xynthesisModel.Store.xyp_InsOperator" />
-          <FunctionImportMapping FunctionImportName="xyp_UpdOperator" FunctionName="xynthesisModel.Store.xyp_UpdOperator" />
-          <FunctionImportMapping FunctionImportName="xyp_RECalCostTicket" FunctionName="xynthesisModel.Store.xyp_RECalCostTicket" />
           <EntitySetMapping Name="xy_operators">
             <EntityTypeMapping TypeName="xynthesisModel.xy_operators">
               <MappingFragment StoreEntitySet="xy_operators">
@@ -1988,6 +1817,19 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
                 <ScalarProperty Name="Nom_Operator" ColumnName="Nom_Operator" />
                 <ScalarProperty Name="Cod_Operator" ColumnName="Cod_Operator" />
                 <ScalarProperty Name="Ide_Operator" ColumnName="Ide_Operator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xy_operador_tarifa_inter">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_operador_tarifa_inter">
+              <MappingFragment StoreEntitySet="xy_operador_tarifa_inter">
+                <ScalarProperty Name="Fijo" ColumnName="Fijo" />
+                <ScalarProperty Name="Movil" ColumnName="Movil" />
+                <ScalarProperty Name="VlrInternaMinconIva" ColumnName="VlrInternaMinconIva" />
+                <ScalarProperty Name="VlrInternaMinsinIva" ColumnName="VlrInternaMinsinIva" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="IdOperador" ColumnName="IdOperador" />
+                <ScalarProperty Name="idtarifaInter" ColumnName="idtarifaInter" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2008,298 +1850,12 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="xy_operador_tarifa_inter">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_operador_tarifa_inter">
-              <MappingFragment StoreEntitySet="xy_operador_tarifa_inter">
-                <ScalarProperty Name="Fijo" ColumnName="Fijo" />
-                <ScalarProperty Name="Movil" ColumnName="Movil" />
-                <ScalarProperty Name="VlrInternaMinconIva" ColumnName="VlrInternaMinconIva" />
-                <ScalarProperty Name="VlrInternaMinsinIva" ColumnName="VlrInternaMinsinIva" />
-                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
-                <ScalarProperty Name="IdOperador" ColumnName="IdOperador" />
-                <ScalarProperty Name="idtarifaInter" ColumnName="idtarifaInter" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="xyp_UpdSucursal" FunctionName="xynthesisModel.Store.xyp_UpdSucursal" />
-          <FunctionImportMapping FunctionImportName="xyp_SelUsuarios" FunctionName="xynthesisModel.Store.xyp_SelUsuarios">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarios_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelActivityFirstAndLast" FunctionName="xynthesisModel.Store.xyp_SelActivityFirstAndLast">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelActivityFirstAndLast_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_RepBudgetBySubscriber" FunctionName="xynthesisModel.Store.xyp_RepBudgetBySubscriber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepBudgetBySubscriber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_RepBudgetLimit" FunctionName="xynthesisModel.Store.xyp_RepBudgetLimit">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepBudgetLimit_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_CallAmountByContraparte" FunctionName="xynthesisModel.Store.xyp_CallAmountByContraparte">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_CallAmountByContraparte_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelCallAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_SelCallAmountsBySubscriber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCallAmountsBySubscriber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_CallTypesAmountReport" FunctionName="xynthesisModel.Store.xyp_CallTypesAmountReport">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_CallTypesAmountReport_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByOutSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByOutSubscriber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_NumberAmountsByOutSubscriber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_NumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsBySubscriber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_NumberAmountsBySubscriber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelConsumeByCostCenter" FunctionName="xynthesisModel.Store.xyp_SelConsumeByCostCenter">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelConsumeByCostCenter_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelCostCentreByUser" FunctionName="xynthesisModel.Store.xyp_SelCostCentreByUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCostCentreByUser_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelConsumeByHistory" FunctionName="xynthesisModel.Store.xyp_SelConsumeByHistory">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelConsumeByHistory_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallCost" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallCost">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDetailChampCallCost_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDetailChampCallDuration_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelFrequentExtensionNumber" FunctionName="xynthesisModel.Store.xyp_SelFrequentExtensionNumber" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelFrequentExtensionNumber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_ReceiveCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveCalls">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveCalls_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_RepReceiveCallsLlamEntranSalien" FunctionName="xynthesisModel.Store.xyp_RepReceiveCallsLlamEntranSalien">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepReceiveCallsLlamEntranSalien_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_ReceiveAndTransferCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveAndTransferCalls">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveAndTransferCalls_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveCallsTiempoPromedio_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_RepConsolidadoCoberturaLLamadas" FunctionName="xynthesisModel.Store.xyp_RepConsolidadoCoberturaLLamadas">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepConsolidadoCoberturaLLamadas_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio_repo" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio_repo">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveCallsTiempoPromedio_repo_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_RepPromedioLlamadasHora" FunctionName="xynthesisModel.Store.xyp_RepPromedioLlamadasHora">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepPromedioLlamadasHora_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_RepGrafNumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_RepGrafNumberAmountsBySubscriber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepGrafNumberAmountsBySubscriber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_Updoperador_tarifa_inter" FunctionName="xynthesisModel.Store.xyp_Updoperador_tarifa_inter" />
-          <FunctionImportMapping FunctionImportName="xyp_Insoperador_tarifa_inter" FunctionName="xynthesisModel.Store.xyp_Insoperador_tarifa_inter" />
-          <FunctionImportMapping FunctionImportName="xyp_RepTarificacionEntraSalieTrans" FunctionName="xynthesisModel.Store.xyp_RepTarificacionEntraSalieTrans">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepTarificacionEntraSalieTrans_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="xy_configuracionreporte">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionreporte">
-              <MappingFragment StoreEntitySet="xy_configuracionreporte">
-                <ScalarProperty Name="CondiguracionId" ColumnName="CondiguracionId" />
-                <ScalarProperty Name="conReporteId" ColumnName="conReporteId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="xy_frecuencia">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_frecuencia">
-              <MappingFragment StoreEntitySet="xy_frecuencia">
-                <ScalarProperty Name="PrefijoFrecuencia" ColumnName="PrefijoFrecuencia" />
-                <ScalarProperty Name="NombreFrecuencia" ColumnName="NombreFrecuencia" />
-                <ScalarProperty Name="FrecuenciaId" ColumnName="FrecuenciaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="xy_reportes">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_reportes">
-              <MappingFragment StoreEntitySet="xy_reportes">
-                <ScalarProperty Name="MetodoRpt" ColumnName="MetodoRpt" />
-                <ScalarProperty Name="NombreRpt" ColumnName="NombreRpt" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="ReporteId" ColumnName="ReporteId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="ReporteId" TypeName="xynthesisModel.ReporteId" StoreEntitySet="xy_configuracionreporte">
-            <EndProperty Name="xy_configuracionreporte">
-              <ScalarProperty Name="conReporteId" ColumnName="conReporteId" />
-            </EndProperty>
-            <EndProperty Name="xy_reportes">
-              <ScalarProperty Name="ReporteId" ColumnName="ReporteId" />
-            </EndProperty>
-            <Condition ColumnName="ReporteId" IsNull="false" />
-          </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelReports" FunctionName="xynthesisModel.Store.xyp_SelReports">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelReports_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_DelRepProgra" FunctionName="xynthesisModel.Store.xyp_DelRepProgra" />
-          <FunctionImportMapping FunctionImportName="xyp_RepCallOpenAndClosed" FunctionName="xynthesisModel.Store.xyp_RepCallOpenAndClosed">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepCallOpenAndClosed_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_UpdRepProgra" FunctionName="xynthesisModel.Store.xyp_UpdRepProgra" />
-          <FunctionImportMapping FunctionImportName="xyp_SelOperxCoberMovil" FunctionName="xynthesisModel.Store.xyp_SelOperxCoberMovil">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelOperxCoberMovil_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByInSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByInSubscriber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_NumberAmountsByInSubscriber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_SelConsumeByExtensionAndUser" FunctionName="xynthesisModel.Store.xyp_SelConsumeByExtensionAndUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelConsumeByExtensionAndUser_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_DelRolUser" FunctionName="xynthesisModel.Store.xyp_DelRolUser" />
-          <FunctionImportMapping FunctionImportName="xyp_RolUser" FunctionName="xynthesisModel.Store.xyp_RolUser" />
-          <FunctionImportMapping FunctionImportName="xyp_UpdRolUser" FunctionName="xynthesisModel.Store.xyp_UpdRolUser" />
-          <EntitySetMapping Name="xy_subscriber">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_subscriber">
-              <MappingFragment StoreEntitySet="xy_subscriber">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
+          <EntitySetMapping Name="xy_sucursal">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_sucursal">
+              <MappingFragment StoreEntitySet="xy_sucursal">
+                <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
+                <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
                 <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
-                <ScalarProperty Name="Cod_Subscriber" ColumnName="Cod_Subscriber" />
-                <ScalarProperty Name="Str_Password" ColumnName="Str_Password" />
-                <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
-                <ScalarProperty Name="Nom_DomainUser" ColumnName="Nom_DomainUser" />
-                <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
-                <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="xy_numbers">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_numbers">
-              <MappingFragment StoreEntitySet="xy_numbers">
-                <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
-                <ScalarProperty Name="Tip_Extension" ColumnName="Tip_Extension" />
-                <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="xyp_UpdNumber" FunctionName="xynthesisModel.Store.xyp_UpdNumber" />
-          <FunctionImportMapping FunctionImportName="xyp_SelDialedNumber" FunctionName="xynthesisModel.Store.xyp_SelDialedNumber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDialedNumber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_cambiarclave" FunctionName="xynthesisModel.Store.xyp_cambiarclave" />
-          <FunctionImportMapping FunctionImportName="xyp_InsRepProg" FunctionName="xynthesisModel.Store.xyp_InsRepProg" />
-          <FunctionImportMapping FunctionImportName="xyp_GrupNumSuscriber" FunctionName="xynthesisModel.Store.xyp_GrupNumSuscriber">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_GrupNumSuscriber_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_DestinoLlamadaCampeonaArea" FunctionName="xynthesisModel.Store.xyp_DestinoLlamadaCampeonaArea">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_DestinoLlamadaCampeonaArea_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="xyp_RepSabanaCalls" FunctionName="xynthesisModel.Store.xyp_RepSabanaCalls">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepSabanaCalls_Result" />
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="xy_configuracionrptprogramado">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionrptprogramado">
-              <MappingFragment StoreEntitySet="xy_configuracionrptprogramado">
-                <ScalarProperty Name="ProxEjecucion" ColumnName="ProxEjecucion" />
-                <ScalarProperty Name="programacion" ColumnName="programacion" />
-                <ScalarProperty Name="TipoFrecuencia" ColumnName="TipoFrecuencia" />
-                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
-                <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
-                <ScalarProperty Name="Filtro" ColumnName="Filtro" />
-                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
-                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
-                <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
-                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
-                <ScalarProperty Name="FormatoArchivo" ColumnName="FormatoArchivo" />
-                <ScalarProperty Name="HoraEjecucion" ColumnName="HoraEjecucion" />
-                <ScalarProperty Name="FrecuenciaId" ColumnName="FrecuenciaId" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="ConfiguracionId" ColumnName="ConfiguracionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="xyp_ProxEjecucionReporte" FunctionName="xynthesisModel.Store.xyp_ProxEjecucionReporte" />
-          <EntitySetMapping Name="xy_costcenters">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_costcenters">
-              <MappingFragment StoreEntitySet="xy_costcenters">
-                <ScalarProperty Name="Ide_ParentCostCenter" ColumnName="Ide_ParentCostCenter" />
-                <ScalarProperty Name="Nom_CostCenter" ColumnName="Nom_CostCenter" />
-                <ScalarProperty Name="Cod_CostCenter" ColumnName="Cod_CostCenter" />
-                <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="xy_coverage">
-            <EntityTypeMapping TypeName="xynthesisModel.xy_coverage">
-              <MappingFragment StoreEntitySet="xy_coverage">
-                <ScalarProperty Name="Internacional" ColumnName="Internacional" />
-                <ScalarProperty Name="Nacional" ColumnName="Nacional" />
-                <ScalarProperty Name="Movil" ColumnName="Movil" />
-                <ScalarProperty Name="Nom_Coverage" ColumnName="Nom_Coverage" />
-                <ScalarProperty Name="Cod_Coverage" ColumnName="Cod_Coverage" />
-                <ScalarProperty Name="Ide_Coverage" ColumnName="Ide_Coverage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2330,6 +1886,7 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
                 <ScalarProperty Name="Ide_Time" ColumnName="Ide_Time" />
                 <ScalarProperty Name="Ide_GeographyTarget" ColumnName="Ide_GeographyTarget" />
                 <ScalarProperty Name="Ide_GeographySource" ColumnName="Ide_GeographySource" />
+                <ScalarProperty Name="Id_Area" ColumnName="Id_Area" />
                 <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
                 <ScalarProperty Name="Ide_ServerType" ColumnName="Ide_ServerType" />
                 <ScalarProperty Name="Ide_SourceType" ColumnName="Ide_SourceType" />
@@ -2341,7 +1898,153 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+          <EntitySetMapping Name="xy_frecuencia">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_frecuencia">
+              <MappingFragment StoreEntitySet="xy_frecuencia">
+                <ScalarProperty Name="PrefijoFrecuencia" ColumnName="PrefijoFrecuencia" />
+                <ScalarProperty Name="NombreFrecuencia" ColumnName="NombreFrecuencia" />
+                <ScalarProperty Name="FrecuenciaId" ColumnName="FrecuenciaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xy_reportes">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_reportes">
+              <MappingFragment StoreEntitySet="xy_reportes">
+                <ScalarProperty Name="MetodoRpt" ColumnName="MetodoRpt" />
+                <ScalarProperty Name="NombreRpt" ColumnName="NombreRpt" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ReporteId" ColumnName="ReporteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xy_configuracionreporte">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionreporte">
+              <MappingFragment StoreEntitySet="xy_configuracionreporte">
+                <ScalarProperty Name="ReporteId" ColumnName="ReporteId" />
+                <ScalarProperty Name="CondiguracionId" ColumnName="CondiguracionId" />
+                <ScalarProperty Name="conReporteId" ColumnName="conReporteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="xy_rol">
+            <EntityTypeMapping TypeName="xynthesisModel.xy_rol">
+              <MappingFragment StoreEntitySet="xy_rol">
+                <ScalarProperty Name="Des_Rol" ColumnName="Des_Rol" />
+                <ScalarProperty Name="Alias_Rol" ColumnName="Alias_Rol" />
+                <ScalarProperty Name="Nom_Rol" ColumnName="Nom_Rol" />
+                <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="xyp_SelUsuarios" FunctionName="xynthesisModel.Store.xyp_SelUsuarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarios_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="xyp_SelCallAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_SelCallAmountsBySubscriber">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCallAmountsBySubscriber_Result">
+                <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="calls_in" ColumnName="calls_in" />
+                <ScalarProperty Name="calls_out" ColumnName="calls_out" />
+                <ScalarProperty Name="CallAmount" ColumnName="CallAmount" />
+                <ScalarProperty Name="Rango" ColumnName="Rango" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="xyp_UpdCostCentre" FunctionName="xynthesisModel.Store.xyp_UpdCostCentre" />
+          <FunctionImportMapping FunctionImportName="xyp_SelReports" FunctionName="xynthesisModel.Store.xyp_SelReports">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelReports_Result">
+                <ScalarProperty Name="NombreRpt" ColumnName="NombreRpt" />
+                <ScalarProperty Name="MetodoRpt" ColumnName="MetodoRpt" />
+                <ScalarProperty Name="FormatoArchivo" ColumnName="FormatoArchivo" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="ConfiguracionId" ColumnName="ConfiguracionId" />
+                <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+                <ScalarProperty Name="ProxEjecucion" ColumnName="ProxEjecucion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="xyp_CallAmountByContraparte" FunctionName="xynthesisModel.Store.xyp_CallAmountByContraparte">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="xynthesisModel.xyp_CallAmountByContraparte_Result">
+                <ScalarProperty Name="Ide_SubscriberEmployee" ColumnName="Ide_SubscriberEmployee" />
+                <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
+                <ScalarProperty Name="Ide_NumberEmployee" ColumnName="Ide_NumberEmployee" />
+                <ScalarProperty Name="calls_in" ColumnName="calls_in" />
+                <ScalarProperty Name="time_in" ColumnName="time_in" />
+                <ScalarProperty Name="calls_out" ColumnName="calls_out" />
+                <ScalarProperty Name="time_out" ColumnName="time_out" />
+                <ScalarProperty Name="Fec_Date" ColumnName="Fec_Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="xyp_UpdSucursal" FunctionName="xynthesisModel.Store.xyp_UpdSucursal" />
+          <FunctionImportMapping FunctionImportName="xyp_UpdSubscriber" FunctionName="xynthesisModel.Store.xyp_UpdSubscriber" />
+          <FunctionImportMapping FunctionImportName="xyp_UpdRolUser" FunctionName="xynthesisModel.Store.xyp_UpdRolUser" />
+          <FunctionImportMapping FunctionImportName="xyp_UpdRepProgra" FunctionName="xynthesisModel.Store.xyp_UpdRepProgra" />
+          <FunctionImportMapping FunctionImportName="xyp_UpdOperator" FunctionName="xynthesisModel.Store.xyp_UpdOperator" />
+          <FunctionImportMapping FunctionImportName="xyp_Updoperador_tarifa_inter" FunctionName="xynthesisModel.Store.xyp_Updoperador_tarifa_inter" />
+          <FunctionImportMapping FunctionImportName="xyp_UpdNumberBySubscriber" FunctionName="xynthesisModel.Store.xyp_UpdNumberBySubscriber" />
+          <FunctionImportMapping FunctionImportName="xyp_UpdNumber" FunctionName="xynthesisModel.Store.xyp_UpdNumber" />
+          <FunctionImportMapping FunctionImportName="xyp_SelUsuarioRol" FunctionName="xynthesisModel.Store.xyp_SelUsuarioRol">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarioRol_Result">
+                <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
+                <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
+                <ScalarProperty Name="nombreMenu" ColumnName="nombreMenu" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="codMenuPadre" ColumnName="codMenuPadre" />
+                <ScalarProperty Name="codMenu" ColumnName="codMenu" />
+                <ScalarProperty Name="Acccion" ColumnName="Acccion" />
+                <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByInSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByInSubscriber" />
+          <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByOutSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByOutSubscriber" />
+          <FunctionImportMapping FunctionImportName="xyp_NumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsBySubscriber" />
+          <FunctionImportMapping FunctionImportName="xyp_InsSucursal" FunctionName="xynthesisModel.Store.xyp_InsSucursal" />
+          <FunctionImportMapping FunctionImportName="xyp_CallTypesAmountReport" FunctionName="xynthesisModel.Store.xyp_CallTypesAmountReport" />
+          <FunctionImportMapping FunctionImportName="xyp_cambiarclave" FunctionName="xynthesisModel.Store.xyp_cambiarclave" />
+          <FunctionImportMapping FunctionImportName="xyp_ReceiveCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveCalls" />
+          <FunctionImportMapping FunctionImportName="xyp_RepCallOpenAndClosed" FunctionName="xynthesisModel.Store.xyp_RepCallOpenAndClosed" />
+          <FunctionImportMapping FunctionImportName="xyp_RepConsolidadoCoberturaLLamadas" FunctionName="xynthesisModel.Store.xyp_RepConsolidadoCoberturaLLamadas" />
+          <FunctionImportMapping FunctionImportName="xyp_RepGrafNumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_RepGrafNumberAmountsBySubscriber" />
+          <FunctionImportMapping FunctionImportName="xyp_RepPromedioLlamadasHora" FunctionName="xynthesisModel.Store.xyp_RepPromedioLlamadasHora" />
+          <FunctionImportMapping FunctionImportName="xyp_RepReceiveCallsLlamEntranSalien" FunctionName="xynthesisModel.Store.xyp_RepReceiveCallsLlamEntranSalien" />
+          <FunctionImportMapping FunctionImportName="xyp_RepSabanaCalls" FunctionName="xynthesisModel.Store.xyp_RepSabanaCalls" />
+          <FunctionImportMapping FunctionImportName="xyp_RepTarificacionEntraSalieTrans" FunctionName="xynthesisModel.Store.xyp_RepTarificacionEntraSalieTrans" />
+          <FunctionImportMapping FunctionImportName="xyp_SelActivityFirstAndLast" FunctionName="xynthesisModel.Store.xyp_SelActivityFirstAndLast" />
+          <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentre" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentre" />
+          <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentreParents" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentreParents" />
+          <FunctionImportMapping FunctionImportName="xyp_SelConsumeByCostCenter" FunctionName="xynthesisModel.Store.xyp_SelConsumeByCostCenter" />
+          <FunctionImportMapping FunctionImportName="xyp_SelConsumeByExtensionAndUser" FunctionName="xynthesisModel.Store.xyp_SelConsumeByExtensionAndUser" />
+          <FunctionImportMapping FunctionImportName="xyp_SelConsumeByHistory" FunctionName="xynthesisModel.Store.xyp_SelConsumeByHistory" />
+          <FunctionImportMapping FunctionImportName="xyp_SelCostCentreByUser" FunctionName="xynthesisModel.Store.xyp_SelCostCentreByUser" />
+          <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallCost" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallCost" />
+          <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration" />
+          <FunctionImportMapping FunctionImportName="xyp_SelDialedNumber" FunctionName="xynthesisModel.Store.xyp_SelDialedNumber" />
+          <FunctionImportMapping FunctionImportName="xyp_SelFrequentExtensionNumber" FunctionName="xynthesisModel.Store.xyp_SelFrequentExtensionNumber" />
+          <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCity" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCity" />
+          <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCountry" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCountry" />
+          <FunctionImportMapping FunctionImportName="xyp_SelNumbers" FunctionName="xynthesisModel.Store.xyp_SelNumbers" />
+          <FunctionImportMapping FunctionImportName="xyp_SelOperators" FunctionName="xynthesisModel.Store.xyp_SelOperators" />
+          <FunctionImportMapping FunctionImportName="xyp_SelOperTarifInterna" FunctionName="xynthesisModel.Store.xyp_SelOperTarifInterna" />
+          <FunctionImportMapping FunctionImportName="xyp_SelAreas" FunctionName="xynthesisModel.Store.xyp_SelAreas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelAreas_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="xyp_ReceiveAndTransferCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveAndTransferCalls" />
+          <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio" />
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

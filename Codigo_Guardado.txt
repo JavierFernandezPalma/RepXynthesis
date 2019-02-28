@@ -412,7 +412,174 @@ namespace Xynthesis.ServicioReportes
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
 
-//Codigo Nuevo
+CREATE TABLE `xynthesis`.`xy_areas` (
+  `Id_Area` INT NOT NULL AUTO_INCREMENT,
+  `Nom_Area` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Id_Area`));
 
 
 
+ALTER TABLE `xynthesis`.`xy_extencionessubcriber` 
+CHANGE COLUMN `idxy_extencionessubcriber` `Id_Extencionessubcriber` INT(11) NOT NULL AUTO_INCREMENT ,
+CHANGE COLUMN `nom_subcriber` `Nom_Subcriber` VARCHAR(50) NOT NULL ,
+CHANGE COLUMN `extencion` `Extencion` VARCHAR(45) NOT NULL ,
+ADD COLUMN `Ide_CostCenter` VARCHAR(45) NULL AFTER `Extencion`,
+ADD COLUMN `Id_Area` VARCHAR(45) NULL AFTER `Ide_CostCenter`;
+
+
+ALTER TABLE `xynthesis2`.`xy_extencionessubcriber` 
+CHANGE COLUMN `Ide_CostCenter` `Ide_CostCenter` INT NOT NULL DEFAULT 0 ,
+CHANGE COLUMN `Id_Area` `Id_Area` INT NOT NULL DEFAULT 0 ,
+ADD COLUMN `IdSucursal` INT NOT NULL DEFAULT 0 AFTER `Id_Area`;
+
+//------------------------------------------------------------------------------//
+CREATE DEFINER=`root`@`localhost` PROCEDURE `xyp_Execute_ETL_OXE`()
+BEGIN
+
+DECLARE ChargedNumber_   VARCHAR(45);
+DECLARE ChargedUserName  VARCHAR(45);
+DECLARE ChargedCostCenter  VARCHAR(45);
+DECLARE Ide_Subscriber_  BIGINT;
+DECLARE v_finished       INTEGER DEFAULT 0;
+
+
+
+  DECLARE cur1 CURSOR FOR  
+  
+        SELECT DISTINCT 
+    			trim(tick.ChargedNumber) AS ChargedNumber_,
+                ChargedUserName,
+                ChargedCostCenter
+		FROM xy_ticketsoxe tick, xy_costcenters cost
+		WHERE cost.Cod_CostCenter = tick.ChargedCostCenter AND 
+        trim(tick.ChargedNumber) NOT IN (SELECT subc.Cod_Subscriber 
+			FROM xy_subscriber subc
+            );
+
+  DECLARE CONTINUE HANDLER
+
+
+      FOR NOT FOUND SET v_finished = 1;
+
+
+	SELECT MAX(Ide_subscriber) FROM xy_subscriber INTO  Ide_Subscriber_;
+
+  OPEN cur1;
+
+  
+read_loop: LOOP
+
+
+    FETCH cur1 INTO ChargedNumber_, ChargedUserName, ChargedCostCenter;
+    
+
+	IF NOT EXISTS (
+		
+				SELECT Ide_Subscriber 
+				
+				FROM xy_subscriber 
+				
+				WHERE Cod_Subscriber = ChargedNumber_
+				
+				) 
+					
+			THEN
+
+				SET  Ide_Subscriber_ = Ide_Subscriber_ + 1;
+				
+				
+		IF (ChargedNumber_ IS NOT NULL) 
+			
+			THEN
+			
+			INSERT INTO xy_subscriber VALUES (Ide_Subscriber_, ( if(
+            
+				(SELECT xynthesis.xy_extencionessubcriber.Extencion
+                
+					FROM xynthesis.xy_extencionessubcriber
+                    
+                    WHERE xynthesis.xy_extencionessubcriber.Extencion = ChargedNumber_) = ChargedNumber_, (
+                    
+                    SELECT xynthesis.xy_extencionessubcriber.Nom_Subcriber
+                
+					FROM xynthesis.xy_extencionessubcriber
+                    
+                    WHERE xynthesis.xy_extencionessubcriber.Extencion = ChargedNumber_
+                    
+                    ), ChargedUserName)
+            
+            ), null,'E',null,ChargedNumber_, ( if(
+            
+				(SELECT xynthesis.xy_costcenters.Cod_CostCenter 
+                
+					FROM xynthesis.xy_costcenters 
+                    
+                    WHERE xynthesis.xy_costcenters.Cod_CostCenter = ChargedCostCenter)  = ChargedCostCenter, (
+            
+				SELECT xynthesis.xy_costcenters.Ide_CostCenter 
+                
+					FROM xynthesis.xy_costcenters 
+                    
+                    WHERE xynthesis.xy_costcenters.Cod_CostCenter = ChargedCostCenter), 2)
+            
+            ), ( if(
+            
+            (SELECT xynthesis.xy_extencionessubcriber.Extencion
+                
+					FROM xynthesis.xy_extencionessubcriber
+                    
+                    WHERE xynthesis.xy_extencionessubcriber.Extencion = ChargedNumber_) = ChargedNumber_, (
+                    
+				SELECT xynthesis.xy_sucursal.IdSucursal
+                
+					FROM xynthesis.xy_sucursal
+                    
+                    INNER JOIN xynthesis.xy_extencionessubcriber ON xynthesis.xy_sucursal.IdSucursal = xynthesis.xy_extencionessubcriber.IdSucursal
+                    
+                    AND xynthesis.xy_extencionessubcriber.Extencion = ChargedNumber_), 2)
+            
+            ),2,NOW(),null);
+
+        END IF;
+
+     END IF;
+
+
+	IF v_finished = 1 THEN
+
+		LEAVE read_loop;
+
+	END  IF;
+
+END LOOP read_loop;
+
+CLOSE cur1;
+
+END
+
+//------------------------------------------------------------------------------//
+
+//------------------------------------------------------------------------------//
+
+USE `xynthesis2`;
+DROP procedure IF EXISTS `xyp_SelAreas`;
+
+DELIMITER $$
+USE `xynthesis2`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `xyp_SelAreas`()
+BEGIN
+
+select Id_Area,
+
+	Nom_Area
+    
+from xy_areas
+
+order by Nom_Area asc;
+
+
+END$$
+
+DELIMITER ;
+
+//------------------------------------------------------------------------------//

@@ -24,8 +24,15 @@ namespace Xynthesis.Web.Controllers
         ADReporteConsumosPersonales Consper= new ADReporteConsumosPersonales();
         public int contador;
         // GET: ReporteConsumosPersonales
+
+        //=====================fecha actual=============================
+        DateTime fecha_actual = Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd"));
+        DateTime fechaIni = Convert.ToDateTime((Convert.ToString(DateTime.Now.Year - 1) + "-01-01"));
+        //=====================fecha actual=============================
+
         public ActionResult ConsumosPersonales(string paraPaginacion, string filtro, string FechaInicial, string FechaFinal, int? page)
         {
+
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {
                 return RedirectToAction("Login", "Acceso");
@@ -35,22 +42,23 @@ namespace Xynthesis.Web.Controllers
                                      orderby e.Ide_Number ascending
                                    select e).ToList();
 
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
-            ViewData["area"] = (from a in xyt.xy_costcenters
-                                   orderby a.Nom_CostCenter ascending
-                                   select a).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
             ViewData["cobertura"] = (from filasCob in xyt.xy_coverage
                                 orderby filasCob.Nom_Coverage ascending
                                 select filasCob).ToList();
 
-            ViewData["destino"] = (from row in xyt.xyp_DestinoLlamadaCampeonaArea()
-                                   orderby row.target ascending
-                                   select row).ToList();
+            //ViewData["destino"] = (from row in xyt.xyp_DestinoLlamadaCampeonaArea()
+            //                       orderby row.target ascending
+            //                       select row).ToList();
+
+            ViewData["destino"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
+                                           && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
+                                           group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                           orderby NumberTargetGroup.Key ascending
+                                           select NumberTargetGroup.Key).ToList();
 
             //Inicio de lineas agregadas
             if (Session["FechaInicial"] != null)
@@ -161,10 +169,7 @@ namespace Xynthesis.Web.Controllers
 
             //String[] ides = usuarioId;
 
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
             string area = "";
             string are;
@@ -183,9 +188,7 @@ namespace Xynthesis.Web.Controllers
 
             Session["areas"] = are;
 
-            ViewData["area"] = (from a in xyt.xy_costcenters
-                                orderby a.Nom_CostCenter ascending
-                                select a).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
             string cobertura = "";
             string cob;
@@ -225,9 +228,11 @@ namespace Xynthesis.Web.Controllers
 
             Session["destinos"] = dest;
 
-            ViewData["destino"] = (from row in xyt.xyp_DestinoLlamadaCampeonaArea()
-                                   orderby row.target ascending
-                                   select row).ToList();
+            ViewData["destino"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
+                                   && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
+                                   group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                   orderby NumberTargetGroup.Key ascending
+                                   select NumberTargetGroup.Key).ToList();
 
             try
             {
