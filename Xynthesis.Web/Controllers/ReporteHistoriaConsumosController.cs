@@ -32,7 +32,8 @@ namespace Xynthesis.Web.Controllers
             {
                 return RedirectToAction("Login", "Acceso");
             }
-            ViewData["area"] = (from t in xyt.xy_costcenters select t).ToList();
+
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
 
             List<int> anios = new List<int>();
@@ -156,7 +157,8 @@ namespace Xynthesis.Web.Controllers
             Session["extension"] = ext;
             //=====================Procesar llamada entrante=============================
 
-            ViewData["area"] = (from t in xyt.xy_costcenters select t).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
+
             //Select para dropdowlist LlamadaEntrante
             try
             {

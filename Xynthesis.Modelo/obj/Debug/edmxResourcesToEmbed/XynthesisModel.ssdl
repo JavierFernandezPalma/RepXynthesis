@@ -303,6 +303,8 @@ advertencia 6002: La tabla o vista 'def.xynthesis2.xy_numbersxsubscriber' no tie
   <Function Name="xyp_DelSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="idSucursal" Type="int" Mode="In" />
   </Function>
+  <Function Name="xyp_DestinoLlamadaCampeonaArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+  <Function Name="xyp_GrupNumSuscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
   <Function Name="xyp_InsCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="vCode" Type="varchar" Mode="In" />
     <Parameter Name="vName" Type="varchar" Mode="In" />

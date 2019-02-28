@@ -11,8 +11,8 @@
 
 @{
     ViewBag.Title = "NumerosMasMarcados";
-    var mod = (List<Xynthesis.Modelo.xyp_GrupNumSuscriber_Result>)ViewData["Origen"];
-    var mod2 = (List<Xynthesis.Modelo.xy_numbers>)ViewData["Destino"];
+    var mod = (List<string>)ViewData["origen"];
+    var mod2 = (List<string>)ViewData["Destino"];
 }
 
 <div class="container">
@@ -32,16 +32,16 @@
                     @Html.TextBox("FechaFinal", null, new { @class = "form-control", @placeholder = "Fecha final", style = "width:110px" })
 
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ORIGEN" title="ORIGEN" id="NomOrigen" name="origenId" data-size="10">
-                        @foreach (var orig in mod)
+                        @foreach (var NumberTarget in mod)
                         {
-                            <option id="@orig.Ide_Number" value="@orig.Ide_Number">@orig.Ide_Number</option>
+                            <option id="@NumberTarget" value="@NumberTarget">@NumberTarget</option>
                         }
                     </select>
 
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="DESTINO" title="DESTINO" id="NomDestino" name="destinoId" data-size="10">
-                        @foreach (var dest in mod2)
+                        @foreach (var NumberSource in mod2)
                         {
-                            <option id="@dest.Ide_Number" value="@dest.Ide_Number">@dest.Ide_Number</option>
+                            <option id="@NumberSource" value="@NumberSource">@NumberSource</option>
                         }
                     </select>
 

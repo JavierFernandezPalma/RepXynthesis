@@ -29,14 +29,10 @@ namespace Xynthesis.Web.Controllers
             {
                 return RedirectToAction("Login", "Acceso");
             }
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
 
-            ViewData["area"] = (from a in xyt.xy_costcenters
-                                orderby a.Nom_CostCenter ascending
-                                select a).ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
+
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
             //Inicio de lineas agregadas
             if (Session["FechaInicial"] != null)
@@ -121,10 +117,7 @@ namespace Xynthesis.Web.Controllers
 
             //String[] ides = usuarioId;
 
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
             string area = "";
             string are;
@@ -144,9 +137,7 @@ namespace Xynthesis.Web.Controllers
             Session["areas"] = are;
 
 
-            ViewData["area"] = (from a in xyt.xy_costcenters
-                                orderby a.Nom_CostCenter ascending
-                                select a).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {

@@ -13,7 +13,7 @@
 
 @{
     ViewBag.Title = "HistoricoConsumos";
-    var mod = (List<Xynthesis.Modelo.xy_costcenters>)ViewData["area"];
+    var mod = (List<Xynthesis.Modelo.xyp_SelAreas_Result>)ViewData["area"];
 }
 
 <div class="container">
@@ -37,9 +37,9 @@
                     @Html.TextBox("FechaInicial", null, new { @class = "form-control", @placeholder = "Fecha inicial", style = "width:100px" })
                     @Html.TextBox("FechaFinal", null, new { @class = "form-control", @placeholder = "Fecha final", style = "width:100px" })
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ÁREA" title="ÁREA" id="NomUsuario" name="areaId" data-size="10">
-                        @foreach (var usuar in mod)
+                        @foreach (var are in mod)
                         {
-                            <option id="@usuar.Nom_CostCenter" value="@usuar.Ide_CostCenter">@usuar.Nom_CostCenter</option>
+                            <option id="@are.Nom_Area" value="@are.Id_Area">@are.Nom_Area</option>
                         }
                     </select>
 

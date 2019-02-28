@@ -346,7 +346,6 @@
     <FunctionImportMapping FunctionImportName="xyp_SelConsumeByHistory" FunctionName="xynthesisModel.Store.xyp_SelConsumeByHistory" />
     <FunctionImportMapping FunctionImportName="xyp_SelCostCentreByUser" FunctionName="xynthesisModel.Store.xyp_SelCostCentreByUser" />
     <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallCost" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallCost" />
-    <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration" />
     <FunctionImportMapping FunctionImportName="xyp_SelDialedNumber" FunctionName="xynthesisModel.Store.xyp_SelDialedNumber" />
     <FunctionImportMapping FunctionImportName="xyp_SelFrequentExtensionNumber" FunctionName="xynthesisModel.Store.xyp_SelFrequentExtensionNumber" />
     <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCity" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCity" />
@@ -361,5 +360,12 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="xyp_ReceiveAndTransferCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveAndTransferCalls" />
     <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio" />
+    <FunctionImportMapping FunctionImportName="xyp_DestinoLlamadaCampeonaArea" FunctionName="xynthesisModel.Store.xyp_DestinoLlamadaCampeonaArea" />
+    <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDetailChampCallDuration_Result" />
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xyp_GrupNumSuscriber" FunctionName="xynthesisModel.Store.xyp_GrupNumSuscriber" />
   </EntityContainerMapping>
 </Mapping>

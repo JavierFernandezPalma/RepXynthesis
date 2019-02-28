@@ -34,13 +34,18 @@ namespace Xynthesis.Web.Controllers
             {
                 return RedirectToAction("Login", "Acceso");
             }
-            ViewData["area"] = (from t in xyt.xy_costcenters orderby t.Nom_CostCenter ascending select t).ToList();
 
-            ViewData["llamadaentrante"] = (from row in xyt.xyp_DestinoLlamadaCampeonaArea()
-                                           orderby row.target ascending
-                                           select row).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
-            ViewData["origen"] = (from o in xyt.xyp_GrupNumSuscriber() orderby o.Ide_Number ascending select o).ToList();
+            ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
+                                           group row.Ide_NumberSource by row.Ide_NumberSource into NumberSourceGroup
+                                           orderby NumberSourceGroup.Key ascending
+                                           select NumberSourceGroup.Key).ToList();
+
+            ViewData["origen"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
+                                  group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                  orderby NumberTargetGroup.Key ascending
+                                  select NumberTargetGroup.Key).ToList();
 
             //Inicio de lineas agregadas
             if (Session["FechaInicial"] != null)
@@ -161,13 +166,17 @@ namespace Xynthesis.Web.Controllers
             Session["origen"] = ori;
             //=====================Procesar Origen=============================
 
-            ViewData["area"] = (from t in xyt.xy_costcenters orderby t.Nom_CostCenter ascending select t).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
-            ViewData["llamadaentrante"] = (from row in xyt.xyp_DestinoLlamadaCampeonaArea()
-                                           orderby row.target ascending
-                                           select row).ToList();
+            ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
+                                           group row.Ide_NumberSource by row.Ide_NumberSource into NumberSourceGroup
+                                           orderby NumberSourceGroup.Key ascending
+                                           select NumberSourceGroup.Key).ToList();
 
-            ViewData["origen"] = (from o in xyt.xyp_GrupNumSuscriber() orderby o.Ide_Number ascending select o).ToList();
+            ViewData["origen"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
+                                           group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                           orderby NumberTargetGroup.Key ascending
+                                           select NumberTargetGroup.Key).ToList();
             try
             {
                 List<xyp_SelDetailChampCallCost_Result> lista = TllamadaCCC.ObtenerTopLlamadaCampeonaCC(FechaInicial, FechaFinal, ar, llamEnt, ori).ToList();

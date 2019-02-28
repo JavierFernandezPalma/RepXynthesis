@@ -37,10 +37,13 @@ namespace Xynthesis.Web.Controllers
             {
                 return RedirectToAction("Login", "Acceso");
             }
-            ViewData["area"] = (from t in xyt.xy_costcenters select t).ToList();
-            ViewData["llamadaentrante"] = (from row in xyt.xyp_SelDetailChampCallDuration(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
-                                           orderby row.target ascending
-                                           select row).Distinct().ToList();
+
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
+
+            ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
+                                           group row.Ide_NumberSource by row.Ide_NumberSource into NumberSourceGroup
+                                           orderby NumberSourceGroup.Key ascending
+                                           select NumberSourceGroup.Key).ToList();
             //Inicio de lineas agregadas
             if (Session["FechaInicial"] != null)
             {
@@ -141,10 +144,12 @@ namespace Xynthesis.Web.Controllers
 
             //String[] ides = usuarioId;
 
-            ViewData["area"] = (from t in xyt.xy_costcenters select t).ToList();
-            ViewData["llamadaentrante"] = (from row in xyt.xyp_SelDetailChampCallDuration(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "")
-                                           orderby row.target ascending
-                                           select row).Distinct().ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
+
+            ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
+                                           group row.Ide_NumberSource by row.Ide_NumberSource into NumberSourceGroup
+                                           orderby NumberSourceGroup.Key ascending
+                                           select NumberSourceGroup.Key).ToList();
 
             try
             {

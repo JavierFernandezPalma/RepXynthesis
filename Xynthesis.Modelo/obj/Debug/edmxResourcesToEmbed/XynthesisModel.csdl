@@ -161,12 +161,6 @@
       <Parameter Name="LlamEntrad" Mode="In" Type="String" />
       <Parameter Name="Origen" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="xyp_SelDetailChampCallDuration" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallDuration_Result)">
-      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
-      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
-      <Parameter Name="Area" Mode="In" Type="String" />
-      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="xyp_SelFrequentExtensionNumber" ReturnType="Collection(xynthesisModel.xyp_SelFrequentExtensionNumber_Result)">
       <Parameter Name="StartDateParameter" Mode="In" Type="String" />
       <Parameter Name="EndDateParameter" Mode="In" Type="String" />
@@ -359,6 +353,12 @@
     <EntitySet Name="xy_rol" EntityType="xynthesisModel.xy_rol" />
     <FunctionImport Name="xyp_SelUsuarios" ReturnType="Collection(xynthesisModel.xyp_SelUsuarios_Result)" />
     <FunctionImport Name="xyp_SelAreas" ReturnType="Collection(xynthesisModel.xyp_SelAreas_Result)" />
+    <FunctionImport Name="xyp_SelDetailChampCallDuration" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallDuration_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="xyp_SelAllCostCentre_Result">
     <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
@@ -553,17 +553,6 @@
     <Property Type="String" Name="Date" Nullable="false" />
     <Property Type="String" Name="coverage" Nullable="false" />
     <Property Type="String" Name="TotalMinutos" Nullable="false" />
-  </ComplexType>
-  <ComplexType Name="xyp_SelDetailChampCallDuration_Result">
-    <Property Type="String" Name="subscriber" Nullable="false" />
-    <Property Type="String" Name="number" Nullable="false" />
-    <Property Type="String" Name="centerc" Nullable="false" />
-    <Property Type="String" Name="target" Nullable="false" />
-    <Property Type="String" Name="costo" Nullable="false" />
-    <Property Type="String" Name="Date" Nullable="false" />
-    <Property Type="String" Name="coverage" Nullable="false" />
-    <Property Type="String" Name="TotalMinutos" Nullable="false" />
-    <Property Type="String" Name="TotalSegundos" Nullable="false" />
   </ComplexType>
   <ComplexType Name="xyp_SelFrequentExtensionNumber_Result">
     <Property Type="String" Name="Ide_NumberSource" Nullable="false" />
@@ -1029,5 +1018,15 @@
   <ComplexType Name="xyp_SelAreas_Result">
     <Property Type="Int32" Name="Id_Area" Nullable="false" />
     <Property Type="String" Name="Nom_Area" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelDetailChampCallDuration_Result">
+    <Property Type="String" Name="subscriber" Nullable="false" />
+    <Property Type="String" Name="number" Nullable="false" />
+    <Property Type="String" Name="centerc" Nullable="false" />
+    <Property Type="String" Name="target" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="TotalMinutos" Nullable="false" />
+    <Property Type="Int32" Name="TotalSegundos" Nullable="false" />
+    <Property Type="String" Name="coverage" Nullable="false" />
   </ComplexType>
 </Schema>

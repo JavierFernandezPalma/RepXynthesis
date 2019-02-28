@@ -308,6 +308,8 @@ advertencia 6002: La tabla o vista 'def.xynthesis2.xy_numbersxsubscriber' no tie
         <Function Name="xyp_DelSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="idSucursal" Type="int" Mode="In" />
         </Function>
+        <Function Name="xyp_DestinoLlamadaCampeonaArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+        <Function Name="xyp_GrupNumSuscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
         <Function Name="xyp_InsCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
           <Parameter Name="vCode" Type="varchar" Mode="In" />
           <Parameter Name="vName" Type="varchar" Mode="In" />
@@ -807,12 +809,6 @@ FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
             <Parameter Name="LlamEntrad" Mode="In" Type="String" />
             <Parameter Name="Origen" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="xyp_SelDetailChampCallDuration" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallDuration_Result)">
-            <Parameter Name="StartDateParameter" Mode="In" Type="String" />
-            <Parameter Name="EndDateParameter" Mode="In" Type="String" />
-            <Parameter Name="Area" Mode="In" Type="String" />
-            <Parameter Name="LlamEntrad" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="xyp_SelFrequentExtensionNumber" ReturnType="Collection(xynthesisModel.xyp_SelFrequentExtensionNumber_Result)">
             <Parameter Name="StartDateParameter" Mode="In" Type="String" />
             <Parameter Name="EndDateParameter" Mode="In" Type="String" />
@@ -1006,6 +1002,12 @@ FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
           <EntitySet Name="xy_rol" EntityType="xynthesisModel.xy_rol" />
           <FunctionImport Name="xyp_SelUsuarios" ReturnType="Collection(xynthesisModel.xyp_SelUsuarios_Result)" />
           <FunctionImport Name="xyp_SelAreas" ReturnType="Collection(xynthesisModel.xyp_SelAreas_Result)" />
+          <FunctionImport Name="xyp_SelDetailChampCallDuration" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallDuration_Result)">
+            <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+            <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+            <Parameter Name="Area" Mode="In" Type="String" />
+            <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="xyp_SelAllCostCentre_Result" >
           <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
@@ -1200,17 +1202,6 @@ FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
           <Property Type="String" Name="Date" Nullable="false" />
           <Property Type="String" Name="coverage" Nullable="false" />
           <Property Type="String" Name="TotalMinutos" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="xyp_SelDetailChampCallDuration_Result" >
-          <Property Type="String" Name="subscriber" Nullable="false" />
-          <Property Type="String" Name="number" Nullable="false" />
-          <Property Type="String" Name="centerc" Nullable="false" />
-          <Property Type="String" Name="target" Nullable="false" />
-          <Property Type="String" Name="costo" Nullable="false" />
-          <Property Type="String" Name="Date" Nullable="false" />
-          <Property Type="String" Name="coverage" Nullable="false" />
-          <Property Type="String" Name="TotalMinutos" Nullable="false" />
-          <Property Type="String" Name="TotalSegundos" Nullable="false" />
         </ComplexType>
         <ComplexType Name="xyp_SelFrequentExtensionNumber_Result" >
           <Property Type="String" Name="Ide_NumberSource" Nullable="false" />
@@ -1678,6 +1669,16 @@ FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
           <Property Type="Int32" Name="Id_Area" Nullable="false" />
           <Property Type="String" Name="Nom_Area" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="xyp_SelDetailChampCallDuration_Result" >
+          <Property Type="String" Name="subscriber" Nullable="false" />
+          <Property Type="String" Name="number" Nullable="false" />
+          <Property Type="String" Name="centerc" Nullable="false" />
+          <Property Type="String" Name="target" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Int32" Name="TotalMinutos" Nullable="false" />
+          <Property Type="Int32" Name="TotalSegundos" Nullable="false" />
+          <Property Type="String" Name="coverage" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2029,7 +2030,6 @@ FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
           <FunctionImportMapping FunctionImportName="xyp_SelConsumeByHistory" FunctionName="xynthesisModel.Store.xyp_SelConsumeByHistory" />
           <FunctionImportMapping FunctionImportName="xyp_SelCostCentreByUser" FunctionName="xynthesisModel.Store.xyp_SelCostCentreByUser" />
           <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallCost" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallCost" />
-          <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration" />
           <FunctionImportMapping FunctionImportName="xyp_SelDialedNumber" FunctionName="xynthesisModel.Store.xyp_SelDialedNumber" />
           <FunctionImportMapping FunctionImportName="xyp_SelFrequentExtensionNumber" FunctionName="xynthesisModel.Store.xyp_SelFrequentExtensionNumber" />
           <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCity" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCity" />
@@ -2044,6 +2044,13 @@ FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="xyp_ReceiveAndTransferCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveAndTransferCalls" />
           <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio" />
+          <FunctionImportMapping FunctionImportName="xyp_DestinoLlamadaCampeonaArea" FunctionName="xynthesisModel.Store.xyp_DestinoLlamadaCampeonaArea" />
+          <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDetailChampCallDuration_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="xyp_GrupNumSuscriber" FunctionName="xynthesisModel.Store.xyp_GrupNumSuscriber" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

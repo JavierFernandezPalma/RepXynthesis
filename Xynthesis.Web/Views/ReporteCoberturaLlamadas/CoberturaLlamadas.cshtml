@@ -12,8 +12,8 @@
 
 @{
     ViewBag.Title = "Cobertura de Llamadas";
-    var mod = (List<Xynthesis.Modelo.xy_subscriber>)ViewData["usuario"];
-    var mod2 = (List<Xynthesis.Modelo.xy_costcenters>)ViewData["area"];
+    var mod = (List<Xynthesis.Modelo.xyp_SelUsuarios_Result>)ViewData["usuario"];
+    var mod2 = (List<Xynthesis.Modelo.xyp_SelAreas_Result>)ViewData["area"];
 }
 
 
@@ -41,7 +41,7 @@
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="AREA" title="AREA" id="NomArea" name="areaId" data-size="10">
                         @foreach (var are in mod2)
                         {
-                            <option id="@are.Nom_CostCenter" value="@are.Ide_CostCenter">@are.Nom_CostCenter</option>
+                            <option id="@are.Nom_Area" value="@are.Id_Area">@are.Nom_Area</option>
                         }
                     </select>
 

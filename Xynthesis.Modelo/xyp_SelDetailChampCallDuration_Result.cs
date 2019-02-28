@@ -17,10 +17,9 @@ namespace Xynthesis.Modelo
         public string number { get; set; }
         public string centerc { get; set; }
         public string target { get; set; }
-        public string costo { get; set; }
-        public string Date { get; set; }
+        public System.DateTime Date { get; set; }
+        public int TotalMinutos { get; set; }
+        public int TotalSegundos { get; set; }
         public string coverage { get; set; }
-        public string TotalMinutos { get; set; }
-        public string TotalSegundos { get; set; }
     }
 }

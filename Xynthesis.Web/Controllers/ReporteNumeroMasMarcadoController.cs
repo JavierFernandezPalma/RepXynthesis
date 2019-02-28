@@ -25,18 +25,31 @@ namespace Xynthesis.Web.Controllers
         ADReporteNumeroMasMarcado frlla = new ADReporteNumeroMasMarcado();
         public int contador;
         // GET: ReporteNumeroMasMarcado
+
+        //=====================fecha actual=============================
+        DateTime fecha_actual = Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd"));
+        DateTime fechaIni = Convert.ToDateTime((Convert.ToString(DateTime.Now.Year - 1) + "-01-01"));
+        //=====================fecha actual=============================
+
         public ActionResult NumerosMasMarcados(string paraPaginacion, string filtro, string FechaInicial, string FechaFinal, int? page)
         {
+
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {
                 return RedirectToAction("Login", "Acceso");
             }
 
-            ViewData["Origen"] = (from o in xyt.xyp_GrupNumSuscriber() orderby o.Ide_Number ascending select o).ToList();
+            ViewData["origen"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
+                                   && row.Fec_Date <= fecha_actual && row.Ide_NumberSource != "" && row.Num_CallEffectiveDuration > 0
+                                   group row.Ide_NumberSource by row.Ide_NumberSource into NumberTargetGroup
+                                   orderby NumberTargetGroup.Key ascending
+                                   select NumberTargetGroup.Key).ToList();
 
-            ViewData["Destino"] = (from d in xyt.xy_numbers
-                                orderby d.Ide_Number ascending
-                                select d).ToList();
+            ViewData["destino"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
+                                   && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
+                                   group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                   orderby NumberTargetGroup.Key ascending
+                                   select NumberTargetGroup.Key).ToList();
 
             //Inicio de lineas agregadas
             if (Session["FechaInicial"] != null)
@@ -110,7 +123,11 @@ namespace Xynthesis.Web.Controllers
 
             Session["Origenes"] = ori;
 
-            ViewData["Origen"] = (from o in xyt.xyp_GrupNumSuscriber() orderby o.Ide_Number ascending select o).ToList();
+            ViewData["origen"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
+                                  && row.Fec_Date <= fecha_actual && row.Ide_NumberSource != "" && row.Num_CallEffectiveDuration > 0
+                                  group row.Ide_NumberSource by row.Ide_NumberSource into NumberTargetGroup
+                                  orderby NumberTargetGroup.Key ascending
+                                  select NumberTargetGroup.Key).ToList();
 
             string destino = "";
             string dest;
@@ -130,9 +147,11 @@ namespace Xynthesis.Web.Controllers
             Session["Destinos"] = dest;
 
 
-            ViewData["Destino"] = (from d in xyt.xy_numbers
-                                   orderby d.Ide_Number ascending
-                                   select d).ToList();
+            ViewData["destino"] = (from row in xyt.xy_calls where row.Ide_CallType == 2 && row.Fec_Date >= fechaIni
+                                    && row.Fec_Date <= fecha_actual && row.Ide_NumberTarget != "" && row.Num_CallEffectiveDuration > 0
+                                   group row.Ide_NumberTarget by row.Ide_NumberTarget into NumberTargetGroup
+                                   orderby NumberTargetGroup.Key ascending
+                                   select NumberTargetGroup.Key).ToList();
 
             try
             {

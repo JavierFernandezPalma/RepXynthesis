@@ -32,16 +32,11 @@ namespace Xynthesis.Web.Controllers
                 return RedirectToAction("Login", "Acceso");
             }
 
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
-            ViewData["area"] = (from a in xyt.xy_costcenters
-                                orderby a.Nom_CostCenter ascending
-                                select a).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
-            
+
             list.Add("00:00 -  00:59");
             list.Add("01:00 -  01:59");
             list.Add("02:00 -  02:59");
@@ -149,10 +144,7 @@ namespace Xynthesis.Web.Controllers
 
             //String[] ides = usuarioId;
 
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
             string area = "";
             string are;
@@ -172,9 +164,7 @@ namespace Xynthesis.Web.Controllers
             Session["areas"] = are;
 
 
-            ViewData["area"] = (from a in xyt.xy_costcenters
-                                orderby a.Nom_CostCenter ascending
-                                select a).ToList();
+            ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
 
             string rango = "";

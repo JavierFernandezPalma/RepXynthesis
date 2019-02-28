@@ -32,14 +32,13 @@ namespace Xynthesis.Web.Controllers
             {
                 return RedirectToAction("Login", "Acceso");
             }
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
+
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
 
             ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
-                                           orderby Convert.ToDouble(row.Ide_SubscriberEmployee) ascending
-                                           select row).Distinct().ToList();
+                                           group row.Ide_NumberSource by row.Ide_NumberSource into NumberSourceGroup
+                                           orderby NumberSourceGroup.Key ascending
+                                           select NumberSourceGroup.Key).ToList();
 
             //Inicio de lineas agregadas
             if (Session["FechaInicial"] != null)
@@ -146,14 +145,13 @@ namespace Xynthesis.Web.Controllers
             Session["llamadaentrante"] = llamEnt;
             //=====================Procesar llamada entrante=============================
 
-            ViewData["usuario"] = (from t in xyt.xy_subscriber
-                                   where t.Ide_Subscriber != -1
-                                   orderby t.Nom_Subscriber ascending
-                                   select t).ToList();
+            ViewData["usuario"] = xyt.xyp_SelUsuarios().ToList();
+
             //Select para dropdowlist LlamadaEntrante
             ViewData["llamadaentrante"] = (from row in xyt.xyp_NumberAmountsByInSubscriber(Convert.ToString(anioActual) + "-01-01", fecha_actual, "", "", "")
-                                           orderby Convert.ToDouble(row.Ide_SubscriberEmployee) ascending
-                                           select row).Distinct().ToList();
+                                           group row.Ide_NumberSource by row.Ide_NumberSource into NumberSourceGroup
+                                           orderby NumberSourceGroup.Key ascending
+                                           select NumberSourceGroup.Key).ToList();
 
             if (Session["Ide_Subscriber"] == null && Session["LoginDominio"] == null)
             {

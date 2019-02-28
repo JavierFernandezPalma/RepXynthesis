@@ -596,27 +596,6 @@ namespace Xynthesis.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<xyp_SelDetailChampCallCost_Result>("xyp_SelDetailChampCallCost", startDateParameterParameter, endDateParameterParameter, areaParameter, llamEntradParameter, origenParameter);
         }
     
-        public virtual ObjectResult<xyp_SelDetailChampCallDuration_Result> xyp_SelDetailChampCallDuration(string startDateParameter, string endDateParameter, string area, string llamEntrad)
-        {
-            var startDateParameterParameter = startDateParameter != null ?
-                new ObjectParameter("StartDateParameter", startDateParameter) :
-                new ObjectParameter("StartDateParameter", typeof(string));
-    
-            var endDateParameterParameter = endDateParameter != null ?
-                new ObjectParameter("EndDateParameter", endDateParameter) :
-                new ObjectParameter("EndDateParameter", typeof(string));
-    
-            var areaParameter = area != null ?
-                new ObjectParameter("Area", area) :
-                new ObjectParameter("Area", typeof(string));
-    
-            var llamEntradParameter = llamEntrad != null ?
-                new ObjectParameter("LlamEntrad", llamEntrad) :
-                new ObjectParameter("LlamEntrad", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<xyp_SelDetailChampCallDuration_Result>("xyp_SelDetailChampCallDuration", startDateParameterParameter, endDateParameterParameter, areaParameter, llamEntradParameter);
-        }
-    
         public virtual ObjectResult<xyp_SelFrequentExtensionNumber_Result> xyp_SelFrequentExtensionNumber(string startDateParameter, string endDateParameter)
         {
             var startDateParameterParameter = startDateParameter != null ?
@@ -1187,6 +1166,27 @@ namespace Xynthesis.Modelo
         public virtual ObjectResult<xyp_SelAreas_Result> xyp_SelAreas()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<xyp_SelAreas_Result>("xyp_SelAreas");
+        }
+    
+        public virtual ObjectResult<xyp_SelDetailChampCallDuration_Result> xyp_SelDetailChampCallDuration(string startDateParameter, string endDateParameter, string area, string llamEntrad)
+        {
+            var startDateParameterParameter = startDateParameter != null ?
+                new ObjectParameter("StartDateParameter", startDateParameter) :
+                new ObjectParameter("StartDateParameter", typeof(string));
+    
+            var endDateParameterParameter = endDateParameter != null ?
+                new ObjectParameter("EndDateParameter", endDateParameter) :
+                new ObjectParameter("EndDateParameter", typeof(string));
+    
+            var areaParameter = area != null ?
+                new ObjectParameter("Area", area) :
+                new ObjectParameter("Area", typeof(string));
+    
+            var llamEntradParameter = llamEntrad != null ?
+                new ObjectParameter("LlamEntrad", llamEntrad) :
+                new ObjectParameter("LlamEntrad", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<xyp_SelDetailChampCallDuration_Result>("xyp_SelDetailChampCallDuration", startDateParameterParameter, endDateParameterParameter, areaParameter, llamEntradParameter);
         }
     }
 }
