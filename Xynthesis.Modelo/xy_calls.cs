@@ -22,7 +22,6 @@ namespace Xynthesis.Modelo
         public sbyte Ide_SourceType { get; set; }
         public int Ide_ServerType { get; set; }
         public int Ide_CostCenter { get; set; }
-        public Nullable<int> Id_Area { get; set; }
         public int Ide_GeographySource { get; set; }
         public int Ide_GeographyTarget { get; set; }
         public int Ide_Time { get; set; }

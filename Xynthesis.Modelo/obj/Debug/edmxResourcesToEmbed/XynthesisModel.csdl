@@ -334,6 +334,18 @@
     <EntitySet Name="xy_operador_tarifa_inter" EntityType="xynthesisModel.xy_operador_tarifa_inter" />
     <EntitySet Name="xy_rates" EntityType="xynthesisModel.xy_rates" />
     <EntitySet Name="xy_sucursal" EntityType="xynthesisModel.xy_sucursal" />
+    <EntitySet Name="xy_frecuencia" EntityType="xynthesisModel.xy_frecuencia" />
+    <EntitySet Name="xy_reportes" EntityType="xynthesisModel.xy_reportes" />
+    <EntitySet Name="xy_configuracionreporte" EntityType="xynthesisModel.xy_configuracionreporte" />
+    <EntitySet Name="xy_rol" EntityType="xynthesisModel.xy_rol" />
+    <FunctionImport Name="xyp_SelUsuarios" ReturnType="Collection(xynthesisModel.xyp_SelUsuarios_Result)" />
+    <FunctionImport Name="xyp_SelAreas" ReturnType="Collection(xynthesisModel.xyp_SelAreas_Result)" />
+    <FunctionImport Name="xyp_SelDetailChampCallDuration" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallDuration_Result)">
+      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
+      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
+    </FunctionImport>
     <EntitySet Name="xy_calls" EntityType="xynthesisModel.xy_calls" />
     <AssociationSet Name="FK_xy_Calls_xy_Number" Association="xynthesisModel.FK_xy_Calls_xy_Number">
       <End Role="xy_numbers" EntitySet="xy_numbers" />
@@ -347,18 +359,8 @@
       <End Role="xy_numbers" EntitySet="xy_numbers" />
       <End Role="xy_calls" EntitySet="xy_calls" />
     </AssociationSet>
-    <EntitySet Name="xy_frecuencia" EntityType="xynthesisModel.xy_frecuencia" />
-    <EntitySet Name="xy_reportes" EntityType="xynthesisModel.xy_reportes" />
-    <EntitySet Name="xy_configuracionreporte" EntityType="xynthesisModel.xy_configuracionreporte" />
-    <EntitySet Name="xy_rol" EntityType="xynthesisModel.xy_rol" />
-    <FunctionImport Name="xyp_SelUsuarios" ReturnType="Collection(xynthesisModel.xyp_SelUsuarios_Result)" />
-    <FunctionImport Name="xyp_SelAreas" ReturnType="Collection(xynthesisModel.xyp_SelAreas_Result)" />
-    <FunctionImport Name="xyp_SelDetailChampCallDuration" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallDuration_Result)">
-      <Parameter Name="StartDateParameter" Mode="In" Type="String" />
-      <Parameter Name="EndDateParameter" Mode="In" Type="String" />
-      <Parameter Name="Area" Mode="In" Type="String" />
-      <Parameter Name="LlamEntrad" Mode="In" Type="String" />
-    </FunctionImport>
+    <EntitySet Name="xy_areas" EntityType="xynthesisModel.xy_areas" />
+    <EntitySet Name="xy_extencionessubcriber" EntityType="xynthesisModel.xy_extencionessubcriber" />
   </EntityContainer>
   <ComplexType Name="xyp_SelAllCostCentre_Result">
     <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
@@ -897,6 +899,61 @@
     <Property Name="NombreSucursal" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Ide_Geography" Type="Int32" Nullable="false" />
   </EntityType>
+  <EntityType Name="xy_frecuencia">
+    <Key>
+      <PropertyRef Name="FrecuenciaId" />
+    </Key>
+    <Property Name="FrecuenciaId" Type="Int32" Nullable="false" />
+    <Property Name="NombreFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrefijoFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_reportes">
+    <Key>
+      <PropertyRef Name="ReporteId" />
+    </Key>
+    <Property Name="ReporteId" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="NombreRpt" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="MetodoRpt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="xy_configuracionreporte">
+    <Key>
+      <PropertyRef Name="conReporteId" />
+    </Key>
+    <Property Name="conReporteId" Type="Int32" Nullable="false" />
+    <Property Name="CondiguracionId" Type="Int32" />
+    <Property Name="ReporteId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="xy_rol">
+    <Key>
+      <PropertyRef Name="Ide_Rol" />
+    </Key>
+    <Property Name="Ide_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Rol" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Alias_Rol" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Des_Rol" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="xyp_SelUsuarios_Result">
+    <Property Type="Int32" Name="Ide_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Nom_DomainUser" Nullable="false" />
+    <Property Type="String" Name="Tip_Subscriber" Nullable="false" />
+    <Property Type="String" Name="Str_Password" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelAreas_Result">
+    <Property Type="Int32" Name="Id_Area" Nullable="false" />
+    <Property Type="String" Name="Nom_Area" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="xyp_SelDetailChampCallDuration_Result">
+    <Property Type="String" Name="subscriber" Nullable="false" />
+    <Property Type="String" Name="number" Nullable="false" />
+    <Property Type="String" Name="centerc" Nullable="false" />
+    <Property Type="String" Name="target" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="TotalMinutos" Nullable="false" />
+    <Property Type="Int32" Name="TotalSegundos" Nullable="false" />
+    <Property Type="String" Name="coverage" Nullable="false" />
+  </ComplexType>
   <EntityType Name="xy_calls">
     <Key>
       <PropertyRef Name="Ide_Calls" />
@@ -909,7 +966,6 @@
     <Property Name="Ide_SourceType" Type="SByte" Nullable="false" />
     <Property Name="Ide_ServerType" Type="Int32" Nullable="false" />
     <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" />
-    <Property Name="Id_Area" Type="Int32" />
     <Property Name="Ide_GeographySource" Type="Int32" Nullable="false" />
     <Property Name="Ide_GeographyTarget" Type="Int32" Nullable="false" />
     <Property Name="Ide_Time" Type="Int32" Nullable="false" />
@@ -974,59 +1030,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="xy_frecuencia">
+  <EntityType Name="xy_areas">
     <Key>
-      <PropertyRef Name="FrecuenciaId" />
+      <PropertyRef Name="Id_Area" />
     </Key>
-    <Property Name="FrecuenciaId" Type="Int32" Nullable="false" />
-    <Property Name="NombreFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PrefijoFrecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Area" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Area" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="xy_reportes">
+  <EntityType Name="xy_extencionessubcriber">
     <Key>
-      <PropertyRef Name="ReporteId" />
+      <PropertyRef Name="Id_Extencionessubcriber" />
     </Key>
-    <Property Name="ReporteId" Type="Int32" Nullable="false" />
-    <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-    <Property Name="NombreRpt" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
-    <Property Name="MetodoRpt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Extencionessubcriber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Subcriber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Extencion" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Ide_CostCenter" Type="Int32" Nullable="false" />
+    <Property Name="Id_Area" Type="Int32" Nullable="false" />
+    <Property Name="IdSucursal" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="xy_configuracionreporte">
-    <Key>
-      <PropertyRef Name="conReporteId" />
-    </Key>
-    <Property Name="conReporteId" Type="Int32" Nullable="false" />
-    <Property Name="CondiguracionId" Type="Int32" />
-    <Property Name="ReporteId" Type="Int32" />
-  </EntityType>
-  <EntityType Name="xy_rol">
-    <Key>
-      <PropertyRef Name="Ide_Rol" />
-    </Key>
-    <Property Name="Ide_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nom_Rol" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Alias_Rol" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Des_Rol" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <ComplexType Name="xyp_SelUsuarios_Result">
-    <Property Type="Int32" Name="Ide_Subscriber" Nullable="false" />
-    <Property Type="String" Name="Nom_Subscriber" Nullable="false" />
-    <Property Type="String" Name="Nom_DomainUser" Nullable="false" />
-    <Property Type="String" Name="Tip_Subscriber" Nullable="false" />
-    <Property Type="String" Name="Str_Password" Nullable="false" />
-  </ComplexType>
-  <ComplexType Name="xyp_SelAreas_Result">
-    <Property Type="Int32" Name="Id_Area" Nullable="false" />
-    <Property Type="String" Name="Nom_Area" Nullable="false" />
-  </ComplexType>
-  <ComplexType Name="xyp_SelDetailChampCallDuration_Result">
-    <Property Type="String" Name="subscriber" Nullable="false" />
-    <Property Type="String" Name="number" Nullable="false" />
-    <Property Type="String" Name="centerc" Nullable="false" />
-    <Property Type="String" Name="target" Nullable="false" />
-    <Property Type="DateTime" Name="Date" Nullable="false" />
-    <Property Type="Int32" Name="TotalMinutos" Nullable="false" />
-    <Property Type="Int32" Name="TotalSegundos" Nullable="false" />
-    <Property Type="String" Name="coverage" Nullable="false" />
-  </ComplexType>
 </Schema>

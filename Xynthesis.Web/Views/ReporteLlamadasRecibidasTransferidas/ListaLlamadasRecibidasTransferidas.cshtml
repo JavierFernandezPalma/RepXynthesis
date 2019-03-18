@@ -69,32 +69,38 @@
                 <strong>NOMBRE DE USUARIO</strong>
             </th>
             @*<th class="text-center">
-                    <strong>ORIGEN DE TRANSFERENCIA</strong>
-                </th>*@
+            <strong>ORIGEN DE TRANSFERENCIA</strong>
+        </th>*@
             <th class="text-center">
-                <strong>LLAMADAS RECIBIDAS</strong>
+                <strong>LLAMADAS RECIBIDAS TRANSFERIDAS</strong>
             </th>
             <th class="text-center">
                 <strong>TIEMPO DEDICADO (Min.)</strong>
+            </th>
+
+            <th class="text-center">
+                <strong>FECHA</strong>
             </th>
 
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nom_Subscriber)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_Subscriber)
+            </td>
 
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.calls_answering)
-                </td>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.time_answering)
-                </td>
-
-            </tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.calls_answering)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.time_answering)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Fec_Date)
+            </td>
+        </tr>
         }
 
     </table>

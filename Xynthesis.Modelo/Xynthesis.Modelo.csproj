@@ -241,6 +241,9 @@
     <Compile Include="xyp_SelUsuarios_Result.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="xy_areas.cs">
+      <DependentUpon>XynthesisModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="xy_calls.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
@@ -257,6 +260,9 @@
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
     <Compile Include="xy_coverage.cs">
+      <DependentUpon>XynthesisModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xy_extencionessubcriber.cs">
       <DependentUpon>XynthesisModel.tt</DependentUpon>
     </Compile>
     <Compile Include="xy_frecuencia.cs">

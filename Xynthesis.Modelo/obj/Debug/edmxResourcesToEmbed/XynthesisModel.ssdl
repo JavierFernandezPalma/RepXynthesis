@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="xynthesisModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="xy_areas">
+    <Key>
+      <PropertyRef Name="Id_Area" />
+    </Key>
+    <Property Name="Id_Area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_Area" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
   <EntityType Name="xy_calls">
     <Key>
       <PropertyRef Name="Ide_Calls" />
@@ -12,7 +19,6 @@
     <Property Name="Ide_SourceType" Type="tinyint" Nullable="false" />
     <Property Name="Ide_ServerType" Type="int" Nullable="false" />
     <Property Name="Ide_CostCenter" Type="int" Nullable="false" />
-    <Property Name="Id_Area" Type="int" />
     <Property Name="Ide_GeographySource" Type="int" Nullable="false" />
     <Property Name="Ide_GeographyTarget" Type="int" Nullable="false" />
     <Property Name="Ide_Time" Type="int" Nullable="false" />
@@ -92,6 +98,17 @@
     <Property Name="Movil" Type="bool" />
     <Property Name="Nacional" Type="bool" />
     <Property Name="Internacional" Type="bool" />
+  </EntityType>
+  <EntityType Name="xy_extencionessubcriber">
+    <Key>
+      <PropertyRef Name="Id_Extencionessubcriber" />
+    </Key>
+    <Property Name="Id_Extencionessubcriber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_Subcriber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Extencion" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Ide_CostCenter" Type="int" Nullable="false" />
+    <Property Name="Id_Area" Type="int" Nullable="false" />
+    <Property Name="IdSucursal" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="xy_frecuencia">
     <Key>
@@ -528,6 +545,7 @@ advertencia 6002: La tabla o vista 'def.xynthesis2.xy_numbersxsubscriber' no tie
   <Function Name="xyp_SelReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="IdRepProgramado" Type="int" Mode="In" />
   </Function>
+  <Function Name="xyp_SelSucursales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
   <Function Name="xyp_SelUsuarioRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="Ide_Subscriber_" Type="bigint" Mode="In" />
   </Function>
@@ -593,12 +611,14 @@ advertencia 6002: La tabla o vista 'def.xynthesis2.xy_numbersxsubscriber' no tie
     <Parameter Name="Ide_Geography_" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="xynthesisModelStoreContainer">
+    <EntitySet Name="xy_areas" EntityType="Self.xy_areas" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_calls" EntityType="Self.xy_calls" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_cliente" EntityType="Self.xy_cliente" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_configuracionreporte" EntityType="Self.xy_configuracionreporte" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_configuracionrptprogramado" EntityType="Self.xy_configuracionrptprogramado" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_costcenters" EntityType="Self.xy_costcenters" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_coverage" EntityType="Self.xy_coverage" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_extencionessubcriber" EntityType="Self.xy_extencionessubcriber" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_frecuencia" EntityType="Self.xy_frecuencia" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_geography" EntityType="Self.xy_geography" Schema="xynthesis2" store:Type="Tables" />
     <EntitySet Name="xy_numbers" EntityType="Self.xy_numbers" Schema="xynthesis2" store:Type="Tables" />

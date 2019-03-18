@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d401c4eb83c54a5ca155fe728ffc0834" Name="Diagram1">
+      <Diagram DiagramId="d401c4eb83c54a5ca155fe728ffc0834" Name="Diagram1" ZoomLevel="89">
         <AssociationConnector Association="xynthesisModel.FK_Rates_Coverage" />
         <EntityTypeShape EntityType="xynthesisModel.xy_subscriber" Width="1.5" PointX="2.5" PointY="1.625" />
         <EntityTypeShape EntityType="xynthesisModel.xy_configuracionrptprogramado" Width="1.5" PointX="0.75" PointY="0.75" />
@@ -19,14 +19,16 @@
         <EntityTypeShape EntityType="xynthesisModel.xy_operador_tarifa_inter" Width="1.5" PointX="7.375" PointY="8.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_rates" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_sucursal" Width="1.5" PointX="9.375" PointY="4.75" />
-        <EntityTypeShape EntityType="xynthesisModel.xy_calls" Width="1.5" PointX="3" PointY="11.875" />
-        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_Number" />
-        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_NumbersSource" />
-        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_NumbersTarget" />
         <EntityTypeShape EntityType="xynthesisModel.xy_frecuencia" Width="1.5" PointX="9.375" PointY="7.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_reportes" Width="1.5" PointX="9.375" PointY="10.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_configuracionreporte" Width="1.5" PointX="11.375" PointY="0.75" />
         <EntityTypeShape EntityType="xynthesisModel.xy_rol" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="xynthesisModel.xy_calls" Width="1.5" PointX="3" PointY="11" />
+        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_Number" />
+        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_NumbersSource" />
+        <AssociationConnector Association="xynthesisModel.FK_xy_Calls_xy_NumbersTarget" />
+        <EntityTypeShape EntityType="xynthesisModel.xy_areas" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="xynthesisModel.xy_extencionessubcriber" Width="1.5" PointX="11.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

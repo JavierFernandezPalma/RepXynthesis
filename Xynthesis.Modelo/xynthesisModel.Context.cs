@@ -41,11 +41,13 @@ namespace Xynthesis.Modelo
         public DbSet<xy_operador_tarifa_inter> xy_operador_tarifa_inter { get; set; }
         public DbSet<xy_rates> xy_rates { get; set; }
         public DbSet<xy_sucursal> xy_sucursal { get; set; }
-        public DbSet<xy_calls> xy_calls { get; set; }
         public DbSet<xy_frecuencia> xy_frecuencia { get; set; }
         public DbSet<xy_reportes> xy_reportes { get; set; }
         public DbSet<xy_configuracionreporte> xy_configuracionreporte { get; set; }
         public DbSet<xy_rol> xy_rol { get; set; }
+        public DbSet<xy_calls> xy_calls { get; set; }
+        public DbSet<xy_areas> xy_areas { get; set; }
+        public DbSet<xy_extencionessubcriber> xy_extencionessubcriber { get; set; }
     
         public virtual int xyp_DelCostCentre(Nullable<int> vParam)
         {

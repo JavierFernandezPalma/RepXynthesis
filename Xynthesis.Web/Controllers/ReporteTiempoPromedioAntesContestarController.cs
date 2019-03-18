@@ -22,6 +22,8 @@ namespace Xynthesis.Web.Controllers
         LogXynthesis log = new LogXynthesis();
         Constantes cons = new Constantes();
         public int contador;
+        
+
         public ActionResult ListaTiempoPromedioAntesContestar(string paraPaginacion, string filtro, string FechaInicial, string FechaFinal, int? page)
 
         {

@@ -43,3 +43,4 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.csproj.CoreCompileInputs.cache
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Utilidades\obj\Debug\Xynthesis.Utilidades.csprojAssemblyReference.cache
