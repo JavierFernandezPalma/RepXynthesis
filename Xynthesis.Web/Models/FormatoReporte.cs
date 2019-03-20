@@ -207,7 +207,7 @@ namespace Xynthesis.Web.Models
                                                                 {
                                                                     ADReporteHistoriaConsumo histoConsu = new ADReporteHistoriaConsumo();
                                                                     List<xyp_SelConsumeByHistory_Result> lista = new List<xyp_SelConsumeByHistory_Result>();
-                                                                    lista = histoConsu.ObtenerHistoriaConsumos(FechaInicial, FechaFinal, "","","").ToList();
+                                                                    lista = histoConsu.ObtenerHistoriaConsumos(FechaInicial, FechaFinal, "").ToList();
                                                                     rd.SetDataSource(lista);
                                                                 }
                                                                 else

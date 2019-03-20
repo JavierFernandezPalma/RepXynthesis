@@ -232,7 +232,7 @@ namespace Xynthesis.Web.Controllers
                 else if (id == 17) //Reporte HistoriaConsumos
                 {
                     ADReporteHistoriaConsumo repLlamadaEntrante = new ADReporteHistoriaConsumo();
-                    listReportes.Add(repLlamadaEntrante.ObtenerHistoriaConsumos(FechaInicial, FechaFinal, "", "", "").ToList());
+                    listReportes.Add(repLlamadaEntrante.ObtenerHistoriaConsumos(FechaInicial, FechaFinal, "").ToList());
 
                 }
                 else if (id == 18) //Reporte ReporteGraficoTiempoPromedioAntesDeContestarNuevo

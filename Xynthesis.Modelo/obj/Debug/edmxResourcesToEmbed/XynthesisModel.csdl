@@ -151,8 +151,6 @@
       <Parameter Name="StartDateParameter" Mode="In" Type="String" />
       <Parameter Name="EndDateParameter" Mode="In" Type="String" />
       <Parameter Name="Area" Mode="In" Type="String" />
-      <Parameter Name="anio" Mode="In" Type="String" />
-      <Parameter Name="mes" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="xyp_SelDetailChampCallCost" ReturnType="Collection(xynthesisModel.xyp_SelDetailChampCallCost_Result)">
       <Parameter Name="StartDateParameter" Mode="In" Type="String" />
@@ -540,8 +538,6 @@
     <Property Type="String" Name="Cobertura" Nullable="false" />
     <Property Type="String" Name="Ide_CostCenter" Nullable="false" />
     <Property Type="String" Name="TotalDuracion" Nullable="false" />
-    <Property Type="String" Name="Ano" Nullable="false" />
-    <Property Type="String" Name="Mes" Nullable="false" />
     <Property Type="String" Name="Nom_CostCenter" Nullable="false" />
     <Property Type="String" Name="Vlr_Cost_Pesos" Nullable="false" />
     <Property Type="String" Name="Date" Nullable="false" />

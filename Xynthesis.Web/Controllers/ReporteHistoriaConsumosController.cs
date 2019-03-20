@@ -36,14 +36,14 @@ namespace Xynthesis.Web.Controllers
             ViewData["area"] = xyt.xyp_SelAreas().ToList();
 
 
-            List<int> anios = new List<int>();
-            int currentYear = DateTime.Now.Year;
-            for (int i = currentYear - 30; i < currentYear; i++)
-            {
-                anios.Add(i);
-            }
+            //List<int> anios = new List<int>();
+            //int currentYear = DateTime.Now.Year;
+            //for (int i = currentYear - 30; i < currentYear; i++)
+            //{
+            //    anios.Add(i);
+            //}
 
-            ViewBag.LastTenYears = new SelectList(anios);
+            //ViewBag.LastTenYears = new SelectList(anios);
 
 
 
@@ -81,9 +81,9 @@ namespace Xynthesis.Web.Controllers
             try
             {
                 if (Session["FechaInicial"] != null && Session["FechaFinal"] != null)
-                    lista = histoConsu.ObtenerHistoriaConsumos(Session["FechaInicial"].ToString(), Session["FechaFinal"].ToString(), Session["area"].ToString(), Session["llamadaentrante"].ToString(), Session["extension"].ToString()).ToList();
+                    lista = histoConsu.ObtenerHistoriaConsumos(Session["FechaInicial"].ToString(), Session["FechaFinal"].ToString(), Session["area"].ToString()).ToList();
                 else
-                    lista = histoConsu.ObtenerHistoriaConsumos("", "", "", "","").ToList();
+                    lista = histoConsu.ObtenerHistoriaConsumos("", "", "").ToList();
 
                 int pageSize = cons.MaxRegGrilla == null ? 8 : Convert.ToInt32(cons.MaxRegGrilla);
                 int pageNumber = (page ?? 1);
@@ -162,7 +162,7 @@ namespace Xynthesis.Web.Controllers
             //Select para dropdowlist LlamadaEntrante
             try
             {
-                List<xyp_SelConsumeByHistory_Result> lista = histoConsu.ObtenerHistoriaConsumos(FechaInicial, FechaFinal, ar, llamEnt, ext).ToList();
+                List<xyp_SelConsumeByHistory_Result> lista = histoConsu.ObtenerHistoriaConsumos(FechaInicial, FechaFinal, ar).ToList();
                 int pageSize = cons.MaxRegGrilla == null ? 8 : Convert.ToInt32(cons.MaxRegGrilla);
                 int pageIndex = 1;
                 int pageNumber = (page ?? 1);

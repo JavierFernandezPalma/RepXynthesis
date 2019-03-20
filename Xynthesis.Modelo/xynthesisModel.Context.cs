@@ -548,7 +548,7 @@ namespace Xynthesis.Modelo
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<xyp_SelCostCentreByUser_Result>("xyp_SelCostCentreByUser", iIdSubscriberParameter);
         }
     
-        public virtual ObjectResult<xyp_SelConsumeByHistory_Result> xyp_SelConsumeByHistory(string startDateParameter, string endDateParameter, string area, string anio, string mes)
+        public virtual ObjectResult<xyp_SelConsumeByHistory_Result> xyp_SelConsumeByHistory(string startDateParameter, string endDateParameter, string area)
         {
             var startDateParameterParameter = startDateParameter != null ?
                 new ObjectParameter("StartDateParameter", startDateParameter) :
@@ -562,15 +562,7 @@ namespace Xynthesis.Modelo
                 new ObjectParameter("Area", area) :
                 new ObjectParameter("Area", typeof(string));
     
-            var anioParameter = anio != null ?
-                new ObjectParameter("anio", anio) :
-                new ObjectParameter("anio", typeof(string));
-    
-            var mesParameter = mes != null ?
-                new ObjectParameter("mes", mes) :
-                new ObjectParameter("mes", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<xyp_SelConsumeByHistory_Result>("xyp_SelConsumeByHistory", startDateParameterParameter, endDateParameterParameter, areaParameter, anioParameter, mesParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<xyp_SelConsumeByHistory_Result>("xyp_SelConsumeByHistory", startDateParameterParameter, endDateParameterParameter, areaParameter);
         }
     
         public virtual ObjectResult<xyp_SelDetailChampCallCost_Result> xyp_SelDetailChampCallCost(string startDateParameter, string endDateParameter, string area, string llamEntrad, string origen)

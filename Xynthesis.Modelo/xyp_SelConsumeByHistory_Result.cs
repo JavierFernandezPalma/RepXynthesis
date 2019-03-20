@@ -16,8 +16,6 @@ namespace Xynthesis.Modelo
         public string Cobertura { get; set; }
         public string Ide_CostCenter { get; set; }
         public string TotalDuracion { get; set; }
-        public string Ano { get; set; }
-        public string Mes { get; set; }
         public string Nom_CostCenter { get; set; }
         public string Vlr_Cost_Pesos { get; set; }
         public string Date { get; set; }

@@ -117,11 +117,11 @@ namespace Xynthesis.AccesoDatos
                 throw ex;
             }
         }
-        public List<xyp_SelConsumeByHistory_Result> ObtenerHistoriaConsumos(string fecini, string fecfin, string area, string anio, string mes)
+        public List<xyp_SelConsumeByHistory_Result> ObtenerHistoriaConsumos(string fecini, string fecfin, string area)
         {
             try
             {
-                return xyt.xyp_SelConsumeByHistory(fecini, fecfin, area, anio, mes).ToList();
+                return xyt.xyp_SelConsumeByHistory(fecini, fecfin, area).ToList();
             }
             catch (Exception ex)
             {

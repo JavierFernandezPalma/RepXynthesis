@@ -496,8 +496,6 @@ advertencia 6002: La tabla o vista 'def.xynthesis2.xy_numbersxsubscriber' no tie
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
-    <Parameter Name="anio" Type="varchar" Mode="In" />
-    <Parameter Name="mes" Type="varchar" Mode="In" />
   </Function>
   <Function Name="xyp_SelCostCentreByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="iIdSubscriber" Type="int" Mode="In" />

@@ -43,7 +43,7 @@
                         }
                     </select>
 
-                    <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="AÑO" title="AÑO" id="NumEntranteId" name="numentrante" data-size="10" style="width:125px">
+                    @*<select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="AÑO" title="AÑO" id="NumEntranteId" name="numentrante" data-size="10" style="width:125px">
                         @for (int inicio = 2000; inicio <= 2030; inicio++)
                         {
                             <option value=@inicio>@inicio</option>
@@ -60,7 +60,7 @@
                             }
                         }  
        
-                    </select>
+                    </select>*@
                     <button type="submit" name="btnEnviar" id="enviar" class="btn btn-success" title="GENERAR"><i class="fas fa-file-export"></i></button>
                     @*<div class="form-group mx-5 text-center pull-right" id="fec">
                         <label id="lblFechas" class="control-label">@ViewBag.fechaini @ViewBag.fechafin</label>
@@ -93,12 +93,12 @@
             <th>
                 <strong>COSTO</strong>
             </th>
-            <th>
+            @*<th>
                 <strong>AÑO</strong>
             </th>
             <th>
                 <strong>MES</strong>
-            </th>
+            </th>*@
             <th class="text-center">
                 <strong>COBERTURA</strong>
             </th>
@@ -113,12 +113,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Vlr_Cost_Pesos)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Ano)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Mes)
-                </td>
+                </td>*@
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.Cobertura)
                 </td>
