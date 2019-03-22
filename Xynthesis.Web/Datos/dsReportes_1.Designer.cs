@@ -2002,10 +2002,6 @@ namespace Xynthesis.Web.Datos {
             
             private global::System.Data.DataColumn columnTotalDuracion;
             
-            private global::System.Data.DataColumn columnAno;
-            
-            private global::System.Data.DataColumn columnMes;
-            
             private global::System.Data.DataColumn columnNom_CostCenter;
             
             private global::System.Data.DataColumn columnVlr_Cost_Pesos;
@@ -2071,22 +2067,6 @@ namespace Xynthesis.Web.Datos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn AnoColumn {
-                get {
-                    return this.columnAno;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn MesColumn {
-                get {
-                    return this.columnMes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn Nom_CostCenterColumn {
                 get {
                     return this.columnNom_CostCenter;
@@ -2146,14 +2126,12 @@ namespace Xynthesis.Web.Datos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public xyp_SelConsumeByHistoryRow Addxyp_SelConsumeByHistoryRow(string Cobertura, int Ide_CostCenter, int TotalDuracion, short Ano, short Mes, string Nom_CostCenter, decimal Vlr_Cost_Pesos, System.DateTime Date) {
+            public xyp_SelConsumeByHistoryRow Addxyp_SelConsumeByHistoryRow(string Cobertura, int Ide_CostCenter, int TotalDuracion, string Nom_CostCenter, decimal Vlr_Cost_Pesos, System.DateTime Date) {
                 xyp_SelConsumeByHistoryRow rowxyp_SelConsumeByHistoryRow = ((xyp_SelConsumeByHistoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Cobertura,
                         Ide_CostCenter,
                         TotalDuracion,
-                        Ano,
-                        Mes,
                         Nom_CostCenter,
                         Vlr_Cost_Pesos,
                         Date};
@@ -2182,8 +2160,6 @@ namespace Xynthesis.Web.Datos {
                 this.columnCobertura = base.Columns["Cobertura"];
                 this.columnIde_CostCenter = base.Columns["Ide_CostCenter"];
                 this.columnTotalDuracion = base.Columns["TotalDuracion"];
-                this.columnAno = base.Columns["Ano"];
-                this.columnMes = base.Columns["Mes"];
                 this.columnNom_CostCenter = base.Columns["Nom_CostCenter"];
                 this.columnVlr_Cost_Pesos = base.Columns["Vlr_Cost_Pesos"];
                 this.columnDate = base.Columns["Date"];
@@ -2198,10 +2174,6 @@ namespace Xynthesis.Web.Datos {
                 base.Columns.Add(this.columnIde_CostCenter);
                 this.columnTotalDuracion = new global::System.Data.DataColumn("TotalDuracion", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalDuracion);
-                this.columnAno = new global::System.Data.DataColumn("Ano", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAno);
-                this.columnMes = new global::System.Data.DataColumn("Mes", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMes);
                 this.columnNom_CostCenter = new global::System.Data.DataColumn("Nom_CostCenter", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNom_CostCenter);
                 this.columnVlr_Cost_Pesos = new global::System.Data.DataColumn("Vlr_Cost_Pesos", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -5367,38 +5339,6 @@ namespace Xynthesis.Web.Datos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public short Ano {
-                get {
-                    try {
-                        return ((short)(this[this.tablexyp_SelConsumeByHistory.AnoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Ano\' de la tabla \'xyp_SelConsumeByHistory\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablexyp_SelConsumeByHistory.AnoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public short Mes {
-                get {
-                    try {
-                        return ((short)(this[this.tablexyp_SelConsumeByHistory.MesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Mes\' de la tabla \'xyp_SelConsumeByHistory\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablexyp_SelConsumeByHistory.MesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Nom_CostCenter {
                 get {
                     try {
@@ -5481,30 +5421,6 @@ namespace Xynthesis.Web.Datos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTotalDuracionNull() {
                 this[this.tablexyp_SelConsumeByHistory.TotalDuracionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsAnoNull() {
-                return this.IsNull(this.tablexyp_SelConsumeByHistory.AnoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetAnoNull() {
-                this[this.tablexyp_SelConsumeByHistory.AnoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsMesNull() {
-                return this.IsNull(this.tablexyp_SelConsumeByHistory.MesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetMesNull() {
-                this[this.tablexyp_SelConsumeByHistory.MesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

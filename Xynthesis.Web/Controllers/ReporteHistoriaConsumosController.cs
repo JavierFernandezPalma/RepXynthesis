@@ -190,7 +190,7 @@ namespace Xynthesis.Web.Controllers
                 return View("HistoricoConsumos", new List<xyp_SelConsumeByHistory_Result>().ToPagedList(1, 1));
             else
                 return ReporteFormato(opcion, "HistoriaConsumos", "ObtenerHistoriaConsumos",
-                    Session["FechaInicial"].ToString(), Session["FechaFinal"].ToString(), Session["area"].ToString(), Session["llamadaentrante"].ToString(), Session["extension"].ToString());
+                    Session["FechaInicial"].ToString(), Session["FechaFinal"].ToString(), Session["area"].ToString());
 
         }
 

@@ -12,7 +12,7 @@ using PagedList;
 using System.IO;
 using Xynthesis.Utilidades;
 using Xynthesis.AccesoDatos;
-
+using System.Data;
 
 namespace Xynthesis.Web.Controllers
 {
@@ -23,6 +23,7 @@ namespace Xynthesis.Web.Controllers
         LogXynthesis log = new LogXynthesis();
         Constantes cons = new Constantes();
         public int contador;
+
         public ActionResult ListaLlamadasEntrantesSalientes(string paraPaginacion, string filtro, string FechaInicial, string FechaFinal, int? page)
 
         {
@@ -167,6 +168,7 @@ namespace Xynthesis.Web.Controllers
             }
             else
             {
+
                 List<xyp_RepReceiveCallsLlamEntranSalien_Result> lista = repLlamEntrSali.ObtenerListaLlamadasEntrantesSalientes(FechaInicial, FechaFinal, user, are).ToList();
                 int pageSize = 10;
                 int pageIndex = 1;
