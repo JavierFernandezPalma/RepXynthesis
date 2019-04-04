@@ -239,6 +239,12 @@
       <DependentUpon>ConsumosPersonales.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\Formato1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formato.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\FrecuenciaLlamadas1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,6 +269,12 @@
       <DependentUpon>NumeroMasMarcado.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\PorPeridoDeTiempo1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PorPeridoDeTiempo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\ReporteClaseDeLlamadas1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -273,6 +285,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteConsolidadoCoberturaLLamadas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteConsolidadoCoberturaLLamadas_Subinforme1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteConsolidadoCoberturaLLamadas_Subinforme.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\ReporteGraficoEstadisticoLlamadasEntrantesSalientes1.cs">
