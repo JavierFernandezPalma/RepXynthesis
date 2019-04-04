@@ -12,8 +12,8 @@
 
 @{
     ViewBag.Title = "Llamadas Salientes";
-    var mod = (List<Xynthesis.Modelo.xy_subscriber>)ViewData["usuario"];
-    var mod1 = (List<Xynthesis.Modelo.xy_calls>) ViewData["llamadaentrante"];
+    var mod = (List<Xynthesis.Modelo.xyp_SelUsuarios_Result>)ViewData["usuario"];
+    var mod1 = (List<string>)ViewData["llamadasaliente"];
 }
 
 <div class="container">
@@ -38,9 +38,9 @@
                         }
                     </select>
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="NÚMERO DESTINO" title="NÚMERO DESTINO" id="NumEntranteId" name="numentrante" data-size="10" style="width:125px">
-                        @foreach (var usuar in mod1)
+                        @foreach (var NumberTarget in mod1)
                         {
-                            <option id="@usuar.Ide_NumberTarget" value="@usuar.Ide_NumberTarget">@usuar.Ide_NumberTarget</option>
+                            <option id="@NumberTarget" value="@NumberTarget">@NumberTarget</option>
                         }
                     </select>
                     @*<input type="submit" name="btnEnviar" id="enviar" class="btn btn-success" value="GENERAR" />*@

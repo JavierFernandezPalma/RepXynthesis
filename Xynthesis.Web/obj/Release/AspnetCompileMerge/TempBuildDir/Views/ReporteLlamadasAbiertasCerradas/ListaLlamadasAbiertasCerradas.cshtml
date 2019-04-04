@@ -12,8 +12,8 @@
 
 @{
     ViewBag.Title = "Reporte Llamadas Abiertas y Cerradas";
-    var mod = (List<Xynthesis.Modelo.xy_subscriber>)ViewData["usuario"];
-    var mod1 = (List<Xynthesis.Modelo.xyp_NumberAmountsByInSubscriber_Result>)ViewData["llamadaentrante"];
+    var mod = (List<Xynthesis.Modelo.xyp_SelUsuarios_Result>)ViewData["usuario"];
+    var mod1 = (List<string>)ViewData["llamadaentrante"];
 }
 
 <div class="container">
@@ -40,9 +40,9 @@
                         }
                     </select>
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ENTRANTE" title="ENTRANTE" id="NumEntranteId" name="numentrante" data-size="10">
-                        @foreach (var usuar in mod1)
+                        @foreach (var NumberSource in mod1)
                         {
-                            <option id="@usuar.Ide_NumberSource" value="@usuar.Ide_NumberSource">@usuar.Ide_NumberSource</option>
+                            <option id="@NumberSource" value="@NumberSource">@NumberSource</option>
                         }
                     </select>
 

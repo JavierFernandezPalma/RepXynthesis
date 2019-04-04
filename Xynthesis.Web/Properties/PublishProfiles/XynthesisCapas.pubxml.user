@@ -18,10 +18,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:54</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/21/2019 17:09:09</publishTime>
+      <publishTime>04/04/2019 10:56:39</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/21/2019 17:09:09</publishTime>
+      <publishTime>04/04/2019 10:56:38</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
       <publishTime>08/31/2017 05:21:24</publishTime>
@@ -153,7 +153,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:54</publishTime>
     </File>
     <File Include="bin/stdole.dll">
-      <publishTime>08/16/2018 17:46:08</publishTime>
+      <publishTime>07/07/2015 00:51:38</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>09/24/2018 08:34:54</publishTime>
@@ -180,7 +180,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:56</publishTime>
     </File>
     <File Include="bin/Xynthesis.AccesoDatos.dll">
-      <publishTime>02/21/2019 17:07:31</publishTime>
+      <publishTime>04/04/2019 10:53:55</publishTime>
     </File>
     <File Include="bin/Xynthesis.AccesoDatos.dll.config">
       <publishTime>10/22/2018 13:30:12</publishTime>
@@ -189,7 +189,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2019 17:07:31</publishTime>
     </File>
     <File Include="bin/Xynthesis.Modelo.dll">
-      <publishTime>02/21/2019 16:49:25</publishTime>
+      <publishTime>04/04/2019 10:51:37</publishTime>
     </File>
     <File Include="bin/Xynthesis.Modelo.dll.config">
       <publishTime>11/27/2018 10:49:39</publishTime>
@@ -198,13 +198,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2019 16:49:25</publishTime>
     </File>
     <File Include="bin/Xynthesis.Reportes.dll">
-      <publishTime>02/14/2019 08:27:02</publishTime>
+      <publishTime>03/07/2019 13:43:07</publishTime>
     </File>
     <File Include="bin/Xynthesis.Reportes.pdb">
       <publishTime>02/14/2019 08:27:02</publishTime>
     </File>
     <File Include="bin/Xynthesis.Utilidades.dll">
-      <publishTime>02/21/2019 16:48:49</publishTime>
+      <publishTime>04/04/2019 10:50:17</publishTime>
     </File>
     <File Include="bin/Xynthesis.Utilidades.dll.config">
       <publishTime>12/24/2018 18:58:31</publishTime>
@@ -213,7 +213,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2019 16:48:49</publishTime>
     </File>
     <File Include="bin/Xynthesis.Web.dll">
-      <publishTime>02/21/2019 17:07:43</publishTime>
+      <publishTime>04/04/2019 10:54:03</publishTime>
     </File>
     <File Include="bin/Xynthesis.Web.pdb">
       <publishTime>02/21/2019 17:07:42</publishTime>
@@ -21267,16 +21267,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Datos/dsReportes.xsc">
-      <publishTime>12/18/2018 14:10:08</publishTime>
+      <publishTime>03/20/2019 15:06:41</publishTime>
     </File>
     <File Include="Datos/dsReportes.xss">
-      <publishTime>12/18/2018 14:10:08</publishTime>
+      <publishTime>03/20/2019 15:06:41</publishTime>
     </File>
     <File Include="Datos/dsReportes_.xsc">
-      <publishTime>12/17/2018 10:37:27</publishTime>
+      <publishTime>03/21/2019 15:34:18</publishTime>
     </File>
     <File Include="Datos/dsReportes_.xss">
-      <publishTime>12/17/2018 10:37:27</publishTime>
+      <publishTime>03/21/2019 15:34:17</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>09/24/2018 08:34:38</publishTime>
@@ -21561,7 +21561,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2018 07:41:58</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/21/2019 17:08:41</publishTime>
+      <publishTime>04/04/2019 10:56:03</publishTime>
     </File>
     <File Include="Reportes/CoberturaLlamadas.rpt">
       <publishTime>09/24/2018 08:34:38</publishTime>
@@ -21873,64 +21873,64 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/ReporteCoberturaLlamadas/CoberturaLlamadas.cshtml">
-      <publishTime>12/10/2018 08:46:01</publishTime>
+      <publishTime>03/21/2019 15:14:08</publishTime>
     </File>
     <File Include="Views/ReporteConsolidadoCoberturaLLamadas/ConsolidaCoberturaLlamadas.cshtml">
-      <publishTime>12/10/2018 11:30:05</publishTime>
+      <publishTime>03/27/2019 09:53:26</publishTime>
     </File>
     <File Include="Views/ReporteConsumosPersonales/ConsumosPersonales.cshtml">
-      <publishTime>12/27/2018 17:43:20</publishTime>
+      <publishTime>03/21/2019 14:38:00</publishTime>
     </File>
     <File Include="Views/ReporteConsumosPorCentrosCostos/ConsumosXcc.cshtml">
-      <publishTime>12/07/2018 12:23:50</publishTime>
+      <publishTime>03/21/2019 14:44:56</publishTime>
     </File>
     <File Include="Views/ReporteFrecuenciadellamadas/FrecuenciaLlamadas.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/ReporteGraficoLlamadasEntrantesSalientes/ListaLlamadasEntrantesSalientes.cshtml">
-      <publishTime>01/02/2019 08:24:06</publishTime>
+      <publishTime>03/21/2019 17:16:11</publishTime>
     </File>
     <File Include="Views/ReporteGraficoLlamadasEntrantesSalientesDuracion/ListaLlamadasEntrantesSalientesDuracion.cshtml">
-      <publishTime>12/27/2018 18:13:58</publishTime>
+      <publishTime>03/27/2019 09:35:55</publishTime>
     </File>
     <File Include="Views/ReporteGraficoTiempoPromedioAntesDeContestarNuev/ListaTiempoPromedioAntesContestar.cshtml">
-      <publishTime>12/27/2018 17:52:07</publishTime>
+      <publishTime>03/21/2019 16:38:16</publishTime>
     </File>
     <File Include="Views/ReporteHistoriaConsumos/HistoricoConsumos.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>03/18/2019 15:41:06</publishTime>
     </File>
     <File Include="Views/ReporteInicioFinActividades/ListaInicioFin.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/ReporteLlamadaCampeonaDuracion/LlamadaCampeonaDuracion.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>02/28/2019 11:32:21</publishTime>
     </File>
     <File Include="Views/ReporteLlamadaInicioFinDia/ListaLlamadaInicioFinDia.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/ReporteLlamadasAbiertasCerradas/ListaLlamadasAbiertasCerradas.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>02/28/2019 09:20:56</publishTime>
     </File>
     <File Include="Views/ReporteLlamadasAbiertasCerradas/ListaPorPeriodoTiempo.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/ReporteLlamadasEntrantes/ListaLlamadasEntrantes.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>02/25/2019 10:41:47</publishTime>
     </File>
     <File Include="Views/ReporteLlamadasEntrantesSalientes/ListaLlamadasEntrantesSalientes.cshtml">
-      <publishTime>02/21/2019 16:05:37</publishTime>
+      <publishTime>03/19/2019 13:15:35</publishTime>
     </File>
     <File Include="Views/ReporteLlamadasRecibidasTransferidas/ListaLlamadasRecibidasTransferidas.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>03/13/2019 17:43:01</publishTime>
     </File>
     <File Include="Views/ReporteLlamadasSalientes/ListaLlamadasSalientes.cshtml">
-      <publishTime>02/14/2019 13:00:37</publishTime>
+      <publishTime>02/25/2019 11:39:44</publishTime>
     </File>
     <File Include="Views/ReporteNumeroMasMarcado/NumerosMasMarcados.cshtml">
-      <publishTime>12/26/2018 17:20:58</publishTime>
+      <publishTime>03/20/2019 17:17:41</publishTime>
     </File>
     <File Include="Views/ReportePorPeriodoTiempo/ListaPorPeriodoTiempo.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>02/25/2019 10:01:37</publishTime>
     </File>
     <File Include="Views/ReporteProgramado/EditarRepProg.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
@@ -21951,19 +21951,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2018 17:03:40</publishTime>
     </File>
     <File Include="Views/ReporteTiempoDedicado/ListaTiempoDedicado.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>02/25/2019 12:02:10</publishTime>
     </File>
     <File Include="Views/ReporteTiempoPromedioAntesContestar/ListaTiempoPromedioAntesContestar.cshtml">
-      <publishTime>12/10/2018 09:28:37</publishTime>
+      <publishTime>03/20/2019 14:44:24</publishTime>
     </File>
     <File Include="Views/ReporteTopLlamadaCampeonaCC/TopLlamadaCampeonaCentroCosto.cshtml">
-      <publishTime>02/18/2019 17:09:01</publishTime>
+      <publishTime>02/28/2019 09:47:24</publishTime>
     </File>
     <File Include="Views/ReporteUsuarios/ListaUsuarios.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/RepPromedioLlamadasHora/ListaPromedioLlamadaHora.cshtml">
-      <publishTime>12/14/2018 14:20:51</publishTime>
+      <publishTime>02/28/2019 17:41:38</publishTime>
     </File>
     <File Include="Views/RepTarificacionEntraSalieTrans/RepTarificacionEntraSalieTrans.cshtml">
       <publishTime>12/12/2018 08:23:03</publishTime>
@@ -22029,19 +22029,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/Usuarios/Index.cshtml">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>03/13/2019 10:03:34</publishTime>
     </File>
     <File Include="Views/Usuarios/NuevoUsuario.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>09/24/2018 08:34:38</publishTime>
+      <publishTime>02/27/2019 11:50:36</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>09/24/2018 08:34:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/21/2019 17:07:53</publishTime>
+      <publishTime>04/04/2019 10:55:30</publishTime>
     </File>
   </ItemGroup>
 </Project>

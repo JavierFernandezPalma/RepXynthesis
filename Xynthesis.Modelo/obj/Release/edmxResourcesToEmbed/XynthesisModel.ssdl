@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="xynthesisModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="xy_areas">
+    <Key>
+      <PropertyRef Name="Id_Area" />
+    </Key>
+    <Property Name="Id_Area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_Area" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
   <EntityType Name="xy_calls">
     <Key>
       <PropertyRef Name="Ide_Calls" />
@@ -43,13 +50,6 @@
     </Key>
     <Property Name="Idcliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombreCliente" Type="varchar" MaxLength="120" Nullable="false" />
-  </EntityType>
-  <EntityType Name="xy_communicationserver">
-    <Key>
-      <PropertyRef Name="Ide_ServerType" />
-    </Key>
-    <Property Name="Ide_ServerType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nom_ServerType" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="xy_configuracionreporte">
     <Key>
@@ -99,6 +99,17 @@
     <Property Name="Nacional" Type="bool" />
     <Property Name="Internacional" Type="bool" />
   </EntityType>
+  <EntityType Name="xy_extencionessubcriber">
+    <Key>
+      <PropertyRef Name="Id_Extencionessubcriber" />
+    </Key>
+    <Property Name="Id_Extencionessubcriber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom_Subcriber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Extencion" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Ide_CostCenter" Type="int" Nullable="false" />
+    <Property Name="Id_Area" Type="int" Nullable="false" />
+    <Property Name="IdSucursal" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="xy_frecuencia">
     <Key>
       <PropertyRef Name="FrecuenciaId" />
@@ -133,27 +144,23 @@
     <Property Name="Tip_Extension" Type="uint" />
     <Property Name="Idcliente" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'def.xynthesis.xy_numbersxsubscriber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.xynthesis2.xy_numbersxsubscriber' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="xy_numbersxsubscriber">
     <Key>
       <PropertyRef Name="Ide_Number" />
       <PropertyRef Name="Fec_Date" />
       <PropertyRef Name="Ide_Subscriber" />
       <PropertyRef Name="Tip_Subscriber" />
-      <PropertyRef Name="Ide_ServerType" />
-      <PropertyRef Name="Ide_Branch" />
-      <PropertyRef Name="Ide_CostCenter" />
-      <PropertyRef Name="Ide_Geography" />
     </Key>
     <Property Name="Ide_Number" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Fec_Date" Type="datetime" Precision="0" Nullable="false" />
     <Property Name="Ide_Subscriber" Type="bigint" Nullable="false" />
     <Property Name="Tip_Subscriber" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="Ide_ServerType" Type="int" Nullable="false" />
-    <Property Name="Ide_Branch" Type="int" Nullable="false" />
-    <Property Name="Ide_CostCenter" Type="int" Nullable="false" />
-    <Property Name="Ide_Geography" Type="int" Nullable="false" />
+    <Property Name="Ide_ServerType" Type="int" />
+    <Property Name="Ide_Branch" Type="int" />
+    <Property Name="Ide_CostCenter" Type="int" />
+    <Property Name="Ide_Geography" Type="int" />
     <Property Name="Num_AccessCode" Type="varchar" MaxLength="50" />
     <Property Name="Ide_Plan" Type="int" />
     <Property Name="Vlr_Plan" Type="int" />
@@ -225,25 +232,6 @@ warning 6002: The table/view 'def.xynthesis.xy_numbersxsubscriber' does not have
     <Property Name="Alias_Rol" Type="varchar" MaxLength="30" />
     <Property Name="Des_Rol" Type="varchar" MaxLength="200" Nullable="false" />
   </EntityType>
-  <EntityType Name="xy_roles_menus_">
-    <Key>
-      <PropertyRef Name="IdRolMen" />
-    </Key>
-    <Property Name="IdRolMen" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdRol" Type="uint" Nullable="false" />
-    <Property Name="IdMenus" Type="uint" Nullable="false" />
-    <Property Name="Activo" Type="bit" Nullable="false" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="xy_rolesxsubscriber">
-    <Key>
-      <PropertyRef Name="Ide_Rol" />
-      <PropertyRef Name="Ide_Subscriber" />
-    </Key>
-    <Property Name="Ide_Rol" Type="uint" Nullable="false" />
-    <Property Name="Ide_Subscriber" Type="ubigint" Nullable="false" />
-  </EntityType>
   <EntityType Name="xy_subscriber">
     <Key>
       <PropertyRef Name="Ide_Subscriber" />
@@ -304,59 +292,47 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_xy_Calls_xy_ServerCommunications">
-    <End Role="xy_communicationserver" Type="Self.xy_communicationserver" Multiplicity="1" />
-    <End Role="xy_calls" Type="Self.xy_calls" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="xy_communicationserver">
-        <PropertyRef Name="Ide_ServerType" />
-      </Principal>
-      <Dependent Role="xy_calls">
-        <PropertyRef Name="Ide_ServerType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Function Name="xyp_CallAmountByContraparte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_CallAmountByContraparte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_CallTypesAmountReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_CallTypesAmountReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_cambiarclave" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_cambiarclave" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="id_user" Type="int" Mode="In" />
     <Parameter Name="clave" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_DelCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_DelCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="vParam" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_DelNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_DelNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ideNumber" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_DelRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_DelRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ConfId" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_DelRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_DelRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="Id_Usuario" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_DelSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_DelSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="idSucursal" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_DestinoLlamadaCampeonaArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_GrupNumSuscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_InsCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_DestinoLlamadaCampeonaArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+  <Function Name="xyp_GrupNumSuscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+  <Function Name="xyp_InsCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="vCode" Type="varchar" Mode="In" />
     <Parameter Name="vName" Type="varchar" Mode="In" />
     <Parameter Name="iParent" Type="int" Mode="In" />
     <Parameter Name="ireturnCode" Type="int" Mode="Out" />
   </Function>
-  <Function Name="xyp_InsNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_InsNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ideNumber" Type="varchar" Mode="In" />
     <Parameter Name="tipExtension" Type="bit" Mode="In" />
   </Function>
-  <Function Name="xyp_Insoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_Insoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="IdOperador_" Type="int" Mode="In" />
     <Parameter Name="IdPais_" Type="int" Mode="In" />
     <Parameter Name="VlrInternaMinsinIva_" Type="decimal" Mode="In" />
@@ -364,7 +340,7 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="Movil_" Type="tinyint" Mode="In" />
     <Parameter Name="Fijo_" Type="tinyint" Mode="In" />
   </Function>
-  <Function Name="xyp_InsOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_InsOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="codOperator_" Type="varchar" Mode="In" />
     <Parameter Name="NomOperator_" Type="varchar" Mode="In" />
     <Parameter Name="IdeCoverage_" Type="int" Mode="In" />
@@ -372,7 +348,7 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="Unit_" Type="varchar" Mode="In" />
     <Parameter Name="NumberDigits_" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_InsRepProg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_InsRepProg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ReporteId_" Type="int" Mode="In" />
     <Parameter Name="Nombre_" Type="varchar" Mode="In" />
     <Parameter Name="HoraEjecucion_" Type="datetime" Mode="In" />
@@ -388,131 +364,126 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="TipoFrecuencia_" Type="varchar" Mode="In" />
     <Parameter Name="Programacion_" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_InsSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_InsSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="Nombre_Sucursal" Type="varchar" Mode="In" />
     <Parameter Name="Ide_Geography" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_NumberAmountsByInSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_NumberAmountsByInSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
     <Parameter Name="Extens" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_NumberAmountsByOutSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_NumberAmountsByOutSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_NumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_NumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="dStartDate" Type="varchar" Mode="In" />
     <Parameter Name="dEndDate" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_ProxEjecucionReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_ProxEjecucionReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="FechaProxRepor" Type="varchar" Mode="In" />
     <Parameter Name="IdRepor" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RECalCostTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RECalCostTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="fecIni" Type="varchar" Mode="In" />
     <Parameter Name="fecFin" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_ReceiveAndTransferCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_ReceiveAndTransferCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_ReceiveCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
-    <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
-    <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
-    <Parameter Name="Usuario" Type="varchar" Mode="In" />
-    <Parameter Name="Area" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="xyp_ReceiveCallsTiempoPromedio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_ReceiveCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_ReceiveCallsTiempoPromedio_repo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_ReceiveCallsTiempoPromedio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
+    <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
+    <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+    <Parameter Name="Area" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="xyp_ReceiveCallsTiempoPromedio_repo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RepBudgetBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_RepBudgetLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_RepCallOpenAndClosed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RepCallOpenAndClosed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="CallDurationParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RepConsolidadoCoberturaLLamadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RepConsolidadoCoberturaLLamadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RepGrafNumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RepGrafNumberAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RepPromedioLlamadasHora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RepPromedioLlamadasHora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="dStartDate" Type="varchar" Mode="In" />
     <Parameter Name="dEndDate" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
     <Parameter Name="Rango" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RepReceiveCallsLlamEntranSalien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RepReceiveCallsLlamEntranSalien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RepSabanaCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RepSabanaCalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RepTarificacionEntraSalieTrans" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_RepTarificacionEntraSalieTrans" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="dStartDate" Type="varchar" Mode="In" />
     <Parameter Name="dEndDate" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
     <Parameter Name="Sucursal" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_RolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
-    <Parameter Name="Id_Roles" Type="int" Mode="In" />
-    <Parameter Name="Id_Usuario" Type="int" Mode="In" />
-  </Function>
-  <Function Name="xyp_SelActivityFirstAndLast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelActivityFirstAndLast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelAllCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelAllCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="iStartIndex" Type="int" Mode="In" />
     <Parameter Name="iEndIndex" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_SelAllCostCentreParents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelAllCostCentreParents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="vParam" Type="varchar" Mode="In" />
     <Parameter Name="iStartIndex" Type="int" Mode="In" />
     <Parameter Name="iEndIndex" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_SelCallAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelAreas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+  <Function Name="xyp_SelCallAmountsBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelConsumeByCostCenter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelConsumeByCostCenter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
     <Parameter Name="Cobertura" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelConsumeByExtensionAndUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelConsumeByExtensionAndUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
@@ -521,80 +492,74 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="Cobertura" Type="varchar" Mode="In" />
     <Parameter Name="Destino" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelConsumeByHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelConsumeByHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
-    <Parameter Name="anio" Type="varchar" Mode="In" />
-    <Parameter Name="mes" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelCostCentreByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelCostCentreByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="iIdSubscriber" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_SelCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_SelCoverages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_SelDetailChampCallCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelDetailChampCallCost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
     <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
     <Parameter Name="Origen" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelDetailChampCallDuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelDetailChampCallDuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Area" Type="varchar" Mode="In" />
     <Parameter Name="LlamEntrad" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelDialedNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelDialedNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="Origen" Type="varchar" Mode="In" />
     <Parameter Name="Destino" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelFrequentExtensionNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelFrequentExtensionNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="StartDateParameter" Type="varchar" Mode="In" />
     <Parameter Name="EndDateParameter" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelGeographyByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelGeographyByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="nomCountry" Type="varchar" Mode="In" />
     <Parameter Name="nomProvince" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelGeographyByCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelGeographyByCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="nomCountry" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_SelNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="iStartIndex" Type="int" Mode="In" />
     <Parameter Name="iEndIndex" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_SelOperators" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelOperators" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="Ide_Operator_" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_SelOperTarifInterna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelOperTarifInterna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="idtarifaInter1_" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_SelOperxCoberMovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_SelReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="IdRepProgramado" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_SelServerType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_SelSucursales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_SelUsuarioRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelSucursales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+  <Function Name="xyp_SelUsuarioRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="Ide_Subscriber_" Type="bigint" Mode="In" />
   </Function>
-  <Function Name="xyp_SelUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis" />
-  <Function Name="xyp_UpdCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_SelUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2" />
+  <Function Name="xyp_UpdCostCentre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="vCode" Type="varchar" Mode="In" />
     <Parameter Name="vName" Type="varchar" Mode="In" />
     <Parameter Name="vParent" Type="int" Mode="In" />
     <Parameter Name="vIdentity" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_UpdNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_UpdNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ideNumber" Type="varchar" Mode="In" />
     <Parameter Name="tipExtension" Type="int" Mode="In" />
     <Parameter Name="idcliente_" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_UpdNumberBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_UpdNumberBySubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ideNumber" Type="varchar" Mode="In" />
     <Parameter Name="fecDate" Type="datetime" Mode="In" />
     <Parameter Name="ideSubscriber" Type="bigint" Mode="In" />
@@ -605,7 +570,7 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="ideGeography" Type="int" Mode="In" />
     <Parameter Name="ideNumberOld" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_Updoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_Updoperador_tarifa_inter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="idtarifaInter_" Type="int" Mode="In" />
     <Parameter Name="IdOperador_" Type="int" Mode="In" />
     <Parameter Name="IdPais_" Type="int" Mode="In" />
@@ -614,7 +579,7 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="Movil_" Type="tinyint" Mode="In" />
     <Parameter Name="Fijo_" Type="tinyint" Mode="In" />
   </Function>
-  <Function Name="xyp_UpdOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_UpdOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="Ide_Operator_" Type="int" Mode="In" />
     <Parameter Name="codOperator_" Type="varchar" Mode="In" />
     <Parameter Name="NomOperator_" Type="varchar" Mode="In" />
@@ -623,47 +588,47 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
     <Parameter Name="Unit_" Type="varchar" Mode="In" />
     <Parameter Name="NumberDigits_" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_UpdRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_UpdRepProgra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ConfId" Type="int" Mode="In" />
     <Parameter Name="RepId" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_UpdRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_UpdRolUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="Id_Roles" Type="int" Mode="In" />
     <Parameter Name="Id_Usuario" Type="int" Mode="In" />
   </Function>
-  <Function Name="xyp_UpdSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_UpdSubscriber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="ideSubscriber" Type="int" Mode="In" />
     <Parameter Name="nomSubscriber" Type="varchar" Mode="In" />
     <Parameter Name="nomDomainUser" Type="varchar" Mode="In" />
     <Parameter Name="tipSubscriber" Type="char" Mode="In" />
     <Parameter Name="vPassword" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="xyp_UpdSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis">
+  <Function Name="xyp_UpdSucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="xynthesis2">
     <Parameter Name="IdSucursal_" Type="int" Mode="In" />
     <Parameter Name="NombreSucursal_" Type="varchar" Mode="In" />
     <Parameter Name="Ide_Geography_" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="xynthesisModelStoreContainer">
-    <EntitySet Name="xy_calls" EntityType="Self.xy_calls" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_cliente" EntityType="Self.xy_cliente" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_communicationserver" EntityType="Self.xy_communicationserver" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_configuracionreporte" EntityType="Self.xy_configuracionreporte" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_configuracionrptprogramado" EntityType="Self.xy_configuracionrptprogramado" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_costcenters" EntityType="Self.xy_costcenters" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_coverage" EntityType="Self.xy_coverage" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_frecuencia" EntityType="Self.xy_frecuencia" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_geography" EntityType="Self.xy_geography" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_numbers" EntityType="Self.xy_numbers" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_operador_tarifa_inter" EntityType="Self.xy_operador_tarifa_inter" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_operators" EntityType="Self.xy_operators" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_pais" EntityType="Self.xy_pais" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_rates" EntityType="Self.xy_rates" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_reportes" EntityType="Self.xy_reportes" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_rol" EntityType="Self.xy_rol" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_roles_menus_" EntityType="Self.xy_roles_menus_" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_subscriber" EntityType="Self.xy_subscriber" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_sucursal" EntityType="Self.xy_sucursal" Schema="xynthesis" store:Type="Tables" />
-    <EntitySet Name="xy_numbersxsubscriber" EntityType="Self.xy_numbersxsubscriber" store:Type="Tables" store:Schema="xynthesis">
+    <EntitySet Name="xy_areas" EntityType="Self.xy_areas" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_calls" EntityType="Self.xy_calls" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_cliente" EntityType="Self.xy_cliente" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_configuracionreporte" EntityType="Self.xy_configuracionreporte" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_configuracionrptprogramado" EntityType="Self.xy_configuracionrptprogramado" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_costcenters" EntityType="Self.xy_costcenters" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_coverage" EntityType="Self.xy_coverage" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_extencionessubcriber" EntityType="Self.xy_extencionessubcriber" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_frecuencia" EntityType="Self.xy_frecuencia" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_geography" EntityType="Self.xy_geography" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_numbers" EntityType="Self.xy_numbers" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_operador_tarifa_inter" EntityType="Self.xy_operador_tarifa_inter" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_operators" EntityType="Self.xy_operators" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_pais" EntityType="Self.xy_pais" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_rates" EntityType="Self.xy_rates" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_reportes" EntityType="Self.xy_reportes" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_rol" EntityType="Self.xy_rol" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_subscriber" EntityType="Self.xy_subscriber" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_sucursal" EntityType="Self.xy_sucursal" Schema="xynthesis2" store:Type="Tables" />
+    <EntitySet Name="xy_numbersxsubscriber" EntityType="Self.xy_numbersxsubscriber" store:Type="Tables" store:Schema="xynthesis2">
       <DefiningQuery>SELECT
 `xy_numbersxsubscriber`.`Ide_Number`, 
 `xy_numbersxsubscriber`.`Fec_Date`, 
@@ -679,12 +644,6 @@ warning 6002: The table/view 'def.xynthesis.xy_rolesxsubscriber' does not have a
 `xy_numbersxsubscriber`.`Num_Minutes`
 FROM `xy_numbersxsubscriber` AS `xy_numbersxsubscriber`</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="xy_rolesxsubscriber" EntityType="Self.xy_rolesxsubscriber" store:Type="Tables" store:Schema="xynthesis">
-      <DefiningQuery>SELECT
-`xy_rolesxsubscriber`.`Ide_Rol`, 
-`xy_rolesxsubscriber`.`Ide_Subscriber`
-FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_xy_Calls_xy_Number" Association="Self.FK_xy_Calls_xy_Number">
       <End Role="xy_numbers" EntitySet="xy_numbers" />
       <End Role="xy_calls" EntitySet="xy_calls" />
@@ -695,10 +654,6 @@ FROM `xy_rolesxsubscriber` AS `xy_rolesxsubscriber`</DefiningQuery>
     </AssociationSet>
     <AssociationSet Name="FK_xy_Calls_xy_NumbersTarget" Association="Self.FK_xy_Calls_xy_NumbersTarget">
       <End Role="xy_numbers" EntitySet="xy_numbers" />
-      <End Role="xy_calls" EntitySet="xy_calls" />
-    </AssociationSet>
-    <AssociationSet Name="FK_xy_Calls_xy_ServerCommunications" Association="Self.FK_xy_Calls_xy_ServerCommunications">
-      <End Role="xy_communicationserver" EntitySet="xy_communicationserver" />
       <End Role="xy_calls" EntitySet="xy_calls" />
     </AssociationSet>
   </EntityContainer>

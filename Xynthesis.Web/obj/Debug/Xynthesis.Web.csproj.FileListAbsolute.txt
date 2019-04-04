@@ -661,7 +661,6 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.O
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\stdole.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.pdb
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.AccesoDatos.dll.config
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\DotNetZip.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\EntityFramework.xml
@@ -678,10 +677,8 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Deployment.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\System.Web.WebPages.Razor.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Antlr3.Runtime.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.pdb
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Modelo.dll.config
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Reportes.pdb
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.pdb
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Xynthesis.Utilidades.dll.config
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\Newtonsoft.Json.xml
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Helpers.resources.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Mvc.resources.dll
@@ -690,8 +687,6 @@ D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.Razor.resources.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.resources.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Debug\Xynthesis.Web.csprojAssemblyReference.cache
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Debug\Xynthesis.Web.csproj.CoreCompileInputs.cache
-D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Debug\Xynthesis.Web.csproj.CopyComplete
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Debug\Xynthesis.Web.dll
 D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Debug\Xynthesis.Web.pdb
+D:\XynthesisV3\XynthesisWeb\Xynthesis.Web\obj\Debug\Xynthesis.Web.csprojResolveAssemblyReference.cache

@@ -11,9 +11,9 @@
 
 @{
     ViewBag.Title = "Top de Llamada Campeona x Área";
-    var mod = (List<Xynthesis.Modelo.xy_costcenters>)ViewData["area"];
-    var mod1 = (List<Xynthesis.Modelo.xyp_DestinoLlamadaCampeonaArea_Result>)ViewData["llamadaentrante"];
-    var mod2 = (List<Xynthesis.Modelo.xyp_GrupNumSuscriber_Result>)ViewData["origen"];
+    var mod = (List<Xynthesis.Modelo.xyp_SelAreas_Result>)ViewData["area"];
+    var mod1 = (List<string>)ViewData["llamadaentrante"];
+    var mod2 = (List<string>)ViewData["origen"];
 }
 
 <div class="container">
@@ -37,19 +37,19 @@
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ÁREA" title="ÁREA" id="NomUsuario" name="areaId" data-size="10">
                         @foreach (var usuar in mod)
                         {
-                            <option id="@usuar.Nom_CostCenter" value="@usuar.Ide_CostCenter">@usuar.Nom_CostCenter</option>
+                            <option id="@usuar.Nom_Area" value="@usuar.Id_Area">@usuar.Nom_Area</option>
                         }
                     </select>
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="DESTINO" title="DESTINO" onchange="selecciondestino(event)" id="NumEntranteId" name="numentrante" data-size="10" style="width:125px">
-                        @foreach (var usuar in mod1)
+                        @foreach (var NumberSource in mod1)
                         {
-                            <option id="@usuar.target" value="@usuar.target">@usuar.target</option>
+                            <option id="@NumberSource" value="@NumberSource">@NumberSource</option>
                         }
                     </select>
                     <select class="selectpicker" multiple data-actions-box="true" data-live-search="true" data-live-search-placeholder="ORIGEN" title="ORIGEN" id="NomOrigen" name="origenId" data-size="10" style="width:125px">
-                        @foreach (var ori in mod2)
+                        @foreach (var NumberTarget in mod2)
                         {
-                            <option id="@ori.Ide_Number" value="@ori.Ide_Number">@ori.Ide_Number</option>
+                            <option id="@NumberTarget" value="@NumberTarget">@NumberTarget</option>
                         }
                     </select>
                     @*<input type="submit" name="btnEnviar" id="enviar" class="btn btn-success" value="GENERAR" />*@

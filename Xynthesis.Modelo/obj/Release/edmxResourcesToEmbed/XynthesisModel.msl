@@ -1,19 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="xynthesisModelStoreContainer" CdmEntityContainer="xynthesisEntities">
-    <EntitySetMapping Name="xy_cliente">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_cliente">
-        <MappingFragment StoreEntitySet="xy_cliente">
-          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
-          <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
+    <EntitySetMapping Name="xy_subscriber">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_subscriber">
+        <MappingFragment StoreEntitySet="xy_subscriber">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
+          <ScalarProperty Name="Cod_Subscriber" ColumnName="Cod_Subscriber" />
+          <ScalarProperty Name="Str_Password" ColumnName="Str_Password" />
+          <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
+          <ScalarProperty Name="Nom_DomainUser" ColumnName="Nom_DomainUser" />
+          <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
+          <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="xy_communicationserver">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_communicationserver">
-        <MappingFragment StoreEntitySet="xy_communicationserver">
-          <ScalarProperty Name="Nom_ServerType" ColumnName="Nom_ServerType" />
+    <EntitySetMapping Name="xy_configuracionrptprogramado">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionrptprogramado">
+        <MappingFragment StoreEntitySet="xy_configuracionrptprogramado">
+          <ScalarProperty Name="ProxEjecucion" ColumnName="ProxEjecucion" />
+          <ScalarProperty Name="programacion" ColumnName="programacion" />
+          <ScalarProperty Name="TipoFrecuencia" ColumnName="TipoFrecuencia" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="Filtro" ColumnName="Filtro" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+          <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
+          <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+          <ScalarProperty Name="FormatoArchivo" ColumnName="FormatoArchivo" />
+          <ScalarProperty Name="HoraEjecucion" ColumnName="HoraEjecucion" />
+          <ScalarProperty Name="FrecuenciaId" ColumnName="FrecuenciaId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ConfiguracionId" ColumnName="ConfiguracionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_coverage">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_coverage">
+        <MappingFragment StoreEntitySet="xy_coverage">
+          <ScalarProperty Name="Internacional" ColumnName="Internacional" />
+          <ScalarProperty Name="Nacional" ColumnName="Nacional" />
+          <ScalarProperty Name="Movil" ColumnName="Movil" />
+          <ScalarProperty Name="Nom_Coverage" ColumnName="Nom_Coverage" />
+          <ScalarProperty Name="Cod_Coverage" ColumnName="Cod_Coverage" />
+          <ScalarProperty Name="Ide_Coverage" ColumnName="Ide_Coverage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_numbers">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_numbers">
+        <MappingFragment StoreEntitySet="xy_numbers">
+          <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
+          <ScalarProperty Name="Tip_Extension" ColumnName="Tip_Extension" />
+          <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_numbersxsubscriber">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_numbersxsubscriber">
+        <MappingFragment StoreEntitySet="xy_numbersxsubscriber">
+          <ScalarProperty Name="Num_Minutes" ColumnName="Num_Minutes" />
+          <ScalarProperty Name="Vlr_Plan" ColumnName="Vlr_Plan" />
+          <ScalarProperty Name="Ide_Plan" ColumnName="Ide_Plan" />
+          <ScalarProperty Name="Num_AccessCode" ColumnName="Num_AccessCode" />
+          <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
+          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
+          <ScalarProperty Name="Ide_Branch" ColumnName="Ide_Branch" />
           <ScalarProperty Name="Ide_ServerType" ColumnName="Ide_ServerType" />
+          <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
+          <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
+          <ScalarProperty Name="Fec_Date" ColumnName="Fec_Date" />
+          <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -45,133 +106,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="xy_rol">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_rol">
-        <MappingFragment StoreEntitySet="xy_rol">
-          <ScalarProperty Name="Des_Rol" ColumnName="Des_Rol" />
-          <ScalarProperty Name="Alias_Rol" ColumnName="Alias_Rol" />
-          <ScalarProperty Name="Nom_Rol" ColumnName="Nom_Rol" />
-          <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="xy_roles_menus_">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_roles_menus_">
-        <MappingFragment StoreEntitySet="xy_roles_menus_">
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="IdMenus" ColumnName="IdMenus" />
-          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-          <ScalarProperty Name="IdRolMen" ColumnName="IdRolMen" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="xy_sucursal">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_sucursal">
-        <MappingFragment StoreEntitySet="xy_sucursal">
-          <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
-          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
-          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="xy_numbersxsubscriber">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_numbersxsubscriber">
-        <MappingFragment StoreEntitySet="xy_numbersxsubscriber">
-          <ScalarProperty Name="Num_Minutes" ColumnName="Num_Minutes" />
-          <ScalarProperty Name="Vlr_Plan" ColumnName="Vlr_Plan" />
-          <ScalarProperty Name="Ide_Plan" ColumnName="Ide_Plan" />
-          <ScalarProperty Name="Num_AccessCode" ColumnName="Num_AccessCode" />
-          <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
+    <EntitySetMapping Name="xy_costcenters">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_costcenters">
+        <MappingFragment StoreEntitySet="xy_costcenters">
+          <ScalarProperty Name="Ide_ParentCostCenter" ColumnName="Ide_ParentCostCenter" />
+          <ScalarProperty Name="Nom_CostCenter" ColumnName="Nom_CostCenter" />
+          <ScalarProperty Name="Cod_CostCenter" ColumnName="Cod_CostCenter" />
           <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
-          <ScalarProperty Name="Ide_Branch" ColumnName="Ide_Branch" />
-          <ScalarProperty Name="Ide_ServerType" ColumnName="Ide_ServerType" />
-          <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
-          <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
-          <ScalarProperty Name="Fec_Date" ColumnName="Fec_Date" />
-          <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="xy_rolesxsubscriber">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_rolesxsubscriber">
-        <MappingFragment StoreEntitySet="xy_rolesxsubscriber">
-          <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
-          <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
+    <EntitySetMapping Name="xy_cliente">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_cliente">
+        <MappingFragment StoreEntitySet="xy_cliente">
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+          <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="xyp_DelCostCentre" FunctionName="xynthesisModel.Store.xyp_DelCostCentre" />
-    <FunctionImportMapping FunctionImportName="xyp_DelNumber" FunctionName="xynthesisModel.Store.xyp_DelNumber" />
-    <FunctionImportMapping FunctionImportName="xyp_DelSucursal" FunctionName="xynthesisModel.Store.xyp_DelSucursal" />
-    <FunctionImportMapping FunctionImportName="xyp_InsCostCentre" FunctionName="xynthesisModel.Store.xyp_InsCostCentre" />
-    <FunctionImportMapping FunctionImportName="xyp_InsNumber" FunctionName="xynthesisModel.Store.xyp_InsNumber" />
-    <FunctionImportMapping FunctionImportName="xyp_InsSucursal" FunctionName="xynthesisModel.Store.xyp_InsSucursal" />
-    <FunctionImportMapping FunctionImportName="xyp_UpdCostCentre" FunctionName="xynthesisModel.Store.xyp_UpdCostCentre" />
-    <FunctionImportMapping FunctionImportName="xyp_UpdNumberBySubscriber" FunctionName="xynthesisModel.Store.xyp_UpdNumberBySubscriber" />
-    <FunctionImportMapping FunctionImportName="xyp_UpdSubscriber" FunctionName="xynthesisModel.Store.xyp_UpdSubscriber" />
-    <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentre" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentre">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelAllCostCentre_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentreParents" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentreParents">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelAllCostCentreParents_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelCountry" FunctionName="xynthesisModel.Store.xyp_SelCountry">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCountry_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelCoverages" FunctionName="xynthesisModel.Store.xyp_SelCoverages">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCoverages_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCity" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCity">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelGeographyByCity_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCountry" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCountry">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelGeographyByCountry_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelNumbers" FunctionName="xynthesisModel.Store.xyp_SelNumbers">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelNumbers_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelOperators" FunctionName="xynthesisModel.Store.xyp_SelOperators">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelOperators_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelOperTarifInterna" FunctionName="xynthesisModel.Store.xyp_SelOperTarifInterna">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelOperTarifInterna_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelServerType" FunctionName="xynthesisModel.Store.xyp_SelServerType">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelServerType_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelSucursales" FunctionName="xynthesisModel.Store.xyp_SelSucursales">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelSucursales_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelUsuarioRol" FunctionName="xynthesisModel.Store.xyp_SelUsuarioRol">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarioRol_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_InsOperator" FunctionName="xynthesisModel.Store.xyp_InsOperator" />
-    <FunctionImportMapping FunctionImportName="xyp_UpdOperator" FunctionName="xynthesisModel.Store.xyp_UpdOperator" />
-    <FunctionImportMapping FunctionImportName="xyp_RECalCostTicket" FunctionName="xynthesisModel.Store.xyp_RECalCostTicket" />
     <EntitySetMapping Name="xy_operators">
       <EntityTypeMapping TypeName="xynthesisModel.xy_operators">
         <MappingFragment StoreEntitySet="xy_operators">
@@ -182,6 +134,19 @@
           <ScalarProperty Name="Nom_Operator" ColumnName="Nom_Operator" />
           <ScalarProperty Name="Cod_Operator" ColumnName="Cod_Operator" />
           <ScalarProperty Name="Ide_Operator" ColumnName="Ide_Operator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_operador_tarifa_inter">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_operador_tarifa_inter">
+        <MappingFragment StoreEntitySet="xy_operador_tarifa_inter">
+          <ScalarProperty Name="Fijo" ColumnName="Fijo" />
+          <ScalarProperty Name="Movil" ColumnName="Movil" />
+          <ScalarProperty Name="VlrInternaMinconIva" ColumnName="VlrInternaMinconIva" />
+          <ScalarProperty Name="VlrInternaMinsinIva" ColumnName="VlrInternaMinsinIva" />
+          <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+          <ScalarProperty Name="IdOperador" ColumnName="IdOperador" />
+          <ScalarProperty Name="idtarifaInter" ColumnName="idtarifaInter" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -202,147 +167,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="xy_operador_tarifa_inter">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_operador_tarifa_inter">
-        <MappingFragment StoreEntitySet="xy_operador_tarifa_inter">
-          <ScalarProperty Name="Fijo" ColumnName="Fijo" />
-          <ScalarProperty Name="Movil" ColumnName="Movil" />
-          <ScalarProperty Name="VlrInternaMinconIva" ColumnName="VlrInternaMinconIva" />
-          <ScalarProperty Name="VlrInternaMinsinIva" ColumnName="VlrInternaMinsinIva" />
-          <ScalarProperty Name="IdPais" ColumnName="IdPais" />
-          <ScalarProperty Name="IdOperador" ColumnName="IdOperador" />
-          <ScalarProperty Name="idtarifaInter" ColumnName="idtarifaInter" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="xyp_UpdSucursal" FunctionName="xynthesisModel.Store.xyp_UpdSucursal" />
-    <FunctionImportMapping FunctionImportName="xyp_SelUsuarios" FunctionName="xynthesisModel.Store.xyp_SelUsuarios">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarios_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelActivityFirstAndLast" FunctionName="xynthesisModel.Store.xyp_SelActivityFirstAndLast">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelActivityFirstAndLast_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_RepBudgetBySubscriber" FunctionName="xynthesisModel.Store.xyp_RepBudgetBySubscriber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepBudgetBySubscriber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_RepBudgetLimit" FunctionName="xynthesisModel.Store.xyp_RepBudgetLimit">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepBudgetLimit_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_CallAmountByContraparte" FunctionName="xynthesisModel.Store.xyp_CallAmountByContraparte">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_CallAmountByContraparte_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelCallAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_SelCallAmountsBySubscriber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCallAmountsBySubscriber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_CallTypesAmountReport" FunctionName="xynthesisModel.Store.xyp_CallTypesAmountReport">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_CallTypesAmountReport_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByOutSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByOutSubscriber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_NumberAmountsByOutSubscriber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_NumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsBySubscriber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_NumberAmountsBySubscriber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelConsumeByCostCenter" FunctionName="xynthesisModel.Store.xyp_SelConsumeByCostCenter">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelConsumeByCostCenter_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelCostCentreByUser" FunctionName="xynthesisModel.Store.xyp_SelCostCentreByUser">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCostCentreByUser_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelConsumeByHistory" FunctionName="xynthesisModel.Store.xyp_SelConsumeByHistory">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelConsumeByHistory_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallCost" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallCost">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDetailChampCallCost_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDetailChampCallDuration_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelFrequentExtensionNumber" FunctionName="xynthesisModel.Store.xyp_SelFrequentExtensionNumber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelFrequentExtensionNumber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_ReceiveCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveCalls">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveCalls_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_RepReceiveCallsLlamEntranSalien" FunctionName="xynthesisModel.Store.xyp_RepReceiveCallsLlamEntranSalien">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepReceiveCallsLlamEntranSalien_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_ReceiveAndTransferCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveAndTransferCalls">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveAndTransferCalls_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveCallsTiempoPromedio_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_RepConsolidadoCoberturaLLamadas" FunctionName="xynthesisModel.Store.xyp_RepConsolidadoCoberturaLLamadas">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepConsolidadoCoberturaLLamadas_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio_repo" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio_repo">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_ReceiveCallsTiempoPromedio_repo_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_RepPromedioLlamadasHora" FunctionName="xynthesisModel.Store.xyp_RepPromedioLlamadasHora">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepPromedioLlamadasHora_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_RepGrafNumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_RepGrafNumberAmountsBySubscriber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepGrafNumberAmountsBySubscriber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_Updoperador_tarifa_inter" FunctionName="xynthesisModel.Store.xyp_Updoperador_tarifa_inter" />
-    <FunctionImportMapping FunctionImportName="xyp_Insoperador_tarifa_inter" FunctionName="xynthesisModel.Store.xyp_Insoperador_tarifa_inter" />
-    <FunctionImportMapping FunctionImportName="xyp_RepTarificacionEntraSalieTrans" FunctionName="xynthesisModel.Store.xyp_RepTarificacionEntraSalieTrans">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepTarificacionEntraSalieTrans_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <EntitySetMapping Name="xy_configuracionreporte">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionreporte">
-        <MappingFragment StoreEntitySet="xy_configuracionreporte">
-          <ScalarProperty Name="CondiguracionId" ColumnName="CondiguracionId" />
-          <ScalarProperty Name="conReporteId" ColumnName="conReporteId" />
+    <EntitySetMapping Name="xy_sucursal">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_sucursal">
+        <MappingFragment StoreEntitySet="xy_sucursal">
+          <ScalarProperty Name="Ide_Geography" ColumnName="Ide_Geography" />
+          <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -365,138 +195,135 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="ReporteId" TypeName="xynthesisModel.ReporteId" StoreEntitySet="xy_configuracionreporte">
-      <EndProperty Name="xy_configuracionreporte">
-        <ScalarProperty Name="conReporteId" ColumnName="conReporteId" />
-      </EndProperty>
-      <EndProperty Name="xy_reportes">
-        <ScalarProperty Name="ReporteId" ColumnName="ReporteId" />
-      </EndProperty>
-      <Condition ColumnName="ReporteId" IsNull="false" />
-    </AssociationSetMapping>
+    <EntitySetMapping Name="xy_configuracionreporte">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionreporte">
+        <MappingFragment StoreEntitySet="xy_configuracionreporte">
+          <ScalarProperty Name="ReporteId" ColumnName="ReporteId" />
+          <ScalarProperty Name="CondiguracionId" ColumnName="CondiguracionId" />
+          <ScalarProperty Name="conReporteId" ColumnName="conReporteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_rol">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_rol">
+        <MappingFragment StoreEntitySet="xy_rol">
+          <ScalarProperty Name="Des_Rol" ColumnName="Des_Rol" />
+          <ScalarProperty Name="Alias_Rol" ColumnName="Alias_Rol" />
+          <ScalarProperty Name="Nom_Rol" ColumnName="Nom_Rol" />
+          <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="xyp_SelUsuarios" FunctionName="xynthesisModel.Store.xyp_SelUsuarios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarios_Result" />
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xyp_SelCallAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_SelCallAmountsBySubscriber">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelCallAmountsBySubscriber_Result">
+          <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="calls_in" ColumnName="calls_in" />
+          <ScalarProperty Name="calls_out" ColumnName="calls_out" />
+          <ScalarProperty Name="CallAmount" ColumnName="CallAmount" />
+          <ScalarProperty Name="Rango" ColumnName="Rango" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xyp_UpdCostCentre" FunctionName="xynthesisModel.Store.xyp_UpdCostCentre" />
     <FunctionImportMapping FunctionImportName="xyp_SelReports" FunctionName="xynthesisModel.Store.xyp_SelReports">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelReports_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_DelRepProgra" FunctionName="xynthesisModel.Store.xyp_DelRepProgra" />
-    <FunctionImportMapping FunctionImportName="xyp_RepCallOpenAndClosed" FunctionName="xynthesisModel.Store.xyp_RepCallOpenAndClosed">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepCallOpenAndClosed_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_UpdRepProgra" FunctionName="xynthesisModel.Store.xyp_UpdRepProgra" />
-    <FunctionImportMapping FunctionImportName="xyp_SelOperxCoberMovil" FunctionName="xynthesisModel.Store.xyp_SelOperxCoberMovil">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelOperxCoberMovil_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByInSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByInSubscriber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_NumberAmountsByInSubscriber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_SelConsumeByExtensionAndUser" FunctionName="xynthesisModel.Store.xyp_SelConsumeByExtensionAndUser">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelConsumeByExtensionAndUser_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_DelRolUser" FunctionName="xynthesisModel.Store.xyp_DelRolUser" />
-    <FunctionImportMapping FunctionImportName="xyp_RolUser" FunctionName="xynthesisModel.Store.xyp_RolUser" />
-    <FunctionImportMapping FunctionImportName="xyp_UpdRolUser" FunctionName="xynthesisModel.Store.xyp_UpdRolUser" />
-    <EntitySetMapping Name="xy_subscriber">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_subscriber">
-        <MappingFragment StoreEntitySet="xy_subscriber">
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-          <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
-          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
-          <ScalarProperty Name="Cod_Subscriber" ColumnName="Cod_Subscriber" />
-          <ScalarProperty Name="Str_Password" ColumnName="Str_Password" />
-          <ScalarProperty Name="Tip_Subscriber" ColumnName="Tip_Subscriber" />
-          <ScalarProperty Name="Nom_DomainUser" ColumnName="Nom_DomainUser" />
-          <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
-          <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="xy_numbers">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_numbers">
-        <MappingFragment StoreEntitySet="xy_numbers">
-          <ScalarProperty Name="Idcliente" ColumnName="Idcliente" />
-          <ScalarProperty Name="Tip_Extension" ColumnName="Tip_Extension" />
-          <ScalarProperty Name="Ide_Number" ColumnName="Ide_Number" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="xyp_UpdNumber" FunctionName="xynthesisModel.Store.xyp_UpdNumber" />
-    <FunctionImportMapping FunctionImportName="xyp_SelDialedNumber" FunctionName="xynthesisModel.Store.xyp_SelDialedNumber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDialedNumber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_cambiarclave" FunctionName="xynthesisModel.Store.xyp_cambiarclave" />
-    <FunctionImportMapping FunctionImportName="xyp_InsRepProg" FunctionName="xynthesisModel.Store.xyp_InsRepProg" />
-    <FunctionImportMapping FunctionImportName="xyp_GrupNumSuscriber" FunctionName="xynthesisModel.Store.xyp_GrupNumSuscriber">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_GrupNumSuscriber_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_DestinoLlamadaCampeonaArea" FunctionName="xynthesisModel.Store.xyp_DestinoLlamadaCampeonaArea">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_DestinoLlamadaCampeonaArea_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="xyp_RepSabanaCalls" FunctionName="xynthesisModel.Store.xyp_RepSabanaCalls">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="xynthesisModel.xyp_RepSabanaCalls_Result" />
-      </ResultMapping>
-    </FunctionImportMapping>
-    <EntitySetMapping Name="xy_configuracionrptprogramado">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_configuracionrptprogramado">
-        <MappingFragment StoreEntitySet="xy_configuracionrptprogramado">
-          <ScalarProperty Name="ProxEjecucion" ColumnName="ProxEjecucion" />
-          <ScalarProperty Name="programacion" ColumnName="programacion" />
-          <ScalarProperty Name="TipoFrecuencia" ColumnName="TipoFrecuencia" />
-          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
-          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
-          <ScalarProperty Name="Filtro" ColumnName="Filtro" />
-          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
-          <ScalarProperty Name="Asunto" ColumnName="Asunto" />
-          <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
-          <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelReports_Result">
+          <ScalarProperty Name="NombreRpt" ColumnName="NombreRpt" />
+          <ScalarProperty Name="MetodoRpt" ColumnName="MetodoRpt" />
           <ScalarProperty Name="FormatoArchivo" ColumnName="FormatoArchivo" />
-          <ScalarProperty Name="HoraEjecucion" ColumnName="HoraEjecucion" />
-          <ScalarProperty Name="FrecuenciaId" ColumnName="FrecuenciaId" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+          <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
+          <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
           <ScalarProperty Name="ConfiguracionId" ColumnName="ConfiguracionId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="xyp_ProxEjecucionReporte" FunctionName="xynthesisModel.Store.xyp_ProxEjecucionReporte" />
-    <EntitySetMapping Name="xy_costcenters">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_costcenters">
-        <MappingFragment StoreEntitySet="xy_costcenters">
-          <ScalarProperty Name="Ide_ParentCostCenter" ColumnName="Ide_ParentCostCenter" />
-          <ScalarProperty Name="Nom_CostCenter" ColumnName="Nom_CostCenter" />
-          <ScalarProperty Name="Cod_CostCenter" ColumnName="Cod_CostCenter" />
-          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="xy_coverage">
-      <EntityTypeMapping TypeName="xynthesisModel.xy_coverage">
-        <MappingFragment StoreEntitySet="xy_coverage">
-          <ScalarProperty Name="Internacional" ColumnName="Internacional" />
-          <ScalarProperty Name="Nacional" ColumnName="Nacional" />
-          <ScalarProperty Name="Movil" ColumnName="Movil" />
-          <ScalarProperty Name="Nom_Coverage" ColumnName="Nom_Coverage" />
-          <ScalarProperty Name="Cod_Coverage" ColumnName="Cod_Coverage" />
-          <ScalarProperty Name="Ide_Coverage" ColumnName="Ide_Coverage" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="ProxEjecucion" ColumnName="ProxEjecucion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xyp_CallAmountByContraparte" FunctionName="xynthesisModel.Store.xyp_CallAmountByContraparte">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="xynthesisModel.xyp_CallAmountByContraparte_Result">
+          <ScalarProperty Name="Ide_SubscriberEmployee" ColumnName="Ide_SubscriberEmployee" />
+          <ScalarProperty Name="Nom_Subscriber" ColumnName="Nom_Subscriber" />
+          <ScalarProperty Name="Ide_NumberEmployee" ColumnName="Ide_NumberEmployee" />
+          <ScalarProperty Name="calls_in" ColumnName="calls_in" />
+          <ScalarProperty Name="time_in" ColumnName="time_in" />
+          <ScalarProperty Name="calls_out" ColumnName="calls_out" />
+          <ScalarProperty Name="time_out" ColumnName="time_out" />
+          <ScalarProperty Name="Fec_Date" ColumnName="Fec_Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xyp_UpdSucursal" FunctionName="xynthesisModel.Store.xyp_UpdSucursal" />
+    <FunctionImportMapping FunctionImportName="xyp_UpdSubscriber" FunctionName="xynthesisModel.Store.xyp_UpdSubscriber" />
+    <FunctionImportMapping FunctionImportName="xyp_UpdRolUser" FunctionName="xynthesisModel.Store.xyp_UpdRolUser" />
+    <FunctionImportMapping FunctionImportName="xyp_UpdRepProgra" FunctionName="xynthesisModel.Store.xyp_UpdRepProgra" />
+    <FunctionImportMapping FunctionImportName="xyp_UpdOperator" FunctionName="xynthesisModel.Store.xyp_UpdOperator" />
+    <FunctionImportMapping FunctionImportName="xyp_Updoperador_tarifa_inter" FunctionName="xynthesisModel.Store.xyp_Updoperador_tarifa_inter" />
+    <FunctionImportMapping FunctionImportName="xyp_UpdNumberBySubscriber" FunctionName="xynthesisModel.Store.xyp_UpdNumberBySubscriber" />
+    <FunctionImportMapping FunctionImportName="xyp_UpdNumber" FunctionName="xynthesisModel.Store.xyp_UpdNumber" />
+    <FunctionImportMapping FunctionImportName="xyp_SelUsuarioRol" FunctionName="xynthesisModel.Store.xyp_SelUsuarioRol">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelUsuarioRol_Result">
+          <ScalarProperty Name="Ide_Subscriber" ColumnName="Ide_Subscriber" />
+          <ScalarProperty Name="Ide_Rol" ColumnName="Ide_Rol" />
+          <ScalarProperty Name="nombreMenu" ColumnName="nombreMenu" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="codMenuPadre" ColumnName="codMenuPadre" />
+          <ScalarProperty Name="codMenu" ColumnName="codMenu" />
+          <ScalarProperty Name="Acccion" ColumnName="Acccion" />
+          <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByInSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByInSubscriber" />
+    <FunctionImportMapping FunctionImportName="xyp_NumberAmountsByOutSubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsByOutSubscriber" />
+    <FunctionImportMapping FunctionImportName="xyp_NumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_NumberAmountsBySubscriber" />
+    <FunctionImportMapping FunctionImportName="xyp_InsSucursal" FunctionName="xynthesisModel.Store.xyp_InsSucursal" />
+    <FunctionImportMapping FunctionImportName="xyp_CallTypesAmountReport" FunctionName="xynthesisModel.Store.xyp_CallTypesAmountReport" />
+    <FunctionImportMapping FunctionImportName="xyp_cambiarclave" FunctionName="xynthesisModel.Store.xyp_cambiarclave" />
+    <FunctionImportMapping FunctionImportName="xyp_ReceiveCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveCalls" />
+    <FunctionImportMapping FunctionImportName="xyp_RepCallOpenAndClosed" FunctionName="xynthesisModel.Store.xyp_RepCallOpenAndClosed" />
+    <FunctionImportMapping FunctionImportName="xyp_RepConsolidadoCoberturaLLamadas" FunctionName="xynthesisModel.Store.xyp_RepConsolidadoCoberturaLLamadas" />
+    <FunctionImportMapping FunctionImportName="xyp_RepGrafNumberAmountsBySubscriber" FunctionName="xynthesisModel.Store.xyp_RepGrafNumberAmountsBySubscriber" />
+    <FunctionImportMapping FunctionImportName="xyp_RepPromedioLlamadasHora" FunctionName="xynthesisModel.Store.xyp_RepPromedioLlamadasHora" />
+    <FunctionImportMapping FunctionImportName="xyp_RepReceiveCallsLlamEntranSalien" FunctionName="xynthesisModel.Store.xyp_RepReceiveCallsLlamEntranSalien" />
+    <FunctionImportMapping FunctionImportName="xyp_RepSabanaCalls" FunctionName="xynthesisModel.Store.xyp_RepSabanaCalls" />
+    <FunctionImportMapping FunctionImportName="xyp_RepTarificacionEntraSalieTrans" FunctionName="xynthesisModel.Store.xyp_RepTarificacionEntraSalieTrans" />
+    <FunctionImportMapping FunctionImportName="xyp_SelActivityFirstAndLast" FunctionName="xynthesisModel.Store.xyp_SelActivityFirstAndLast" />
+    <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentre" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentre" />
+    <FunctionImportMapping FunctionImportName="xyp_SelAllCostCentreParents" FunctionName="xynthesisModel.Store.xyp_SelAllCostCentreParents" />
+    <FunctionImportMapping FunctionImportName="xyp_SelConsumeByCostCenter" FunctionName="xynthesisModel.Store.xyp_SelConsumeByCostCenter" />
+    <FunctionImportMapping FunctionImportName="xyp_SelConsumeByExtensionAndUser" FunctionName="xynthesisModel.Store.xyp_SelConsumeByExtensionAndUser" />
+    <FunctionImportMapping FunctionImportName="xyp_SelConsumeByHistory" FunctionName="xynthesisModel.Store.xyp_SelConsumeByHistory" />
+    <FunctionImportMapping FunctionImportName="xyp_SelCostCentreByUser" FunctionName="xynthesisModel.Store.xyp_SelCostCentreByUser" />
+    <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallCost" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallCost" />
+    <FunctionImportMapping FunctionImportName="xyp_SelDialedNumber" FunctionName="xynthesisModel.Store.xyp_SelDialedNumber" />
+    <FunctionImportMapping FunctionImportName="xyp_SelFrequentExtensionNumber" FunctionName="xynthesisModel.Store.xyp_SelFrequentExtensionNumber" />
+    <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCity" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCity" />
+    <FunctionImportMapping FunctionImportName="xyp_SelGeographyByCountry" FunctionName="xynthesisModel.Store.xyp_SelGeographyByCountry" />
+    <FunctionImportMapping FunctionImportName="xyp_SelNumbers" FunctionName="xynthesisModel.Store.xyp_SelNumbers" />
+    <FunctionImportMapping FunctionImportName="xyp_SelOperators" FunctionName="xynthesisModel.Store.xyp_SelOperators" />
+    <FunctionImportMapping FunctionImportName="xyp_SelOperTarifInterna" FunctionName="xynthesisModel.Store.xyp_SelOperTarifInterna" />
+    <FunctionImportMapping FunctionImportName="xyp_ReceiveAndTransferCalls" FunctionName="xynthesisModel.Store.xyp_ReceiveAndTransferCalls" />
+    <FunctionImportMapping FunctionImportName="xyp_ReceiveCallsTiempoPromedio" FunctionName="xynthesisModel.Store.xyp_ReceiveCallsTiempoPromedio" />
+    <FunctionImportMapping FunctionImportName="xyp_DestinoLlamadaCampeonaArea" FunctionName="xynthesisModel.Store.xyp_DestinoLlamadaCampeonaArea" />
+    <FunctionImportMapping FunctionImportName="xyp_SelDetailChampCallDuration" FunctionName="xynthesisModel.Store.xyp_SelDetailChampCallDuration">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="xynthesisModel.xyp_SelDetailChampCallDuration_Result" />
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xyp_GrupNumSuscriber" FunctionName="xynthesisModel.Store.xyp_GrupNumSuscriber" />
+    <FunctionImportMapping FunctionImportName="xyp_SelSucursales" FunctionName="xynthesisModel.Store.xyp_SelSucursales" />
     <EntitySetMapping Name="xy_calls">
       <EntityTypeMapping TypeName="xynthesisModel.xy_calls">
         <MappingFragment StoreEntitySet="xy_calls">
@@ -532,6 +359,27 @@
           <ScalarProperty Name="Ide_NumberSource" ColumnName="Ide_NumberSource" />
           <ScalarProperty Name="Ide_SubscriberTarget" ColumnName="Ide_SubscriberTarget" />
           <ScalarProperty Name="Ide_SubscriberSource" ColumnName="Ide_SubscriberSource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="xyp_SelAreas" FunctionName="xynthesisModel.Store.xyp_SelAreas" />
+    <EntitySetMapping Name="xy_areas">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_areas">
+        <MappingFragment StoreEntitySet="xy_areas">
+          <ScalarProperty Name="Nom_Area" ColumnName="Nom_Area" />
+          <ScalarProperty Name="Id_Area" ColumnName="Id_Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="xy_extencionessubcriber">
+      <EntityTypeMapping TypeName="xynthesisModel.xy_extencionessubcriber">
+        <MappingFragment StoreEntitySet="xy_extencionessubcriber">
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="Id_Area" ColumnName="Id_Area" />
+          <ScalarProperty Name="Ide_CostCenter" ColumnName="Ide_CostCenter" />
+          <ScalarProperty Name="Extencion" ColumnName="Extencion" />
+          <ScalarProperty Name="Nom_Subcriber" ColumnName="Nom_Subcriber" />
+          <ScalarProperty Name="Id_Extencionessubcriber" ColumnName="Id_Extencionessubcriber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
