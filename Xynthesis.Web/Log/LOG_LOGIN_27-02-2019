@@ -1,7 +1,0 @@
-
-Se ha generado el siguiente Error: Action:Login El esquema especificado no es válido. Errores: 
-XynthesisModel.msl(4,6) : error 2062: No hay ninguna asignación especificada para las instancias de EntitySet y AssociationSet en EntityContainer xynthesisEntities.
-
-registrado el : 27/02/2019 11:10:53 con el usuario andresv
-
-=================================================================================================
