@@ -11966,6 +11966,7 @@
     <Content Include="Views\Acceso\OlvidoClave.cshtml" />
     <Content Include="Views\Acceso\CambioClave.cshtml" />
     <Content Include="Views\ReportesMomento\ReportesMomentaneos.cshtml" />
+    <Content Include="Views\Acceso\Graficas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
